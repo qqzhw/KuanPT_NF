@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,7 +14,7 @@ namespace KuanPT_NF
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
-
+             EngineContext.Initialize(false);
         }
 
         void Application_End(object sender, EventArgs e)

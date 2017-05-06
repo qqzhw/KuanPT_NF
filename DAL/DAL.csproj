@@ -55,15 +55,6 @@
     <Compile Include="DataReaderExtensions.cs" />
     <Compile Include="EfRepository.cs" />
     <Compile Include="IDbContext.cs" />
-    <Compile Include="Infrastructure\AppDomainTypeFinder.cs" />
-    <Compile Include="Infrastructure\DependencyManagement\ContainerManager.cs" />
-    <Compile Include="Infrastructure\DependencyManagement\IDependencyRegistrar.cs" />
-    <Compile Include="Infrastructure\EngineContext.cs" />
-    <Compile Include="Infrastructure\IEngine.cs" />
-    <Compile Include="Infrastructure\ITypeFinder.cs" />
-    <Compile Include="Infrastructure\KptEngine.cs" />
-    <Compile Include="Infrastructure\Singleton.cs" />
-    <Compile Include="Infrastructure\WebAppTypeFinder.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

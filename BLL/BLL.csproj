@@ -31,8 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Docs\DLL\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,7 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Interfaces\IUser_Users.cs" />
+    <Compile Include="DependencyRegistrar.cs" />
+    <Compile Include="Interfaces\AppDomainTypeFinder.cs" />
+    <Compile Include="Interfaces\DependencyManagement\ContainerManager.cs" />
+    <Compile Include="Interfaces\DependencyManagement\IDependencyRegistrar.cs" />
+    <Compile Include="Interfaces\EngineContext.cs" />
+    <Compile Include="Interfaces\IEngine.cs" />
+    <Compile Include="Interfaces\ITypeFinder.cs" />
+    <Compile Include="Services\IUser_Users.cs" />
+    <Compile Include="Interfaces\KptEngine.cs" />
+    <Compile Include="Interfaces\Singleton.cs" />
+    <Compile Include="Interfaces\WebAppTypeFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User_Users.cs" />
   </ItemGroup>

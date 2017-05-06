@@ -19,7 +19,7 @@ namespace DAL
         /// <param name="context">Object context</param>
         public EfRepository(IDbConnection context):base(context)
         {
-			int s = 0;
+			 
         }
 
         #endregion

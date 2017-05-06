@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\Docs\DLL\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -425,9 +428,9 @@
     <Content Include="m_kdO2O\KLAuditList.aspx" />
     <Content Include="m_sys\DeptManage.aspx" />
     <Content Include="m_sys\SysLogList.aspx" />
-    <Content Include="Themes\Default\Common.css" />
-    <Content Include="Themes\Default\Images\qvHeader.gif" />
-    <Content Include="Themes\Default\SmartGridView.css" />
+    <Content Include="App_Themes\Default\Common.css" />
+    <Content Include="App_Themes\Default\Images\qvHeader.gif" />
+    <Content Include="App_Themes\Default\SmartGridView.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -486,14 +489,19 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{5d72ddba-2ced-41ff-bec2-86acf19ed90c}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Editor\asp.net\file_manager_json.ashx" />
     <Content Include="Editor\asp.net\upload_json.ashx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Themes\Default\Control.skin" />
-    <Content Include="Themes\Default\SmartGridView.skin" />
+    <Content Include="App_Themes\Default\Control.skin" />
+    <Content Include="App_Themes\Default\SmartGridView.skin" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
