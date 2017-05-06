@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BLL.Interfaces
+namespace BLL.Services
 {
-    public interface IUser_Users
+    public interface IUserService
     {
         User_UsersInfo GetUserByUserId(int userId);
     }

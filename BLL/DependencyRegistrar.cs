@@ -1,8 +1,8 @@
 using Autofac;
 using Autofac.Core;
 using BLL;
-using BLL.Infrastructure;
-using BLL.Interfaces;
+using BLL.Infrastructure; 
+using BLL.Services;
 using DAL;
 using System;
 using System.Collections.Generic;
@@ -44,7 +44,7 @@ namespace BLL
 
           
             //controllers
-            builder.RegisterAssemblyTypes(typeFinder.GetAssemblies().ToArray()).InstancePerLifetimeScope();
+           // builder.RegisterAssemblyTypes(typeFinder.GetAssemblies().ToArray()).InstancePerLifetimeScope();
              
            
             var sqlcon = ConfigurationManager.ConnectionStrings["ApplicationServices"].ToString();
@@ -52,7 +52,8 @@ namespace BLL
             builder.RegisterInstance(new DataConnection(connection)).SingleInstance();
           //  builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
             builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).WithParameter("context", connection).InstancePerLifetimeScope();
-            builder.RegisterType<User_Users>().As<IUser_Users>().InstancePerLifetimeScope();
+            builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
+            builder.RegisterType<CampaignService>().As<ICampaignService>().InstancePerLifetimeScope();
 
         }
 

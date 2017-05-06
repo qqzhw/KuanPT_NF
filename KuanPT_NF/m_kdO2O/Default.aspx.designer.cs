@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace KuanPT_NF {
+namespace KuanPT_NF.m_kdO2O {
     
     
     public partial class Default {

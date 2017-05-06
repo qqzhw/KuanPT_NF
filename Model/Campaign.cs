@@ -10,6 +10,7 @@ namespace Model
     public class Campaign
     {
         
+        [Key]
         public int CampaignId { get; set; }
         public string CampaignName { get; set; }
         public string Subject { get; set; }

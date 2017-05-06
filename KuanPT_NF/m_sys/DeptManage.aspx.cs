@@ -101,7 +101,7 @@ namespace IMCustSys
 
         protected void sgv_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            int deptID = 0;
+           // int deptID = 0;
 
             //switch (e.CommandName)
             //{
