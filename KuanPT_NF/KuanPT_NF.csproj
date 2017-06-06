@@ -58,21 +58,379 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="YYControls">
+      <HintPath>..\Docs\DLL\YYControls.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
-    <Content Include="Account\ChangePassword.aspx" />
-    <Content Include="Account\ChangePasswordSuccess.aspx" />
-    <Content Include="Account\Login.aspx" />
-    <Content Include="Account\Register.aspx" />
-    <Content Include="Styles\Site.css" />
+    <Content Include="CSS\dialog.css" />
+    <Content Include="CSS\images\admin.jpg" />
+    <Content Include="CSS\images\admin2.jpg" />
+    <Content Include="CSS\images\admin3.jpg" />
+    <Content Include="CSS\images\admin4.jpg" />
+    <Content Include="CSS\images\admin5.jpg" />
+    <Content Include="CSS\images\ui-icons_222222_256x240.png" />
+    <Content Include="CSS\images\ui-icons_444444_256x240.png" />
+    <Content Include="CSS\images\ui-icons_555555_256x240.png" />
+    <Content Include="CSS\images\ui-icons_777620_256x240.png" />
+    <Content Include="CSS\images\ui-icons_777777_256x240.png" />
+    <Content Include="CSS\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="CSS\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="CSS\jquery-ui.css" />
+    <Content Include="CSS\jquery-ui.min.css" />
+    <Content Include="CSS\jquery-ui.theme.css" />
+    <Content Include="CSS\jquery-ui.theme.min.css" />
+    <Content Include="CSS\jscrollpane.css" />
+    <Content Include="CSS\select.css" />
+    <Content Include="CSS\style.css" />
+    <Content Include="Editor\kindeditor-all-min.js" />
+    <Content Include="Editor\kindeditor-all.js" />
+    <Content Include="Editor\lang\en.js" />
+    <Content Include="Editor\lang\zh-CN.js" />
+    <Content Include="Editor\license.txt" />
+    <Content Include="Editor\plugins\anchor\anchor.js" />
+    <Content Include="Editor\plugins\autoheight\autoheight.js" />
+    <Content Include="Editor\plugins\baidumap\baidumap.js" />
+    <Content Include="Editor\plugins\baidumap\index.html" />
+    <Content Include="Editor\plugins\baidumap\map.html" />
+    <Content Include="Editor\plugins\clearhtml\clearhtml.js" />
+    <Content Include="Editor\plugins\code\code.js" />
+    <Content Include="Editor\plugins\code\prettify.css" />
+    <Content Include="Editor\plugins\code\prettify.js" />
+    <Content Include="Editor\plugins\emoticons\emoticons.js" />
+    <Content Include="Editor\plugins\emoticons\images\0.gif" />
+    <Content Include="Editor\plugins\emoticons\images\1.gif" />
+    <Content Include="Editor\plugins\emoticons\images\10.gif" />
+    <Content Include="Editor\plugins\emoticons\images\100.gif" />
+    <Content Include="Editor\plugins\emoticons\images\101.gif" />
+    <Content Include="Editor\plugins\emoticons\images\102.gif" />
+    <Content Include="Editor\plugins\emoticons\images\103.gif" />
+    <Content Include="Editor\plugins\emoticons\images\104.gif" />
+    <Content Include="Editor\plugins\emoticons\images\105.gif" />
+    <Content Include="Editor\plugins\emoticons\images\106.gif" />
+    <Content Include="Editor\plugins\emoticons\images\107.gif" />
+    <Content Include="Editor\plugins\emoticons\images\108.gif" />
+    <Content Include="Editor\plugins\emoticons\images\109.gif" />
+    <Content Include="Editor\plugins\emoticons\images\11.gif" />
+    <Content Include="Editor\plugins\emoticons\images\110.gif" />
+    <Content Include="Editor\plugins\emoticons\images\111.gif" />
+    <Content Include="Editor\plugins\emoticons\images\112.gif" />
+    <Content Include="Editor\plugins\emoticons\images\113.gif" />
+    <Content Include="Editor\plugins\emoticons\images\114.gif" />
+    <Content Include="Editor\plugins\emoticons\images\115.gif" />
+    <Content Include="Editor\plugins\emoticons\images\116.gif" />
+    <Content Include="Editor\plugins\emoticons\images\117.gif" />
+    <Content Include="Editor\plugins\emoticons\images\118.gif" />
+    <Content Include="Editor\plugins\emoticons\images\119.gif" />
+    <Content Include="Editor\plugins\emoticons\images\12.gif" />
+    <Content Include="Editor\plugins\emoticons\images\120.gif" />
+    <Content Include="Editor\plugins\emoticons\images\121.gif" />
+    <Content Include="Editor\plugins\emoticons\images\122.gif" />
+    <Content Include="Editor\plugins\emoticons\images\123.gif" />
+    <Content Include="Editor\plugins\emoticons\images\124.gif" />
+    <Content Include="Editor\plugins\emoticons\images\125.gif" />
+    <Content Include="Editor\plugins\emoticons\images\126.gif" />
+    <Content Include="Editor\plugins\emoticons\images\127.gif" />
+    <Content Include="Editor\plugins\emoticons\images\128.gif" />
+    <Content Include="Editor\plugins\emoticons\images\129.gif" />
+    <Content Include="Editor\plugins\emoticons\images\13.gif" />
+    <Content Include="Editor\plugins\emoticons\images\130.gif" />
+    <Content Include="Editor\plugins\emoticons\images\131.gif" />
+    <Content Include="Editor\plugins\emoticons\images\132.gif" />
+    <Content Include="Editor\plugins\emoticons\images\133.gif" />
+    <Content Include="Editor\plugins\emoticons\images\134.gif" />
+    <Content Include="Editor\plugins\emoticons\images\14.gif" />
+    <Content Include="Editor\plugins\emoticons\images\15.gif" />
+    <Content Include="Editor\plugins\emoticons\images\16.gif" />
+    <Content Include="Editor\plugins\emoticons\images\17.gif" />
+    <Content Include="Editor\plugins\emoticons\images\18.gif" />
+    <Content Include="Editor\plugins\emoticons\images\19.gif" />
+    <Content Include="Editor\plugins\emoticons\images\2.gif" />
+    <Content Include="Editor\plugins\emoticons\images\20.gif" />
+    <Content Include="Editor\plugins\emoticons\images\21.gif" />
+    <Content Include="Editor\plugins\emoticons\images\22.gif" />
+    <Content Include="Editor\plugins\emoticons\images\23.gif" />
+    <Content Include="Editor\plugins\emoticons\images\24.gif" />
+    <Content Include="Editor\plugins\emoticons\images\25.gif" />
+    <Content Include="Editor\plugins\emoticons\images\26.gif" />
+    <Content Include="Editor\plugins\emoticons\images\27.gif" />
+    <Content Include="Editor\plugins\emoticons\images\28.gif" />
+    <Content Include="Editor\plugins\emoticons\images\29.gif" />
+    <Content Include="Editor\plugins\emoticons\images\3.gif" />
+    <Content Include="Editor\plugins\emoticons\images\30.gif" />
+    <Content Include="Editor\plugins\emoticons\images\31.gif" />
+    <Content Include="Editor\plugins\emoticons\images\32.gif" />
+    <Content Include="Editor\plugins\emoticons\images\33.gif" />
+    <Content Include="Editor\plugins\emoticons\images\34.gif" />
+    <Content Include="Editor\plugins\emoticons\images\35.gif" />
+    <Content Include="Editor\plugins\emoticons\images\36.gif" />
+    <Content Include="Editor\plugins\emoticons\images\37.gif" />
+    <Content Include="Editor\plugins\emoticons\images\38.gif" />
+    <Content Include="Editor\plugins\emoticons\images\39.gif" />
+    <Content Include="Editor\plugins\emoticons\images\4.gif" />
+    <Content Include="Editor\plugins\emoticons\images\40.gif" />
+    <Content Include="Editor\plugins\emoticons\images\41.gif" />
+    <Content Include="Editor\plugins\emoticons\images\42.gif" />
+    <Content Include="Editor\plugins\emoticons\images\43.gif" />
+    <Content Include="Editor\plugins\emoticons\images\44.gif" />
+    <Content Include="Editor\plugins\emoticons\images\45.gif" />
+    <Content Include="Editor\plugins\emoticons\images\46.gif" />
+    <Content Include="Editor\plugins\emoticons\images\47.gif" />
+    <Content Include="Editor\plugins\emoticons\images\48.gif" />
+    <Content Include="Editor\plugins\emoticons\images\49.gif" />
+    <Content Include="Editor\plugins\emoticons\images\5.gif" />
+    <Content Include="Editor\plugins\emoticons\images\50.gif" />
+    <Content Include="Editor\plugins\emoticons\images\51.gif" />
+    <Content Include="Editor\plugins\emoticons\images\52.gif" />
+    <Content Include="Editor\plugins\emoticons\images\53.gif" />
+    <Content Include="Editor\plugins\emoticons\images\54.gif" />
+    <Content Include="Editor\plugins\emoticons\images\55.gif" />
+    <Content Include="Editor\plugins\emoticons\images\56.gif" />
+    <Content Include="Editor\plugins\emoticons\images\57.gif" />
+    <Content Include="Editor\plugins\emoticons\images\58.gif" />
+    <Content Include="Editor\plugins\emoticons\images\59.gif" />
+    <Content Include="Editor\plugins\emoticons\images\6.gif" />
+    <Content Include="Editor\plugins\emoticons\images\60.gif" />
+    <Content Include="Editor\plugins\emoticons\images\61.gif" />
+    <Content Include="Editor\plugins\emoticons\images\62.gif" />
+    <Content Include="Editor\plugins\emoticons\images\63.gif" />
+    <Content Include="Editor\plugins\emoticons\images\64.gif" />
+    <Content Include="Editor\plugins\emoticons\images\65.gif" />
+    <Content Include="Editor\plugins\emoticons\images\66.gif" />
+    <Content Include="Editor\plugins\emoticons\images\67.gif" />
+    <Content Include="Editor\plugins\emoticons\images\68.gif" />
+    <Content Include="Editor\plugins\emoticons\images\69.gif" />
+    <Content Include="Editor\plugins\emoticons\images\7.gif" />
+    <Content Include="Editor\plugins\emoticons\images\70.gif" />
+    <Content Include="Editor\plugins\emoticons\images\71.gif" />
+    <Content Include="Editor\plugins\emoticons\images\72.gif" />
+    <Content Include="Editor\plugins\emoticons\images\73.gif" />
+    <Content Include="Editor\plugins\emoticons\images\74.gif" />
+    <Content Include="Editor\plugins\emoticons\images\75.gif" />
+    <Content Include="Editor\plugins\emoticons\images\76.gif" />
+    <Content Include="Editor\plugins\emoticons\images\77.gif" />
+    <Content Include="Editor\plugins\emoticons\images\78.gif" />
+    <Content Include="Editor\plugins\emoticons\images\79.gif" />
+    <Content Include="Editor\plugins\emoticons\images\8.gif" />
+    <Content Include="Editor\plugins\emoticons\images\80.gif" />
+    <Content Include="Editor\plugins\emoticons\images\81.gif" />
+    <Content Include="Editor\plugins\emoticons\images\82.gif" />
+    <Content Include="Editor\plugins\emoticons\images\83.gif" />
+    <Content Include="Editor\plugins\emoticons\images\84.gif" />
+    <Content Include="Editor\plugins\emoticons\images\85.gif" />
+    <Content Include="Editor\plugins\emoticons\images\86.gif" />
+    <Content Include="Editor\plugins\emoticons\images\87.gif" />
+    <Content Include="Editor\plugins\emoticons\images\88.gif" />
+    <Content Include="Editor\plugins\emoticons\images\89.gif" />
+    <Content Include="Editor\plugins\emoticons\images\9.gif" />
+    <Content Include="Editor\plugins\emoticons\images\90.gif" />
+    <Content Include="Editor\plugins\emoticons\images\91.gif" />
+    <Content Include="Editor\plugins\emoticons\images\92.gif" />
+    <Content Include="Editor\plugins\emoticons\images\93.gif" />
+    <Content Include="Editor\plugins\emoticons\images\94.gif" />
+    <Content Include="Editor\plugins\emoticons\images\95.gif" />
+    <Content Include="Editor\plugins\emoticons\images\96.gif" />
+    <Content Include="Editor\plugins\emoticons\images\97.gif" />
+    <Content Include="Editor\plugins\emoticons\images\98.gif" />
+    <Content Include="Editor\plugins\emoticons\images\99.gif" />
+    <Content Include="Editor\plugins\emoticons\images\static.gif" />
+    <Content Include="Editor\plugins\filemanager\filemanager.js" />
+    <Content Include="Editor\plugins\filemanager\images\file-16.gif" />
+    <Content Include="Editor\plugins\filemanager\images\file-64.gif" />
+    <Content Include="Editor\plugins\filemanager\images\folder-16.gif" />
+    <Content Include="Editor\plugins\filemanager\images\folder-64.gif" />
+    <Content Include="Editor\plugins\filemanager\images\go-up.gif" />
+    <Content Include="Editor\plugins\fixtoolbar\fixtoolbar.js" />
+    <Content Include="Editor\plugins\flash\flash.js" />
+    <Content Include="Editor\plugins\image\image.js" />
+    <Content Include="Editor\plugins\image\images\align_left.gif" />
+    <Content Include="Editor\plugins\image\images\align_right.gif" />
+    <Content Include="Editor\plugins\image\images\align_top.gif" />
+    <Content Include="Editor\plugins\image\images\refresh.png" />
+    <Content Include="Editor\plugins\insertfile\insertfile.js" />
+    <Content Include="Editor\plugins\lineheight\lineheight.js" />
+    <Content Include="Editor\plugins\link\link.js" />
+    <Content Include="Editor\plugins\map\map.html" />
+    <Content Include="Editor\plugins\map\map.js" />
+    <Content Include="Editor\plugins\media\media.js" />
+    <Content Include="Editor\plugins\multiimage\images\image.png" />
+    <Content Include="Editor\plugins\multiimage\images\select-files-en.png" />
+    <Content Include="Editor\plugins\multiimage\images\select-files-zh-CN.png" />
+    <Content Include="Editor\plugins\multiimage\images\swfupload.swf" />
+    <Content Include="Editor\plugins\multiimage\multiimage.js" />
+    <Content Include="Editor\plugins\pagebreak\pagebreak.js" />
+    <Content Include="Editor\plugins\plainpaste\plainpaste.js" />
+    <Content Include="Editor\plugins\preview\preview.js" />
+    <Content Include="Editor\plugins\quickformat\quickformat.js" />
+    <Content Include="Editor\plugins\table\table.js" />
+    <Content Include="Editor\plugins\template\html\1.html" />
+    <Content Include="Editor\plugins\template\html\2.html" />
+    <Content Include="Editor\plugins\template\html\3.html" />
+    <Content Include="Editor\plugins\template\template.js" />
+    <Content Include="Editor\plugins\wordpaste\wordpaste.js" />
+    <Content Include="Editor\themes\common\anchor.gif" />
+    <Content Include="Editor\themes\common\blank.gif" />
+    <Content Include="Editor\themes\common\flash.gif" />
+    <Content Include="Editor\themes\common\loading.gif" />
+    <Content Include="Editor\themes\common\media.gif" />
+    <Content Include="Editor\themes\common\rm.gif" />
+    <Content Include="Editor\themes\default\background.png" />
+    <Content Include="Editor\themes\default\default.css" />
+    <Content Include="Editor\themes\default\default.png" />
+    <Content Include="Images\11.jpg" />
+    <Content Include="Images\15.jpg" />
+    <Content Include="Images\404.png" />
+    <Content Include="Images\add.png" />
+    <Content Include="Images\btnbg.png" />
+    <Content Include="Images\btnbg1.png" />
+    <Content Include="Images\btnbg2.png" />
+    <Content Include="Images\buttonbg.png" />
+    <Content Include="Images\c01.png" />
+    <Content Include="Images\c02.png" />
+    <Content Include="Images\c03.png" />
+    <Content Include="Images\cbg.png" />
+    <Content Include="Images\change.jpg" />
+    <Content Include="Images\clist.png" />
+    <Content Include="Images\close.png" />
+    <Content Include="Images\close1.png" />
+    <Content Include="Images\cloud.png" />
+    <Content Include="Images\cloudy1_night.png" />
+    <Content Include="Images\cloudy2.png" />
+    <Content Include="Images\d01.png" />
+    <Content Include="Images\d02.png" />
+    <Content Include="Images\d03.png" />
+    <Content Include="Images\d04.png" />
+    <Content Include="Images\d05.png" />
+    <Content Include="Images\d06.png" />
+    <Content Include="Images\d07.png" />
+    <Content Include="Images\diskbg.png" />
+    <Content Include="Images\dp.png" />
+    <Content Include="Images\f01.png" />
+    <Content Include="Images\f02.png" />
+    <Content Include="Images\f03.png" />
+    <Content Include="Images\f04.png" />
+    <Content Include="Images\f05.png" />
+    <Content Include="Images\f06.png" />
+    <Content Include="Images\help.png" />
+    <Content Include="Images\i01.png" />
+    <Content Include="Images\i02.png" />
+    <Content Include="Images\i03.png" />
+    <Content Include="Images\i04.png" />
+    <Content Include="Images\i05.png" />
+    <Content Include="Images\i06.png" />
+    <Content Include="Images\i07.png" />
+    <Content Include="Images\i08.png" />
+    <Content Include="Images\i09.png" />
+    <Content Include="Images\iadd.png" />
+    <Content Include="Images\ibtnbg.png" />
+    <Content Include="Images\ico01.png" />
+    <Content Include="Images\ico02.png" />
+    <Content Include="Images\ico03.png" />
+    <Content Include="Images\ico04.png" />
+    <Content Include="Images\ico05.png" />
+    <Content Include="Images\ico06.png" />
+    <Content Include="Images\icon01.png" />
+    <Content Include="Images\icon02.png" />
+    <Content Include="Images\icon03.png" />
+    <Content Include="Images\icon04.png" />
+    <Content Include="Images\icon05.png" />
+    <Content Include="Images\icon06.png" />
+    <Content Include="Images\inputbg.gif" />
+    <Content Include="Images\itabbg.png" />
+    <Content Include="Images\itabbg1.png" />
+    <Content Include="Images\leftico.png" />
+    <Content Include="Images\leftico01.png" />
+    <Content Include="Images\leftico02.png" />
+    <Content Include="Images\leftico03.png" />
+    <Content Include="Images\leftico04.png" />
+    <Content Include="Images\leftline.gif" />
+    <Content Include="Images\leftmenubg.gif" />
+    <Content Include="Images\lefttop.gif" />
+    <Content Include="Images\libg.png" />
+    <Content Include="Images\light.png" />
+    <Content Include="Images\line.gif" />
+    <Content Include="Images\line1.png" />
+    <Content Include="Images\list.gif" />
+    <Content Include="Images\list1.gif" />
+    <Content Include="Images\list2.png" />
+    <Content Include="Images\loginbg1.png" />
+    <Content Include="Images\loginbg2.png" />
+    <Content Include="Images\loginbg3.png" />
+    <Content Include="Images\logininfo.png" />
+    <Content Include="Images\loginlogo.png" />
+    <Content Include="Images\loginpassword.png" />
+    <Content Include="Images\loginsj.png" />
+    <Content Include="Images\loginuser.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\msg.png" />
+    <Content Include="Images\navbg.png" />
+    <Content Include="Images\next.gif" />
+    <Content Include="Images\pre.gif" />
+    <Content Include="Images\px.gif" />
+    <Content Include="Images\refresh.png" />
+    <Content Include="Images\righttop.gif" />
+    <Content Include="Images\rlist.gif" />
+    <Content Include="Images\search.png" />
+    <Content Include="Images\sj.png" />
+    <Content Include="Images\sun.png" />
+    <Content Include="Images\t01.png" />
+    <Content Include="Images\t02.png" />
+    <Content Include="Images\t03.png" />
+    <Content Include="Images\t04.png" />
+    <Content Include="Images\t05.png" />
+    <Content Include="Images\tbg.png" />
+    <Content Include="Images\tcbg.gif" />
+    <Content Include="Images\th.gif" />
+    <Content Include="Images\ticon.png" />
+    <Content Include="Images\time.png" />
+    <Content Include="Images\toolbg.gif" />
+    <Content Include="Images\topbg.gif" />
+    <Content Include="Images\topleft.jpg" />
+    <Content Include="Images\topright.jpg" />
+    <Content Include="Images\ub1.png" />
+    <Content Include="Images\uew_icon.png" />
+    <Content Include="Images\uew_icon_hover.png" />
+    <Content Include="Images\ulist.png" />
+    <Content Include="Images\user.png" />
+    <Content Include="Images\userbg.png" />
+    <Content Include="Images\yuyin.png" />
+    <Content Include="JavaScripts\dialog.js" />
+    <Content Include="JavaScripts\jquery-1.12.4.js" />
+    <Content Include="JavaScripts\jquery-1.12.4.min.js" />
+    <Content Include="JavaScripts\jquery-1.7.1.js" />
+    <Content Include="JavaScripts\jquery-ui-zh.js" />
+    <Content Include="JavaScripts\jquery-ui.js" />
+    <Content Include="JavaScripts\jquery.validate.min.js" />
+    <Content Include="JavaScripts\My97DatePicker\calendar.js" />
+    <Content Include="JavaScripts\My97DatePicker\lang\en.js" />
+    <Content Include="JavaScripts\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="JavaScripts\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="JavaScripts\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="JavaScripts\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="JavaScripts\My97DatePicker\skin\default\img.gif" />
+    <Content Include="JavaScripts\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="JavaScripts\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="JavaScripts\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="JavaScripts\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="JavaScripts\My97DatePicker\WdatePicker.js" />
+    <Content Include="JavaScripts\PIE.htc" />
+    <Content Include="JavaScripts\select-ui.min.js" />
+    <Content Include="m_kdO2O\Default.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="m_kdO2O\Editor\plugins\code\code.js" />
+    <Content Include="m_kdO2O\Editor\plugins\code\prettify.css" />
+    <Content Include="m_kdO2O\Editor\plugins\code\prettify.js" />
+    <Content Include="m_kdO2O\KLAdd.aspx" />
+    <Content Include="m_kdO2O\KLAuditList.aspx" />
+    <Content Include="m_sys\DeptManage.aspx" />
+    <Content Include="m_sys\SysLogList.aspx" />
+    <Content Include="Themes\Default\Common.css" />
+    <Content Include="Themes\Default\Images\qvHeader.gif" />
+    <Content Include="Themes\Default\SmartGridView.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -81,41 +439,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ChangePassword.aspx.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ChangePassword.aspx.designer.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -126,21 +449,51 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
+    <Compile Include="m_kdO2O\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
+    <Compile Include="m_kdO2O\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="m_kdO2O\KLAdd.aspx.cs">
+      <DependentUpon>KLAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\KLAdd.aspx.designer.cs">
+      <DependentUpon>KLAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\KLAuditList.aspx.cs">
+      <DependentUpon>KLAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\KLAuditList.aspx.designer.cs">
+      <DependentUpon>KLAuditList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_sys\DeptManage.aspx.cs">
+      <DependentUpon>DeptManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_sys\DeptManage.aspx.designer.cs">
+      <DependentUpon>DeptManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_sys\SysLogList.aspx.cs">
+      <DependentUpon>SysLogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_sys\SysLogList.aspx.designer.cs">
+      <DependentUpon>SysLogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Editor\asp.net\file_manager_json.ashx" />
+    <Content Include="Editor\asp.net\upload_json.ashx" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Account\Web.config" />
-    <Content Include="Site.Master" />
+    <Content Include="Themes\Default\Control.skin" />
+    <Content Include="Themes\Default\SmartGridView.skin" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

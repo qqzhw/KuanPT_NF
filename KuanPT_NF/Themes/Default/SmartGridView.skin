@@ -1,0 +1,5 @@
+﻿<yyc:SmartGridView runat="server" CssClass="tablelist"
+     BackColor="White" BorderStyle="solid" BorderWidth="1px" CellPadding="3">
+    <AlternatingRowStyle CssClass="odd" />
+    <PagerStyle CssClass="PagerRow" />
+</yyc:SmartGridView>

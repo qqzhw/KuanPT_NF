@@ -34,6 +34,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLL", "DLL", "{EB444163-C42
 		Docs\DLL\System.Web.Mvc.dll = Docs\DLL\System.Web.Mvc.dll
 		Docs\DLL\System.Web.Optimization.dll = Docs\DLL\System.Web.Optimization.dll
 		packages\WebGrease.1.6.0\lib\WebGrease.dll = packages\WebGrease.1.6.0\lib\WebGrease.dll
+		Docs\DLL\YYControls.dll = Docs\DLL\YYControls.dll
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "数据字典", "数据字典", "{9924229A-AD8B-46CD-B919-97DE2803FB7F}"
