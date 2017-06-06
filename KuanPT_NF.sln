@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2010
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KuanPT_NF.Web", "KuanPT_NF.Web\KuanPT_NF.Web.csproj", "{ABD48297-74DB-4147-AB85-331B01E1C703}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KuanPT_NF.Web.Tests", "KuanPT_NF.Web.Tests\KuanPT_NF.Web.Tests.csproj", "{F82D5832-35FF-47CF-9CB0-1BAD63ACB012}"
@@ -28,6 +30,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLL", "DLL", "{EB444163-C42
 		Docs\DLL\Dapper.dll = Docs\DLL\Dapper.dll
 		Docs\DLL\DapperExtensions.dll = Docs\DLL\DapperExtensions.dll
 		Docs\DLL\Newtonsoft.Json.dll = Docs\DLL\Newtonsoft.Json.dll
+		Docs\DLL\System.Net.Http.Formatting.dll = Docs\DLL\System.Net.Http.Formatting.dll
+		Docs\DLL\System.Web.Mvc.dll = Docs\DLL\System.Web.Mvc.dll
+		Docs\DLL\System.Web.Optimization.dll = Docs\DLL\System.Web.Optimization.dll
+		packages\WebGrease.1.6.0\lib\WebGrease.dll = packages\WebGrease.1.6.0\lib\WebGrease.dll
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "数据字典", "数据字典", "{9924229A-AD8B-46CD-B919-97DE2803FB7F}"

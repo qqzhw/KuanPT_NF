@@ -20,8 +20,10 @@ namespace API
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            
+            RouteConfig.RegisterRoutes(RouteTable.Routes); 
+          
+            // 使api返回为json 
+          //  GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
         }
     }
 }
