@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,15 +55,22 @@
     <Compile Include="Infrastructure\IEngine.cs" />
     <Compile Include="Infrastructure\ITypeFinder.cs" />
     <Compile Include="Services\CampaignService.cs" />
+    <Compile Include="Services\Extensions.cs" />
     <Compile Include="Services\ICampaignService.cs" />
+    <Compile Include="Services\IPictureService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Infrastructure\KptEngine.cs" />
     <Compile Include="Infrastructure\Singleton.cs" />
     <Compile Include="Infrastructure\WebAppTypeFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PictureService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{01414248-9eeb-4892-a861-30d3de8e0972}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{EDEC7B19-48E8-40D9-B0A8-5C3FF2250679}</Project>
       <Name>DAL</Name>
