@@ -17,6 +17,14 @@ namespace KuanPT_NF.m_kdO2O
         public IUserService UserService
         {
             get { return EngineContext.Current.Resolve<IUserService>(); }
-        } 
+        }
+        public IShopService  ShopService
+        {
+            get { return EngineContext.Current.Resolve<IShopService>(); }
+        }
+        public ICategoryService ShopService
+        {
+            get { return EngineContext.Current.Resolve<IShopService>(); }
+        }
     }
 }

@@ -419,6 +419,13 @@
     <Content Include="JavaScripts\My97DatePicker\WdatePicker.js" />
     <Content Include="JavaScripts\PIE.htc" />
     <Content Include="JavaScripts\select-ui.min.js" />
+    <Content Include="m_kdO2O\CampaignAdd.aspx" />
+    <Content Include="m_kdO2O\CampaignDetails.aspx" />
+    <Content Include="m_kdO2O\CampaignList.aspx" />
+    <Content Include="m_kdO2O\CategoryAdd.aspx" />
+    <Content Include="m_kdO2O\CategoryList.aspx" />
+    <Content Include="m_kdO2O\ChannelAdd.aspx" />
+    <Content Include="m_kdO2O\ChannelList.aspx" />
     <Content Include="m_kdO2O\Default.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -427,6 +434,10 @@
     <Content Include="m_kdO2O\Editor\plugins\code\prettify.js" />
     <Content Include="m_kdO2O\KLAdd.aspx" />
     <Content Include="m_kdO2O\KLAuditList.aspx" />
+    <Content Include="m_kdO2O\OrderDetails.aspx" />
+    <Content Include="m_kdO2O\OrderList.aspx" />
+    <Content Include="m_kdO2O\ShopAdd.aspx" />
+    <Content Include="m_kdO2O\ShopList.aspx" />
     <Content Include="m_sys\DeptManage.aspx" />
     <Content Include="m_sys\SysLogList.aspx" />
     <Content Include="App_Themes\Default\Common.css" />
@@ -456,6 +467,55 @@
     <Compile Include="m_kdO2O\BaseKptPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="m_kdO2O\CampaignAdd.aspx.cs">
+      <DependentUpon>CampaignAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\CampaignAdd.aspx.designer.cs">
+      <DependentUpon>CampaignAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\CampaignDetails.aspx.cs">
+      <DependentUpon>CampaignDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\CampaignDetails.aspx.designer.cs">
+      <DependentUpon>CampaignDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\CampaignList.aspx.cs">
+      <DependentUpon>CampaignList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\CampaignList.aspx.designer.cs">
+      <DependentUpon>CampaignList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\CategoryAdd.aspx.cs">
+      <DependentUpon>CategoryAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\CategoryAdd.aspx.designer.cs">
+      <DependentUpon>CategoryAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\CategoryList.aspx.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\CategoryList.aspx.designer.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\ChannelAdd.aspx.cs">
+      <DependentUpon>ChannelAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\ChannelAdd.aspx.designer.cs">
+      <DependentUpon>ChannelAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\ChannelList.aspx.cs">
+      <DependentUpon>ChannelList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\ChannelList.aspx.designer.cs">
+      <DependentUpon>ChannelList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="m_kdO2O\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -477,6 +537,34 @@
     <Compile Include="m_kdO2O\KLAuditList.aspx.designer.cs">
       <DependentUpon>KLAuditList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="m_kdO2O\OrderDetails.aspx.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\OrderDetails.aspx.designer.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\OrderList.aspx.cs">
+      <DependentUpon>OrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\OrderList.aspx.designer.cs">
+      <DependentUpon>OrderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\ShopAdd.aspx.cs">
+      <DependentUpon>ShopAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\ShopAdd.aspx.designer.cs">
+      <DependentUpon>ShopAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\ShopList.aspx.cs">
+      <DependentUpon>ShopList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\ShopList.aspx.designer.cs">
+      <DependentUpon>ShopList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="m_sys\DeptManage.aspx.cs">
       <DependentUpon>DeptManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -497,6 +585,10 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{5d72ddba-2ced-41ff-bec2-86acf19ed90c}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{01414248-9EEB-4892-A861-30D3DE8E0972}</Project>
+      <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{1cfc2b71-d3cd-4aee-9538-b31272f5eb34}</Project>
