@@ -25,6 +25,11 @@ namespace BLL.Services
             return null;
         }
 
+        public IList<Campaign> GetAllCampaigns(string keyword = "", int pageIndex = 0, int pageSize = int.MaxValue)
+        {
+            throw new NotImplementedException();
+        }
+
         public Campaign GetCampaignById(int campaignId)
         {
             return _campaignRepository.GetById(campaignId);

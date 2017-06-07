@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Model
+namespace BLL.Services
 {
-    public class Class1
+    class ChannelService
     {
     }
 }

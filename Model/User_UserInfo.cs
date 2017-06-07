@@ -10,7 +10,7 @@ namespace Model
     /// Business entity used to model User_UsersInfo
     /// </summary>
     [Table("Users")]
-    public class User_UsersInfo
+    public class User_UserInfo
     {
         [Key]
         public int UserId { get; set; }

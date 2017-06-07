@@ -46,15 +46,14 @@
     <Compile Include="Campaign.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Channel.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="Customer.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Order_Note.cs" />
     <Compile Include="Picture.cs" />
+    <Compile Include="Shop_Picture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shop_Category_Mapping.cs" />
-    <Compile Include="Shop_ShopsInfo.cs" />
-    <Compile Include="User_UsersInfo.cs" />
+    <Compile Include="Shop_Category.cs" />
+    <Compile Include="Shop_ShopInfo.cs" />
+    <Compile Include="User_UserInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -66,8 +66,7 @@ namespace Common
         /// <returns>true if the string is a valid IpAddress and false if it's not</returns>
         public static bool IsValidIpAddress(string ipAddress)
         {
-            IPAddress ip;
-            return IPAddress.TryParse(ipAddress, out ip);
+            return IPAddress.TryParse(ipAddress, out IPAddress ip);
         }
 
         /// <summary>
@@ -243,8 +242,7 @@ namespace Common
         public static int QueryStringInt(string name)
         {
             string resultStr = QueryString(name).ToUpperInvariant();
-            int result;
-            Int32.TryParse(resultStr, out result);
+            Int32.TryParse(resultStr, out int result);
             return result;
         }
 
@@ -825,8 +823,10 @@ namespace Common
         {
             try
             {
-                HttpCookie cookie = new HttpCookie(cookieName);
-                cookie.Value = HttpContext.Current.Server.UrlEncode(cookieValue);
+                HttpCookie cookie = new HttpCookie(cookieName)
+                {
+                    Value = HttpContext.Current.Server.UrlEncode(cookieValue)
+                };
                 DateTime dt = DateTime.Now;
                 cookie.Expires = dt.Add(ts);
                 HttpContext.Current.Response.Cookies.Add(cookie);

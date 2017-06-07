@@ -624,10 +624,12 @@ namespace BLL.Services
             pictureBinary = ValidatePicture(pictureBinary, mimeType);
 
 
-            var picture = new Picture();// _context.Pictures.CreateObject();
-            picture.PictureBinary = (this.StoreInDB ? pictureBinary : new byte[0]);
-            picture.MimeType = mimeType;
-            picture.IsNew = isNew;
+            var picture = new Picture()
+            {
+                PictureBinary = (this.StoreInDB ? pictureBinary : new byte[0]),
+                MimeType = mimeType,
+                IsNew = isNew
+            };// _context.Pictures.CreateObject();
 
             //_context.Pictures.AddObject(picture);
             //_context.SaveChanges();

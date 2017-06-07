@@ -1,6 +1,7 @@
 using BLL.Infrastructure;
 using BLL.Services;
 using Model;
+using System.Collections.Generic;
 using System.IO;
 using System.Web;
 namespace  BLL
@@ -67,5 +68,29 @@ namespace  BLL
         {
             return LoadPictureBinary(picture, EngineContext.Current.Resolve<IPictureService>().StoreInDB);
         }
+       
+        public static ShopCategory FindProductCategory(this List<ShopCategory> source,
+            int productId, int categoryId)
+        {
+            foreach (ShopCategory productCategory in source)
+                if (productCategory.ShopId == productId && productCategory.CategoryId == categoryId)
+                    return productCategory;
+            return null;
+        }
+
+        
+        public static List<Category> SortCategoriesForTree(this List<Category> source, int parentId)
+        {
+            var result = new List<Category>();
+
+            var temp = source.FindAll(c => c.ParentCategoryId == parentId);
+            foreach (var cat in temp)
+            {
+                result.Add(cat);
+                result.AddRange(SortCategoriesForTree(source, cat.CategoryId));
+            }
+            return result;
+        }
+
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Model
 {
-   public class Shop_Category_Mapping
+   public class ShopCategory
     {
         public int Id { get; set; }
         public int ShopId { get; set; }

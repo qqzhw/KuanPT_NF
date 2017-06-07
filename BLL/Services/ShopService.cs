@@ -6,8 +6,11 @@ using System.Text;
 
 namespace BLL.Services
 {
-    public interface IUserService
+    public class ShopService
     {
-        User_UserInfo GetUserByUserId(int userId);
+      
+        
+        
+       
     }
 }

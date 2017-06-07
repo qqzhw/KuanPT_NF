@@ -37,7 +37,7 @@ namespace IMCustSys
             //bindData();
         }
 
-        private void bindData()
+        private void BindData()
         {
             // 模块列表
             //sgvDeptList.DataSource = bllUser_Dept.GetDeptList();
@@ -96,7 +96,7 @@ namespace IMCustSys
         protected void sgv_Cancel(object sender, GridViewCancelEditEventArgs e)
         {
             ((GridView)sender).EditIndex = -1;
-            bindData();
+            BindData();
         }
 
         protected void sgv_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -135,7 +135,7 @@ namespace IMCustSys
         protected void sgv_Edit(object sender, GridViewEditEventArgs e)
         {
             ((GridView)sender).EditIndex = e.NewEditIndex;
-            bindData();
+            BindData();
         }
 
         protected void sgv_Update(object sender, GridViewUpdateEventArgs e)

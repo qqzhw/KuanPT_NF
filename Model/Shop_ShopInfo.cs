@@ -7,7 +7,7 @@ using System.Text;
 namespace Model
 {
     [Table("Shop")]
-    public class Shop_ShopsInfo
+    public class Shop_ShopInfo
     {
         [Key]
         public int ShopId { get; set; }

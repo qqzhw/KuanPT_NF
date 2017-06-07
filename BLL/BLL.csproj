@@ -47,6 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caching\ICacheManager.cs" />
+    <Compile Include="Caching\KptNullCache.cs" />
+    <Compile Include="Caching\KptRequestCache.cs" />
+    <Compile Include="Caching\KptStaticCache.cs" />
     <Compile Include="DependencyRegistrar.cs" />
     <Compile Include="Infrastructure\AppDomainTypeFinder.cs" />
     <Compile Include="Infrastructure\DependencyManagement\ContainerManager.cs" />
@@ -55,15 +59,25 @@
     <Compile Include="Infrastructure\IEngine.cs" />
     <Compile Include="Infrastructure\ITypeFinder.cs" />
     <Compile Include="Services\CampaignService.cs" />
+    <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\ChannelService.cs" />
     <Compile Include="Services\Extensions.cs" />
     <Compile Include="Services\ICampaignService.cs" />
+    <Compile Include="Services\ICategoryService.cs" />
+    <Compile Include="Services\IChannelService.cs" />
+    <Compile Include="Services\IOrderService.cs" />
     <Compile Include="Services\IPictureService.cs" />
+    <Compile Include="Services\IShopService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Infrastructure\KptEngine.cs" />
     <Compile Include="Infrastructure\Singleton.cs" />
     <Compile Include="Infrastructure\WebAppTypeFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\OrderStatusEnum.cs" />
     <Compile Include="Services\PictureService.cs" />
+    <Compile Include="Services\ProductSortingEnum.cs" />
+    <Compile Include="Services\ShopService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>

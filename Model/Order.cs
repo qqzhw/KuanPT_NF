@@ -42,7 +42,7 @@ namespace Model
         public DateTime? CommissionPayTime { get; set; }
         public DateTime? PaymentDate { get; set; }
         public string ComId { get; set; }
-        public int bmId { get; set; }
+        public int BmId { get; set; }
         //                Price FLOAT NOT NULL
 
         //                PayPrice FLOAT NOT NULL
