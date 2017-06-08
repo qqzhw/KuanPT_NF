@@ -57,18 +57,18 @@
     </script>
 </head>
 <body>
-    <div class="place">
+   
+
+ 
+        <form id="form1" runat="server">
+  <div class="place">
         <span>位置：</span>
         <ul class="placeul">
             <li><a href="#">知识库管理</a></li>
         </ul>
     </div>
-
-    <div class="formbody">
-
+  <div class="formbody">
         <div class="formtitle"><span>知识添加</span></div>
-        <form id="form1" runat="server">
-
             <ul class="forminfo">
                 <li>
                     <label>知识分类</label>
@@ -101,9 +101,12 @@
                     <asp:Button ID="btnAdd" runat="server" Text="确认保存" OnClick="btnAdd_Click" />
 
                 </li>
-            </ul>
+            </ul> 
+
+
+  </div>
         </form>
 
-    </div>
+   
 </body>
 </html>

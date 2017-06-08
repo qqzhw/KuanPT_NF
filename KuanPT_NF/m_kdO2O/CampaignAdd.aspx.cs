@@ -39,5 +39,15 @@ namespace KuanPT_NF.m_kdO2O
             //category.DisplayOrder = txtDisplayOrder.Value;
             //category.UpdatedOn = DateTime.UtcNow;
         }
+
+        protected void btnSave_Click1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
