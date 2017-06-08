@@ -54,7 +54,7 @@ namespace BLL
             builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).WithParameter("context", connection).InstancePerLifetimeScope();
             builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
             builder.RegisterType<CampaignService>().As<ICampaignService>().InstancePerLifetimeScope();
-
+            builder.RegisterType<PictureService>().As<IPictureService>().InstancePerLifetimeScope();
         }
 
         /// <summary>

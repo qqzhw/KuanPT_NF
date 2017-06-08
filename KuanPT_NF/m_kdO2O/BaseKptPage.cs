@@ -22,9 +22,13 @@ namespace KuanPT_NF.m_kdO2O
         {
             get { return EngineContext.Current.Resolve<IShopService>(); }
         }
-        public ICategoryService ShopService
+      
+        public IPictureService PictureService
         {
-            get { return EngineContext.Current.Resolve<IShopService>(); }
+            get
+            {
+                return EngineContext.Current.Resolve<IPictureService>();
+            }
         }
     }
 }

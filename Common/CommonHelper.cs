@@ -66,7 +66,8 @@ namespace Common
         /// <returns>true if the string is a valid IpAddress and false if it's not</returns>
         public static bool IsValidIpAddress(string ipAddress)
         {
-            return IPAddress.TryParse(ipAddress, out IPAddress ip);
+            IPAddress ip = null;
+            return IPAddress.TryParse(ipAddress, out  ip);
         }
 
         /// <summary>
@@ -242,7 +243,8 @@ namespace Common
         public static int QueryStringInt(string name)
         {
             string resultStr = QueryString(name).ToUpperInvariant();
-            Int32.TryParse(resultStr, out int result);
+            int result = 0;
+            Int32.TryParse(resultStr, out   result);
             return result;
         }
 

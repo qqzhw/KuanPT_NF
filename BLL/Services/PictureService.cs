@@ -105,6 +105,10 @@ namespace BLL.Services
                     break;
             }
             string localFilename = string.Format("{0}_0.{1}", pictureId.ToString("0000000"), lastPart);
+            if (!Directory.Exists(this.LocalImagePath))
+            {
+                Directory.CreateDirectory(this.LocalImagePath);
+            }
             File.WriteAllBytes(Path.Combine(LocalImagePath, localFilename), pictureBinary);
         }
 
@@ -698,19 +702,25 @@ namespace BLL.Services
         {
             get
             {
-                string path = HttpContext.Current.Request.PhysicalApplicationPath + "images\\thumbs";
+                string path = HttpContext.Current.Request.PhysicalApplicationPath + "Uploads\\thumbs";
                 return path;
             }
         }
-
+        public string DateFolder
+        {
+            get
+            {
+                return DateTime.Now.ToString("yyyy\\\\MM\\\\dd");
+            }
+        }
         /// <summary>
         /// Gets the local image path
         /// </summary>
         public string LocalImagePath
         {
             get
-            {
-                string path = HttpContext.Current.Request.PhysicalApplicationPath + "images";
+            {        
+                string path = HttpContext.Current.Request.PhysicalApplicationPath + "Uploads\\Products\\"+ DateFolder;
                 return path;
             }
         }
@@ -722,7 +732,7 @@ namespace BLL.Services
         {
             get
             {
-                return true;
+                return false;
             }
             set
             {

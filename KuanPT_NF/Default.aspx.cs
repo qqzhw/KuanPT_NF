@@ -16,7 +16,7 @@ namespace KuanPT_NF
         public _Default()
         {
             _IUser = EngineContext.Current.Resolve<ICampaignService>();
-            var ss = _IUser.GetCampaignById(1);
+          //  var ss = _IUser.GetCampaignById(1);
         }
         protected void Page_Load(object sender, EventArgs e)
         {

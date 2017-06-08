@@ -443,6 +443,7 @@
     <Content Include="App_Themes\Default\Common.css" />
     <Content Include="App_Themes\Default\Images\qvHeader.gif" />
     <Content Include="App_Themes\Default\SmartGridView.css" />
+    <Content Include="Uploads\2017-06-08\0000000_0.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

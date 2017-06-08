@@ -10,7 +10,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
+           <asp:FileUpload ID="uploadImg" runat="server" ToolTip="请选择图片上传" />
         </div>
+        <asp:Button runat="server" ID="btnSave" OnClick="btnSave_Click" Text="上传" />
     </form>
 </body>
 </html>
