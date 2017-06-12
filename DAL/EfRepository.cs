@@ -185,7 +185,12 @@ namespace DAL
 			var list=Connection.Query<dynamic>(sql);
 			return list; 		   
 		}
-		public IEnumerable<T> GetList<T1,T2,T3>(string sql)
+        public IEnumerable<T> GetList<T1, T2>(string sql)
+        {
+            var list = Connection.Query<T1, T2, T>(sql, (t1, t2) => { return null; });
+            return list;
+        }
+        public IEnumerable<T> GetList<T1,T2,T3>(string sql)
 		{
 			var list = Connection.Query<T1,T2,T3,T>(sql,(t1,t2,t3)=> { return null; });
 			return list;            

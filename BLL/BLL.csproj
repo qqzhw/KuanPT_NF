@@ -35,6 +35,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Docs\DLL\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Docs\DLL\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="DapperExtensions">
       <HintPath>..\Docs\DLL\DapperExtensions.dll</HintPath>
     </Reference>

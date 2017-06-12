@@ -19,9 +19,7 @@
     <script charset="utf-8" src="/Editor/plugins/code/prettify.js"></script>
     <title>活动列表</title>
 </head>
-<body>
-
-
+<body> 
     <form id="form1" runat="server">
         <div class="place">
             <span>位置：</span>

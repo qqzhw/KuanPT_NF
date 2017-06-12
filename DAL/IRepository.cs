@@ -67,6 +67,8 @@ namespace DAL
         /// Gets a table
         /// </summary>
         IEnumerable<T> GetAll();
+        IEnumerable<T> GetList<T1, T2>(string sql);
+        IEnumerable<T> GetList<T1, T2, T3>(string sql);
 
         IEnumerable<T> GetList(object predicate = null, IList<ISort> sort = null);
         

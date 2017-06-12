@@ -6,7 +6,8 @@ using Model;
 using BLL.Caching;
 using DAL;
 using DapperExtensions;
-
+using System.Data;
+using Dapper;
 namespace BLL.Services
 {
     /// <summary>
@@ -15,17 +16,18 @@ namespace BLL.Services
     public partial class CategoryService : ICategoryService
     {
         #region Constants
-        private const string CATEGORIES_BY_ID_KEY = "Nop.category.id-{0}";
-        private const string PRODUCTCATEGORIES_ALLBYCATEGORYID_KEY = "Nop.productcategory.allbycategoryid-{0}-{1}";
-        private const string PRODUCTCATEGORIES_ALLBYPRODUCTID_KEY = "Nop.productcategory.allbyproductid-{0}-{1}";
-        private const string PRODUCTCATEGORIES_BY_ID_KEY = "Nop.productcategory.id-{0}";
-        private const string CATEGORIES_PATTERN_KEY = "Nop.category.";
-        private const string PRODUCTCATEGORIES_PATTERN_KEY = "Nop.productcategory.";
+        private const string CATEGORIES_BY_ID_KEY = "Kpt.category.id-{0}";
+        private const string PRODUCTCATEGORIES_ALLBYCATEGORYID_KEY = "Kpt.productcategory.allbycategoryid-{0}-{1}";
+        private const string PRODUCTCATEGORIES_ALLBYPRODUCTID_KEY = "Kpt.productcategory.allbyproductid-{0}-{1}";
+        private const string PRODUCTCATEGORIES_BY_ID_KEY = "Kpt.productcategory.id-{0}";
+        private const string CATEGORIES_PATTERN_KEY = "Kpt.category.";
+        private const string PRODUCTCATEGORIES_PATTERN_KEY = "Kpt.productcategory.";
 
         #endregion
 
         #region Fields 
         private readonly IRepository<Category> _categoryRepository;
+        private readonly IRepository<ShopCategory> _shopcategoryRepository;
         /// <summary>
         /// Cache manager
         /// </summary>
@@ -36,9 +38,10 @@ namespace BLL.Services
         #region Ctor
 
       
-        public CategoryService(IRepository<Category> categoryRepository)
+        public CategoryService(IRepository<Category> categoryRepository, IRepository<ShopCategory>  shopcategoryRepository)
         {
             _categoryRepository = categoryRepository;
+            _shopcategoryRepository = shopcategoryRepository;
             this._cacheManager = new KptRequestCache(); 
         }
 
@@ -106,12 +109,7 @@ namespace BLL.Services
                 Predicates.Field<Category>(f => f.Published, Operator.Eq, true)
             };
             IPredicateGroup predGroup = Predicates.Group(GroupOperator.And, predList.ToArray());
-            
-            var sort = new Sort()
-            {
-                PropertyName = "DisplayOrder",
-                Ascending = true
-            };
+             
             IList<ISort> sortItems = new List<ISort>
             {
                 new Sort { PropertyName = "DisplayOrder", Ascending = true }
@@ -125,74 +123,53 @@ namespace BLL.Services
         
       
         public List<Category> GetAllCategoriesDisplayedOnHomePage()
-        {
-
-            //var query = from c in _context.Categories
-            //            orderby c.DisplayOrder
-            //            where (showHidden || c.Published) && !c.Deleted && c.ShowOnHomePage
-            //            select c;
-
-
-            //var categories = query.ToList();
-            //return categories;
-            return null;
+        { 
+            IList<IPredicate> predList = new List<IPredicate>
+            {
+                Predicates.Field<Category>(p => p.ShowOnHomePage, Operator.Eq, true),
+                Predicates.Field<Category>(f => f.Published, Operator.Eq, true)
+            };
+            IPredicateGroup predGroup = Predicates.Group(GroupOperator.And, predList.ToArray());
+             
+            IList<ISort> sortItems = new List<ISort>
+            {
+                new Sort { PropertyName = "DisplayOrder", Ascending = true }
+            };
+            var query = _categoryRepository.GetList(predGroup, sortItems);
+             
+            var categories = query.ToList();
+            return categories;
+             
         }
-                
-        /// <summary>
-        /// Gets a category
-        /// </summary>
-        /// <param name="categoryId">Category identifier</param>
-        /// <returns>Category</returns>
+
+
         public Category GetCategoryById(int categoryId)
         {
             if (categoryId == 0)
                 return null;
 
-            //string key = string.Format(CATEGORIES_BY_ID_KEY, categoryId);
-            //object obj2 = _cacheManager.Get(key);
-            //if (this.CategoriesCacheEnabled && (obj2 != null))
-            //{
-            //    return (Category)obj2;
-            //}
-
-            //bool showHidden = NopContext.Current.IsAdmin;
-
-
-            //var query = from c in _context.Categories
-            //            where c.CategoryId == categoryId
-            //            select c;
-            //var category = query.SingleOrDefault();
-
-            ////filter by access control list (public store)
-            //if (category != null && !showHidden && IsCategoryAccessDenied(category))
-            //{
-            //    category = null;
-            //}
-            //if (this.CategoriesCacheEnabled)
-            //{
-            //    _cacheManager.Add(key, category);
-            //}
-            //return category;
-            return null;
+            string key = string.Format(CATEGORIES_BY_ID_KEY, categoryId);
+            object obj= _cacheManager.Get(key);
+            if (obj != null)
+            {
+                return (Category)obj;
+            }
+            var category = _categoryRepository.GetById(categoryId);
+            _cacheManager.Add(key, category);
+            return category;
         }
 
-        /// <summary>
-        /// Gets a category breadcrumb
-        /// </summary>
-        /// <param name="categoryId">Category identifier</param>
-        /// <returns>Category</returns>
+       
         public List<Category> GetBreadCrumb(int categoryId)
         {
             var breadCrumb = new List<Category>();
 
             var category = GetCategoryById(categoryId);
 
-            while (category != null && //category is not null
-                !category.Deleted && //category is not deleted
-                category.Published) //category is published
+            while (category != null &&!category.Deleted &&category.Published)  
             {
                 breadCrumb.Add(category);
-             //   category = category.ParentCategory;
+               //  category = category.ParentCategory;
             }
             breadCrumb.Reverse();
             return breadCrumb;
@@ -206,21 +183,11 @@ namespace BLL.Services
         {
             if (category == null)
                 throw new ArgumentNullException("category");
-            
-            //category.Name = CommonHelper.EnsureNotNull(category.Name);
-            //category.Name = CommonHelper.EnsureMaximumLength(category.Name, 400);
-            //category.Description = CommonHelper.EnsureNotNull(category.Description);
-            //category.MetaKeywords = CommonHelper.EnsureNotNull(category.MetaKeywords);
-            //category.MetaKeywords = CommonHelper.EnsureMaximumLength(category.MetaKeywords, 400);
-            //category.MetaDescription = CommonHelper.EnsureNotNull(category.MetaDescription);
-            //category.MetaDescription = CommonHelper.EnsureMaximumLength(category.MetaDescription, 4000);
-            //category.MetaTitle = CommonHelper.EnsureNotNull(category.MetaTitle);
-            //category.MetaTitle = CommonHelper.EnsureMaximumLength(category.MetaTitle, 400);
-            //category.SEName = CommonHelper.EnsureNotNull(category.SEName);
-            //category.SEName = CommonHelper.EnsureMaximumLength(category.SEName, 100);
-            //category.PriceRanges = CommonHelper.EnsureNotNull(category.PriceRanges);
-            //category.PriceRanges = CommonHelper.EnsureMaximumLength(category.PriceRanges, 400);
-             
+
+            category.CategoryName = CommonHelper.EnsureNotNull(category.CategoryName);
+            category.CategoryName = CommonHelper.EnsureMaximumLength(category.CategoryName, 400);
+            category.Description = CommonHelper.EnsureNotNull(category.Description);
+            _categoryRepository.Insert(category);
         }
 
         /// <summary>
@@ -232,19 +199,9 @@ namespace BLL.Services
             if (category == null)
                 throw new ArgumentNullException("category");
 
-            //category.Name = CommonHelper.EnsureNotNull(category.Name);
-            //category.Name = CommonHelper.EnsureMaximumLength(category.Name, 400);
-            //category.Description = CommonHelper.EnsureNotNull(category.Description);
-            //category.MetaKeywords = CommonHelper.EnsureNotNull(category.MetaKeywords);
-            //category.MetaKeywords = CommonHelper.EnsureMaximumLength(category.MetaKeywords, 400);
-            //category.MetaDescription = CommonHelper.EnsureNotNull(category.MetaDescription);
-            //category.MetaDescription = CommonHelper.EnsureMaximumLength(category.MetaDescription, 4000);
-            //category.MetaTitle = CommonHelper.EnsureNotNull(category.MetaTitle);
-            //category.MetaTitle = CommonHelper.EnsureMaximumLength(category.MetaTitle, 400);
-            //category.SEName = CommonHelper.EnsureNotNull(category.SEName);
-            //category.SEName = CommonHelper.EnsureMaximumLength(category.SEName, 100);
-            //category.PriceRanges = CommonHelper.EnsureNotNull(category.PriceRanges);
-            //category.PriceRanges = CommonHelper.EnsureMaximumLength(category.PriceRanges, 400);
+            category.CategoryName = CommonHelper.EnsureNotNull(category.CategoryName);
+            category.CategoryName = CommonHelper.EnsureMaximumLength(category.CategoryName, 400);
+            category.Description = CommonHelper.EnsureNotNull(category.Description);
 
             //validate category hierarchy
             var parentCategory = GetCategoryById(category.ParentCategoryId);
@@ -257,24 +214,11 @@ namespace BLL.Services
                 }
                 parentCategory = GetCategoryById(parentCategory.ParentCategoryId);
             }
-
-            
-            //if (!_context.IsAttached(category))
-            //    _context.Categories.Attach(category);
-
-            //_context.SaveChanges();
-
-            //if (this.CategoriesCacheEnabled || this.MappingsCacheEnabled)
-            //{
-            //    _cacheManager.RemoveByPattern(CATEGORIES_PATTERN_KEY);
-            //    _cacheManager.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
-            //}
+             
+            _cacheManager.RemoveByPattern(CATEGORIES_PATTERN_KEY);
+            _cacheManager.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
         }
-         
-        /// <summary>
-        /// Deletes a product category mapping
-        /// </summary>
-        /// <param name="productCategoryId">Product category identifier</param>
+          
         public void DeleteProductCategory(int productCategoryId)
         {
             if (productCategoryId == 0)
@@ -283,25 +227,50 @@ namespace BLL.Services
             var productCategory = GetProductCategoryById(productCategoryId);
             if (productCategory == null)
                 return;
-
-            
-            //if (!_context.IsAttached(productCategory))
-            //    _context.ProductCategories.Attach(productCategory);
-            //_context.DeleteObject(productCategory);
-            //_context.SaveChanges(); 
+            _shopcategoryRepository.Delete(productCategory);            
         }
 
-        /// <summary>
-        /// Gets product category mapping collection
-        /// </summary>
-        /// <param name="categoryId">Category identifier</param>
-        /// <returns>Product a category mapping collection</returns>
+      
         public List<ShopCategory> GetProductCategoriesByCategoryId(int categoryId)
         {
-            //if (categoryId == 0)
-            //    return new List<ProductCategory>(); 
-            //string key = string.Format(PRODUCTCATEGORIES_ALLBYCATEGORYID_KEY, true, categoryId);
-            //object obj2 = _cacheManager.Get(key); 
+            if (categoryId == 0)
+                return new List<ShopCategory>();
+            string key = string.Format(PRODUCTCATEGORIES_ALLBYCATEGORYID_KEY, true, categoryId);
+            object obj2 = _cacheManager.Get(key);
+            if (obj2 != null)
+            {
+                return (List<ShopCategory>)obj2;
+            }
+            List<ShopCategory> items = new List<ShopCategory>();
+           string sql = @"SELECT *
+                              from ShowCategories a
+                               join Products b on a.ProductId = b.ProductId
+                              where a.CategoryId == categoryId and
+                        b.Deleted=false and   b.Published=true 
+                        orderby a.DisplayOrder ";
+            var infos = _shopcategoryRepository.DbContext.Query<ShopCategory,Shop_ShopInfo,ShopCategory>(sql,(s,p)=> {
+                var currentItem = items.Find(x => x.Id == s.Id);
+                if (currentItem==null)
+                {
+                   
+                }
+                return null;
+            },splitOn: "ShopId");
+            //var infos = connecton.Query<Client, ClientField, Client>(sql, (c, f) =>
+            //{
+            //    var currentClient = clients.Find(x => x.ClientId == c.ClientId);
+            //    if (currentClient == null)
+            //    {
+            //        c.Fields.Add(f);
+            //        clients.Add(c);
+            //        return c;
+            //    }
+            //    else
+            //    {
+            //        currentClient.Fields.Add(f);
+            //        return currentClient;
+            //    }
+            //}, splitOn: "ModelId");
             //var query = from pc in _context.ProductCategories
             //            join p in _context.Products on pc.ProductId equals p.ProductId
             //            where pc.CategoryId == categoryId &&
@@ -309,13 +278,14 @@ namespace BLL.Services
             //            (p.Published)
             //            orderby pc.DisplayOrder
             //            select pc;
+
+
             //var productCategories = query.ToList();
 
-            //if (this.MappingsCacheEnabled)
-            //{
-            //    _cacheManager.Add(key, productCategories);
-            //}
-            // return productCategories;
+
+            //   _cacheManager.Add(key, productCategories);
+
+            //  return productCategories;
             return null;
         }
 
@@ -343,45 +313,29 @@ namespace BLL.Services
             //return productCategories;
             return null;
         }
-
-        /// <summary>
-        /// Gets a product category mapping 
-        /// </summary>
-        /// <param name="productCategoryId">Product category mapping identifier</param>
-        /// <returns>Product category mapping</returns>
+         
         public ShopCategory GetProductCategoryById(int productCategoryId)
         {
             if (productCategoryId == 0)
                 return null;
 
-            //string key = string.Format(PRODUCTCATEGORIES_BY_ID_KEY, productCategoryId);
-            //object obj2 = _cacheManager.Get(key); 
-
-            //var query = from pc in _context.ProductCategories
-            //            where pc.ProductCategoryId == productCategoryId
-            //            select pc;
-            //var productCategory = query.SingleOrDefault();
-
-
-            //return productCategory;
-            return null;
+            string key = string.Format(PRODUCTCATEGORIES_BY_ID_KEY, productCategoryId);
+            object obj2 = _cacheManager.Get(key);
+            if (obj2!=null)
+            {
+                return (ShopCategory)obj2;
+            }
+            var query = _shopcategoryRepository.GetById(productCategoryId);
+                
+            return query;
+           
         }
-
-        /// <summary>
-        /// Inserts a product category mapping
-        /// </summary>
-        /// <param name="productCategory">>Product category mapping</param>
+         
         public void InsertProductCategory(ShopCategory productCategory)
         {
             if (productCategory == null)
                 throw new ArgumentNullException("productCategory");
-
-            
-            
-          //  _context.ProductCategories.AddObject(productCategory);
-           // _context.SaveChanges();
-
-         
+            _shopcategoryRepository.Insert(productCategory); 
         }
 
         /// <summary>
@@ -392,7 +346,7 @@ namespace BLL.Services
         {
             if (productCategory == null)
                 throw new ArgumentNullException("productCategory");
-             
+            _shopcategoryRepository.Update(productCategory);
         }
         #endregion
         
