@@ -83,6 +83,7 @@
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\OrderStatusEnum.cs" />
     <Compile Include="Services\PictureService.cs" />
+    <Compile Include="Services\ProductService - 副本.cs" />
     <Compile Include="Services\ProductSortingEnum.cs" />
     <Compile Include="Services\ShopService.cs" />
     <Compile Include="Services\UserService.cs" />

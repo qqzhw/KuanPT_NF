@@ -34,6 +34,10 @@ namespace BLL.Services
        
         public Campaign GetCampaignById(int campaignId)
         {
+            if (campaignId==0)
+            {
+                return null;
+            }
             return _campaignRepository.GetById(campaignId);
         }
 
