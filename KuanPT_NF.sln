@@ -25,6 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{F56E38BF-A018-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLL", "DLL", "{EB444163-C427-4544-BBFB-23FF08F9AE24}"
 	ProjectSection(SolutionItems) = preProject
+		G:\nopCommerce-release-1.90\Dependencies\AjaxControlToolkit.dll = G:\nopCommerce-release-1.90\Dependencies\AjaxControlToolkit.dll
 		Docs\DLL\Autofac.dll = Docs\DLL\Autofac.dll
 		Docs\DLL\Dapper.Contrib.dll = Docs\DLL\Dapper.Contrib.dll
 		Docs\DLL\Dapper.dll = Docs\DLL\Dapper.dll

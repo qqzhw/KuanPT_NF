@@ -16,9 +16,12 @@ namespace Model
         public string Subject { get; set; }
        
         public string Body { get; set; }
+        public string ImgPath { get; set; }
+	 
+       public bool IsHomeBanner { get; set; }
 
        public bool Published { get; set; }
-
+        public int DisplayOrder { get; set; }
        public DateTime? BeginTime { get; set; }
         public DateTime? EndTime { get; set; }
 

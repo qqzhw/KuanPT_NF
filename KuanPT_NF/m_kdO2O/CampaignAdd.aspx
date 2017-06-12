@@ -1,5 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CampaignAdd.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.CampaignAdd" %>
 
+<%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
+
+<%@ Register Src="Modules/NumericTextBox.ascx" TagName="NumericTextBox" TagPrefix="kpt" %>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -89,77 +93,95 @@
 
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:FileUpload ID="uploadImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />
-
-        </div>
-        <asp:Button runat="server" CssClass="btn" ID="btnSave" OnClick="btnSave_Click" Text="上传" />
+        <ajaxToolkit:ToolkitScriptManager runat="server" ID="ScriptManager1" />
         <div class="place">
             <span>位置：</span>
             <ul class="placeul">
-                <li><a href="#">活动管理</a></li>
+                <li><a href="CampaignList.aspx">活动管理</a></li>
             </ul>
         </div>
         <div class="formbody">
             <div class="formtitle"><span>活动添加</span></div>
             <ul class="forminfo">
                 <li>
-                    <label>知识分类</label>
-                    <div class="vocation">
-                        <asp:DropDownList ID="ddlClass" CssClass="select1" runat="server"></asp:DropDownList>
-                    </div>
+                    <label>活动名称</label>
+                    <kpt:SimpleTextBox ID="tbName" runat="server" CssClass="dfinput" ErrorMessage="活动名称不能为空！" />
                 </li>
                 <li>
-                    <label>标题</label><asp:TextBox ID="tbTitle" runat="server" EnableTheming="false" CssClass="dfinput"></asp:TextBox></li>
-                <li>
-                    <label>设备型号</label><asp:TextBox ID="tbProductType" runat="server" EnableTheming="false" CssClass="dfinput"></asp:TextBox><i>多个关键字用,隔开</i></li>
-                <li>
-                    <label>系统版本</label><asp:TextBox ID="tbSysVer" runat="server" EnableTheming="false" CssClass="dfinput"></asp:TextBox><i>多个关键字用,隔开</i>
-                </li>
-                <li>
-                    <label>关键字</label><asp:TextBox ID="tbKeyWords" runat="server" EnableTheming="false" CssClass="dfinput"></asp:TextBox><i>多个关键字用,隔开</i>
-                </li>
-                <li>
-                    <label>问题内容</label>
-                    <textarea id="ttContent1" cols="100" rows="8" style="width: 700px; height: 260px; visibility: hidden;" runat="server"></textarea>
-                </li>
-                <li>
-                    <label>解决办法</label>
-                    <textarea id="ttContent2" cols="100" rows="8" style="width: 700px; height: 260px; visibility: hidden;" runat="server"></textarea>
-                </li>
-                <li>
-                    <label>备注</label><asp:TextBox ID="tbRemark" runat="server" EnableTheming="false" CssClass="dfinput"></asp:TextBox></li>
+                    <label>活动主题</label><asp:TextBox ID="tbSubject" runat="server" EnableTheming="false" CssClass="dfinput"></asp:TextBox></li>
 
                 <li>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Default1</label>
-                        <div class="col-md-3">
-                            <div class="fileinput fileinput-exists" data-provides="fileinput">
-                                <div class="input-group input-large">
-                                    <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
-                                        <i class="fa fa-file fileinput-exists"></i>&nbsp;
-                                         <span class="fileinput-filename">43.png</span>
-                                    </div>
-                                    <span class="input-group-addon btn default btn-file">
-                                        <span class="fileinput-new">Select file </span>
-                                        <span class="fileinput-exists">Change </span>
-                                        <input type="hidden" value="" name="" />
-                                        <input type="file" name="..." />
-                                    </span>
-                                    <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput">Remove </a>
-                                </div>
-                            </div>
-                        </div>
+                    <label>首页Banner </label>
+                    <div style="vertical-align: middle; padding-top: 8px;">
+                        <asp:CheckBox ID="chkBanner" runat="server" EnableTheming="false"></asp:CheckBox>
                     </div>
+                </li>
+                <li>
+                    <label>Banner图片</label>
+                    <asp:FileUpload ID="uploadImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />
+                    <i>图片格式为.png|.jpg</i>
+                </li>
+                <li>
+                    <label>发布</label>
+                    <div style="vertical-align: middle; padding-top: 8px;">
+                        <asp:CheckBox ID="chkPublished" runat="server" />
+                    </div>
+                </li>
+                <li>
+                    <label>显示顺序</label>
+                    <div style="vertical-align: middle; padding-top: 8px;">
+                        <kpt:NumericTextBox runat="server" CssClass="dfinput" ID="txtDisplayOrder"
+                            Value="0" RequiredErrorMessage="不能为空！"
+                            RangeErrorMessage="数字范围在0-99999之间！"
+                            MinimumValue="0" MaximumValue="99999"></kpt:NumericTextBox>
+                    </div>
+                </li>
+                <li>
+                    <label>活动内容</label>
+                    <textarea id="ttContent1"   cols="100" rows="8" style="width: 700px; height: 260px; visibility: hidden;" runat="server"></textarea>               
+                </li>
+                <li>
+                  
                 </li>
                 <li>
                     <label>&nbsp;</label>
-                    <asp:Button ID="btnAdd" runat="server" Text="确认保存" OnClick="btnAdd_Click" />
+                    <asp:Button ID="btnAdd" runat="server"   CssClass="scbtn" Text="确认保存" OnClick="btnAdd_Click" />
                 </li>
             </ul>
 
-
         </div>
+        <script type="text/javascript">
+            $(document).ready(function (e) {
+                KindEditor.ready(function (K) {
+                    var editor1 = K.create('#ttContent1', {
+                        cssPath: 'Editor/plugins/code/prettify.css',
+                        uploadJson: 'Editor/asp.net/upload_json.ashx',
+                        fileManagerJson: 'Editor/asp.net/file_manager_json.ashx',
+                        allowFileManager: true,
+                        langType: 'zh-CN'
+                    });
+                    prettyPrint();
+                });
+                $("#btnAdd").on("click", function ()
+                { 
+                    var content = $(".ke-edit-iframe").contents().find(".ke-content").html().trim();
+                    if (content.length === 0) {
+                        alert("请输入活动内容！");
+                        return;
+                    }
+                });
+               
+            });
+            $("#form1").validate({
+                debug: false, // 调试，不提交 false
+                errorPlacement: function (error, element) { }, // 不提示文字
+                rules: {
+                    tbName: "required",
+                    ttContent1: "required", 
+                }
+            });
+            
+        </script>
     </form>
 </body>
 </html>
