@@ -22,7 +22,10 @@ namespace BLL.Services
 
        
         IList<Campaign> GetAllCampaigns(string keyword="", int pageIndex=0,int pageSize=int.MaxValue );
-         
+       IList<Campaign> GetPageData(out int totalRecord, out int totalPage,string fields="", string orderField="", int pageIndex=0, string whereStr="",
+          int pageSize=int.MaxValue);
+
+
     }
 
 }

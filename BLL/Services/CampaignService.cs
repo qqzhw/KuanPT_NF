@@ -27,9 +27,11 @@ namespace BLL.Services
 
         public IList<Campaign> GetAllCampaigns(string keyword = "", int pageIndex = 0, int pageSize = int.MaxValue)
         {
-            throw new NotImplementedException();
+            var totalRecord = 0;
+            var totalPage = 0;
+            return _campaignRepository.GetPageData("Campaign", "CampaignId", out totalRecord,out totalPage, pageIndex:pageIndex,pageSize:pageSize);
         }
-
+       
         public Campaign GetCampaignById(int campaignId)
         {
             return _campaignRepository.GetById(campaignId);
@@ -43,6 +45,18 @@ namespace BLL.Services
         public void UpdateCampaign(Campaign campaign)
         {
             
+        }
+
+      
+        public IList<Campaign> GetPageData(out int totalRecord, out int totalPage, string fields = "", string orderField = "", int pageIndex = 0, string whereStr = "",
+          int pageSize = int.MaxValue)
+        {
+            if (string.IsNullOrEmpty(orderField))
+            {
+                orderField = "campaignId";
+            }
+            var items = _campaignRepository.GetPageData("Campaign", orderField, out totalRecord, out totalPage,fields,whereStr, pageIndex, pageSize);
+            return items;
         }
     }
 }
