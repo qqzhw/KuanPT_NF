@@ -47,13 +47,9 @@ namespace DAL
         /// </summary>
         /// <param name="entities">Entities</param>
         void Delete(IEnumerable<T> entities);
-
-        /// <summary>
-        /// page search
-        /// </summary> 
-        IList<T>  GetPageData(string fields = "", string orderField = "", int pageIndex = 0,
-            int pageSize = int.MaxValue, string whereStr = "" );
          
+        IList<T> GetPageData(string tableName, string orderField, out int totalRecord, out int totalPage, 
+            string fields = "", string whereStr = "",int pageIndex = 0, int pageSize = int.MaxValue);
         /// <summary>
         /// Gets a table
         /// </summary>

@@ -82,12 +82,7 @@ namespace BLL.Services
             }
         }
 
-        /// <summary>
-        /// Save picture on file system
-        /// </summary>
-        /// <param name="pictureId">Picture identifier</param>
-        /// <param name="pictureBinary">Picture binary</param>
-        /// <param name="mimeType">MIME type</param>
+        
         private void SavePictureInFile(int pictureId, byte[] pictureBinary, string mimeType)
         {
             string[] parts = mimeType.Split('/');
@@ -112,10 +107,32 @@ namespace BLL.Services
             File.WriteAllBytes(Path.Combine(LocalImagePath, localFilename), pictureBinary);
         }
 
-        /// <summary>
-        /// Delete a picture on file system
-        /// </summary>
-        /// <param name="picture">Picture</param>
+        private string SavePictureInFile( byte[] pictureBinary, string mimeType)
+        {
+            string[] parts = mimeType.Split('/');
+            string lastPart = parts[parts.Length - 1];
+            switch (lastPart)
+            {
+                case "pjpeg":
+                    lastPart = "jpg";
+                    break;
+                case "x-png":
+                    lastPart = "png";
+                    break;
+                case "x-icon":
+                    lastPart = "ico";
+                    break;
+            }
+            string localFilename = string.Format("{0}_0.{1}", Guid.NewGuid(), lastPart);
+            if (!Directory.Exists(this.LocalImagePath))
+            {
+                Directory.CreateDirectory(this.LocalImagePath);
+            }
+            File.WriteAllBytes(Path.Combine(LocalImagePath, localFilename), pictureBinary);
+            return Path.Combine(RelativeImagePath, localFilename);
+        }
+
+        
         private void DeletePictureOnFileSystem(Picture picture)
         {
             if (picture == null)
@@ -720,11 +737,18 @@ namespace BLL.Services
         {
             get
             {        
-                string path = HttpContext.Current.Request.PhysicalApplicationPath + "Uploads\\Products\\"+ DateFolder;
+                string path = HttpContext.Current.Request.PhysicalApplicationPath + RelativeImagePath;
                 return path;
             }
         }
-
+        public string RelativeImagePath
+        {
+            get
+            {
+                string path ="Uploads\\Products\\" + DateFolder;
+                return path;
+            }
+        }
         /// <summary>
         /// Gets or sets a value indicating whether the images should be stored in data base.
         /// </summary>
@@ -768,6 +792,17 @@ namespace BLL.Services
         public PagedList<Picture> GetPictures(int pageSize, int pageIndex)
         {
             return null;
+        }
+
+        public string UploadPicture(byte[] pictureBinary, string mimeType)
+        {
+            mimeType = CommonHelper.EnsureNotNull(mimeType);
+            mimeType = CommonHelper.EnsureMaximumLength(mimeType, 20);
+
+            pictureBinary = ValidatePicture(pictureBinary, mimeType);
+
+            string imgPath = SavePictureInFile(pictureBinary, mimeType);
+            return imgPath;
         }
         #endregion
     }

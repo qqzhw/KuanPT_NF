@@ -1,8 +1,9 @@
 using System;
-using System.Collections.Generic;  
-using System.Data; 
-using Dapper;  
+using System.Collections.Generic;
+using System.Data;
+using Dapper;
 using Dapper.Contrib.Extensions;
+using Model;
 
 namespace DAL
 {
@@ -195,13 +196,49 @@ namespace DAL
                 + "{0} FROM {2} where 1=1 {3} ) AS t WHERE ROWID BETWEEN {4} AND {5}",
                 fields,
                 orderField,
-                "SY_ADMIN",
+                 "",
                 whereStr,
                 (pageIndex - 1) * pageSize + 1,
                 pageIndex * pageSize);
             result =  Connection.Query<T>(sql).AsList();
             return result; 
         }
+
+        #region 获取分页数据  
+        /// <summary>  
+        /// 获取分页数据  
+        /// </summary>  
+        /// <param name="fields">字段,如*或逗号分隔</param>  
+        /// <param name="orderField">排序,如id desc</param>  
+        /// <param name="pageIndex">当前页码</param>  
+        /// <param name="pageSize">每页条数</param>  
+        /// <param name="whereStr">条件</param>  
+        /// <param name="totalRecord">总记录数</param>  
+        /// <param name="totalPage">总页数</param>  
+        /// <returns></returns>   
+        public IList<T> GetPageData(string tableName, string orderField, out int totalRecord, out int totalPage,
+            string fields = "", string whereStr = "", int pageIndex = 0, int pageSize = int.MaxValue)
+        {
+            if (string.IsNullOrEmpty(fields))
+            {
+                fields = "*";
+            }
+            totalRecord = Connection.ExecuteScalar<int>(string.Format("SELECT count(1) FROM " + tableName + " where 1=1 {0}", whereStr));
+            totalPage = (totalRecord % pageSize != 0) ? (totalRecord / pageSize + 1) : totalRecord / pageSize;
+            string sql = string.Format("SELECT {0} FROM (SELECT ROW_NUMBER() OVER (ORDER BY {1}) AS ROWID, "
+                + "{0} FROM {2} where 1=1 {3} ) AS t WHERE ROWID BETWEEN {4} AND {5}",
+                fields,
+                orderField,
+                tableName,
+                whereStr,
+                (pageIndex) * pageSize + 1,
+                (pageIndex + 1) * pageSize);
+            var result = Connection.Query<T>(sql).AsList();
+
+            return result;
+        }
+        #endregion
+
 
         public virtual string Database
         {

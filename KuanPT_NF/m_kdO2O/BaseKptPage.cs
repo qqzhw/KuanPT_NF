@@ -30,5 +30,10 @@ namespace KuanPT_NF.m_kdO2O
                 return EngineContext.Current.Resolve<IPictureService>();
             }
         }
+        public  void ShowMessage(string msg)
+        {
+            //  ClientScript.RegisterStartupScript(GetType(), "message", "<script language='javascript' defer>alert('" + msg.ToString() + "');</script>");
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "opennewwindow", "alert('"+msg+"');", true);
+        }
     }
 }

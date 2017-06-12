@@ -415,20 +415,9 @@ namespace Common
             if (page == null)
                 throw new ArgumentNullException("page");
 
-            //update version if required (e.g. 1.4)
-            string jQueryUrl = string.Empty;
-            if (useHosted)
-            {
-                jQueryUrl = "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js";
-                if (CommonHelper.IsCurrentConnectionSecured())
-                {
-                    jQueryUrl = jQueryUrl.Replace("http://", "https://");
-                }
-            }
-            else
-            {
-                jQueryUrl = CommonHelper.GetStoreLocation() + "Scripts/jquery-1.4.min.js";
-            }
+          
+            string jQueryUrl =  CommonHelper.GetStoreLocation() + "JavaScripts/jquery-1.7.1.js";
+          
 
             jQueryUrl = string.Format("<script type=\"text/javascript\" src=\"{0}\" ></script>", jQueryUrl);
 

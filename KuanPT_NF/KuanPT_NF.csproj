@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Docs\DLL\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac">
       <HintPath>..\Docs\DLL\Autofac.dll</HintPath>
     </Reference>
@@ -434,6 +438,8 @@
     <Content Include="m_kdO2O\Editor\plugins\code\prettify.js" />
     <Content Include="m_kdO2O\KLAdd.aspx" />
     <Content Include="m_kdO2O\KLAuditList.aspx" />
+    <Content Include="m_kdO2O\Modules\NumericTextBox.ascx" />
+    <Content Include="m_kdO2O\Modules\SimpleTextBox.ascx" />
     <Content Include="m_kdO2O\OrderDetails.aspx" />
     <Content Include="m_kdO2O\OrderList.aspx" />
     <Content Include="m_kdO2O\ShopAdd.aspx" />
@@ -466,6 +472,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="m_kdO2O\BaseKptPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\BaseKptUserControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="m_kdO2O\CampaignAdd.aspx.cs">
@@ -537,6 +546,20 @@
     </Compile>
     <Compile Include="m_kdO2O\KLAuditList.aspx.designer.cs">
       <DependentUpon>KLAuditList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\Modules\NumericTextBox.ascx.cs">
+      <DependentUpon>NumericTextBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\Modules\NumericTextBox.ascx.designer.cs">
+      <DependentUpon>NumericTextBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\Modules\SimpleTextBox.ascx.cs">
+      <DependentUpon>SimpleTextBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\Modules\SimpleTextBox.ascx.designer.cs">
+      <DependentUpon>SimpleTextBox.ascx</DependentUpon>
     </Compile>
     <Compile Include="m_kdO2O\OrderDetails.aspx.cs">
       <DependentUpon>OrderDetails.aspx</DependentUpon>
