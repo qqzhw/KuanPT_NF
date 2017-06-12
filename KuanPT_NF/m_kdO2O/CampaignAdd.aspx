@@ -124,7 +124,7 @@
                 <li>
                     <label>发布</label>
                     <div style="vertical-align: middle; padding-top: 8px;">
-                        <asp:CheckBox ID="chkPublished" runat="server" />
+                        <asp:CheckBox ID="chkPublished" runat="server" Checked="true" />
                     </div>
                 </li>
                 <li>

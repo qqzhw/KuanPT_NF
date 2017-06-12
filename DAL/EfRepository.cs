@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using Dapper;
-using Dapper.Contrib.Extensions;
+//using Dapper.Contrib.Extensions;
 using Model;
-
+using DapperExtensions;
 namespace DAL
 {
     /// <summary>
@@ -173,10 +173,13 @@ namespace DAL
 		/// Gets a table
 		/// </summary>
 		public virtual IEnumerable<T> GetAll()
-        {
-            return Connection.GetAll<T>();
+        { 
+             return Connection.GetList<T>();
         }
-
+        public virtual IEnumerable<T> GetList(object predicate=null,IList<ISort> sort=null)
+        {
+            return Connection.GetList<T>(predicate,sort);
+        }
         public IEnumerable<dynamic>  GetList(string sql)
 		{ 
 			var list=Connection.Query<dynamic>(sql);

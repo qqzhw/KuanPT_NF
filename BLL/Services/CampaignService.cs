@@ -44,7 +44,7 @@ namespace BLL.Services
 
         public void UpdateCampaign(Campaign campaign)
         {
-            
+            _campaignRepository.Update(campaign);
         }
 
       
@@ -55,7 +55,7 @@ namespace BLL.Services
             {
                 orderField = "campaignId";
             }
-            var items = _campaignRepository.GetPageData("Campaign", orderField, out totalRecord, out totalPage,fields,whereStr, pageIndex, pageSize);
+            var items = _campaignRepository.GetPageData("Campaign",orderField, out totalRecord, out totalPage,fields,whereStr, pageIndex, pageSize);
             return items;
         }
     }

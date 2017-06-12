@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq; 
 using Common;
 using Model;
+using BLL.Caching;
+using DAL;
+using DapperExtensions;
 
 namespace BLL.Services
 {
@@ -22,21 +25,21 @@ namespace BLL.Services
         #endregion
 
         #region Fields 
-         
+        private readonly IRepository<Category> _categoryRepository;
         /// <summary>
         /// Cache manager
         /// </summary>
-       // private readonly ICacheManager _cacheManager;
+        private readonly ICacheManager _cacheManager;
 
         #endregion
         
         #region Ctor
 
       
-        public CategoryService()
+        public CategoryService(IRepository<Category> categoryRepository)
         {
-            //this._context = context;
-            //this._cacheManager = new NopRequestCache();
+            _categoryRepository = categoryRepository;
+            this._cacheManager = new KptRequestCache(); 
         }
 
         #endregion
@@ -66,7 +69,7 @@ namespace BLL.Services
        
         public List<Category> GetAllCategories(bool showHidden)
         {
-
+            var query = _categoryRepository.GetAll().Where(o => o.Published).OrderBy(o => o.Published).ThenBy(o => o.DisplayOrder);
             //var query = from c in _context.Categories
             //            orderby c.ParentCategoryId, c.DisplayOrder
             //            where (showHidden || c.Published) &&
@@ -78,14 +81,13 @@ namespace BLL.Services
             //{
             //    query = query.WhereAclPerObjectNotDenied(_context);
             //}
-            //var unsortedCategories = query.ToList();
+            var unsortedCategories = query.ToList();
 
             ////sort categories
             ////TODO sort categories on database layer
-            //var sortedCategories = unsortedCategories.SortCategoriesForTree(0);
+            var sortedCategories = unsortedCategories.SortCategoriesForTree(0);
 
-            //return sortedCategories;
-            return null;
+            return sortedCategories; 
         }
         
        
@@ -98,19 +100,27 @@ namespace BLL.Services
         public List<Category> GetAllCategoriesByParentCategoryId(int parentCategoryId,
             bool showHidden)
         {
+            IList<IPredicate> predList = new List<IPredicate>
+            {
+                Predicates.Field<Category>(p => p.ParentCategoryId, Operator.Eq, parentCategoryId),
+                Predicates.Field<Category>(f => f.Published, Operator.Eq, true)
+            };
+            IPredicateGroup predGroup = Predicates.Group(GroupOperator.And, predList.ToArray());
+            
+            var sort = new Sort()
+            {
+                PropertyName = "DisplayOrder",
+                Ascending = true
+            };
+            IList<ISort> sortItems = new List<ISort>
+            {
+                new Sort { PropertyName = "DisplayOrder", Ascending = true }
+            };
+            var query = _categoryRepository.GetList(predGroup, sortItems); 
 
-            //var query = from c in _context.Categories
-            //            orderby c.DisplayOrder
-            //            where (showHidden || c.Published) && 
-            //            !c.Deleted && 
-            //            c.ParentCategoryId == parentCategoryId
-            //            select c;
-
-
-
-            //var categories = query.ToList();
-            //return categories;
-            return null;
+             var categories = query.ToList();
+             return categories;
+           
         }
         
       
