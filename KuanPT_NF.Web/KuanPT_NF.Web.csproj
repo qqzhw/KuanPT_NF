@@ -157,6 +157,7 @@
     <Content Include="Content\Images\aijiatishi.png" />
     <Content Include="Content\Images\banner1.png" />
     <Content Include="Content\Images\banner2.png" />
+    <Content Include="Content\Images\banner\banner168.jpg" />
     <Content Include="Content\Images\banner\banner168.png" />
     <Content Include="Content\Images\chuzhuangfei.png" />
     <Content Include="Content\Images\detail.png" />
@@ -169,6 +170,7 @@
     <Content Include="Content\Images\home_20M1.png" />
     <Content Include="Content\Images\home_50M.png" />
     <Content Include="Content\Images\home_50M1.png" />
+    <Content Include="Content\Images\home_50M138.png" />
     <Content Include="Content\Images\home_hot.png" />
     <Content Include="Content\Images\hotsale .png" />
     <Content Include="Content\Images\hotsale.gif" />
