@@ -108,7 +108,7 @@
                     <kpt:SimpleTextBox ID="tbName" runat="server" CssClass="dfinput" ErrorMessage="活动名称不能为空！" />
                 </li>
                 <li>
-                    <label>活动主题</label><asp:TextBox ID="tbSubject" runat="server" EnableTheming="false" CssClass="dfinput"></asp:TextBox></li>
+                    <label>活动主题</label><asp:TextBox ID="txtSubject" runat="server" EnableTheming="false" CssClass="dfinput"></asp:TextBox></li>
 
                 <li>
                     <label>首页Banner </label>

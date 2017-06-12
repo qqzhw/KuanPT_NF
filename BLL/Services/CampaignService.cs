@@ -37,7 +37,7 @@ namespace BLL.Services
 
         public void InsertCampaign(Campaign campaign)
         {
-           
+            _campaignRepository.Insert(campaign);
         }
 
         public void UpdateCampaign(Campaign campaign)
