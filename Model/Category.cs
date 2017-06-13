@@ -16,10 +16,10 @@ namespace Model
         public bool Published { get; set; }
         public bool Deleted { get; set; }
         public int DisplayOrder { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime? UpdateDate { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
         public string ComId { get; set; }
-        public string BmId { get; set; }
+        public int BmId { get; set; }
         //                CategoryName NVARCHAR(100) NOT NULL
 
         //                Description NVARCHAR(500)  NULL

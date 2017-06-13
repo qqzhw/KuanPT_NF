@@ -6,7 +6,7 @@
 .uew-select .uew-select-value{z-index:1;overflow:hidden;position:relative;padding-right:20px;background:#fff;font-size:12px; text-indent:5px;background:url(../../images/inputbg.gif) repeat-x;_background:none;_border:none;}
 .uew-select-value em{font-style:normal;}
 .uew-select .uew-icon{position:absolute;right:5px;top:10px;}
-.uew-select select{z-index:2;position:absolute;top:3px;_top:6px;cursor:pointer; height:28px;}
+.uew-select select{z-index:2;position:absolute;top:3px;top:6px;cursor:pointer; height:28px;}
 /***** 去除聚焦虚线框 *****/
 a:focus,input[type=checkbox]:focus,input[type=radio]:focus,button:focus,select{outline:none;}
 select{opacity:0;filter:alpha(opacity=0);}

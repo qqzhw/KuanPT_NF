@@ -174,7 +174,12 @@ namespace BLL.Services
             breadCrumb.Reverse();
             return breadCrumb;
         }
-
+        public Category GetCategoryByName(string categoryName)
+        {
+            var predicates = Predicates.Field<Category>(c => c.CategoryName, Operator.Eq, categoryName);
+           var query= _categoryRepository.GetList(predicates).FirstOrDefault();
+            return query;
+        }
         /// <summary>
         /// Inserts category
         /// </summary>
@@ -183,7 +188,11 @@ namespace BLL.Services
         {
             if (category == null)
                 throw new ArgumentNullException("category");
-
+            var model = GetCategoryByName(category.CategoryName);
+            if (model!=null)
+            {
+                return;
+            }
             category.CategoryName = CommonHelper.EnsureNotNull(category.CategoryName);
             category.CategoryName = CommonHelper.EnsureMaximumLength(category.CategoryName, 400);
             category.Description = CommonHelper.EnsureNotNull(category.Description);

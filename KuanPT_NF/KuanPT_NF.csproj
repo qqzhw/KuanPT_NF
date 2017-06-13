@@ -439,6 +439,7 @@
     <Content Include="m_kdO2O\KLAdd.aspx" />
     <Content Include="m_kdO2O\KLAuditList.aspx" />
     <Content Include="m_kdO2O\Modules\NumericTextBox.ascx" />
+    <Content Include="m_kdO2O\Modules\SelectCategoryControl.ascx" />
     <Content Include="m_kdO2O\Modules\SimpleTextBox.ascx" />
     <Content Include="m_kdO2O\OrderDetails.aspx" />
     <Content Include="m_kdO2O\OrderList.aspx" />
@@ -553,6 +554,13 @@
     </Compile>
     <Compile Include="m_kdO2O\Modules\NumericTextBox.ascx.designer.cs">
       <DependentUpon>NumericTextBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\Modules\SelectCategoryControl.ascx.cs">
+      <DependentUpon>SelectCategoryControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\Modules\SelectCategoryControl.ascx.designer.cs">
+      <DependentUpon>SelectCategoryControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="m_kdO2O\Modules\SimpleTextBox.ascx.cs">
       <DependentUpon>SimpleTextBox.ascx</DependentUpon>

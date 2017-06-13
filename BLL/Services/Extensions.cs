@@ -91,6 +91,11 @@ namespace  BLL
             }
             return result;
         }
-         
+        public static Category GetParentCategory(this Category category,int ParentCategoryId)
+        {
+            var categoryService = EngineContext.Current.Resolve<ICategoryService>();  
+                return categoryService.GetCategoryById(ParentCategoryId);
+           
+        } 
     }
 }

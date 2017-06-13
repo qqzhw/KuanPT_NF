@@ -30,7 +30,8 @@ namespace BLL.Services
          
         Category GetCategoryById(int categoryId);
 
-       
+        Category GetCategoryByName(string categoryName);
+
         List<Category> GetBreadCrumb(int categoryId);
 
         
