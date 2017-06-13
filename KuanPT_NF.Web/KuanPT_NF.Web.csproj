@@ -162,6 +162,7 @@
     <Content Include="Content\Images\chuzhuangfei.png" />
     <Content Include="Content\Images\detail.png" />
     <Content Include="Content\Images\fanhui.png" />
+    <Content Include="Content\Images\guzhangbaoxiu.png" />
     <Content Include="Content\Images\home_100M.png" />
     <Content Include="Content\Images\50M.jpg" />
     <Content Include="Content\Images\home_100M1.png" />
@@ -178,6 +179,7 @@
     <Content Include="Content\Images\huodongneirong.png" />
     <Content Include="Content\Images\kuandaizhuanqu.png" />
     <Content Include="Content\Images\lijibanli.png" />
+    <Content Include="Content\Images\onlineservice.png" />
     <Content Include="Content\Images\test20.png" />
     <Content Include="Content\Images\test30.png" />
     <Content Include="Content\Images\today_hot.png" />
