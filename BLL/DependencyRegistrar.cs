@@ -44,7 +44,7 @@ namespace BLL
 
           
             //controllers
-           // builder.RegisterAssemblyTypes(typeFinder.GetAssemblies().ToArray()).InstancePerLifetimeScope();
+           builder.RegisterAssemblyTypes(typeFinder.GetAssemblies().ToArray()).InstancePerLifetimeScope();
              
            
             var sqlcon = ConfigurationManager.ConnectionStrings["ApplicationServices"].ToString();

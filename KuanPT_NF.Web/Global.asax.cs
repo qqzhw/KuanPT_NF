@@ -29,9 +29,8 @@ namespace KuanPT_NF.Web
             var container = EngineContext.Current.ContainerManager.Container;
             var builder = EngineContext.Current.ContainerBuilder;
             var typeFinder = EngineContext.Current.Resolve<ITypeFinder>();
-           DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-          builder.RegisterControllers(typeof(MvcApplication).Assembly);
-
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            builder.RegisterControllers(typeof(MvcApplication).Assembly);
         }
     }
 }
