@@ -3651,9 +3651,9 @@ input[type=checkbox]:checked + label:before {
 .btn {
 	outline: 0 !important;
 	text-shadow: none;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	border-radius:8px;  
+	-webkit-border-radius: 8px  !important;
+	-moz-border-radius: 8px  !important;
+	border-radius:8px !important;  
 	-webkit-transition: all 0.15s ease;
 	-moz-transition: all 0.15s ease;
 	-o-transition: all 0.15s ease;
@@ -3715,6 +3715,11 @@ input[type=checkbox]:checked + label:before {
     color: #F2A161;
     font-size: 13px;
     margin-top:3px;
+}
+.tabheader span{ 
+    color:#52B4FF;
+    font-size:16px;
+    font-weight:500;
 }
 .listpadding{
     margin-left:10px;

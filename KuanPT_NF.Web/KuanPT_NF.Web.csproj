@@ -212,6 +212,7 @@
     <Content Include="Content\nivoslider\themes\light\loading.gif" />
     <Content Include="Content\Styles\animate.css" />
     <Content Include="Content\Styles\bootstrap.min.css" />
+    <Content Include="Content\Styles\components.min.css" />
     <Content Include="Content\Styles\Index.css" />
     <Content Include="Content\Styles\kendo.common-nova.min.css" />
     <Content Include="Content\Styles\kendo.mobile.nova.min.css" />

@@ -9,11 +9,12 @@
    
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="../Content/Styles/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../Content/Styles/theme.css" />
-    <link rel="stylesheet" type="text/css" href="../Content/Styles/animate.css" /> 
+    <link rel="stylesheet" type="text/css" href="../Content/Styles/bootstrap.min.css" /> 
+    <link rel="stylesheet" type="text/css" href="../Content/Styles/components.min.css" /> 
+    <link rel="stylesheet" type="text/css" href="../Content/Styles/theme.css" /> 
     <script type="text/javascript" src="../Scripts/jquery.min.js"></script>
     <script type="text/javascript" src="../Scripts/kendo.mobile.min.js"></script>
+
     <title>产品详细</title> 
 </head>
 <body>
@@ -38,82 +39,97 @@
                                 <span class="widget-thumb-title pcenter">
                                     <img src="../Content/Images/detail.png"/>
                                 </span>
-                                <div class="widget-thumb-title pcenter" style="margin-top: 2px;"><span>套餐内容：</span><span style="color: #52B4FF">家庭优惠免费送</span> </div>
-                                <div class="widget-thumb-title pcenter"><span>价格：</span><span style="color:#52B4FF">20M+收视+手机成员1-2个  ¥108元/月</span></div>
+                                <div class="widget-thumb-title pcenter" style="margin-top: 2px;"><span>套餐内容：</span><span style="color: #52B4FF">新爱家108</span> </div>
+                                <div class="widget-thumb-title pcenter"><span>价格：</span><span style="color:#52B4FF">个人消费108/月，50M宽带和高清收视。  ¥108元/月</span></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="widget-thumb widget-bg-color-white text-uppercase  borderedbottom">
-                <div class="widget-thumb-wrap row">
-                    <img src="../Content/Images/chuzhuangfei.png" alt="" style="margin-left:10px;float:left;"/>
-                    <div style="float:left;font-size:18px;margin-left:2px;margin-top:-1px;font-weight:600;color:#3e4f5e">初装费：<span style="font-size:22px; padding-top:5px; font-weight:700">100</span></div>                          
-                   
-                </div>
-            </div>
-
-        </div>
+      
         <div class="pull-right" style="margin-right:68px;">
             <div style="position: absolute;z-index:1000;">
                 <a href="https://kefu.easemob.com/webim/im.html?tenantId=36541&emgroup=%E5%AE%A2%E6%9C%8D%E7%BB%84&phone=13800138000"> <img src="~/Content/Images/onlineservice.png" style="width:64px;" /></a>
             </div>
-        </div>
+        </div> 
         <div class="col-md-12">
-            <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 borderedbottom">
-                <div class="widget-thumb-wrap row">
-                    <div class="col-xs-pull-12">
-                        <div class="widget-thumb-body">
-                            <img src="../Content/Images/huodongneirong.png" alt="" style="margin-left:10px;float:left;" />
-                            <div style="float:left;font-size:18px;margin-left:2px;font-weight:600;margin-top:5px;color:#3e4f5e">活动内容</div>                          
-                            <div style="margin-left:30px;float:left;">
-                                <p style="padding-left:16px;padding-right:4px;font-size:14px;font-weight:600; color:#A0A0A0">
-                                    1.资费说明:全家话费用满108元,20M宽带免费用，高清收视免费看。
-                                    <br />
-                                    2.设备说明:机顶盒(150元)+光猫免费用。用户退订宽带套餐需退还机顶盒设备；机顶盒副机150元买断。
-                                </p>
+            <div class="tabbable-line">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_1" data-toggle="tab" aria-expanded="true"> <span style="font-weight:500;font-size:16px;">业务介绍</span> </a>
+                    </li>
+                    <li class="">
+                        <a href="#tab_2" data-toggle="tab" aria-expanded="false"><span style="font-weight:500;font-size:16px;"> 温馨提示</span> </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <div class="widget-thumb-wrap row">
+                            <div class="col-xs-pull-12">
+                                <div class="widget-thumb-body">
+                                    <div style="padding-left:16px;padding-right:4px;font-size:14px;font-weight:600; color:#A0A0A0">
+                                        资费名称：新爱家108<br/>
+                                        •带宽：50M<br />
+                                        •套餐费用：108元/月<br />
+                                        •手机成员（含主号码）：2<br />
+                                        •共享话费：98元<br />
+                                        •赠送语音：成员间共享本地互拨通话2000分钟<br />
+                                        •初装费：150元
+                                    </div>
+                                </div>
                             </div>
 
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_2">
+                        <div class="widget-thumb-wrap row">
+                            <div class="col-xs-pull-12">
+                                <div class="widget-thumb-body">
+                                    <div style="padding-left:16px;padding-right:4px;font-size:14px;font-weight:600; color:#A0A0A0">
+                                        1、基本成员的主资费在加入本融合套餐时不变更主资费；<br/>
+                                        2、共享话费通过账单优惠方式实现，可以实时优惠除小额支付，补收外的其他费用，改优惠针对套餐内的所有成员共享；<br />
+                                        3、因地址覆盖问题登原因可能会出现无法安装的情况，敬请谅解，我们后续将尽快解决，感谢您的支持；<br />
+                                        4、赠送语音2000分钟仅限成员间本地通话<br />
+                                        5、协议期为一年<br />
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="col-md-12">
-            <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 borderedbottom">
-                <div class="widget-thumb-wrap row">
-                    <div class="col-xs-pull-12">
-                        <div class="widget-thumb-body">
-                            <img src="../Content/Images/wenxintishi.png" alt="" style="margin-left:10px;float:left;" />
-                            <div style="float:left;font-size:18px;margin-left:2px;font-weight:600;margin-top:5px;color:#3e4f5e">温馨提示</div>
+            <div class="widget-thumb widget-bg-color-white text-uppercase">
 
-                            <div style="margin-left:30px;float:left;">
-                                <p style="padding-left:16px;padding-right:4px;font-size:14px;font-weight:600; color:#A0A0A0">
-                                    1、因业务发展较快，网页内容仅供参考，尤其涉及设备费及初装费等信息会根据业务发展不定期进行调整，最终以当地工作人员解释为准。
-                                    <br />
-                                    2、不限量套餐变更说明：如用户办理或变更宽带资费，原不限量流量包月套餐将自动取消，且不再恢复。<br />
-                                    3、因地址覆盖等原因可能会出现无法安装的情况，敬请谅解，我们后续将尽快解决，感谢您的支持。<br />
-                                    4、协议期为一年。
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
+                <div class="widget-thumb-wrap" style="padding-left:10px;padding-right:10px;">
+                    <a href="https://kefu.easemob.com/webim/im.html?tenantId=36541&emgroup=%E5%AE%A2%E6%9C%8D%E7%BB%84&phone=13800138000" class="btn blue btn-block">立即在线办理</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-12">
-            <!-- BEGIN WIDGET THUMB -->
-            <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered" style="background-color:#EFF2FC">
-
-                <div class="widget-thumb-wrap"  style="padding-left:10px;padding-right:10px;">
-                  <a href="https://kefu.easemob.com/webim/im.html?tenantId=36541&emgroup=%E5%AE%A2%E6%9C%8D%E7%BB%84&phone=13800138000" class="btn blue btn-block">立即在线办理</a>
-                </div>
-            </div>
-        </div>
+       
     </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            handleTabs();
+        });
+        // Handles Tabs
+        var handleTabs = function () {
+            $(".nav.nav-tabs li").each(function () {
+                $(this).on("click", function (e)
+                {
+                    $(e.target).parent().parent().find("li").removeClass("active");
+                    $(e.target).parent().parent().find("li a").removeClass("tabheader");
+                    $(e.target).parent().addClass("active");
+                    $(e.target).addClass("tabheader");
+                    $(".tab-pane").removeClass("active");
+                    $($(e.target).attr("href")).addClass("active");
+                });
+            });
+            $(".nav.nav-tabs li:first a").click();
+        };
+    </script>
 </body>
 </html>
