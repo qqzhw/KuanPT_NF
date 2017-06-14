@@ -103,21 +103,24 @@ namespace BLL.Services
             IList<IPredicate> predList = new List<IPredicate>
             {
                 Predicates.Field<Shop>(p => p.ShowOnHomePage, Operator.Eq, true),
-                Predicates.Field<Shop>(p=>p.State, Operator.Eq, 1)
-            }; 
+               // Predicates.Field<Shop>(p=>p.State, Operator.Eq, 1)
+            };
+            var predicate = Predicates.Field<Shop>(p => p.ShowOnHomePage, Operator.Eq, true);
             IList<ISort> sortItems = new List<ISort>
             {
                 new Sort { PropertyName = "DisplayOrder", Ascending = true }
             };
-            var query = _shopInfoRepository.GetList(predList, sortItems);
+            var query = _shopInfoRepository.GetList(predicate, sortItems);
             return query.Take(4).ToList(); 
         }
 
         public Shop GetProductById(int productId)
         {
-            throw new NotImplementedException();
+            if (productId == 0)
+                return null;
+            var shop = _shopInfoRepository.GetById(productId);
+            return shop;
         }
-
         public ProductPicture GetProductPictureById(int productPictureId)
         {
             throw new NotImplementedException();

@@ -1,8 +1,18 @@
 ﻿@model HomeViewModel
 @using KuanPT_NF.Web.Models;
 @{
-    ViewBag.Title = "德阳移动宽带"; 
-} 
+    ViewBag.Title = "德阳移动宽带";
+}
+@*<div class="slider-wrapper theme-custom">
+    <div id="nivo-slider" class="nivoSlider">
+        <a href="#">
+            <img src="../Content/Images/banner1.png" alt="" title="" />
+        </a> 
+
+    </div>
+
+</div>*@
+ <!--banner -->
 <div class="banner">
     <div class="img">
         <ul class="clearfix">
@@ -56,7 +66,22 @@
                         <a href="/shop/detail/@item.ShopId"> <div style="float:right;margin-top:4px;  margin-right:10px;margin-bottom:2px;">详情></div></a>
                     </div>
                 </div>
-            }        
+            }
+            @*<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 padding-leftright" >
+                <div class="itemborder">
+                    <div class="b-item-card wow fadeInUp">
+                        <div class="image">
+                            <img src="../Content/Images/home_20M1.png" class="img-responsive center-block" alt="" />
+                            <div class="image-add-mod">
+                                <a href="https://kefu.easemob.com/webim/im.html?tenantId=36541&emgroup=%E5%AE%A2%E6%9C%8D%E7%BB%84&phone=13800138000"><img src="../Content/Images/lijibanli.png" alt="" /></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="float:left;margin-left:20px;   margin-bottom:2px;"><span style="font-size:16px;color:#F87A7D">78</span>元/月</div>
+                    <a href="/home/productdetail"> <div style="float:right;margin-top:4px;  margin-right:10px;margin-bottom:2px;">详情></div></a>
+                </div>
+            </div>*@
+          
         </div> 
     </div> 
 </div>
@@ -65,16 +90,15 @@
     <img src="~/Content/Images/banner/banner168.jpg" style="height:100%;width:100%;"/>
 </div>
 <div class="col-md-12 row" style="height:10px;background-color:#EEF1F8"></div>
-<div class="pull-right" style="margin-right:68px;">
-    <div style="position: absolute;z-index:1000;">
-        <a href="http://weixin.sd.chinamobile.com/usi-weixin-web/cmsd/selfCowcatcherGuideController/routerArea.action?weixinId=ooEa_sx8qiHd0blKwjRzA7S6xWmI&from=singlemessage&isappinstalled=0"> <img src="~/Content/Images/guzhangbaoxiu.png" style="width:64px;" /></a>
-    </div>
-</div>
     <div class="col-md-12 row" style="margin-top:2px;margin-bottom:5px;height:35px;">
         <img src="../Content/Images/today_hot.png" style="float:left;height:30px;border:none;" /> <div style="float:left;font-size:15px;margin-top:8px;color:#3e4f5e">今日热销</div>
         
     </div>
-
+<div class="pull-right" style="margin-right:68px;">
+    <div style="position: absolute;z-index:1000;">
+        <a href="http://weixin.sd.chinamobile.com/usi-weixin-web/cmsd/selfCowcatcherGuideController/routerArea.action?weixinId=ooEa_sx8qiHd0blKwjRzA7S6xWmI&from=singlemessage&isappinstalled=0"> <img src="~/Content/Images/guzhangbaoxiu.png" style="width:64px;" /></a> 
+    </div>
+</div>
     <div class="row widget-row">
         <div class="col-md-12">
             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
@@ -127,7 +151,7 @@
     
     </div>
   <script src="../Scripts/zepto.banner.js"></script>
-    <script type="text/javascript">
+    <script>
     var bannerHeight;
     var bannerWidth;
     var deviceWidth;
@@ -159,4 +183,3 @@
         bannerWidth: bannerWidth, //banner的宽度
     });
 </script>
- 

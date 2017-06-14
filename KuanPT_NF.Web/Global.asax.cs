@@ -9,6 +9,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
+using KuanPT_NF.Web.Controllers;
 
 namespace KuanPT_NF.Web
 {
@@ -32,5 +33,46 @@ namespace KuanPT_NF.Web
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
         }
+        protected void Application_Error(Object sender, EventArgs e)
+        {
+            var exception = Server.GetLastError();
+             
+            //process 404 HTTP errors
+            var httpException = exception as HttpException; 
+            if (httpException != null && httpException.GetHttpCode() == 404)
+            {
+
+                Response.Clear();
+                Server.ClearError();
+                Response.TrySkipIisCustomErrors = true;
+
+                // Call target Controller and pass the routeData.
+                IController errorController = EngineContext.Current.Resolve<HomeController>();
+
+                var routeData = new RouteData();
+                routeData.Values.Add("controller", "Home");
+                routeData.Values.Add("action", "PageNotFound");
+
+                errorController.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
+
+            }
+            else
+            {
+                Response.Clear();
+                Server.ClearError();
+                Response.TrySkipIisCustomErrors = true;
+                // Call target Controller and pass the routeData.
+                IController errorController = EngineContext.Current.Resolve<HomeController>();
+
+                var routeData = new RouteData();
+                routeData.Values.Add("controller", "Home");
+                routeData.Values.Add("action", "PageError");
+
+                errorController.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
+
+
+            }
+        }
+
     }
 }

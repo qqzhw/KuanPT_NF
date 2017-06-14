@@ -1,4 +1,5 @@
 ﻿using BLL.Services;
+using KuanPT_NF.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +17,26 @@ namespace KuanPT_NF.Web.Controllers
         }
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View();
+            ViewBag.Message = "德阳移动";
+            var model = new HomeViewModel()
+            {
+                ShopInfos = _shopService.GetAllProductsDisplayedOnHomePage().Select(o => new ShopModel()
+                {
+                   Commission=o.Commission,
+                   CreateDate=o.CreateDate,
+                   Description=o.Description,
+                   DisplayOrder=o.DisplayOrder,
+                   Img=o.Img,
+                   Price=o.Price,
+                   Remark=o.Remark,
+                   ShopId=o.ShopId,
+                   ShopName=o.ShopName,
+                   ShopType=o.ShopType,
+                   ShortDescription=o.ShortDescription,
+                   ShowOnHomePage=o.ShowOnHomePage, 
+                }).ToList()
+            };
+            return View(model);
         }
 
         public ActionResult About()
@@ -80,6 +98,14 @@ namespace KuanPT_NF.Web.Controllers
         {
             ViewBag.Message = "在线办理";
 
+            return View();
+        }
+        public ActionResult PageNotFound()
+        {
+            return View();
+        }
+        public ActionResult PageError()
+        {
             return View();
         }
     }
