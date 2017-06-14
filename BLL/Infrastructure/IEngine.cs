@@ -1,4 +1,5 @@
-﻿using System;  
+﻿using Autofac;
+using System;
 
 namespace BLL.Infrastructure
 {
@@ -14,7 +15,7 @@ namespace BLL.Infrastructure
         /// Container manager
         /// </summary>
         ContainerManager ContainerManager { get; }
-        
+        ContainerBuilder ContainerBuilder { get; set; }
         /// <summary>
         /// Initialize components and plugins in the nop environment.
         /// </summary>

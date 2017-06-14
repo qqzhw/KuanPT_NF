@@ -6,6 +6,7 @@ using System.Text;
 using NopSolutions.NopCommerce.BusinessLogic.Products;
 using BLL.Caching;
 using DAL;
+using DapperExtensions;
 
 namespace BLL.Services
 {
@@ -99,7 +100,17 @@ namespace BLL.Services
 
         public List<Shop> GetAllProductsDisplayedOnHomePage()
         {
-            throw new NotImplementedException();
+            IList<IPredicate> predList = new List<IPredicate>
+            {
+                Predicates.Field<Shop>(p => p.ShowOnHomePage, Operator.Eq, true),
+                Predicates.Field<Shop>(p=>p.State, Operator.Eq, 1)
+            }; 
+            IList<ISort> sortItems = new List<ISort>
+            {
+                new Sort { PropertyName = "DisplayOrder", Ascending = true }
+            };
+            var query = _shopInfoRepository.GetList(predList, sortItems);
+            return query.Take(4).ToList(); 
         }
 
         public Shop GetProductById(int productId)

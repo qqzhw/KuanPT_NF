@@ -13,11 +13,12 @@ namespace BLL.Infrastructure
         #region Fields
 
         private ContainerManager _containerManager;
-
+        private ContainerBuilder _containerBuilder;
+        
         #endregion
 
         #region Utilities
-         
+
         /// <summary>
         /// Register dependencies
         /// </summary>
@@ -43,7 +44,7 @@ namespace BLL.Infrastructure
 
             var container = builder.Build();
             this._containerManager = new ContainerManager(container);
-
+            _containerBuilder = builder;
             //set dependency resolver
             // DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
@@ -103,6 +104,19 @@ namespace BLL.Infrastructure
         public ContainerManager ContainerManager
         {
             get { return _containerManager; }
+        }
+
+        public ContainerBuilder ContainerBuilder
+        {
+            get
+            {
+                return _containerBuilder;
+            }
+
+            set
+            {
+                _containerBuilder = value;
+            }
         }
 
         #endregion
