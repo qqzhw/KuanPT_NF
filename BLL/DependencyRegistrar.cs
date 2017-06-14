@@ -56,6 +56,7 @@ namespace BLL
             builder.RegisterType<CampaignService>().As<ICampaignService>().InstancePerLifetimeScope();
             builder.RegisterType<PictureService>().As<IPictureService>().InstancePerLifetimeScope();
             builder.RegisterType<CategoryService>().As<ICategoryService>().InstancePerLifetimeScope();
+            builder.RegisterType<ShopService>().As<IShopService>().InstancePerLifetimeScope();
         }
 
         /// <summary>

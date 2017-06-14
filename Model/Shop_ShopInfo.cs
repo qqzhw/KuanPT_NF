@@ -5,11 +5,9 @@ using System.Linq;
 using System.Text;
 
 namespace Model
-{
-    [Table("Shop")]
-    public class Shop_ShopInfo
-    {
-        [Key]
+{ 
+    public class Shop
+    { 
         public int ShopId { get; set; }
         public string ShopName { get; set; }
 
@@ -26,6 +24,9 @@ namespace Model
 
          public int DisplayOrder { get; set; }
 
+        public string Description { get; set; }
+        public string ShortDescription { get; set; }
+        public string Remark { get; set; }
         public int CreateUserId { get; set; }
 
         public DateTime CreateDate { get; set; }

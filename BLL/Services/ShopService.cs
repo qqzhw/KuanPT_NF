@@ -25,14 +25,14 @@ namespace BLL.Services
 
         #region Fields  
         private readonly ICacheManager _cacheManager;
-        private readonly IRepository<Shop_ShopInfo> _shopInfoRepository; 
+        private readonly IRepository<Shop> _shopInfoRepository; 
         private readonly IRepository<Category> _categoryRepository;
         private readonly IRepository<ShopCategory> _shopcategoryRepository;
         #endregion
 
         #region Ctor
 
-        public ShopService(IRepository<Shop_ShopInfo> shopInfoRepository, IRepository<Category> categoryRepository, IRepository<ShopCategory> shopcategoryRepository)
+        public ShopService(IRepository<Shop> shopInfoRepository, IRepository<Category> categoryRepository, IRepository<ShopCategory> shopcategoryRepository)
         {
             _shopInfoRepository = shopInfoRepository;
             _categoryRepository = categoryRepository;
@@ -47,62 +47,62 @@ namespace BLL.Services
             throw new NotImplementedException();
         }
 
-        public List<Shop_ShopInfo> GetAllProducts()
+        public List<Shop> GetAllProducts()
         {
             throw new NotImplementedException();
         }
 
-        public List<Shop_ShopInfo> GetAllProducts(bool showHidden)
+        public List<Shop> GetAllProducts(bool showHidden)
         {
             throw new NotImplementedException();
         }
 
-        public List<Shop_ShopInfo> GetAllProducts(int pageSize, int pageIndex, out int totalRecords)
+        public List<Shop> GetAllProducts(int pageSize, int pageIndex, out int totalRecords)
         {
             throw new NotImplementedException();
         }
 
-        public List<Shop_ShopInfo> GetAllProducts(int categoryId, bool? featuredProducts, int pageSize, int pageIndex, out int totalRecords)
+        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts, int pageSize, int pageIndex, out int totalRecords)
         {
             throw new NotImplementedException();
         }
 
-        public List<Shop_ShopInfo> GetAllProducts(string keywords, bool searchDescriptions, int pageSize, int pageIndex, out int totalRecords)
+        public List<Shop> GetAllProducts(string keywords, bool searchDescriptions, int pageSize, int pageIndex, out int totalRecords)
         {
             throw new NotImplementedException();
         }
 
-        public List<Shop_ShopInfo> GetAllProducts(int categoryId, bool? featuredProducts, string keywords, bool searchDescriptions, int pageSize, int pageIndex, List<int> filteredSpecs, out int totalRecords)
+        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts, string keywords, bool searchDescriptions, int pageSize, int pageIndex, List<int> filteredSpecs, out int totalRecords)
         {
             throw new NotImplementedException();
         }
 
-        public List<Shop_ShopInfo> GetAllProducts(int categoryId, bool? featuredProducts, decimal? priceMin, decimal? priceMax, int pageSize, int pageIndex, List<int> filteredSpecs, out int totalRecords)
+        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts, decimal? priceMin, decimal? priceMax, int pageSize, int pageIndex, List<int> filteredSpecs, out int totalRecords)
         {
             throw new NotImplementedException();
         }
 
-        public List<Shop_ShopInfo> GetAllProducts(int categoryId, bool? featuredProducts, decimal? priceMin, decimal? priceMax, string keywords, bool searchDescriptions, int pageSize, int pageIndex, List<int> filteredSpecs, out int totalRecords)
+        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts, decimal? priceMin, decimal? priceMax, string keywords, bool searchDescriptions, int pageSize, int pageIndex, List<int> filteredSpecs, out int totalRecords)
         {
             throw new NotImplementedException();
         }
 
-        public List<Shop_ShopInfo> GetAllProducts(int categoryId, bool? featuredProducts, decimal? priceMin, decimal? priceMax, string keywords, bool searchDescriptions, int pageSize, int pageIndex, ProductSortingEnum orderBy, out int totalRecords)
+        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts, decimal? priceMin, decimal? priceMax, string keywords, bool searchDescriptions, int pageSize, int pageIndex, ProductSortingEnum orderBy, out int totalRecords)
         {
             throw new NotImplementedException();
         }
 
-        public List<Shop_ShopInfo> GetAllProducts(int categoryId, bool? featuredProducts, decimal? priceMin, decimal? priceMax, string keywords, bool searchDescriptions, int pageSize, int pageIndex, List<int> filteredSpecs, ProductSortingEnum orderBy, out int totalRecords)
+        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts, decimal? priceMin, decimal? priceMax, string keywords, bool searchDescriptions, int pageSize, int pageIndex, List<int> filteredSpecs, ProductSortingEnum orderBy, out int totalRecords)
         {
             throw new NotImplementedException();
         }
 
-        public List<Shop_ShopInfo> GetAllProductsDisplayedOnHomePage()
+        public List<Shop> GetAllProductsDisplayedOnHomePage()
         {
             throw new NotImplementedException();
         }
 
-        public Shop_ShopInfo GetProductById(int productId)
+        public Shop GetProductById(int productId)
         {
             throw new NotImplementedException();
         }
@@ -117,9 +117,16 @@ namespace BLL.Services
             throw new NotImplementedException();
         }
 
-        public void InsertProduct(Shop_ShopInfo product)
+        public void InsertProduct(Shop product)
         {
-            throw new NotImplementedException();
+            if (product == null)
+                throw new ArgumentNullException("product");
+            //var model = GetCategoryByName(category.CategoryName);
+            //if (model != null)
+            //{
+            //    return;
+            //}
+            _shopInfoRepository.Insert(product);
         }
 
         public void InsertProductPicture(ProductPicture productPicture)
@@ -132,7 +139,7 @@ namespace BLL.Services
             throw new NotImplementedException();
         }
 
-        public void UpdateProduct(Shop_ShopInfo product)
+        public void UpdateProduct(Shop product)
         {
             throw new NotImplementedException();
         }

@@ -15,10 +15,10 @@ namespace BLL.Services
         void MarkProductAsDeleted(int productId);
 
 
-        List<Shop_ShopInfo> GetAllProducts();
+        List<Shop> GetAllProducts();
 
        
-        List<Shop_ShopInfo> GetAllProducts(bool showHidden);
+        List<Shop> GetAllProducts(bool showHidden);
 
         /// <summary>
         /// Gets all products
@@ -27,7 +27,7 @@ namespace BLL.Services
         /// <param name="pageIndex">Page index</param>
         /// <param name="totalRecords">Total records</param>
         /// <returns>Product collection</returns>
-        List<Shop_ShopInfo> GetAllProducts(int pageSize, int pageIndex,
+        List<Shop> GetAllProducts(int pageSize, int pageIndex,
             out int totalRecords);
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace BLL.Services
         /// <param name="pageIndex">Page index</param>
         /// <param name="totalRecords">Total records</param>
         /// <returns>Product collection</returns>
-        List<Shop_ShopInfo> GetAllProducts(int categoryId,
+        List<Shop> GetAllProducts(int categoryId,
            bool? featuredProducts,  int pageSize, int pageIndex, out int totalRecords);
 
         /// <summary>
@@ -51,45 +51,45 @@ namespace BLL.Services
         /// <param name="pageIndex">Page index</param>
         /// <param name="totalRecords">Total records</param>
         /// <returns>Product collection</returns>
-        List<Shop_ShopInfo> GetAllProducts(string keywords,
+        List<Shop> GetAllProducts(string keywords,
             bool searchDescriptions, int pageSize, int pageIndex, out int totalRecords);
 
         
-        List<Shop_ShopInfo> GetAllProducts(int categoryId,
+        List<Shop> GetAllProducts(int categoryId,
              bool? featuredProducts,  string keywords, bool searchDescriptions, int pageSize,
             int pageIndex, List<int> filteredSpecs, out int totalRecords);
  
-        List<Shop_ShopInfo> GetAllProducts(int categoryId,
+        List<Shop> GetAllProducts(int categoryId,
             bool? featuredProducts,  decimal? priceMin, decimal? priceMax, int pageSize,
             int pageIndex, List<int> filteredSpecs, out int totalRecords);
 
         
-        List<Shop_ShopInfo> GetAllProducts(int categoryId,  bool? featuredProducts,
+        List<Shop> GetAllProducts(int categoryId,  bool? featuredProducts,
             decimal? priceMin, decimal? priceMax, string keywords,
             bool searchDescriptions, int pageSize, int pageIndex,
             List<int> filteredSpecs, out int totalRecords);
        
-        List<Shop_ShopInfo> GetAllProducts(int categoryId,
+        List<Shop> GetAllProducts(int categoryId,
            bool? featuredProducts,  decimal? priceMin, decimal? priceMax, string keywords,
             bool searchDescriptions, int pageSize, int pageIndex,
               ProductSortingEnum orderBy, out int totalRecords); 
         
-        List<Shop_ShopInfo> GetAllProducts(int categoryId,
+        List<Shop> GetAllProducts(int categoryId,
             bool? featuredProducts, decimal? priceMin, decimal? priceMax,
             string keywords, bool searchDescriptions, int pageSize,
             int pageIndex, List<int> filteredSpecs,    ProductSortingEnum orderBy, out int totalRecords);
           
        
-        List<Shop_ShopInfo> GetAllProductsDisplayedOnHomePage();
+        List<Shop> GetAllProductsDisplayedOnHomePage();
 
         
-        Shop_ShopInfo GetProductById(int productId);
+        Shop GetProductById(int productId);
 
         
-        void InsertProduct(Shop_ShopInfo product);
+        void InsertProduct(Shop product);
 
         
-        void UpdateProduct(Shop_ShopInfo product);
+        void UpdateProduct(Shop product);
          
         #endregion
 

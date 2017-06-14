@@ -257,7 +257,7 @@ namespace BLL.Services
                               where a.CategoryId == categoryId and
                         b.Deleted=false and   b.Published=true 
                         orderby a.DisplayOrder ";
-            var infos = _shopcategoryRepository.DbContext.Query<ShopCategory,Shop_ShopInfo,ShopCategory>(sql,(s,p)=> {
+            var infos = _shopcategoryRepository.DbContext.Query<ShopCategory,Shop,ShopCategory>(sql,(s,p)=> {
                 var currentItem = items.Find(x => x.Id == s.Id);
                 if (currentItem==null)
                 {
