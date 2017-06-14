@@ -116,6 +116,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
+    <Content Include="taocan100M.png" />
+    <Content Include="taocan20M.png" />
+    <Content Include="taocan30M.png" />
+    <Content Include="taocan50M.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
