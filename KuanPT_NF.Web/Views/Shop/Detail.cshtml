@@ -2,6 +2,7 @@
 @using KuanPT_NF.Web.Models;
 @{
     Layout = null;
+    ViewBag.Title = Model.ShopName;
 }
 
 <!DOCTYPE html> 
@@ -14,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="/Content/Styles/components.min.css" />
     <link rel="stylesheet" type="text/css" href="/Content/Styles/theme.css" />
     <script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script>
-    <title></title> 
+    <title>@Model.ShopName</title> 
 </head>
 <body>
     <div class="row widget-row">
