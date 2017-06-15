@@ -17,7 +17,7 @@ namespace BLL.Services
 
         List<Shop> GetAllProducts();
 
-       
+        List<Shop> GetAllHotProducts();
         List<Shop> GetAllProducts(bool showHidden);
 
         /// <summary>

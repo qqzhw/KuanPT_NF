@@ -36,6 +36,7 @@ namespace KuanPT_NF.Web.Controllers
                    ShowOnHomePage=o.ShowOnHomePage, 
                 }).ToList()
             };
+            model.HotShopModel = model.ShopInfos.FirstOrDefault();
             return View(model);
         }
 

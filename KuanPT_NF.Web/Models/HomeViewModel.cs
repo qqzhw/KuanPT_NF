@@ -12,5 +12,6 @@ namespace KuanPT_NF.Web.Models
             ShopInfos = new List<ShopModel>();
         }
         public List<ShopModel> ShopInfos { get; set; }
+        public ShopModel HotShopModel { get; set; }
     }
 }

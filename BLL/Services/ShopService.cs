@@ -52,7 +52,10 @@ namespace BLL.Services
         {
             throw new NotImplementedException();
         }
-
+        public List<Shop> GetAllHotProducts()
+        {
+            return GetAllProductsDisplayedOnHomePage();
+        }
         public List<Shop> GetAllProducts(bool showHidden)
         {
             throw new NotImplementedException();
