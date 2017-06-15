@@ -11,12 +11,16 @@ namespace DAL
 
 		protected IDbConnection Connection
 		{
+            
 			get {
-				if (_connection.State!=ConnectionState.Open)
-				{
-					_connection.Open();
-				}
-				return _connection;
+                lock (_connection)
+                {
+                    if (_connection.State != ConnectionState.Open)
+                    {
+                        _connection.Open();
+                    }
+                    return _connection;
+                }
 			}
 		}
 		public DataConnection(IDbConnection connection)

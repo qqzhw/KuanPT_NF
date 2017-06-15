@@ -19,7 +19,41 @@ namespace KuanPT_NF.Web.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            var items = _shopService.GetAllProducts(1).Select(o => new ShopModel()
+            {
+                Commission = o.Commission,
+                CreateDate = o.CreateDate,
+                Description = o.Description,
+                DisplayOrder = o.DisplayOrder,
+                Img = o.Img,
+                Price = o.Price,
+                Remark = o.Remark,
+                ShopId = o.ShopId,
+                ShopName = o.ShopName,
+                ShopType = o.ShopType,
+                ShortDescription = o.ShortDescription,
+                ShowOnHomePage = o.ShowOnHomePage,
+            }).ToList();
+            return View(items); 
+        }
+        public ActionResult List()
+        {
+            var items = _shopService.GetAllProducts(1).Select(o => new ShopModel()
+            {
+                Commission = o.Commission,
+                CreateDate = o.CreateDate,
+                Description = o.Description,
+                DisplayOrder = o.DisplayOrder,
+                Img = o.Img,
+                Price = o.Price,
+                Remark = o.Remark,
+                ShopId = o.ShopId,
+                ShopName = o.ShopName,
+                ShopType = o.ShopType,
+                ShortDescription = o.ShortDescription,
+                ShowOnHomePage = o.ShowOnHomePage,
+            }).ToList();
+            return View(items);
         }
         public ActionResult Detail(int Id)
         {

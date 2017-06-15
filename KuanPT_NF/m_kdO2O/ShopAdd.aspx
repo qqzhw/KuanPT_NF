@@ -122,7 +122,7 @@
                     </div>
                 </li>
                 <li>
-                    <label>手续费</label>
+                    <label>佣金</label>
                     <div style="vertical-align: middle; padding-top: 8px;">
                         <kpt:NumericTextBox runat="server" CssClass="dfinput" ID="txtCommission"
                             Value="0" RequiredErrorMessage="不能为空！"
@@ -142,6 +142,12 @@
                         <asp:CheckBox ID="chkHomepage" runat="server" Checked="true" /><i>首页显示</i>
                     </div>
                 </li>  
+                 <li>
+                    <label>热销产品</label>
+                    <div style="vertical-align: middle; padding-top: 8px;">
+                        <asp:CheckBox ID="chkHot" runat="server" Checked="true" /><i>首页显示</i>
+                    </div>
+                </li>  
                   <li>
                     <label>产品图片</label>
                     <asp:FileUpload ID="uploadImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />
@@ -156,6 +162,7 @@
                             MinimumValue="0" MaximumValue="99999"></kpt:NumericTextBox>
                     </div>
                 </li>
+
                 <li>
                     <label>产品描述</label>
                     <textarea id="ttContent1"   cols="100" rows="8" style="width: 700px; height: 260px; visibility: hidden;" runat="server"></textarea>               

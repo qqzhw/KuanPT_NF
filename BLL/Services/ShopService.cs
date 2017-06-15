@@ -50,15 +50,26 @@ namespace BLL.Services
 
         public List<Shop> GetAllProducts()
         {
-            throw new NotImplementedException();
+            IList<ISort> sortItems = new List<ISort>
+            {
+                new Sort { PropertyName = "DisplayOrder", Ascending = true }
+            };
+            var query = _shopInfoRepository.GetList(sortItems);
+            return query.ToList();
         }
         public List<Shop> GetAllHotProducts()
         {
             return GetAllProductsDisplayedOnHomePage();
         }
-        public List<Shop> GetAllProducts(bool showHidden)
-        {
-            throw new NotImplementedException();
+        public List<Shop> GetAllProducts(int showHidden)
+        { 
+            var predicate = Predicates.Field<Shop>(p => p.State, Operator.Eq, showHidden);
+            IList<ISort> sortItems = new List<ISort>
+            {
+                new Sort { PropertyName = "DisplayOrder", Ascending = true }
+            };
+            var query = _shopInfoRepository.GetList(predicate, sortItems);
+            return query.ToList();
         }
 
         public List<Shop> GetAllProducts(int pageSize, int pageIndex, out int totalRecords)
