@@ -40,5 +40,6 @@ namespace Model
         public bool IsHotShop { get; set; } //热销
         public int OrderCount { get; set; }//订单数
         public int ViewsCount { get; set; }//浏览数
+        public string BigImg { get; set; }//产品大图
     }
 }

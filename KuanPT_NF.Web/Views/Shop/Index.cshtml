@@ -24,8 +24,42 @@
 <body>
     <div>
         <div class="row widget-row">
-            <div class="col-md-12">
-                <!-- BEGIN WIDGET THUMB -->
+            @foreach (var item in Model)
+            {
+                <div class="col-md-12">
+                    <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 borderedbottom">
+                        <div class="widget-thumb-wrap row">
+                            <div class="morelist-left">
+                                <div class="leftcontent">
+                                    <div style="padding:15px;">
+                                        <a href="@Url.RouteUrl("Shop", new { Id = item.ShopId })">
+                                            <img src="../Content/Images/xiaotubiao.png" />
+                                            <br />
+                                            <span class="txtcolor">送20M宽带</span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-xs-pull-12">
+                                <div class="widget-thumb-body">
+                                    <span class="widget-thumb-title" style="margin-top: 2px;">@item.ShopName</span>
+                                    <span class="widget-thumb-subtitle">@item.ShortDescription</span>
+                                    <span class="widget-thumb-body-stat" data-counter="counterup">￥@item.Price 元/月</span>
+                                </div>
+                                <a href="@Url.RouteUrl("Shop", new { Id = item.ShopId })">
+                                    <div>
+                                        <div style="float:right;margin-right:40px; margin-bottom:-30px;color:#F3F9FB;border-bottom:26px solid #F3F9FB;border-left:26px solid transparent;width:30px;"></div>
+                                        <div style="float:right;width:40px;margin-right:0px;margin-bottom:-15px;height:26px; font-size:14px;font-weight:600; background-color:#F3F9FB;"><div style="vertical-align:middle;margin-top:2px;color:#52B4FF">办理</div></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            }
+
+            <div class="col-md-12"> 
                 <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 borderedbottom">
                     <div class="widget-thumb-wrap row">
                         <div class="morelist-left">

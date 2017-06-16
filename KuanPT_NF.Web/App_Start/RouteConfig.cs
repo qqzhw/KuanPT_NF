@@ -18,6 +18,19 @@ namespace KuanPT_NF.Web
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+               name: "Shop",
+               url: "Shop/Detail/{Id}",
+               defaults:new { controller = "Shop", action = "Detail"},
+               constraints:new { Id = @"\d+" },
+               namespaces:new[] { "KuanPT_NF.Web.Controllers" });
+                
+
+            //routes.MapLocalizedRoute("NewsItem",
+            //               "{SeName}",
+            //               new { controller = "News", action = "NewsItem" },
+            //               new[] { "Nop.Web.Controllers" });
+           //);
         }
     }
 }
