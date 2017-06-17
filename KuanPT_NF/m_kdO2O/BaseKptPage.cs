@@ -37,6 +37,20 @@ namespace KuanPT_NF.m_kdO2O
                 return EngineContext.Current.Resolve<ICategoryService>();
             }
         }
+        public IOrderService  OrderService
+        {
+            get
+            {
+                return EngineContext.Current.Resolve<IOrderService>();
+            }
+        }
+        public IChannelService  ChannelService
+        {
+            get
+            {
+                return EngineContext.Current.Resolve<IChannelService>();
+            }
+        }
         public  void ShowMessage(string msg)
         {
             //  ClientScript.RegisterStartupScript(GetType(), "message", "<script language='javascript' defer>alert('" + msg.ToString() + "');</script>");

@@ -20,7 +20,7 @@ namespace KuanPT_NF.m_kdO2O
             }
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void BtnSave_Click(object sender, EventArgs e)
         {
             HttpPostedFile pictureFile = uploadImg.PostedFile; 
              
@@ -33,7 +33,7 @@ namespace KuanPT_NF.m_kdO2O
         }
 
        
-        protected void btnAdd_Click(object sender, EventArgs e)
+        protected void BtnAdd_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {

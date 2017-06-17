@@ -14,13 +14,13 @@ namespace BLL
     /// </summary>
     public class UserService:IUserService
     {
-        private readonly IRepository<User_UserInfo> _userRepository;
-        public UserService(IRepository<User_UserInfo> userRepository)
+        private readonly IRepository<User> _userRepository;
+        public UserService(IRepository<User> userRepository)
         {
             _userRepository = userRepository;
         }
 
-        public User_UserInfo GetUserByUserId(int userId)
+        public User GetUserByUserId(int userId)
         {
            return _userRepository.GetById(userId);
         }

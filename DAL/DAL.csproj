@@ -37,9 +37,6 @@
     <Reference Include="Dapper">
       <HintPath>..\Docs\DLL\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="Dapper.Contrib">
-      <HintPath>..\Docs\DLL\Dapper.Contrib.dll</HintPath>
-    </Reference>
     <Reference Include="DapperExtensions">
       <HintPath>..\Docs\DLL\DapperExtensions.dll</HintPath>
     </Reference>

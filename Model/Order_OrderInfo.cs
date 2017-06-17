@@ -21,6 +21,7 @@ namespace Model
         public string CustomerName { get; set; }
         public string CustomerTel { get; set; }
         public string CustomerAddress { get; set; }
+        public string IdCard { get; set; }
         public int ShopId { get; set; }
         public string ShopName { get; set; }
         public string ShopType { get; set; } 
@@ -33,16 +34,19 @@ namespace Model
         public string Img { get; set; }
         
         public int OrderState { get;set;}
-
-        public DateTime PayTime { get; set; }
+        public int PaymentStatus { get; set; } 
+        public DateTime? PayTime { get; set; }
         public int CreateUserId { get; set; }
         public DateTime CreateDate { get; set; }
         public string AliAccount { get; set; }
         public int CommissionState { get; set; }
         public DateTime? CommissionPayTime { get; set; }
         public DateTime? PaymentDate { get; set; }
+        public bool Deleted { get; set; }
+        public string Remark { get; set; }
         public string ComId { get; set; }
         public int BmId { get; set; }
+
         //                Price FLOAT NOT NULL
 
         //                PayPrice FLOAT NOT NULL

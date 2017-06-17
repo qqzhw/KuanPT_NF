@@ -5,20 +5,20 @@ namespace BLL.Services
     public enum OrderStatusEnum : int
     {
         /// <summary>
-        /// Pending
+        /// 待处理
         /// </summary>
-        Pending = 10,
+        Pending = 0,
         /// <summary>
-        /// Processing
+        /// 处理中
         /// </summary>
-        Processing = 20,
+        Processing = 1,
         /// <summary>
-        /// Complete
+        /// 完成订单
         /// </summary>
-        Complete = 30,
+        Complete = 2,
         /// <summary>
-        /// Cancelled
+        /// 取消订单
         /// </summary>
-        Cancelled = 40
+        Cancelled = 3
     }
 }

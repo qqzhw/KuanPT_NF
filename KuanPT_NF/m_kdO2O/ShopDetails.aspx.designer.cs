@@ -10,7 +10,7 @@
 namespace KuanPT_NF.m_kdO2O {
     
     
-    public partial class CampaignDetails {
+    public partial class ShopDetails {
         
         /// <summary>
         /// form1 控件。
@@ -31,40 +31,49 @@ namespace KuanPT_NF.m_kdO2O {
         protected global::AjaxControlToolkit.ToolkitScriptManager ScriptManager1;
         
         /// <summary>
-        /// tbName 控件。
+        /// txtShopType 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.SimpleTextBox tbName;
+        protected global::KuanPT_NF.Modules.SimpleTextBox txtShopType;
         
         /// <summary>
-        /// txtSubject 控件。
+        /// txtShopName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSubject;
+        protected global::KuanPT_NF.Modules.SimpleTextBox txtShopName;
         
         /// <summary>
-        /// chkBanner 控件。
+        /// txtShortDesc 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkBanner;
+        protected global::System.Web.UI.WebControls.TextBox txtShortDesc;
         
         /// <summary>
-        /// uploadImg 控件。
+        /// txtPrice 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload uploadImg;
+        protected global::KuanPT_NF.Modules.NumericTextBox txtPrice;
+        
+        /// <summary>
+        /// txtCommission 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::KuanPT_NF.Modules.NumericTextBox txtCommission;
         
         /// <summary>
         /// chkPublished 控件。
@@ -74,6 +83,33 @@ namespace KuanPT_NF.m_kdO2O {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkPublished;
+        
+        /// <summary>
+        /// chkHomepage 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkHomepage;
+        
+        /// <summary>
+        /// chkHot 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkHot;
+        
+        /// <summary>
+        /// uploadImg 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload uploadImg;
         
         /// <summary>
         /// txtDisplayOrder 控件。
@@ -92,6 +128,15 @@ namespace KuanPT_NF.m_kdO2O {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea ttContent1;
+        
+        /// <summary>
+        /// ttContent2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea ttContent2;
         
         /// <summary>
         /// btnAdd 控件。

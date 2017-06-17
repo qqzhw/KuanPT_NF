@@ -10,7 +10,7 @@
 namespace KuanPT_NF.m_kdO2O {
     
     
-    public partial class CampaignDetails {
+    public partial class CategoryDetails {
         
         /// <summary>
         /// form1 控件。
@@ -31,40 +31,31 @@ namespace KuanPT_NF.m_kdO2O {
         protected global::AjaxControlToolkit.ToolkitScriptManager ScriptManager1;
         
         /// <summary>
-        /// tbName 控件。
+        /// ParentCategory 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.SimpleTextBox tbName;
+        protected global::KuanPT_NF.Modules.SelectCategoryControl ParentCategory;
         
         /// <summary>
-        /// txtSubject 控件。
+        /// txtName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSubject;
+        protected global::KuanPT_NF.Modules.SimpleTextBox txtName;
         
         /// <summary>
-        /// chkBanner 控件。
+        /// chkHomePage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkBanner;
-        
-        /// <summary>
-        /// uploadImg 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload uploadImg;
+        protected global::System.Web.UI.WebControls.CheckBox chkHomePage;
         
         /// <summary>
         /// chkPublished 控件。
@@ -85,13 +76,13 @@ namespace KuanPT_NF.m_kdO2O {
         protected global::KuanPT_NF.Modules.NumericTextBox txtDisplayOrder;
         
         /// <summary>
-        /// ttContent1 控件。
+        /// txtDesc 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea ttContent1;
+        protected global::System.Web.UI.WebControls.TextBox txtDesc;
         
         /// <summary>
         /// btnAdd 控件。

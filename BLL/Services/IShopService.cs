@@ -27,8 +27,8 @@ namespace BLL.Services
         /// <param name="pageIndex">Page index</param>
         /// <param name="totalRecords">Total records</param>
         /// <returns>Product collection</returns>
-        List<Shop> GetAllProducts(int pageSize, int pageIndex,
-            out int totalRecords);
+        List<Shop> GetAllProducts(int pageIndex,int pageSize, 
+            out int totalRecords, out int totalPage);
 
         /// <summary>
         /// Gets all products
@@ -40,7 +40,7 @@ namespace BLL.Services
         /// <param name="totalRecords">Total records</param>
         /// <returns>Product collection</returns>
         List<Shop> GetAllProducts(int categoryId,
-           bool? featuredProducts,  int pageSize, int pageIndex, out int totalRecords);
+           bool? featuredProducts,   int pageIndex, int pageSize,out int totalRecords);
 
         /// <summary>
         /// Gets all products
@@ -52,7 +52,7 @@ namespace BLL.Services
         /// <param name="totalRecords">Total records</param>
         /// <returns>Product collection</returns>
         List<Shop> GetAllProducts(string keywords,
-            bool searchDescriptions, int pageSize, int pageIndex, out int totalRecords);
+            bool searchDescriptions, int pageIndex, int pageSize, out int totalRecords);
 
         
         List<Shop> GetAllProducts(int categoryId,

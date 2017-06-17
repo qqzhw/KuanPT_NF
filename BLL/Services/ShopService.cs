@@ -54,7 +54,7 @@ namespace BLL.Services
             {
                 new Sort { PropertyName = "DisplayOrder", Ascending = true }
             };
-            var query = _shopInfoRepository.GetList(sortItems);
+            var query = _shopInfoRepository.GetList(sort:sortItems);
             return query.ToList();
         }
         public List<Shop> GetAllHotProducts()
@@ -72,9 +72,10 @@ namespace BLL.Services
             return query.ToList();
         }
 
-        public List<Shop> GetAllProducts(int pageSize, int pageIndex, out int totalRecords)
-        {
-            throw new NotImplementedException();
+        public List<Shop> GetAllProducts( int pageIndex, int pageSize,out int totalRecords,out int totalPage)
+        { 
+            var query = _shopInfoRepository.GetPageData("Shop","ShopId",out totalRecords,out totalPage,pageIndex:pageIndex,pageSize:pageSize);
+            return query.ToList();
         }
 
         public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts, int pageSize, int pageIndex, out int totalRecords)

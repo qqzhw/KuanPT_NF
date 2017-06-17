@@ -1,18 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChannelAdd.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.ChannelAdd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChannelDetails.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.ChannelDetails" %>
 <%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
-
 <%@ Register Src="Modules/NumericTextBox.ascx" TagName="NumericTextBox" TagPrefix="kpt" %>
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-       <link href="/css/select.css" rel="stylesheet" type="text/css" />
+   <link href="/css/select.css" rel="stylesheet" type="text/css" />
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/JavaScripts/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="/JavaScripts/select-ui.min.js"></script>
     <script type="text/javascript" src="/JavaScripts/jquery.validate.min.js"></script> 
-    <title>渠道添加</title>   
+    <title>渠道修改</title>   
 </head>
 <body>
     <form id="form1" runat="server">

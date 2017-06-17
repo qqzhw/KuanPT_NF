@@ -427,8 +427,10 @@
     <Content Include="m_kdO2O\CampaignDetails.aspx" />
     <Content Include="m_kdO2O\CampaignList.aspx" />
     <Content Include="m_kdO2O\CategoryAdd.aspx" />
+    <Content Include="m_kdO2O\CategoryDetails.aspx" />
     <Content Include="m_kdO2O\CategoryList.aspx" />
     <Content Include="m_kdO2O\ChannelAdd.aspx" />
+    <Content Include="m_kdO2O\ChannelDetails.aspx" />
     <Content Include="m_kdO2O\ChannelList.aspx" />
     <Content Include="m_kdO2O\Default.aspx" />
     <Content Include="Default.aspx" />
@@ -445,6 +447,7 @@
     <Content Include="m_kdO2O\OrderDetails.aspx" />
     <Content Include="m_kdO2O\OrderList.aspx" />
     <Content Include="m_kdO2O\ShopAdd.aspx" />
+    <Content Include="m_kdO2O\ShopDetails.aspx" />
     <Content Include="m_kdO2O\ShopList.aspx" />
     <Content Include="m_sys\DeptManage.aspx" />
     <Content Include="m_sys\SysLogList.aspx" />
@@ -507,6 +510,13 @@
     <Compile Include="m_kdO2O\CategoryAdd.aspx.designer.cs">
       <DependentUpon>CategoryAdd.aspx</DependentUpon>
     </Compile>
+    <Compile Include="m_kdO2O\CategoryDetails.aspx.cs">
+      <DependentUpon>CategoryDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\CategoryDetails.aspx.designer.cs">
+      <DependentUpon>CategoryDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="m_kdO2O\CategoryList.aspx.cs">
       <DependentUpon>CategoryList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -520,6 +530,13 @@
     </Compile>
     <Compile Include="m_kdO2O\ChannelAdd.aspx.designer.cs">
       <DependentUpon>ChannelAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\ChannelDetails.aspx.cs">
+      <DependentUpon>ChannelDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\ChannelDetails.aspx.designer.cs">
+      <DependentUpon>ChannelDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="m_kdO2O\ChannelList.aspx.cs">
       <DependentUpon>ChannelList.aspx</DependentUpon>
@@ -597,6 +614,13 @@
     </Compile>
     <Compile Include="m_kdO2O\ShopAdd.aspx.designer.cs">
       <DependentUpon>ShopAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\ShopDetails.aspx.cs">
+      <DependentUpon>ShopDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\ShopDetails.aspx.designer.cs">
+      <DependentUpon>ShopDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="m_kdO2O\ShopList.aspx.cs">
       <DependentUpon>ShopList.aspx</DependentUpon>

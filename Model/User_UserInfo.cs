@@ -8,11 +8,9 @@ namespace Model
 {
     /// <summary>
     /// Business entity used to model User_UsersInfo
-    /// </summary>
-    [Table("Users")]
-    public class User_UserInfo
-    {
-        [Key]
+    /// </summary> 
+    public class User
+    { 
         public int UserId { get; set; }
         public int RoleID { get; set; }
         public int DeptId { get; set; }

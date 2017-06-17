@@ -1,14 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CampaignAdd.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.CampaignAdd" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShopDetails.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.ShopDetails" %>
 <%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
 
 <%@ Register Src="Modules/NumericTextBox.ascx" TagName="NumericTextBox" TagPrefix="kpt" %>
-
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="/css/select.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link href="/css/select.css" rel="stylesheet" type="text/css" />
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/JavaScripts/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="/JavaScripts/select-ui.min.js"></script>
@@ -18,8 +17,8 @@
     <script src="/Editor/kindeditor-all-min.js"></script>
     <script charset="utf-8" src="/Editor/lang/zh-CN.js"></script>
     <script charset="utf-8" src="/Editor/plugins/code/prettify.js"></script>
-    <title>活动添加</title>
-    <style>
+    <title>产品编辑</title>  
+     <style>
         .file input {
             padding: 6px 12px;
             min-width: 206px;
@@ -90,44 +89,72 @@
             }
     </style>
 </head>
-
 <body>
     <form id="form1" runat="server">
-        <ajaxToolkit:ToolkitScriptManager runat="server" ID="ScriptManager1" />
+       <ajaxToolkit:ToolkitScriptManager runat="server" ID="ScriptManager1" />
         <div class="place">
             <span>位置：</span>
             <ul class="placeul">
-                <li><a href="CampaignList.aspx">活动管理</a></li>
+                <li><a href="ShopList.aspx">产品管理</a></li>
             </ul>
         </div>
         <div class="formbody">
-            <div class="formtitle"><span>活动添加</span></div>
+            <div class="formtitle"><span>产品添加</span></div>
             <ul class="forminfo">
                 <li>
-                    <label>活动名称</label>
-                    <kpt:SimpleTextBox ID="tbName" runat="server" CssClass="dfinput" ErrorMessage="活动名称不能为空！" />
+                    <label>产品类型</label>
+                    <kpt:SimpleTextBox ID="txtShopType" runat="server" CssClass="dfinput" ErrorMessage="产品类型不能为空！" />
                 </li>
                 <li>
-                    <label>活动主题</label><asp:TextBox ID="txtSubject" runat="server" EnableTheming="false" CssClass="dfinput"></asp:TextBox></li>
-
+                    <label>产品名称</label>
+                     <kpt:SimpleTextBox ID="txtShopName" runat="server" CssClass="dfinput" ErrorMessage="产品名称不能为空！" />
+                </li>
+                  <li>
+                    <label>产品短述</label>
+                     <asp:TextBox ID="txtShortDesc" runat="server" CssClass="dfinput" />
+                </li>
                 <li>
-                    <label>首页Banner </label>
-                    <div style="vertical-align: middle; padding-top: 8px;">
-                        <asp:CheckBox ID="chkBanner" runat="server" EnableTheming="false"></asp:CheckBox>
+                    <label>产品价格 </label>
+                   <div style="vertical-align: middle; padding-top: 8px;">
+                        <kpt:NumericTextBox runat="server" CssClass="dfinput" ID="txtPrice"
+                            Value="0" RequiredErrorMessage="不能为空！"
+                            RangeErrorMessage="数字范围在0-99999之间！"
+                            MinimumValue="0" MaximumValue="99999"></kpt:NumericTextBox>
                     </div>
                 </li>
                 <li>
-                    <label>Banner图片</label>
+                    <label>佣金</label>
+                    <div style="vertical-align: middle; padding-top: 8px;">
+                        <kpt:NumericTextBox runat="server" CssClass="dfinput" ID="txtCommission"
+                            Value="0" RequiredErrorMessage="不能为空！"
+                            RangeErrorMessage="数字范围在0-99999之间！"
+                            MinimumValue="0" MaximumValue="99999"></kpt:NumericTextBox>
+                    </div>
+                </li>
+                <li>
+                    <label>状态</label>
+                    <div style="vertical-align: middle; padding-top: 8px;">
+                        <asp:CheckBox ID="chkPublished" runat="server" Checked="true" /><i>选中:上架,未选中:下架</i>
+                    </div>
+                </li>
+                 <li>
+                    <label>首页显示</label>
+                    <div style="vertical-align: middle; padding-top: 8px;">
+                        <asp:CheckBox ID="chkHomepage" runat="server" Checked="true" /><i>首页显示</i>
+                    </div>
+                </li>  
+                 <li>
+                    <label>热销产品</label>
+                    <div style="vertical-align: middle; padding-top: 8px;">
+                        <asp:CheckBox ID="chkHot" runat="server" Checked="true" /><i>首页显示</i>
+                    </div>
+                </li>  
+                  <li>
+                    <label>产品图片</label>
                     <asp:FileUpload ID="uploadImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />
                     <i>图片格式为.png|.jpg</i>
                 </li>
-                <li>
-                    <label>发布</label>
-                    <div style="vertical-align: middle; padding-top: 8px;">
-                        <asp:CheckBox ID="chkPublished" runat="server" Checked="true" />
-                    </div>
-                </li>
-                <li>
+                  <li>
                     <label>显示顺序</label>
                     <div style="vertical-align: middle; padding-top: 8px;">
                         <kpt:NumericTextBox runat="server" CssClass="dfinput" ID="txtDisplayOrder"
@@ -136,16 +163,21 @@
                             MinimumValue="0" MaximumValue="99999"></kpt:NumericTextBox>
                     </div>
                 </li>
+
                 <li>
-                    <label>活动内容</label>
+                    <label>产品描述</label>
                     <textarea id="ttContent1"   cols="100" rows="8" style="width: 700px; height: 260px; visibility: hidden;" runat="server"></textarea>               
+                </li>
+                  <li>
+                    <label>备注</label>
+                    <textarea id="ttContent2"   cols="100" rows="5" style="width: 700px; height: 200px; visibility: hidden;" runat="server"></textarea>               
                 </li>
                 <li>
                   
                 </li>
                 <li>
                     <label>&nbsp;</label>
-                    <asp:Button ID="btnAdd" runat="server"   CssClass="scbtn" Text="确认保存" OnClick="BtnAdd_Click" />
+                    <asp:Button ID="btnAdd" runat="server"   CssClass="scbtn" Text="确认保存" OnClick="btnAdd_Click" />
                 </li>
             </ul>
 
@@ -154,6 +186,14 @@
             $(document).ready(function (e) {
                 KindEditor.ready(function (K) {
                     var editor1 = K.create('#ttContent1', {
+                        cssPath: 'Editor/plugins/code/prettify.css',
+                        uploadJson: 'Editor/asp.net/upload_json.ashx',
+                        fileManagerJson: 'Editor/asp.net/file_manager_json.ashx',
+                        allowFileManager: true,
+                        langType: 'zh-CN'
+                    });
+                    prettyPrint();
+                    var editor2 = K.create('#ttContent2', {
                         cssPath: 'Editor/plugins/code/prettify.css',
                         uploadJson: 'Editor/asp.net/upload_json.ashx',
                         fileManagerJson: 'Editor/asp.net/file_manager_json.ashx',
@@ -177,11 +217,13 @@
                 errorPlacement: function (error, element) { }, // 不提示文字
                 rules: {
                     tbName: "required",
-                    ttContent1: "required", 
+                    ttContent1: "required",
+                    ttContent2: "required"
                 }
             });
             
         </script>
-    </form>
+    </form> 
 </body>
 </html>
+

@@ -2,10 +2,216 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Model;
+using BLL.Caching;
+using DAL;
+using Common;
 
 namespace BLL.Services
 {
-    class OrderService
+    public class OrderService : IOrderService
     {
+        private readonly ICacheManager _cacheManager;
+        private readonly IRepository<Order> _orderRepository;
+        private readonly IRepository<Shop> _shopRepository;
+        private readonly IRepository<User> _userRepository;
+        public OrderService(IRepository<Order>  orderRepository, IRepository<Shop>  shopRepository, IRepository<User> userRepository)
+        {
+            _orderRepository = orderRepository;
+            _shopRepository = shopRepository;
+            _userRepository = userRepository;
+            this._cacheManager = new KptRequestCache();
+        }
+        /// <summary>
+        /// 设置订单状态
+        /// </summary>
+        /// <param name="order">Order</param>
+        /// <param name="os">New order status</param>
+        /// <param name="notifyCustomer">是否通知客户</param>
+        protected void SetOrderStatus(Order order,
+            OrderStatusEnum os, bool notifyCustomer)
+        {
+            if (order == null)
+                throw new ArgumentNullException("order");
+
+            OrderStatusEnum prevOrderStatus = (OrderStatusEnum)order.OrderState;
+            if (prevOrderStatus == os)
+                return;
+
+            //set and save new order status
+            order.OrderState = (int)os;
+            UpdateOrder(order);
+
+            //order notes, notifications
+            InsertOrderNote(order.OrderId, string.Format("Order status has been changed to {0}", os.ToString()), false, DateTime.UtcNow);
+
+            if (prevOrderStatus != OrderStatusEnum.Complete &&
+                os == OrderStatusEnum.Complete
+                && notifyCustomer)
+            {
+                 
+             // InsertOrderNote(order.OrderId, string.Format("\"Order completed\" email (to customer) has been queued. Queued email identifier: {0}.", orderCompletedCustomerNotificationQueuedEmailId), false, DateTime.UtcNow);
+                
+            }
+
+            if (prevOrderStatus != OrderStatusEnum.Cancelled &&
+                os == OrderStatusEnum.Cancelled
+                && notifyCustomer)
+            {
+                
+              //  InsertOrderNote(order.OrderId, string.Format("\"Order cancelled\" email (to customer) has been queued. Queued email identifier: {0}.", orderCancelledCustomerNotificationQueuedEmailId), false, DateTime.UtcNow);
+              
+            } 
+        }
+        
+        protected Order CheckOrderStatus(int orderId)
+        {
+            var order = GetOrderById(orderId);
+            if (order == null)
+                return null;
+
+            if (order.OrderState ==(int)OrderStatusEnum.Pending)
+            {
+                if (order.PaymentStatus ==(int)PaymentStatusEnum.Paid)
+                {
+                    SetOrderStatus(order, OrderStatusEnum.Processing, false);
+                }
+            }
+             
+
+            if (order.OrderState != (int) OrderStatusEnum.Cancelled &&
+                order.OrderState != (int) OrderStatusEnum.Complete)
+            {
+                if (order.PaymentStatus == (int)PaymentStatusEnum.Paid)
+                {
+
+                    SetOrderStatus(order, OrderStatusEnum.Complete, true);
+                }
+            }
+
+            if (order.PaymentStatus == (int)PaymentStatusEnum.Paid && !order.PaymentDate.HasValue)
+            {
+                //确认支付时间
+                order.PaymentDate = DateTime.Now; ;
+                UpdateOrder(order);
+            }
+
+            return order;
+        }
+       
+
+        public Order CancelOrder(int orderId, bool notifyCustomer)
+        {
+            throw new NotImplementedException();
+        }
+     
+
+        public void DeleteOrderNote(int orderNoteId)
+        {
+            throw new NotImplementedException();
+        }
+       
+
+        public Order GetOrderById(int orderId)
+        {
+            if (orderId == 0)
+                return null;
+            //var query = from o in _context.Orders
+            //            where o.OrderId == orderId
+            //            select o;
+            //var order = query.SingleOrDefault();
+            //return order;
+            return null;
+        }
+        public void MarkOrderAsDeleted(int orderId)
+        {
+            var order = GetOrderById(orderId);
+            if (order != null)
+            {
+                order.Deleted = true;
+                UpdateOrder(order);
+            }
+        }
+        public Order_Note GetOrderNoteById(int orderNoteId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Order_Note> GetOrderNoteByOrderId(int orderId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Order_Note> GetOrderNoteByOrderId(int orderId, bool showHidden)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Order> GetOrdersByUserId(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void InsertOrder(Order order)
+        {
+            if (order == null)
+                throw new ArgumentNullException("order");
+
+            order.CustomerName = CommonHelper.EnsureNotNull(order.CustomerName);
+            order.CustomerName = CommonHelper.EnsureNotNull(order.CustomerName);
+            order.CustomerTel = CommonHelper.EnsureNotNull(order.CustomerTel);
+            order.CustomerTel = CommonHelper.EnsureNotNull(order.CustomerTel);
+            order.CustomerAddress = CommonHelper.EnsureNotNull(order.CustomerAddress);
+            order.CustomerAddress = CommonHelper.EnsureNotNull(order.CustomerAddress);
+            _orderRepository.Insert(order);
+            
+        }
+
+        public Order_Note InsertOrderNote(int orderId, string note, DateTime createdOn)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Order_Note InsertOrderNote(int orderId, string note, bool displayToCustomer, DateTime createdOn)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Order> LoadAllOrders()
+        {
+            throw new NotImplementedException();
+        }
+         
+        /// <summary>
+        /// 标记已支付
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <returns></returns>
+        public Order MarkOrderAsPaid(int orderId)
+        {
+            throw new NotImplementedException();
+        }
+
+       
+
+        public List<Order> SearchOrders(DateTime? startTime, DateTime? endTime, OrderStatusEnum? os, string phoneNum = "", int pageIndex = 0, int pageSize = int.MaxValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateOrder(Order order)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateOrderNote(Order_Note orderNote)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Order VoidOffline(int orderId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

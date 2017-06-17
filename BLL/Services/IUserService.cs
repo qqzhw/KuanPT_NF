@@ -8,6 +8,6 @@ namespace BLL.Services
 {
     public interface IUserService
     {
-        User_UserInfo GetUserByUserId(int userId);
+        User GetUserByUserId(int userId);
     }
 }

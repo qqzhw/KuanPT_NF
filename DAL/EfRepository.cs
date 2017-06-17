@@ -83,7 +83,7 @@ namespace DAL
                     throw new ArgumentNullException("entities");
 
                 foreach (var entity in entities)
-                  Connection.Insert(entity); 
+                  Connection.Insert(entity);  
             }
             catch (Exception dbEx)
             {

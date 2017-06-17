@@ -11,8 +11,9 @@ namespace BLL.Services
         
         Order GetOrderById(int orderId);
         
-        void MarkOrderAsDeleted(int orderId);
-         
+        void MarkOrderAsDeleted(int orderId);      
+
+
         List<Order> SearchOrders(DateTime? startTime, DateTime? endTime,
          OrderStatusEnum? os,   string phoneNum="",int pageIndex=0,int pageSize=int.MaxValue);
 
@@ -63,43 +64,14 @@ namespace BLL.Services
         void UpdateOrderNote(Order_Note orderNote);
 
         #endregion
-
          
-
         #region Etc
-        
-  
-        /// <summary>
-        /// Place order items in current user shopping cart.
-        /// </summary>
-        /// <param name="orderId">The order identifier</param>
-        void ReOrder(int orderId);
-
-      
-        bool CanDeliver(Order order);
-
-       
-        Order Deliver(int orderId, bool notifyCustomer);
-
-      
-        bool CanCancelOrder(Order order);
-
-       
+         
         Order CancelOrder(int orderId, bool notifyCustomer);
-
-     
-        /// <summary>
-        /// Gets a value indicating whether capture from admin panel is allowed
-        /// </summary>
-        /// <param name="order">Order</param>
-        /// <returns>A value indicating whether capture from admin panel is allowed</returns>
-        bool CanCapture(Order order);
-
-       
-      
+         
         Order MarkOrderAsPaid(int orderId);
          
-        
+        //作废订单
         Order VoidOffline(int orderId);
 
         
