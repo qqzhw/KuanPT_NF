@@ -151,8 +151,12 @@
                 </li>  
                   <li>
                     <label>产品图片</label>
+                       <asp:Image ID="imgShop" runat="server" AlternateText="图片" />
                     <asp:FileUpload ID="uploadImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />
                     <i>图片格式为.png|.jpg</i>
+                      <br />  <asp:Button ID="btnUploadImg" runat="server" OnClick="btnUploadImg_Click" Text="上传图片" /> 
+               <br style="line-height: 6px;" />
+               <asp:Button ID="btnRemoveIng" runat="server" OnClick="btnRemoveIng_Click" Text="删除图片" CausesValidation="false" />
                 </li>
                   <li>
                     <label>显示顺序</label>

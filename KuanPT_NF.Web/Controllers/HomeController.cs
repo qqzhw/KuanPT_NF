@@ -27,6 +27,7 @@ namespace KuanPT_NF.Web.Controllers
                    Description=o.Description,
                    DisplayOrder=o.DisplayOrder,
                    Img=o.Img,
+                   BigImg=o.BigImg,
                    Price=o.Price,
                    Remark=o.Remark,
                    ShopId=o.ShopId,
@@ -36,7 +37,23 @@ namespace KuanPT_NF.Web.Controllers
                    ShowOnHomePage=o.ShowOnHomePage, 
                 }).ToList()
             };
-            model.HotShopModel = model.ShopInfos.FirstOrDefault();
+            var hotModel = _shopService.GetAllHotProducts().Select(o => new ShopModel()
+            {
+                Commission = o.Commission,
+                CreateDate = o.CreateDate,
+                Description = o.Description,
+                DisplayOrder = o.DisplayOrder,
+                Img = o.Img,
+                BigImg = o.BigImg,
+                Price = o.Price,
+                Remark = o.Remark,
+                ShopId = o.ShopId,
+                ShopName = o.ShopName,
+                ShopType = o.ShopType,
+                ShortDescription = o.ShortDescription,
+                ShowOnHomePage = o.ShowOnHomePage,
+            }).FirstOrDefault();
+            model.HotShopModel =hotModel;
             return View(model);
         }
 

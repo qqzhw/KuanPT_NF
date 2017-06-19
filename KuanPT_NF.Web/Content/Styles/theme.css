@@ -3619,7 +3619,7 @@ input[type=checkbox]:checked + label:before {
     }
 .list-left {
 	float: left;
-	width: 160px;
+	width: 150px;
 	text-align: center;
 }
     .leftcontent {
@@ -3629,7 +3629,7 @@ input[type=checkbox]:checked + label:before {
         text-align:center;
     }
 .leftcontentaj {
-    border: 1px solid #F2A161;
+    border: 2px solid #F2A161;
     margin-left: 20px;
     width: 100px;
     text-align: center;
@@ -3645,7 +3645,7 @@ input[type=checkbox]:checked + label:before {
 
 	.morelist-left img {
 		border: none;
-		width: 36px;
+		width: 100%;
 		
 	}
 .btn {

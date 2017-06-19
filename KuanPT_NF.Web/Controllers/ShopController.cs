@@ -33,7 +33,7 @@ namespace KuanPT_NF.Web.Controllers
                 ShopType = o.ShopType,
                 ShortDescription = o.ShortDescription,
                 ShowOnHomePage = o.ShowOnHomePage,
-            }).ToList();
+            }).OrderBy(o=>o.ShopName).ThenBy(o=>o.Price).ToList();
             return View(items); 
         }
         public ActionResult List()
@@ -52,7 +52,7 @@ namespace KuanPT_NF.Web.Controllers
                 ShopType = o.ShopType,
                 ShortDescription = o.ShortDescription,
                 ShowOnHomePage = o.ShowOnHomePage,
-            }).ToList();
+            }).OrderBy(o => o.ShopName).ToList(); 
             return View(items);
         }
         public ActionResult Detail(int Id)

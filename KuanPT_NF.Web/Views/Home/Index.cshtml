@@ -1,17 +1,17 @@
 ﻿@model HomeViewModel
 @using KuanPT_NF.Web.Models;
 @{
-    ViewBag.Title = "德阳移动宽带"; 
-} 
+    ViewBag.Title = "德阳移动宽带";
+}
 <div class="banner">
     <div class="img">
         <ul class="clearfix">
-            <li >
+            <li>
                 <a href="/Campaign"><img src="../Content/Images/banner/banner168.jpg" alt=""></a>
             </li>
-            <li >
+            <li>
                 <a href="/Campaign"><img src="../Content/Images/banner/banner168.png" alt=""></a>
-            </li> 
+            </li>
         </ul>
     </div>
 </div>
@@ -20,7 +20,7 @@
 <div class="col-md-12 row" style="background-color:white;">
     <img src="../Content/Images/kuandaizhuanqu.png" style="padding:2px 0px;float:left;border:none;vertical-align:middle;" />
     <div style="float:left;font-size:15px;margin-top:15px;color:#3e4f5e">宽带专区</div>
-    <a href="/home/list"><span style="float:right;font-size:14px;margin-top:12px;margin-right:-10px; color:#3e4f5e">更多》</span></a>
+    <a href="/shop/index"><span style="float:right;font-size:14px;margin-top:12px;margin-right:-10px; color:#3e4f5e">更多》</span></a>
 </div>
 <div style="background-color:#EEF1F8">
     <div class="b-grid">
@@ -31,22 +31,8 @@
                     <div class="itemborder">
                         <div class="b-item-card wow fadeInUp">
                             <div class="image">
-                                @if (item.Price == 78)
-                                {
-                                    <img src="../Content/Images/home_20M1.png" class="img-responsive center-block" alt="" />
-                                }
-                                else if (item.Price == 108)
-                                {
-                                    <img src="../Content/Images/home_50M1.png" class="img-responsive center-block" alt="" />
-                                }
-                                else if (item.Price == 138)
-                                {
-                                    <img src="../Content/Images/home_50M138.png" class="img-responsive center-block" alt="" />
-                                }
-                                else if (item.Price == 168)
-                                {
-                                    <img src="../Content/Images/home_100M1.png" class="img-responsive center-block" alt="" />
-                                }
+                                <img src="@item.BigImg" class="img-responsive center-block" alt="" />
+
                                 <div class="image-add-mod">
                                     <a href="https://kefu.easemob.com/webim/im.html?tenantId=36541&emgroup=%E5%AE%A2%E6%9C%8D%E7%BB%84&phone=13800138000"><img src="../Content/Images/lijibanli.png" alt="" /></a>
                                 </div>
@@ -56,78 +42,79 @@
                         <a href="/shop/detail/@item.ShopId"> <div style="float:right;margin-top:4px;  margin-right:10px;margin-bottom:2px;">详情></div></a>
                     </div>
                 </div>
-            }        
-        </div> 
-    </div> 
+            }
+        </div>
+    </div>
 </div>
 <div class="col-md-12 row" style="height:10px;background-color:#EEF1F8"></div>
-<div class="row" style="height:120px;">
-    <img src="~/Content/Images/banner/banner168.jpg" style="height:100%;width:100%;"/>
-</div>
-<div class="col-md-12 row" style="height:10px;background-color:#EEF1F8"></div>
+
 <div class="pull-right" style="margin-right:68px;">
     <div style="position: absolute;z-index:1000;">
-        <a href="http://weixin.sd.chinamobile.com/usi-weixin-web/cmsd/selfCowcatcherGuideController/routerArea.action?weixinId=ooEa_sx8qiHd0blKwjRzA7S6xWmI&from=singlemessage&isappinstalled=0"> <img src="~/Content/Images/guzhangbaoxiu.png" style="width:64px;" /></a>
+        <a href="http://weixin.sd.chinamobile.com/usi-weixin-web/cmsd/selfCowcatcherGuideController/routerArea.action?weixinId=ooEa_sx8qiHd0blKwjRzA7S6xWmI&from=singlemessage&isappinstalled=0" target="_blank"> <img src="~/Content/Images/guzhangbaoxiu.png" style="width:64px;" /></a>
     </div>
 </div>
-    <div class="col-md-12 row" style="margin-top:2px;margin-bottom:5px;height:35px;">
-        <img src="../Content/Images/today_hot.png" style="float:left;height:30px;border:none;" /> <div style="float:left;font-size:15px;margin-top:8px;color:#3e4f5e">今日热销</div>
-        
-    </div>
+<div class="col-md-12 row" style="margin-top:2px;margin-bottom:5px;height:35px;">
+    <img src="../Content/Images/today_hot.png" style="float:left;height:30px;border:none;" /> <div style="float:left;font-size:15px;margin-top:8px;color:#3e4f5e">今日热销</div>
 
-    <div class="row widget-row">
-        <div class="col-md-12">
-            <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
-                <div class="widget-thumb-wrap row">
-                    <div class="list-left pcenter"> 
-                        <div>
-                            <a href='/shop/detail/@Model.HotShopModel.ShopId'>
-                                <img src="../Content/Images/home_hot.png" />
-                            </a>
-                        </div>
+</div>
 
-                    </div>
-                    <div class="col-xs-pull-12">
-                        <div class="widget-thumb-body">
-                            <span class="widget-thumb-title" style="margin-top:2px;">月消费满58元免费送</span>
-                            <span class="widget-thumb-subtitle">20M+收视+手机成员1个</span>
-                            <span class="widget-thumb-body-stat" data-counter="counterup" data-value="1,293">￥78元/月</span>
-                        </div> <a href="/shop/detail/11">
-                            <div>
-                                <div style="float:right;margin-right:40px; margin-bottom:-30px;color:#F3F9FB;border-bottom:26px solid #F3F9FB;border-left:26px solid transparent;width:30px;"></div>
-                                <div style="float:right;width:40px;margin-right:0px;margin-bottom:-20px;height:26px; font-size:14px;font-weight:600; background-color:#F3F9FB;"><div style="vertical-align:middle;margin-top:2px;color:#52B4FF">办理</div></div>
-                            </div>
+<div class="row widget-row">
+    <div class="col-md-12">
+        <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+            <div class="widget-thumb-wrap row">
+                <div class="list-left pcenter">
+                    <div>
+                        <a href='/shop/detail/@Model.HotShopModel.ShopId'>
+                            <img src="/@Model.HotShopModel.Img" alt="" />
                         </a>
                     </div>
 
-
                 </div>
-            </div>
+                <div class="col-xs-pull-12">
+                    <div class="widget-thumb-body">
+                        <a href="/shop/detail/@Model.HotShopModel.ShopId">
+                            <span class="widget-thumb-title" style="margin-top:2px;">@Model.HotShopModel.ShopName</span>
+                        </a>
+                        <span class="widget-thumb-subtitle">@Model.HotShopModel.ShortDescription</span>
+                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="1,293">￥@Model.HotShopModel.Price 元/月</span>
+                    </div>
 
-        </div>
-        
-        <div class="col-md-12" style="padding-top:5px;margin-bottom:5px;">
-            <span style="font-size:14px;margin-left:6px; height:30px;color:orangered">全德阳已有3656个用户正在使用!</span>
-        </div>
-        <div class="col-md-12">
-         
-          <div class="widget-thumb widget-bg-color-white text-uppercase   bordered" style="background-color:#EFF2FC;padding-bottom:10px;">
+                    <a href="/shop/detail/@Model.HotShopModel.ShopId">
+                        <div>
+                            <div style="float:right;margin-right:40px; margin-bottom:-30px;color:#F3F9FB;border-bottom:26px solid #F3F9FB;border-left:26px solid transparent;width:30px;"></div>
+                            <div style="float:right;width:40px;margin-right:0px;margin-bottom:-20px;height:26px; font-size:14px;font-weight:600; background-color:#F3F9FB;"><div style="vertical-align:middle;margin-top:2px;color:#52B4FF">办理</div></div>
+                        </div>
+                    </a>
+                </div>
 
-    @*<div class="widget-thumb-wrap row ">
-        <div class="col-md-6  col-xs-6">
-            <a href="https://kefu.easemob.com/webim/im.html?tenantId=36541&emgroup=故障组" class="btn blue1 btn-block yuanjiao">宽带故障</a>
 
-        </div>
-        <div class="col-md-6  col-xs-6">
-            <a href="https://kefu.easemob.com/webim/im.html?tenantId=36541&emgroup=客服组"  class="btn blue btn-block">宽带续费</a>
-        </div>
-    </div>*@
             </div>
         </div>
-    
+
     </div>
-  <script src="../Scripts/zepto.banner.js"></script>
-    <script type="text/javascript">
+
+    <div class="col-md-12" style="padding-top:5px;margin-bottom:5px;">
+        <span style="font-size:14px;margin-left:6px; height:30px;color:orangered">全德阳已有3656个用户正在使用!</span>
+    </div>
+    <div class="col-md-12">
+
+        <div class="widget-thumb widget-bg-color-white text-uppercase   bordered" style="background-color:#EFF2FC;padding-bottom:10px;">
+
+            @*<div class="widget-thumb-wrap row ">
+                    <div class="col-md-6  col-xs-6">
+                        <a href="https://kefu.easemob.com/webim/im.html?tenantId=36541&emgroup=故障组" class="btn blue1 btn-block yuanjiao">宽带故障</a>
+
+                    </div>
+                    <div class="col-md-6  col-xs-6">
+                        <a href="https://kefu.easemob.com/webim/im.html?tenantId=36541&emgroup=客服组"  class="btn blue btn-block">宽带续费</a>
+                    </div>
+                </div>*@
+        </div>
+    </div>
+
+</div>
+<script src="../Scripts/zepto.banner.js"></script>
+<script type="text/javascript">
     var bannerHeight;
     var bannerWidth;
     var deviceWidth;
@@ -139,17 +126,17 @@
     function calculateBannerWidthAndHeight() {
         deviceWidth = $(window).width();
         bannerWidth = deviceWidth;
-        bannerHeight = deviceWidth * 240 / 640-5;
+        bannerHeight = deviceWidth * 240 / 640 - 5;
     }
 
-    $(window).resize(function() {
+    $(window).resize(function () {
         calculateBannerWidthAndHeight();
         $('.banner .img').css({
             'height': bannerHeight + 'px'
-        }); 
+        });
     });
 </script>
-<script type="text/javascript"> 
+<script type="text/javascript">
     $(".banner").banner({
         isBtn: false, //是否有左右按钮
         isAutoMove: true, //是否自动滑动
@@ -159,4 +146,3 @@
         bannerWidth: bannerWidth, //banner的宽度
     });
 </script>
- 

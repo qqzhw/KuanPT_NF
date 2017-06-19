@@ -17,7 +17,7 @@ namespace KuanPT_NF.Web.Models
         public float Commission { get; set; }
 
         public string Img { get; set; }
-
+        public string BigImg { get; set; }
         public int State { get; set; }
 
         public bool ShowOnHomePage { get; set; }

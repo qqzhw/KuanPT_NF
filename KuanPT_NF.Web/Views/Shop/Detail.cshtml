@@ -46,7 +46,7 @@
             <div class="tabbable-line">
                 <ul class="nav nav-tabs">
                     <li class="active">
-                        <a href="#tab_1" data-toggle="tab" aria-expanded="true"> <span style="font-weight:500;font-size:16px;">业务介绍</span> </a>
+                        <a href="#tab_1"  data-toggle="tab" aria-expanded="true"> <span style="font-weight:500;font-size:16px;">业务介绍</span> </a>
                     </li>
                     <li class="">
                         <a href="#tab_2" data-toggle="tab" aria-expanded="false"><span style="font-weight:500;font-size:16px;"> 温馨提示</span> </a>
@@ -97,16 +97,18 @@
         // Handles Tabs
         var handleTabs = function () {
             $(".nav.nav-tabs li").each(function () {
-                $(this).on("click", function (e) {
-                    $(e.target).parent().parent().find("li").removeClass("active");
-                    $(e.target).parent().parent().find("li a").removeClass("tabheader");
-                    $(e.target).parent().addClass("active");
-                    $(e.target).addClass("tabheader");
+                $(this).find("span").on("click", function (e) { 
+                    //console.log(e.target);
+                    //console.log($(e.target).parent()); 
+                    $(e.target).parent().parent().parent().find("a").removeClass("tabheader");
+                    $(e.target).parent().addClass("tabheader");
+                    $(e.target).parent().parent().parent().find("li").removeClass("active");
+                    $(e.target).parent().parent().addClass("active"); 
                     $(".tab-pane").removeClass("active");
-                    $($(e.target).attr("href")).addClass("active");
+                    $($(e.target).parent().attr("href")).addClass("active");                   
                 });
             });
-            $(".nav.nav-tabs li:first a").click();
+            $(".nav.nav-tabs li:first a").find("span").click();
         };
     </script>
 

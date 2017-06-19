@@ -96,12 +96,10 @@
                                 Text="取消"></asp:LinkButton>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <a href="#" >编辑</a>
-                            <asp:LinkButton ID="lbtEdit" runat="server" CausesValidation="False" CommandName="Edit"
-                                Text="编辑"></asp:LinkButton>
+                            <a href="ShopDetails.aspx?ShopId=<%#Eval("ShopId") %>" >编辑</a> 
                             <asp:LinkButton ID="btnDelete" CommandName="DeleteItem" CommandArgument='<%# Eval("ShopId") %>'
-                                OnClientClick="javascript:return confirm('是否确认要删除？');" runat="server" ToolTip="删除"
-                                CausesValidation="false">删除</asp:LinkButton>
+                                OnClientClick="javascript:return confirm('是否确认要下架当前产品？');" runat="server" ToolTip="下架当前产品"
+                                CausesValidation="false">下架</asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns> 

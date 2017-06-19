@@ -58,15 +58,23 @@ namespace BLL.Services
             return query.ToList();
         }
         public List<Shop> GetAllHotProducts()
-        {
-            return GetAllProductsDisplayedOnHomePage();
+        { 
+            var predicate = Predicates.Field<Shop>(p => p.IsHotShop, Operator.Eq, true);
+            IList<ISort> sortItems = new List<ISort>
+            {
+                new Sort { PropertyName = "DisplayOrder", Ascending = true }
+            };
+            var query = _shopInfoRepository.GetList(predicate, sortItems);
+            return query.ToList();
         }
         public List<Shop> GetAllProducts(int showHidden)
         { 
             var predicate = Predicates.Field<Shop>(p => p.State, Operator.Eq, showHidden);
             IList<ISort> sortItems = new List<ISort>
             {
-                new Sort { PropertyName = "DisplayOrder", Ascending = true }
+                 new Sort { PropertyName = "ShopName", Ascending = true },
+                new Sort { PropertyName = "DisplayOrder", Ascending = true },
+                new Sort { PropertyName = "Price", Ascending = true }
             };
             var query = _shopInfoRepository.GetList(predicate, sortItems);
             return query.ToList();
@@ -165,7 +173,11 @@ namespace BLL.Services
 
         public void MarkProductAsDeleted(int productId)
         {
-            throw new NotImplementedException();
+            if (productId == 0)
+                return;
+            var shop = _shopInfoRepository.GetById(productId);
+            shop.State = 0;//产品下架
+            _shopInfoRepository.Update(shop);
         }
 
         public void UpdateProduct(Shop product)
