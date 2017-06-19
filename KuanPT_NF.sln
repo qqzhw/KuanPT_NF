@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KuanPT_NF.Web", "KuanPT_NF.Web\KuanPT_NF.Web.csproj", "{ABD48297-74DB-4147-AB85-331B01E1C703}"
 EndProject
@@ -24,6 +24,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{F56E38BF-A018-497D-B3CD-1D8FA11B111B}"
 	ProjectSection(SolutionItems) = preProject
 		C:\Users\QQZHW\Documents\script.sql = C:\Users\QQZHW\Documents\script.sql
+		Docs\DB\script619.sql = Docs\DB\script619.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLL", "DLL", "{EB444163-C427-4544-BBFB-23FF08F9AE24}"
