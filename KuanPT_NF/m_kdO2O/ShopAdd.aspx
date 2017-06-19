@@ -153,6 +153,11 @@
                     <asp:FileUpload ID="uploadImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />
                     <i>图片格式为.png|.jpg</i>
                 </li>
+                <li>
+                    <label>首页推荐图</label>
+                    <asp:FileUpload ID="uploadBigImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />
+                    <i>图片格式为.png|.jpg</i>
+                </li>
                   <li>
                     <label>显示顺序</label>
                     <div style="vertical-align: middle; padding-top: 8px;">
@@ -185,17 +190,17 @@
             $(document).ready(function (e) {
                 KindEditor.ready(function (K) {
                     var editor1 = K.create('#ttContent1', {
-                        cssPath: 'Editor/plugins/code/prettify.css',
-                        uploadJson: 'Editor/asp.net/upload_json.ashx',
-                        fileManagerJson: 'Editor/asp.net/file_manager_json.ashx',
+                        cssPath: '/Editor/plugins/code/prettify.css',
+                        uploadJson: '/Editor/asp.net/upload_json.ashx',
+                        fileManagerJson: '/Editor/asp.net/file_manager_json.ashx',
                         allowFileManager: true,
                         langType: 'zh-CN'
                     });
                     prettyPrint();
                     var editor2 = K.create('#ttContent2', {
-                        cssPath: 'Editor/plugins/code/prettify.css',
-                        uploadJson: 'Editor/asp.net/upload_json.ashx',
-                        fileManagerJson: 'Editor/asp.net/file_manager_json.ashx',
+                        cssPath: '/Editor/plugins/code/prettify.css',
+                        uploadJson: '/Editor/asp.net/upload_json.ashx',
+                        fileManagerJson: '/Editor/asp.net/file_manager_json.ashx',
                         allowFileManager: true,
                         langType: 'zh-CN'
                     });

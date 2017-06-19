@@ -72,9 +72,8 @@ namespace BLL.Services
             var predicate = Predicates.Field<Shop>(p => p.State, Operator.Eq, showHidden);
             IList<ISort> sortItems = new List<ISort>
             {
-                 new Sort { PropertyName = "ShopName", Ascending = true },
-                new Sort { PropertyName = "DisplayOrder", Ascending = true },
-                new Sort { PropertyName = "Price", Ascending = true }
+                new Sort { PropertyName = "ShopName", Ascending = true },
+                new Sort { PropertyName = "DisplayOrder", Ascending = true }, 
             };
             var query = _shopInfoRepository.GetList(predicate, sortItems);
             return query.ToList();
@@ -182,7 +181,9 @@ namespace BLL.Services
 
         public void UpdateProduct(Shop product)
         {
-            throw new NotImplementedException();
+            if (product ==null)
+                return;
+            _shopInfoRepository.Update(product);
         }
 
         public void UpdateProductPicture(ProductPicture productPicture)

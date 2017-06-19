@@ -28,7 +28,7 @@ namespace KuanPT_NF.m_kdO2O
         private void BindData()
         { 
             //产品列表
-            sgvCpList.DataSource = ShopService.GetAllProducts();
+            sgvCpList.DataSource = ShopService.GetAllProducts(1);
             sgvCpList.DataBind();  
         } 
         protected void sgv_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -47,6 +47,7 @@ namespace KuanPT_NF.m_kdO2O
             {
                 //下架产品
                 ShopService.MarkProductAsDeleted(shopID);
+                BindData();
             }
         }
 

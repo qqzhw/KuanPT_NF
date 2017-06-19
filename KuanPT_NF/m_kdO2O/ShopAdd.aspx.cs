@@ -21,6 +21,7 @@ namespace KuanPT_NF.m_kdO2O
             if (Page.IsValid)
             {
                 var imgPath = string.Empty;
+                string bigImgPath = string.Empty;
                 HttpPostedFile pictureFile = uploadImg.PostedFile;
 
                 if ((pictureFile != null) && (!String.IsNullOrEmpty(pictureFile.FileName)))
@@ -34,14 +35,28 @@ namespace KuanPT_NF.m_kdO2O
                         return;
                     }
                 }
+                HttpPostedFile bigPicture = uploadBigImg.PostedFile;
+
+                if ((bigPicture != null) && (!String.IsNullOrEmpty(bigPicture.FileName)))
+                {
+                    byte[] pictureBinary = bigPicture.GetPictureBits();
+
+                    bigImgPath = this.PictureService.UploadPicture(pictureBinary, bigPicture.ContentType);
+                    if (string.IsNullOrEmpty(bigImgPath))
+                    {
+                        ShowMessage("首页推荐图上传失败!");
+                        return;
+                    }
+                }
                 var shop = new Shop();
                 shop.BmId = 1;
                 shop.ComId = "test";
                 shop.CreateUserId = 1;
-
+                
                 shop.Commission = txtCommission.Value;
                 shop.Price = txtPrice.Value;
                 shop.Img = imgPath;
+                shop.BigImg = bigImgPath;
                 shop.ShortDescription = txtShortDesc.Text;
                 shop.Description = Server.HtmlEncode(ttContent1.Value);
                 shop.Remark = Server.HtmlEncode(ttContent2.Value);
