@@ -17,13 +17,11 @@ namespace BLL.Services
         }
         public void DeleteCampaign(Campaign campaign)
         {
-            
+            if (campaign == null)
+                return;
+            _campaignRepository.Delete(campaign);
         }
-
-        public IList<Campaign> GetAllCampaigns(int pageIndex = 0, int pageSize = int.MaxValue)
-        {
-            return null;
-        }
+              
 
         public IList<Campaign> GetAllCampaigns(string keyword = "", int pageIndex = 0, int pageSize = int.MaxValue)
         {
@@ -43,11 +41,15 @@ namespace BLL.Services
 
         public void InsertCampaign(Campaign campaign)
         {
+            if (campaign == null)
+                return;
             _campaignRepository.Insert(campaign);
         }
 
         public void UpdateCampaign(Campaign campaign)
         {
+            if (campaign == null)
+                return;
             _campaignRepository.Update(campaign);
         }
 

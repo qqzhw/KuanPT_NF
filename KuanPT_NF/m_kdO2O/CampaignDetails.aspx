@@ -117,6 +117,7 @@
                 </li>
                 <li>
                     <label>Banner图片</label>
+                    <asp:Image ID="img" runat="server"  Height="200"/>
                     <asp:FileUpload ID="uploadImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />
                     <i>图片格式为.png|.jpg</i>
                 </li>
@@ -144,7 +145,7 @@
                 </li>
                 <li>
                     <label>&nbsp;</label>
-                    <asp:Button ID="btnAdd" runat="server"   CssClass="scbtn" Text="确认保存" OnClick="BtnAdd_Click" />
+                    <asp:Button ID="btnAdd" runat="server"   CssClass="scbtn" Text="确认保存" OnClick="btnAdd_Click" />
                 </li>
             </ul>
 
@@ -153,9 +154,9 @@
             $(document).ready(function (e) {
                 KindEditor.ready(function (K) {
                     var editor1 = K.create('#ttContent1', {
-                        cssPath: 'Editor/plugins/code/prettify.css',
-                        uploadJson: 'Editor/asp.net/upload_json.ashx',
-                        fileManagerJson: 'Editor/asp.net/file_manager_json.ashx',
+                        cssPath: '/Editor/plugins/code/prettify.css',
+                        uploadJson: '/Editor/asp.net/upload_json.ashx',
+                        fileManagerJson: '/Editor/asp.net/file_manager_json.ashx',
                         allowFileManager: true,
                         langType: 'zh-CN'
                     });

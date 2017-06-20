@@ -1,5 +1,6 @@
 ﻿using BLL.Services;
 using Common;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace KuanPT_NF.m_kdO2O
                 BindData();
             }
         }
-
+          
         private void BindData()
         {
             var channel = ChannelService.GetChannelById(ChannelId);
@@ -37,8 +38,22 @@ namespace KuanPT_NF.m_kdO2O
                 txtChannelUrl.Text = channel.ChannelUrl;
                 txtDisplayOrder.Value = channel.DisplayOrder;
                 txtDesc.Text = channel.ChannelDesc;
-                chkPublished.Checked = channel.Published;
+                chkPublished.Checked = channel.Published; 
             }
+        }
+
+        protected void BtnAdd_Click(object sender, EventArgs e)
+        {
+          var channel = ChannelService.GetChannelById(ChannelId);
+            channel.ChannelCode = txtChannelCode.Text;
+            channel.ChannelLable=txtChannelLable.Text;
+            channel.ChannelName=txtChannelName.Text ;
+            channel.ChannelUrl = txtChannelUrl.Text;
+            channel.DisplayOrder = txtDisplayOrder.Value;
+            channel.ChannelDesc = txtDesc.Text ;
+            channel.Published = chkPublished.Checked;
+            ChannelService.UpdateChannel(channel);
+            Response.Redirect("ChannelList.aspx");
         }
     }
 }

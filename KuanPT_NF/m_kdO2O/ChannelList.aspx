@@ -72,6 +72,9 @@
                         <ItemTemplate>
                             <%# Eval("ChannelName")%>
                         </ItemTemplate>
+                        <EditItemTemplate>
+                              <kpt:SimpleTextBox ID="txtChannelName" runat="server" Text='<%# Eval("ChannelName")%>' CssClass="dfinput" ErrorMessage="渠道名称不能为空！" />
+                        </EditItemTemplate>
                     </asp:TemplateField>
                       <asp:TemplateField HeaderText="渠道编码">
                         <HeaderStyle Width="10%" />
@@ -103,6 +106,9 @@
                         <ItemTemplate>
                              <%# Convert.ToBoolean(Eval("Published"))==true?"启用":"停用"%>
                         </ItemTemplate>
+                        <EditItemTemplate>
+                          <asp:CheckBox ID="chkPublished" runat="server" Checked='<%#Convert.ToBoolean(Eval("Published")) %>' />
+                        </EditItemTemplate>
                     </asp:TemplateField> 
                     <asp:TemplateField HeaderText="操作">
                         <HeaderStyle Width="15%" />

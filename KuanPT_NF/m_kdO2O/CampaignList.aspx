@@ -40,7 +40,7 @@
                     <asp:TemplateField HeaderText="ID">
                         <HeaderStyle Width="10%" />
                         <ItemTemplate>
-                            <asp:Literal ID="ltlDeptId" runat="server" Text='<%# Eval("CampaignId")%>'></asp:Literal><asp:HiddenField ID="hLevel" runat="server" Value='<%# Eval("CampaignId")%>' />
+                            <asp:Literal ID="ltlcampaignId" runat="server" Text='<%# Eval("CampaignId")%>'></asp:Literal><asp:HiddenField ID="hLevel" runat="server" Value='<%# Eval("CampaignId")%>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="活动名称">
@@ -49,7 +49,7 @@
                             <%# Eval("CampaignName")%>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox1" CssClass="scinput" runat="server" Text='<%# Eval("CampaignName")%>'></asp:TextBox>
+                            <asp:TextBox ID="txtCampaignName" CssClass="scinput" runat="server" Text='<%# Eval("CampaignName")%>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="活动主题">
@@ -67,6 +67,7 @@
                                 Text="取消"></asp:LinkButton>
                         </EditItemTemplate>
                         <ItemTemplate>
+                            <a href="CampaignDetails.aspx?CampaignId=<%# Eval("CampaignId") %>" >详细</a>
                             <asp:LinkButton ID="lbtEdit" runat="server" CausesValidation="False" CommandName="Edit"
                                 Text="编辑"></asp:LinkButton>
                             <asp:LinkButton ID="btnDelete" CommandName="DeleteItem" CommandArgument='<%# Eval("CampaignId") %>'

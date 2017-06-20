@@ -81,35 +81,19 @@ namespace KuanPT_NF.m_kdO2O
 
         protected void sgv_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            // int deptID = 0;
+              int campaignId = 0;
 
-            //switch (e.CommandName)
-            //{
-            //    case "DeleteItem":  // 删除
-            //        deptID = int.Parse(e.CommandArgument.ToString());
-            //        System.Data.DataTable dt = bllUser_Dept.GetByID(deptID);
-            //        if(dt.Rows.Count>0)
-            //        {
-            //            if(dt.Rows[0]["level"].ToString()=="0")
-            //                lblMessage.Text = string.Format("顶级部门不能删除");
-            //        }
-            //        if (bllUser_Dept.CheckLevel(deptID))
-            //        {
-            //            lblMessage.Text = string.Format("有下级单位，不能删除");
-            //        }
-            //        else if (bllUser_Dept.Delete(deptID))
-            //        {
-            //            lblMessage.Text = string.Format("[ID：{0}]项目已被删除！", deptID);
-            //            bindData();
-            //        }
-            //        else
-            //        {
-            //            lblMessage.Text = "删除失败！";
-            //        }
-            //        break;
-            //    default:
-            //        break;
-            //}
+           switch (e.CommandName)
+            {
+                 case "DeleteItem":  // 删除
+                    campaignId = int.Parse(e.CommandArgument.ToString());
+                    var campaign = CampaignService.GetCampaignById(campaignId);
+                    CampaignService.DeleteCampaign(campaign); 
+                     break;
+                 default:
+                  break;
+             }
+           
         }
 
         protected void sgv_Edit(object sender, GridViewEditEventArgs e)
@@ -119,47 +103,16 @@ namespace KuanPT_NF.m_kdO2O
         }
 
         protected void sgv_Update(object sender, GridViewUpdateEventArgs e)
-        {
-            //User_DeptInfo user_DeptInfo = new User_DeptInfo();
-
+        { 
             GridView gv = ((GridView)sender);
 
             GridViewRow row = gv.Rows[e.RowIndex];
-            //user_DeptInfo.DeptId = int.Parse(((Literal)row.FindControl("ltlDeptId")).Text);
-            //user_DeptInfo.DeptName = ((TextBox)row.FindControl("tbDeptName")).Text;
-            //user_DeptInfo.Level= int.Parse(((HiddenField)row.FindControl("hLevel")).Value);
-            //if(user_DeptInfo.Level==0)
-            //    user_DeptInfo.DeptType = 1;
-            //else
-            //{
-            //    System.Data.DataTable dt = bllUser_Dept.GetByID(user_DeptInfo.Level);
-            //    int dtype = int.Parse(dt.Rows[0]["deptType"].ToString());
-            //    user_DeptInfo.DeptType = dtype + 1;
-            //}
-
-            //if (user_DeptInfo.DeptName.Length > 30)
-            //{
-            //    MessageBox.Show("部门名称应小于30字", MessageBoxAction.Redirect, "DeptManage.aspx");
-            //    Response.End();
-            //}
-
-            //if (bllUser_Dept.CheckDept(user_DeptInfo.DeptName))
-            //{
-            //    MessageBox.Show("部门名称已存在，请检查！", MessageBoxAction.Redirect, "DeptManage.aspx");
-            //    Response.End();
-            //}
-
-            //if (user_DeptInfo.DeptName != "")
-            //{
-            //    lblMessage.Text = "修改" + (bllUser_Dept.Modify(user_DeptInfo) ? "成功" : "失败");
-            //    gv.EditIndex = -1;
-            //    bindData();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("请填写后提交！", MessageBoxAction.Redirect, "DeptManage.aspx");
-            //    Response.End();
-            //}
+           int campaignId= int.Parse(((Literal)row.FindControl("ltlcampaignId")).Text);
+            string Name = ((TextBox)row.FindControl("txtCampaignName")).Text;
+            var campaign = CampaignService.GetCampaignById(campaignId);
+            campaign.CampaignName = Name;
+            CampaignService.UpdateCampaign(campaign);
+            Response.Redirect("CampaignList.aspx");
         }
     }
 }
