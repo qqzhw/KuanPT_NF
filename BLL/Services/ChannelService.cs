@@ -30,8 +30,17 @@ namespace BLL.Services
 
         public IList<Channel> GetAllChannels(string keywords = "", string channelCode = "", int pageIndex = 0, int pageSize = int.MaxValue)
         {
-            var query = _channelRepository.GetAll();
-            return query.ToList();
+            object predicate = null;
+            if (!string.IsNullOrEmpty(keywords))
+            {
+                predicate = Predicates.Field<Channel>(p => p.ChannelName, Operator.Like, "%" + keywords + "%");
+            } 
+            IList<ISort> sortItems = new List<ISort>
+            {
+                new Sort { PropertyName = "Published",Ascending = false }
+            };
+            var query = _channelRepository.GetList(predicate, sortItems);
+            return query.ToList(); 
         }
 
         public Channel GetChannelById(int channelId)

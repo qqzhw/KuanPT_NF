@@ -158,7 +158,7 @@
                             <%# GetOrderStatusName(Eval("OrderState"))%>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="热销产品">
+                    <asp:TemplateField HeaderText="付款状态">
                         <HeaderStyle Width="5%" />
                         <ItemTemplate> 
                       <%#GetPaymentStatusName(Eval("PaymentStatus"))%>
@@ -176,10 +176,9 @@
                                 Text="取消"></asp:LinkButton>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <a href="ShopDetails.aspx?ShopId=<%#Eval("ShopId") %>">编辑</a>
-                            <asp:LinkButton ID="btnDelete" CommandName="DeleteItem" CommandArgument='<%# Eval("ShopId") %>'
-                                OnClientClick="javascript:return confirm('是否确认要下架当前产品？');" runat="server" ToolTip="下架当前产品"
-                                CausesValidation="false">下架</asp:LinkButton>
+                            <a href="OrderDetails.aspx?OrderId=<%#Eval("OrderId") %>">详细</a>
+                             <asp:LinkButton ID="lbtEdit" runat="server" CausesValidation="False" CommandName="Edit"
+                                Text="编辑"></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

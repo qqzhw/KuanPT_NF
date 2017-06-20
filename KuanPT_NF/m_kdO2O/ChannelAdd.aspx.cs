@@ -28,8 +28,7 @@ namespace KuanPT_NF.m_kdO2O
             channel.ChannelLable = txtChannelLable.Text;
             channel.ChannelName = txtChannelName.Text;
             channel.ChannelUrl = txtChannelUrl.Text;
-            channel.DisplayOrder = txtDisplayOrder.Value;
-            channel.ParentChannelId = 0;
+            channel.DisplayOrder = txtDisplayOrder.Value; 
             channel.Published = chkPublished.Checked;
             channel.CreatedDate = DateTime.Now;
             ChannelService.InsertChannel(channel);
