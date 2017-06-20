@@ -12,7 +12,7 @@
     <script type="text/javascript" src="/JavaScripts/select-ui.min.js"></script>
     <script type="text/javascript" src="/JavaScripts/jquery.validate.min.js"></script>
     <link href="/Editor/themes/default/default.css" rel="stylesheet" />
-    <link href="~/Editor/plugins/code/prettify.css" rel="stylesheet" />
+    <link href="/Editor/plugins/code/prettify.css" rel="stylesheet" />
     <script src="/Editor/kindeditor-all-min.js"></script>
     <script charset="utf-8" src="/Editor/lang/zh-CN.js"></script>
     <script charset="utf-8" src="/Editor/plugins/code/prettify.js"></script>

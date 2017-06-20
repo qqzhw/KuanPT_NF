@@ -12,7 +12,7 @@ namespace BLL.Services
         /// <summary>
         /// ÊÚÈ¨
         /// </summary>
-        Authorized = 1,
+       // Authorized = 1,
         /// <summary>
         /// ÒÑÖ§¸¶
         /// </summary>

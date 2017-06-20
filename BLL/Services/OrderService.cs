@@ -6,7 +6,8 @@ using Model;
 using BLL.Caching;
 using DAL;
 using Common;
-
+using DapperExtensions;
+ 
 namespace BLL.Services
 {
     public class OrderService : IOrderService
@@ -194,9 +195,40 @@ namespace BLL.Services
 
        
 
-        public List<Order> SearchOrders(DateTime? startTime, DateTime? endTime, OrderStatusEnum? os, string phoneNum = "", int pageIndex = 0, int pageSize = int.MaxValue)
+        public List<Order> SearchOrders(DateTime? startTime, DateTime? endTime, OrderStatusEnum? os, PaymentStatusEnum? paymentStatus, string phoneNum = "", int pageIndex = 0, int pageSize = int.MaxValue)
         {
-            throw new NotImplementedException();
+            int? orderStatusId = null;
+            if (os.HasValue)
+                orderStatusId = (int)os.Value;
+
+            int? paymentStatusId = null;
+            if (paymentStatus.HasValue)
+                paymentStatusId = (int)paymentStatus.Value;
+            var pgMain = new PredicateGroup { Operator = GroupOperator.Or, Predicates = new List<IPredicate>() };
+            var pgb = new PredicateGroup { Operator = GroupOperator.And, Predicates = new List<IPredicate>() };
+            if (startTime != null)
+            {
+                pgb.Predicates.Add(Predicates.Field<Order>(f => f.CreateDate, Operator.Ge, startTime));
+            }
+            if (endTime != null)
+            {
+                pgb.Predicates.Add(Predicates.Field<Order>(f => f.CreateDate, Operator.Le, endTime));
+            }
+            if (orderStatusId != null)
+            {
+                pgb.Predicates.Add(Predicates.Field<Order>(f => f.OrderState, Operator.Eq, orderStatusId));
+            }
+            if (paymentStatusId != null)
+            {
+                pgb.Predicates.Add(Predicates.Field<Order>(f => f.PaymentStatus, Operator.Eq, paymentStatusId));
+            }
+            if (!string.IsNullOrEmpty(phoneNum))
+            {
+                pgb.Predicates.Add(Predicates.Field<Order>(f => f.CustomerTel, Operator.Like, "" + phoneNum + "%"));
+            }
+            pgMain.Predicates.Add(pgb);
+            IEnumerable<Order> list = _orderRepository.GetList(pgMain);
+            return list.ToList(); 
         }
 
         public void UpdateOrder(Order order)

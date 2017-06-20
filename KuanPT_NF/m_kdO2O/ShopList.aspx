@@ -27,7 +27,7 @@
         <div class="formbody">
             <div class="formtitle"><span>产品列表</span><asp:Literal ID="lblMessage" runat="server"></asp:Literal></div>
 
-            <yyc:SmartGridView ID="sgvCpList" CssClass="tablelist" PageSize="2" AllowPaging="true" runat="server"   AutoGenerateColumns="False" MouseOverCssClass="OverRow" AlternatingRowStyle-CssClass="odd"
+            <yyc:SmartGridView ID="sgvCpList" CssClass="tablelist" PageSize="20" AllowPaging="true" runat="server"   AutoGenerateColumns="False" MouseOverCssClass="OverRow" AlternatingRowStyle-CssClass="odd"
                 Width="100%" OnRowCommand="sgv_RowCommand"  OnPageIndexChanging="SgvCpList_PageIndexChanging"   PagerSettings-Mode="NextPreviousFirstLast" PagerStyle-HorizontalAlign="Right" PagerSettings-Position="Bottom" PagerSettings-FirstPageText="首页" PagerSettings-NextPageText="下页" PagerSettings-LastPageText="末页" PagerSettings-PreviousPageText="前页" PagerSettings-PageButtonCount="5">
                 <EmptyDataTemplate>
                     <span class="f14px">没有信息！</span>

@@ -299,6 +299,7 @@
     <Content Include="Images\c01.png" />
     <Content Include="Images\c02.png" />
     <Content Include="Images\c03.png" />
+    <Content Include="Images\Calendar_scheduleHS.png" />
     <Content Include="Images\cbg.png" />
     <Content Include="Images\change.jpg" />
     <Content Include="Images\clist.png" />
@@ -443,6 +444,7 @@
     <Content Include="m_kdO2O\Editor\plugins\code\prettify.js" />
     <Content Include="m_kdO2O\KLAdd.aspx" />
     <Content Include="m_kdO2O\KLAuditList.aspx" />
+    <Content Include="m_kdO2O\Modules\DatePicker.ascx" />
     <Content Include="m_kdO2O\Modules\NumericTextBox.ascx" />
     <Content Include="m_kdO2O\Modules\SelectCategoryControl.ascx" />
     <Content Include="m_kdO2O\Modules\SimpleTextBox.ascx" />
@@ -568,6 +570,13 @@
     </Compile>
     <Compile Include="m_kdO2O\KLAuditList.aspx.designer.cs">
       <DependentUpon>KLAuditList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\Modules\DatePicker.ascx.cs">
+      <DependentUpon>DatePicker.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\Modules\DatePicker.ascx.designer.cs">
+      <DependentUpon>DatePicker.ascx</DependentUpon>
     </Compile>
     <Compile Include="m_kdO2O\Modules\NumericTextBox.ascx.cs">
       <DependentUpon>NumericTextBox.ascx</DependentUpon>

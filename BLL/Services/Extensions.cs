@@ -1,5 +1,6 @@
 using BLL.Infrastructure;
 using BLL.Services;
+using Common;
 using Model;
 using System.Collections.Generic;
 using System.IO;
@@ -96,6 +97,53 @@ namespace  BLL
             var categoryService = EngineContext.Current.Resolve<ICategoryService>();  
                 return categoryService.GetCategoryById(ParentCategoryId);
            
-        } 
+        }
+        public static string GetOrderStatusName(this OrderStatusEnum os)
+        {
+            string name = "待处理";
+            switch (os)
+            {
+                case OrderStatusEnum.Pending:
+                    name = "待处理";
+                    break;
+                case OrderStatusEnum.Processing:
+                    name = "处理中";
+                    break;
+                case OrderStatusEnum.Complete:
+                    name = "已完成";
+                    break;
+                case OrderStatusEnum.Cancelled:
+                    name = "已取消";
+                    break;
+                default:
+                    break;
+            }
+            return name;
+        }
+        public static string GetPaymentStatusName(this PaymentStatusEnum paymentStatus)
+        {
+            string name = "待支付";
+            switch (paymentStatus)
+            {
+                case PaymentStatusEnum.Pending:
+                    name = "待支付";
+                    break; 
+                case PaymentStatusEnum.Paid:
+                    name = "已支付";
+                    break;
+                case PaymentStatusEnum.PartiallyRefunded:
+                    name = "部分退款";
+                    break;
+                case PaymentStatusEnum.Refunded:
+                    name = "已退款";
+                    break;
+                case PaymentStatusEnum.Voided:
+                    name = "作废";
+                    break;
+                default: 
+                    break;
+            }
+            return name;
+        }
     }
 }

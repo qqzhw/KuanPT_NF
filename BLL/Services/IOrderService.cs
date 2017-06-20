@@ -15,7 +15,7 @@ namespace BLL.Services
 
 
         List<Order> SearchOrders(DateTime? startTime, DateTime? endTime,
-         OrderStatusEnum? os,   string phoneNum="",int pageIndex=0,int pageSize=int.MaxValue);
+         OrderStatusEnum? os,  PaymentStatusEnum? paymentStatus, string phoneNum="", int pageIndex=0,int pageSize=int.MaxValue);
 
        
         List<Order> LoadAllOrders();

@@ -6,8 +6,8 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    <link href="../css/select.css" rel="stylesheet" type="text/css" />
-      <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/select.css" rel="stylesheet" type="text/css" />
+      <link href="/css/style.css" rel="stylesheet" type="text/css" />
     <script src="../JavaScripts/jquery-1.12.4.min.js"></script>
     <script src="../JavaScripts/select-ui.min.js"></script>
     <script type="text/javascript" src="../JavaScripts/jquery.validate.min.js"></script>
