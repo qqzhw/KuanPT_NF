@@ -92,20 +92,23 @@
                             <asp:Literal ID="ltlDeptId" runat="server" Text='<%# Eval("OrderId")%>'></asp:Literal><asp:HiddenField ID="hLevel" runat="server" Value='<%# Eval("OrderId")%>' />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="产品类型">
-                        <HeaderStyle Width="5%" />
+                    <asp:TemplateField HeaderText="订单号">
+                        <HeaderStyle Width="10%" />
                         <ItemTemplate>
                             <%# Eval("OrderNo")%>
                         </ItemTemplate>
+                    </asp:TemplateField>
+                      <asp:TemplateField HeaderText="产品类型">
+                        <HeaderStyle Width="5%" />
+                        <ItemTemplate>
+                            <%# Eval("ShopType")%>
+                        </ItemTemplate> 
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="产品名称">
                         <HeaderStyle Width="10%" />
                         <ItemTemplate>
                             <%# Eval("ShopName")%>
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtShopName" CssClass="scinput" runat="server" Text='<%# Eval("ShopName")%>'></asp:TextBox>
-                        </EditItemTemplate>
+                        </ItemTemplate> 
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="产品价格(元)">
                         <HeaderStyle Width="5%" />
@@ -119,27 +122,51 @@
                             <%# Eval("Commission")%>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="首页显示">
+                      <asp:TemplateField HeaderText="客户名称">
                         <HeaderStyle Width="5%" />
                         <ItemTemplate>
-                            <%# Eval("OrderState")%>
+                            <%# Eval("CustomerName")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                       <asp:TemplateField HeaderText="客户名称">
+                        <HeaderStyle Width="5%" />
+                        <ItemTemplate>
+                            <%# Eval("CustomerName")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                       <asp:TemplateField HeaderText="客户身份证">
+                        <HeaderStyle Width="5%" />
+                        <ItemTemplate>
+                            <%# Eval("IdCard")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                      <asp:TemplateField HeaderText="客户电话">
+                        <HeaderStyle Width="5%" />
+                        <ItemTemplate>
+                            <%# Eval("CustomerTel")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                       <asp:TemplateField HeaderText="客户地址">
+                        <HeaderStyle Width="30%" />
+                        <ItemTemplate>
+                            <%# Eval("CustomerTel")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="订单状态">
+                        <HeaderStyle Width="5%" />
+                        <ItemTemplate>
+                            <%# GetOrderStatusName(Eval("OrderState"))%>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="热销产品">
                         <HeaderStyle Width="5%" />
-                        <ItemTemplate>
-                            <%# Eval("PaymentStatus")%>
+                        <ItemTemplate> 
+                      <%#GetPaymentStatusName(Eval("PaymentStatus"))%>
                         </ItemTemplate>
                         <EditItemTemplate>
                           <asp:TextBox runat="server" ID="txtp" />
                         </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="简述">
-                        <HeaderStyle Width="55%" />
-                        <ItemTemplate>
-                            <%# Eval("Remark")%>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                    </asp:TemplateField> 
                     <asp:TemplateField HeaderText="操作">
                         <HeaderStyle Width="10%" />
                         <EditItemTemplate>

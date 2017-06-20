@@ -4,7 +4,10 @@ using Common;
 using Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -109,19 +112,23 @@ namespace KuanPT_NF.m_kdO2O
             {
                 try
                 {
-                    string fileName = string.Format("orders_{0}_{1}.xls", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"), CommonHelper.GenerateRandomDigitCode(4));
-                    string filePath = string.Format("{0}files\\ExportImport\\{1}", HttpContext.Current.Request.PhysicalApplicationPath, fileName);
-                    var orders = GetOrders();
-                    // sgvCpList.Export(System.IO.Path.Combine(filePath, fileName),exportFormat:YYControls.ExportFormat.DOC);
-                    //this.ExportManager.ExportOrdersToXls(filePath, orders);
+                    string fileName = string.Format("订单_{0}_{1}.xls", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"), CommonHelper.GenerateRandomDigitCode(4));
+                    string filePath = string.Format("{0}Files\\{1}", HttpContext.Current.Request.PhysicalApplicationPath, fileName);
+                    var orders = GetOrders(); 
                     var bytes = ExportManager.ExportOrdersToXlsx(orders);
-                    CommonHelper.WriteResponseXls(filePath, fileName);
-                   // return C(bytes, FileTypes.TextXlsx, "products.xlsx");
-                   
+                    var folder= HttpContext.Current.Request.PhysicalApplicationPath + "Files";
+                    if (!Directory.Exists(folder))
+                    {
+                        Directory.CreateDirectory(folder);
+                    }
+                    File.WriteAllBytes(filePath,bytes);  
+                    CommonHelper.WriteResponseXls(filePath, fileName); 
+                   // Response.WriteFile(CommonHelper.GetStoreLocation() + "files/" + fileName);
                 }
                 catch (Exception exc)
                 {
-                    ShowMessage("导出Excel失败!");
+                    if(!(exc is  ThreadAbortException))
+                      ShowMessage("导出Excel失败!");
                 } 
             }
         }
@@ -180,5 +187,17 @@ namespace KuanPT_NF.m_kdO2O
             //}
         }
        
+        public string GetOrderStatusName(object orderStatus)
+        {
+            int status = Convert.ToInt32(orderStatus);
+            var name = ((OrderStatusEnum)status).GetOrderStatusName();
+            return name;
+        }
+        public string GetPaymentStatusName(object paymentStatus)
+        {
+            int status = Convert.ToInt32(paymentStatus);
+            var name = ((PaymentStatusEnum)status).GetPaymentStatusName();
+            return name;
+        }
     }
 }

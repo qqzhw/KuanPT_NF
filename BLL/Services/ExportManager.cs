@@ -22,16 +22,16 @@ namespace BLL.Services
             _channelService = channelService;
         }
         public byte[] ExportChannelToXlsx(IEnumerable<Channel> channels)
-        {
+        { 
             var properties = new[]
            {
-                new PropertyByName<Channel>("ChannelId", p => p.ChannelId),
-                new PropertyByName<Channel>("ChannelName", p => p.ChannelName),
-                new PropertyByName<Channel>("ChannelCode", p => p.ChannelCode),
-                new PropertyByName<Channel>("ChannelLable", p => p.ChannelLable), 
-                new PropertyByName<Channel>("ParentChannelId", p => p.ParentChannelId),
-                new PropertyByName<Channel>("ChannelUrl", p =>p.ChannelUrl), 
-                new PropertyByName<Channel>("ComId", p => p.ComId)
+                new PropertyByName<Channel>("序号", p => p.ChannelId),
+                new PropertyByName<Channel>("渠道名称", p => p.ChannelName),
+                new PropertyByName<Channel>("渠道编码", p => p.ChannelCode),
+                new PropertyByName<Channel>("渠道标签", p => p.ChannelLable), 
+                new PropertyByName<Channel>("上级渠道", p =>_channelService.GetChannelById(p.ParentChannelId)?.ChannelName),
+                new PropertyByName<Channel>("渠道链接", p =>p.ChannelUrl), 
+                new PropertyByName<Channel>("企业号", p => p.ComId)
             };
             return ExportToXlsx(properties, channels);
         }
@@ -40,13 +40,19 @@ namespace BLL.Services
         {
             var properties = new[]
           {
-                new PropertyByName<Order>("OrderId", p => p.OrderId),
-                new PropertyByName<Order>("OrderNo", p => p.OrderNo),
-                new PropertyByName<Order>("CustomerName", p => p.CustomerName),
-                new PropertyByName<Order>("CustomerTel", p => p.CustomerTel),
-                new PropertyByName<Order>("CustomerAddress", p => p.CustomerAddress),
-                new PropertyByName<Order>("OrderState", p =>((OrderStatusEnum)p.OrderState).GetOrderStatusName()),
-                new PropertyByName<Order>("ComId", p => p.ComId)
+                new PropertyByName<Order>("序号", p => p.OrderId),
+                new PropertyByName<Order>("订单编号", p => p.OrderNo),
+                new PropertyByName<Order>("产品类型", p => p.ShopType),
+               new PropertyByName<Order>("产品名称", p => p.ShopName),
+                 new PropertyByName<Order>("产品价格", p => p.Price),
+                new PropertyByName<Order>("佣金", p => p.Commission),
+                new PropertyByName<Order>("客户名称", p => p.CustomerName),
+                new PropertyByName<Order>("客户身份证", p => p.IdCard),
+                new PropertyByName<Order>("客户电话", p => p.CustomerTel),
+                new PropertyByName<Order>("客户地址", p => p.CustomerAddress),
+                new PropertyByName<Order>("订单状态", p =>((OrderStatusEnum)p.OrderState).GetOrderStatusName()),
+                new PropertyByName<Order>("付款状态", p =>((PaymentStatusEnum)p.PaymentStatus).GetPaymentStatusName()),
+                new PropertyByName<Order>("企业号", p => p.ComId)
             };
             return ExportToXlsx(properties, orders);
         }
@@ -57,21 +63,13 @@ namespace BLL.Services
         }
         /// <summary>
         /// Export objects to XLSX
-        /// </summary>
-        /// <typeparam name="T">Type of object</typeparam>
-        /// <param name="properties">Class access to the object through its properties</param>
-        /// <param name="itemsToExport">The objects to export</param>
-        /// <returns></returns>
+        /// </summary>  
         protected virtual byte[] ExportToXlsx<T>(PropertyByName<T>[] properties, IEnumerable<T> itemsToExport)
         {
             using (var stream = new MemoryStream())
-            {
-                // ok, we can run the real code of the sample now
+            { 
                 using (var xlPackage = new ExcelPackage(stream))
-                {
-                    // uncomment this line if you want the XML written out to the outputDir
-                    //xlPackage.DebugMode = true; 
-
+                { 
                     // get handles to the worksheets
                     var worksheet = xlPackage.Workbook.Worksheets.Add(typeof(T).Name);
                     var fWorksheet = xlPackage.Workbook.Worksheets.Add("DataForProductsFilters");

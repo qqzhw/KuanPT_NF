@@ -936,8 +936,10 @@ namespace Common
                 HttpResponse response = HttpContext.Current.Response;
                 response.Clear();
                 response.Charset = "utf-8";
-                response.ContentType = "text/xls";
+                response.ContentType = "application/vnd.ms-excel";
                 response.AddHeader("content-disposition", string.Format("attachment; filename={0}", targetFileName));
+                response.Buffer = true;
+                response.Clear();
                 response.BinaryWrite(File.ReadAllBytes(filePath));
                 response.End();
             }
@@ -950,10 +952,13 @@ namespace Common
                 HttpResponse response = HttpContext.Current.Response;
                 response.Clear();
                 response.Charset = "utf-8";
-                response.ContentType = "text/xls";
-                response.AddHeader("content-disposition", string.Format("attachment; filename={0}", targetFileName));
+                response.ContentType = "application/vnd.ms-excel";
+                //Response.ContentType = "application/download"; //也可以设置成download    
+                response.AddHeader("Content-Disposition", string.Format("attachment; filename={0}", targetFileName));
+                response.Buffer = true;
+                response.Clear();
                 response.BinaryWrite(buffer);
-                response.End();
+                response.End();  
             }
         }
 
