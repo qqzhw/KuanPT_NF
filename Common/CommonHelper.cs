@@ -943,6 +943,20 @@ namespace Common
             }
         }
 
+        public static void WriteResponseXls(byte[] buffer, string targetFileName)
+        {
+            if (buffer != null)
+            {
+                HttpResponse response = HttpContext.Current.Response;
+                response.Clear();
+                response.Charset = "utf-8";
+                response.ContentType = "text/xls";
+                response.AddHeader("content-disposition", string.Format("attachment; filename={0}", targetFileName));
+                response.BinaryWrite(buffer);
+                response.End();
+            }
+        }
+
         /// <summary>
         /// Write PDF file to response
         /// </summary>

@@ -51,6 +51,13 @@ namespace KuanPT_NF.m_kdO2O
                 return EngineContext.Current.Resolve<IChannelService>();
             }
         }
+        protected IExportManager  ExportManager
+        {
+            get
+            {
+                return EngineContext.Current.Resolve<IExportManager>();
+            }
+        }
         public  void ShowMessage(string msg)
         {
             //  ClientScript.RegisterStartupScript(GetType(), "message", "<script language='javascript' defer>alert('" + msg.ToString() + "');</script>");

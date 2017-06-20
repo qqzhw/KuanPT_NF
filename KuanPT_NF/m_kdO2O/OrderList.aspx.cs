@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebGrease.Activities;
 
 namespace KuanPT_NF.m_kdO2O
 {
@@ -111,15 +112,17 @@ namespace KuanPT_NF.m_kdO2O
                     string fileName = string.Format("orders_{0}_{1}.xls", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"), CommonHelper.GenerateRandomDigitCode(4));
                     string filePath = string.Format("{0}files\\ExportImport\\{1}", HttpContext.Current.Request.PhysicalApplicationPath, fileName);
                     var orders = GetOrders();
-
+                    // sgvCpList.Export(System.IO.Path.Combine(filePath, fileName),exportFormat:YYControls.ExportFormat.DOC);
                     //this.ExportManager.ExportOrdersToXls(filePath, orders);
+                    var bytes = ExportManager.ExportOrdersToXlsx(orders);
                     CommonHelper.WriteResponseXls(filePath, fileName);
-                    ShowMessage("导出Excel失败!");
+                   // return C(bytes, FileTypes.TextXlsx, "products.xlsx");
+                   
                 }
                 catch (Exception exc)
                 {
                     ShowMessage("导出Excel失败!");
-                }
+                } 
             }
         }
         protected void sgv_Cancel(object sender, GridViewCancelEditEventArgs e)

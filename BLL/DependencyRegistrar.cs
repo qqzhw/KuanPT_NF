@@ -59,6 +59,7 @@ namespace BLL
             builder.RegisterType<ShopService>().As<IShopService>().InstancePerLifetimeScope();
             builder.RegisterType<OrderService>().As<IOrderService>().InstancePerLifetimeScope();
             builder.RegisterType<ChannelService>().As<IChannelService>().InstancePerLifetimeScope();
+            builder.RegisterType<ExportManager>().As<IExportManager>().InstancePerLifetimeScope();
         }
 
         /// <summary>

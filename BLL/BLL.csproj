@@ -42,6 +42,9 @@
     <Reference Include="DapperExtensions">
       <HintPath>..\Docs\DLL\DapperExtensions.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>..\Docs\DLL\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -68,10 +71,12 @@
     <Compile Include="Services\CampaignService.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\ChannelService.cs" />
+    <Compile Include="Services\ExportManager.cs" />
     <Compile Include="Services\Extensions.cs" />
     <Compile Include="Services\ICampaignService.cs" />
     <Compile Include="Services\ICategoryService.cs" />
     <Compile Include="Services\IChannelService.cs" />
+    <Compile Include="Services\IExportManager.cs" />
     <Compile Include="Services\IOrderService.cs" />
     <Compile Include="Services\IPictureService.cs" />
     <Compile Include="Services\IShopService.cs" />
@@ -86,6 +91,8 @@
     <Compile Include="Services\PictureService.cs" />
     <Compile Include="Services\ProductService - 副本.cs" />
     <Compile Include="Services\ProductSortingEnum.cs" />
+    <Compile Include="Services\PropertyByName.cs" />
+    <Compile Include="Services\PropertyManager.cs" />
     <Compile Include="Services\ShopService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
@@ -102,6 +109,9 @@
       <Project>{1CFC2B71-D3CD-4AEE-9538-B31272F5EB34}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\Help\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

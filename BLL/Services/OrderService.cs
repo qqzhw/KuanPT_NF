@@ -224,7 +224,7 @@ namespace BLL.Services
             }
             if (!string.IsNullOrEmpty(phoneNum))
             {
-                pgb.Predicates.Add(Predicates.Field<Order>(f => f.CustomerTel, Operator.Like, "" + phoneNum + "%"));
+                pgb.Predicates.Add(Predicates.Field<Order>(f => f.CustomerTel, Operator.Like, "%" + phoneNum + "%"));
             }
             pgMain.Predicates.Add(pgb);
             IEnumerable<Order> list = _orderRepository.GetList(pgMain);

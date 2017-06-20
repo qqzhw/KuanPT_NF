@@ -34,6 +34,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLL", "DLL", "{EB444163-C42
 		Docs\DLL\Dapper.Contrib.dll = Docs\DLL\Dapper.Contrib.dll
 		Docs\DLL\Dapper.dll = Docs\DLL\Dapper.dll
 		Docs\DLL\DapperExtensions.dll = Docs\DLL\DapperExtensions.dll
+		C:\Users\ZHW\Downloads\nopCommerce-develop\src\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll = C:\Users\ZHW\Downloads\nopCommerce-develop\src\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll
 		Docs\DLL\Newtonsoft.Json.dll = Docs\DLL\Newtonsoft.Json.dll
 		Docs\DLL\System.Net.Http.Formatting.dll = Docs\DLL\System.Net.Http.Formatting.dll
 		Docs\DLL\System.Web.Mvc.dll = Docs\DLL\System.Web.Mvc.dll

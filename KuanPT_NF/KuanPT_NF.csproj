@@ -69,6 +69,9 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
+    <Reference Include="WebGrease">
+      <HintPath>..\Docs\DLL\WebGrease.dll</HintPath>
+    </Reference>
     <Reference Include="YYControls">
       <HintPath>..\Docs\DLL\YYControls.dll</HintPath>
     </Reference>
