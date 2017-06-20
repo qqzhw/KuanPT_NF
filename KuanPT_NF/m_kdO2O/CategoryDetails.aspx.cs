@@ -33,7 +33,32 @@ namespace KuanPT_NF.m_kdO2O
                 txtName.Text = category.CategoryName; 
                 txtDisplayOrder.Value = category.DisplayOrder;
                 txtDesc.Text = category.Description;
+                chkHomePage.Checked = category.ShowOnHomePage;
                 chkPublished.Checked = category.Published;
+                ParentCategory.SelectedCategoryId = category.ParentCategoryId;
+               
+                ParentCategory.BindData();
+            }
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                var category = this.CategoryService.GetCategoryById(this.CategoryId);
+
+                if (category != null)
+                { 
+                    category.CategoryName = txtName.Text.Trim();
+                    category.Description = txtDesc.Text; 
+                    category.ParentCategoryId = ParentCategory.SelectedCategoryId; 
+                    category.ShowOnHomePage = chkHomePage.Checked;
+                    category.Published = chkPublished.Checked;
+                    category.DisplayOrder = txtDisplayOrder.Value; 
+
+                    this.CategoryService.UpdateCategory(category);
+                }
+                Response.Redirect("CategoryList.aspx");
             }
         }
     }

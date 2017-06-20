@@ -15,7 +15,7 @@
     <script type="text/javascript" src="/JavaScripts/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="/JavaScripts/select-ui.min.js"></script>
     <script type="text/javascript" src="/JavaScripts/jquery.validate.min.js"></script>
-    <title>订单列表</title>
+    <title>渠道列表</title>
       <style> 
              select {  
                 min-width:80px;

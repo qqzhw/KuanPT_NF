@@ -66,24 +66,28 @@ namespace BLL.Services
       
         public List<Category> GetAllCategories()
         { 
-            return GetAllCategories(true);
+            return GetAllCategories(string.Empty);
         }
-        
-       
-        public List<Category> GetAllCategories(bool showHidden)
-        {
-            var query = _categoryRepository.GetAll().Where(o => o.Published).OrderBy(o => o.Published).ThenBy(o => o.DisplayOrder);
-            //var query = from c in _context.Categories
-            //            orderby c.ParentCategoryId, c.DisplayOrder
-            //            where (showHidden || c.Published) &&
-            //            !c.Deleted
-            //            select c;
 
-            ////filter by access control list (public store)
-            //if (!showHidden)
-            //{
-            //    query = query.WhereAclPerObjectNotDenied(_context);
-            //}
+
+        public virtual List<Category> GetAllCategories(string categoryName="", bool? showHidden=null)        
+        {   
+            var pgMain = new PredicateGroup { Operator = GroupOperator.Or, Predicates = new List<IPredicate>() };
+            var pgb = new PredicateGroup { Operator = GroupOperator.And, Predicates = new List<IPredicate>() };
+            if (!string.IsNullOrEmpty(categoryName))
+            {
+                pgb.Predicates.Add(Predicates.Field<Category>(p => p.CategoryName, Operator.Like, "%" + categoryName + "%"));
+            }
+            if (showHidden!=null)
+            {
+                pgb.Predicates.Add(Predicates.Field<Category>(p => p.Published, Operator.Eq, showHidden));
+            }
+            pgMain.Predicates.Add(pgb);
+            IList<ISort> sortItems = new List<ISort>
+            {
+                new Sort { PropertyName = "DisplayOrder",Ascending = false }
+            };
+            var query = _categoryRepository.GetList(pgMain,sortItems);  
             var unsortedCategories = query.ToList();
 
             ////sort categories
@@ -223,7 +227,8 @@ namespace BLL.Services
                 }
                 parentCategory = GetCategoryById(parentCategory.ParentCategoryId);
             }
-             
+            category.UpdatedDate = DateTime.Now;
+            _categoryRepository.Update(category);
             _cacheManager.RemoveByPattern(CATEGORIES_PATTERN_KEY);
             _cacheManager.RemoveByPattern(PRODUCTCATEGORIES_PATTERN_KEY);
         }

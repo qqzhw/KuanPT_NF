@@ -36,11 +36,11 @@
         <div class="place">
             <span>位置：</span>
             <ul class="placeul">
-                <li><a href="CampaignList.aspx">分类管理</a></li>
+                <li><a href="CategoryList.aspx">分类管理</a></li>
             </ul>
         </div>
         <div class="formbody">
-            <div class="formtitle"><span>分类添加</span></div>
+            <div class="formtitle"><span>分类编辑</span></div>
             <ul class="forminfo">
                 <li>
                     <label>上级分类</label>

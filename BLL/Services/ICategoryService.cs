@@ -11,11 +11,9 @@ namespace BLL.Services
        
         
         void MarkCategoryAsDeleted(int categoryId);
-
-       
-        List<Category> GetAllCategories();
+         
      
-        List<Category> GetAllCategories(bool showHidden);
+        List<Category> GetAllCategories(string categoryName="", bool? showHidden=null);
         
         
         List<Category> GetAllCategoriesByParentCategoryId(int parentCategoryId);
