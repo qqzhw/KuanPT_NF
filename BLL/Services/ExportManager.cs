@@ -108,7 +108,7 @@ namespace BLL.Services
            {
                 new PropertyByName<ChannelData>("序号", p => p.ChannelDataId),
                 new PropertyByName<ChannelData>("渠道ID", p => p.ChannelId),
-                new PropertyByName<ChannelData>("渠道编码", p => p.ChannelName),
+                new PropertyByName<ChannelData>("渠道名称", p => p.ChannelName),
                 new PropertyByName<ChannelData>("产品ID", p => p.ShopId),
                 new PropertyByName<ChannelData>("产品名称", p =>p.ShopName), 
                 new PropertyByName<ChannelData>("浏览时间", p => p.CreatedDate.ToString("yyyy-MM-dd HH:mm:ss"))

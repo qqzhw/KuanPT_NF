@@ -13,5 +13,10 @@ namespace KuanPT_NF.m_kdO2O
         {
 
         }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
