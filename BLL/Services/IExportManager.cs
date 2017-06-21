@@ -15,5 +15,7 @@ namespace BLL.Services
 
         byte[] ExportOrdersToXlsx(IList<Order> orders);
 
+        byte[] ExportChannelDataToXlsx(IList<ChannelData> channelDatas);
+
     }
 }

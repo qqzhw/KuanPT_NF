@@ -25,7 +25,7 @@ namespace BLL.Services
         void DeleteChannelData(ChannelData channelData);
         ChannelData GetChannelDataById(int channelDataId);
 
-        IList<ChannelData> GetAllChannelDatas(string channelName = "");
+        IList<ChannelData> GetAllChannelDatas(string channelName = "", DateTime? beginTime = null, DateTime? endTime = null);
         #endregion
 
     }

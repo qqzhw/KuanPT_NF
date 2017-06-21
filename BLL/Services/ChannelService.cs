@@ -127,5 +127,27 @@ namespace BLL.Services
             var query = _channelDataRepository.GetList(predicate, sortItems);
             return query.ToList();
         }
+
+        public IList<ChannelData> GetAllChannelDatas(string channelName = "", DateTime? beginTime = default(DateTime?), DateTime? endTime = default(DateTime?))
+        {
+            var pgMain = new PredicateGroup { Operator = GroupOperator.Or, Predicates = new List<IPredicate>() };
+            var pgb = new PredicateGroup { Operator = GroupOperator.And, Predicates = new List<IPredicate>() };
+            if (beginTime != null)
+            {
+                pgb.Predicates.Add(Predicates.Field<ChannelData>(f => f.CreatedDate, Operator.Ge, beginTime));
+            }
+            if (endTime != null)
+            {
+                pgb.Predicates.Add(Predicates.Field<ChannelData>(f => f.CreatedDate, Operator.Le, endTime));
+            } 
+           
+            if (!string.IsNullOrEmpty(channelName))
+            {
+                pgb.Predicates.Add(Predicates.Field<ChannelData>(f => f.ChannelName, Operator.Like, "%" + channelName + "%"));
+            }
+            pgMain.Predicates.Add(pgb);
+            var query = _channelDataRepository.GetList(pgMain);
+            return query.ToList();
+        }
     }
 }
