@@ -49,16 +49,18 @@ namespace KuanPT_NF.m_kdO2O
             order.Img = shop.Img;
             order.OrderNo = "KD" + DateTime.Now.ToString("yyyyMMddHHmmssfff");
             order.OrderState = 0;
+            order.PaymentStatus = 0;
             order.Price = shop.Price;
             order.RealName = "张三";
             order.ShopId = shop.ShopId;
             order.ShopName = shop.ShopName;
             order.ShopType = shop.ShopType;
             order.UserId = 1;
-            order.PayType = "微信支付";
+            order.PayType = txtPayType.Text;
             order.UserName = "admin";
             order.UserPhone = "10086";
             OrderService.InsertOrder(order);
+            Response.Redirect("OrderList.aspx");
         }
     }
 }

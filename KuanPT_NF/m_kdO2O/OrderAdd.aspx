@@ -65,6 +65,10 @@
                     <label>支付宝账户</label>
                      <asp:TextBox ID="txtAliAccount" runat="server" CssClass="dfinput" />
                 </li> 
+                      <li>
+                    <label>支付方式</label>
+                     <asp:TextBox ID="txtPayType" runat="server" CssClass="dfinput" />
+                </li>
                 <li>
                     <label>佣金</label>
                     <div style="vertical-align: middle; padding-top: 8px;">

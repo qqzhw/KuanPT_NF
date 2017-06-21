@@ -85,6 +85,15 @@ namespace KuanPT_NF.m_kdO2O {
         protected global::System.Web.UI.WebControls.TextBox txtAliAccount;
         
         /// <summary>
+        /// txtPayType 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPayType;
+        
+        /// <summary>
         /// txtCommission 控件。
         /// </summary>
         /// <remarks>

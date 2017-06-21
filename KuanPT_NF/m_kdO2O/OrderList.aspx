@@ -162,10 +162,7 @@
                         <HeaderStyle Width="5%" />
                         <ItemTemplate> 
                       <%#GetPaymentStatusName(Eval("PaymentStatus"))%>
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                          <asp:TextBox runat="server" ID="txtp" />
-                        </EditItemTemplate>
+                        </ItemTemplate> 
                     </asp:TemplateField> 
                     <asp:TemplateField HeaderText="操作">
                         <HeaderStyle Width="10%" />

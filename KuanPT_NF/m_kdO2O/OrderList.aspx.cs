@@ -22,7 +22,8 @@ namespace KuanPT_NF.m_kdO2O
             if (!Page.IsPostBack)
             {
                 FillDropDowns();
-                SetDefaultValues(); 
+                SetDefaultValues();
+                BindData();
             }
         }
 
@@ -30,7 +31,7 @@ namespace KuanPT_NF.m_kdO2O
         {
             //订单状态
             this.ddlOrderStatus.Items.Clear();
-            ListItem itemOrderStatus = new ListItem("全部", "0");
+            ListItem itemOrderStatus = new ListItem("全部", "-1");
             this.ddlOrderStatus.Items.Add(itemOrderStatus);
             OrderStatusEnum[] orderStatuses = (OrderStatusEnum[])Enum.GetValues(typeof(OrderStatusEnum));
             foreach (OrderStatusEnum orderStatus in orderStatuses)
@@ -41,7 +42,7 @@ namespace KuanPT_NF.m_kdO2O
 
             //付款状态
             this.ddlPaymentStatus.Items.Clear();
-            ListItem itemPaymentStatus = new ListItem("全部", "0");
+            ListItem itemPaymentStatus = new ListItem("全部", "-1");
             this.ddlPaymentStatus.Items.Add(itemPaymentStatus);
             PaymentStatusEnum[] paymentStatuses = (PaymentStatusEnum[])Enum.GetValues(typeof(PaymentStatusEnum));
             foreach (PaymentStatusEnum paymentStatus in paymentStatuses)
@@ -70,12 +71,12 @@ namespace KuanPT_NF.m_kdO2O
 
             OrderStatusEnum? orderStatus = null;
             int orderStatusId = int.Parse(ddlOrderStatus.SelectedItem.Value);
-            if (orderStatusId > 0)
+            if (orderStatusId > -1)
                 orderStatus = (OrderStatusEnum)Enum.ToObject(typeof(OrderStatusEnum), orderStatusId);
 
             PaymentStatusEnum? paymentStatus = null;
             int paymentStatusId = int.Parse(ddlPaymentStatus.SelectedItem.Value);
-            if (paymentStatusId > 0)
+            if (paymentStatusId > -1)
                 paymentStatus = (PaymentStatusEnum)Enum.ToObject(typeof(PaymentStatusEnum), paymentStatusId); 
            
             string customerTel = txtCustomerTel.Text.Trim();

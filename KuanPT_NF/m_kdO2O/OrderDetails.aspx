@@ -39,7 +39,7 @@
             </ul>
         </div>
         <div class="formbody">
-            <div class="formtitle"><span>创建订单</span></div>
+            <div class="formtitle"><span>编辑订单</span></div>
             <ul class="forminfo">
                 <li>
                     <label>定购产品</label>
@@ -48,7 +48,7 @@
                 </li>
                 <li>
                     <label>客户名称</label>
-                     <kpt:SimpleTextBox ID="txtCustomerName" runat="server" CssClass="dfinput" ErrorMessage="产品名称不能为空！" />
+                     <kpt:SimpleTextBox ID="txtCustomerName" runat="server" CssClass="dfinput" ErrorMessage="客户名称不能为空！" />
                 </li>
                 <li>
                     <label>客户身份证号</label>
@@ -75,6 +75,34 @@
                             MinimumValue="0" MaximumValue="99999"></kpt:NumericTextBox>
                     </div>
                 </li> 
+                 <li>
+                    <label>订单状态</label>
+                    <asp:DropDownList ID="ddlOrderStatus" runat="server" ></asp:DropDownList>
+                   
+                </li>
+                  <li>
+                    <label>支付方式</label>
+                     <asp:TextBox ID="txtPayType" runat="server" CssClass="dfinput" />
+                </li>
+                 <li>
+                    <label>付款状态</label>
+                    <asp:DropDownList ID="ddlPaymentStatus" runat="server" ></asp:DropDownList>
+               
+                </li>
+                 <li>
+                    <label>付款金额</label> 
+                        <kpt:NumericTextBox runat="server" CssClass="dfinput" ID="txtPayPrice"
+                            Value="0" RequiredErrorMessage="不能为空！"
+                            RangeErrorMessage="数字范围在0-99999之间！"
+                            MinimumValue="0" MaximumValue="99999"></kpt:NumericTextBox>
+                </li>
+                 <li>
+                    <label>付款佣金</label> 
+                        <kpt:NumericTextBox runat="server" CssClass="dfinput" ID="txtPayComission"
+                            Value="0" RequiredErrorMessage="不能为空！"
+                            RangeErrorMessage="数字范围在0-99999之间！"
+                            MinimumValue="0" MaximumValue="99999"></kpt:NumericTextBox>
+                </li>
                   <li>
                     <label>备注</label>
                    <asp:TextBox ID="txtDesc" Rows="5" runat="server" Wrap="true" TextMode="MultiLine" CssClass="dfinput" Style="width: 600px; text-align: left;   vertical-align: top; height: 200px;" />
@@ -93,37 +121,29 @@
             $(document).ready(function (e) {
                 KindEditor.ready(function (K) {
                     var editor1 = K.create('#ttContent1', {
-                        cssPath: 'Editor/plugins/code/prettify.css',
-                        uploadJson: 'Editor/asp.net/upload_json.ashx',
-                        fileManagerJson: 'Editor/asp.net/file_manager_json.ashx',
+                        cssPath: '/Editor/plugins/code/prettify.css',
+                        uploadJson: '/Editor/asp.net/upload_json.ashx',
+                        fileManagerJson: '/Editor/asp.net/file_manager_json.ashx',
                         allowFileManager: true,
                         langType: 'zh-CN'
                     });
                     prettyPrint();
                     var editor2 = K.create('#ttContent2', {
-                        cssPath: 'Editor/plugins/code/prettify.css',
-                        uploadJson: 'Editor/asp.net/upload_json.ashx',
-                        fileManagerJson: 'Editor/asp.net/file_manager_json.ashx',
+                        cssPath: '/Editor/plugins/code/prettify.css',
+                        uploadJson: '/Editor/asp.net/upload_json.ashx',
+                        fileManagerJson: '/Editor/asp.net/file_manager_json.ashx',
                         allowFileManager: true,
                         langType: 'zh-CN'
                     });
                     prettyPrint();
-                });
-                $("#btnAdd").on("click", function ()
-                { 
-                    var content = $(".ke-edit-iframe").contents().find(".ke-content").html().trim();
-                    if (content.length === 0) {
-                        alert("请输入活动内容！");
-                        return;
-                    }
-                });
-               
+                }); 
             });
             $("#form1").validate({
                 debug: false, // 调试，不提交 false
                 errorPlacement: function (error, element) { }, // 不提示文字
                 rules: {
-                    tbName: "required", 
+                    txtCustomerName: "required",
+                    txtCustomerTel: "required",
                 }
             });
             

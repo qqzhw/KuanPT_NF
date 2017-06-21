@@ -117,12 +117,8 @@ namespace BLL.Services
         {
             if (orderId == 0)
                 return null;
-            //var query = from o in _context.Orders
-            //            where o.OrderId == orderId
-            //            select o;
-            //var order = query.SingleOrDefault();
-            //return order;
-            return null;
+            var order=_orderRepository.GetById(orderId);
+            return order;
         }
         public void MarkOrderAsDeleted(int orderId)
         {
@@ -159,11 +155,11 @@ namespace BLL.Services
                 throw new ArgumentNullException("order");
 
             order.CustomerName = CommonHelper.EnsureNotNull(order.CustomerName);
-            order.CustomerName = CommonHelper.EnsureNotNull(order.CustomerName);
+            order.CustomerName = CommonHelper.EnsureMaximumLength(order.CustomerTel,50);
             order.CustomerTel = CommonHelper.EnsureNotNull(order.CustomerTel);
-            order.CustomerTel = CommonHelper.EnsureNotNull(order.CustomerTel);
+            order.CustomerTel = CommonHelper.EnsureMaximumLength(order.CustomerTel,50);
             order.CustomerAddress = CommonHelper.EnsureNotNull(order.CustomerAddress);
-            order.CustomerAddress = CommonHelper.EnsureNotNull(order.CustomerAddress);
+            order.CustomerAddress = CommonHelper.EnsureMaximumLength(order.CustomerAddress,200);
             _orderRepository.Insert(order);
             
         }
@@ -190,7 +186,13 @@ namespace BLL.Services
         /// <returns></returns>
         public Order MarkOrderAsPaid(int orderId)
         {
-            throw new NotImplementedException();
+            var order = GetOrderById(orderId);
+            if (order != null)
+            {
+                order.PaymentStatus = (int)PaymentStatusEnum.Paid;
+                UpdateOrder(order);
+            }
+            return order;
         }
 
        
@@ -233,7 +235,9 @@ namespace BLL.Services
 
         public void UpdateOrder(Order order)
         {
-            throw new NotImplementedException();
+            if (order == null)
+                return;
+            _orderRepository.Update(order);
         }
 
         public void UpdateOrderNote(Order_Note orderNote)
