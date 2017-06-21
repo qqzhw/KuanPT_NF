@@ -1,4 +1,5 @@
-﻿using BLL.Services;
+﻿using BLL.Infrastructure;
+using BLL.Services;
 using KuanPT_NF.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -8,15 +9,18 @@ using System.Web.Mvc;
 
 namespace KuanPT_NF.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly IShopService _shopService;
-        public HomeController(IShopService shopService)
+         private readonly IChannelService _channelService;
+        public HomeController(IShopService shopService, IChannelService  channelService)
         {
             _shopService = shopService;
+            _channelService = channelService;
         }
-        public ActionResult Index()
+        public ActionResult Index(string Id="")
         {
+            EngineContext.Channel = Id;
             ViewBag.Message = "德阳移动";
             var model = new HomeViewModel()
             {

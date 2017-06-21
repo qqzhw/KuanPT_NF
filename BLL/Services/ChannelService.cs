@@ -13,13 +13,16 @@ namespace BLL.Services
     public class ChannelService : IChannelService
     {
         #region Fields 
-        private readonly IRepository<Channel> _channelRepository; 
+        private readonly IRepository<Channel> _channelRepository;
+        private readonly IRepository<ChannelData> _channelDataRepository;
         private readonly ICacheManager _cacheManager; 
         #endregion
-        public ChannelService(IRepository<Channel>  channelRepository)
+        public ChannelService(IRepository<Channel>  channelRepository,IRepository<ChannelData>  channelDataRepository)
         {
             _channelRepository = channelRepository;
+            _channelDataRepository = channelDataRepository;
         }
+        public string CurrentItem { get; set; }
         public void DeleteChannel(Channel channel)
         {
             if (channel == null)
@@ -80,6 +83,49 @@ namespace BLL.Services
             channel.ChannelName = CommonHelper.EnsureNotNull(channel.ChannelName);
             channel.ChannelName = CommonHelper.EnsureMaximumLength(channel.ChannelName, 400);
             _channelRepository.Update(channel);
+        }
+
+        public void InsertChannelData(ChannelData channelData)
+        {
+            if (channelData == null)
+                throw new ArgumentNullException("channelData"); 
+            _channelDataRepository.Insert(channelData);
+        }
+
+        public void UpdateChannelData(ChannelData channelData)
+        {
+            if (channelData == null)
+                throw new ArgumentNullException("channelData");
+            _channelDataRepository.Update(channelData);
+        }
+
+        public void DeleteChannelData(ChannelData channelData)
+        {
+            if (channelData == null)
+                return;
+            _channelDataRepository.Delete(channelData);
+        }
+
+        public ChannelData GetChannelDataById(int channelDataId)
+        {
+            if (channelDataId==0)
+                return null;
+            return _channelDataRepository.GetById(channelDataId);
+        }
+
+        public IList<ChannelData> GetAllChannelDatas(string channelName = "")
+        {
+            object predicate = null;
+            if (!string.IsNullOrEmpty(channelName))
+            {
+                predicate = Predicates.Field<ChannelData>(p => p.ChannelName, Operator.Like, "%" + channelName + "%");
+            }
+            IList<ISort> sortItems = new List<ISort>
+            {
+                new Sort { PropertyName = "ChannelName",Ascending = true }
+            };
+            var query = _channelDataRepository.GetList(predicate, sortItems);
+            return query.ToList();
         }
     }
 }

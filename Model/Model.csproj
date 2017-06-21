@@ -45,7 +45,10 @@
   <ItemGroup>
     <Compile Include="Campaign_CampaignInfo.cs" />
     <Compile Include="Category_CategoryInfo.cs" />
+    <Compile Include="ChannelData.cs" />
     <Compile Include="Channel_ChannelInfo.cs" />
+    <Compile Include="Lottery.cs" />
+    <Compile Include="LotteryItem.cs" />
     <Compile Include="Order_OrderInfo.cs" />
     <Compile Include="Order_Note.cs" />
     <Compile Include="Picture_PictureInfo.cs" />

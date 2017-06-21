@@ -55,6 +55,10 @@ namespace BLL.Infrastructure
             }
         }
 
+        public static string Channel
+        {
+            get;set;
+        }
         #endregion
     }
 }
