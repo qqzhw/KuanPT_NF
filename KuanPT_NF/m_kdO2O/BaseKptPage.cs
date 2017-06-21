@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using BLL.Infrastructure;
 using BLL.Services;
+using AjaxControlToolkit;
 
 namespace KuanPT_NF.m_kdO2O
 {
@@ -57,6 +58,31 @@ namespace KuanPT_NF.m_kdO2O
             {
                 return EngineContext.Current.Resolve<IExportManager>();
             }
+        }
+        protected void SelectTab(TabContainer tabContainer, string tabId)
+        {
+            if (tabContainer == null)
+                throw new ArgumentNullException("tabContainer");
+
+            if (!String.IsNullOrEmpty(tabId))
+            {
+                TabPanel tab = tabContainer.FindControl(tabId) as TabPanel;
+                if (tab != null)
+                {
+                    tabContainer.ActiveTab = tab;
+                }
+            }
+        }
+
+        protected string GetActiveTabId(TabContainer tabContainer)
+        {
+            if (tabContainer == null)
+                throw new ArgumentNullException("tabContainer");
+
+            if (tabContainer.ActiveTab != null)
+                return tabContainer.ActiveTab.ID;
+
+            return string.Empty;
         }
         public  void ShowMessage(string msg)
         {

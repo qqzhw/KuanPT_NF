@@ -7,19 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace KuanPT_NF.m_kdO2O
 {
-    public partial class LotteryAdd : System.Web.UI.Page
+    public partial class LotteryEndInfo : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnAdd_Click1(object sender, EventArgs e)
         {
 
         }

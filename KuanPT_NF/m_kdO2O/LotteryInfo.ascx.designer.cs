@@ -10,96 +10,105 @@
 namespace KuanPT_NF.m_kdO2O {
     
     
-    public partial class LotteryAdd {
+    public partial class LotteryInfo {
         
         /// <summary>
-        /// form1 控件。
+        /// txtName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::KuanPT_NF.Modules.SimpleTextBox txtName;
         
         /// <summary>
-        /// ScriptManager1 控件。
+        /// txtKeyword 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::AjaxControlToolkit.ToolkitScriptManager ScriptManager1;
+        protected global::KuanPT_NF.Modules.SimpleTextBox txtKeyword;
         
         /// <summary>
-        /// btnAdd 控件。
+        /// txtLotteryInfo 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.TextBox txtLotteryInfo;
         
         /// <summary>
-        /// LotteryTabs 控件。
+        /// ctrlStartDatePicker 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::AjaxControlToolkit.TabContainer LotteryTabs;
+        protected global::KuanPT_NF.Modules.DatePicker ctrlStartDatePicker;
         
         /// <summary>
-        /// pnllotteryInfo 控件。
+        /// ctrlEndDatePicker 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::AjaxControlToolkit.TabPanel pnllotteryInfo;
+        protected global::KuanPT_NF.Modules.DatePicker ctrlEndDatePicker;
         
         /// <summary>
-        /// ctrlLotteryInfo 控件。
+        /// txtRepeatTips 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.m_kdO2O.LotteryInfo ctrlLotteryInfo;
+        protected global::System.Web.UI.WebControls.TextBox txtRepeatTips;
         
         /// <summary>
-        /// pnlLotteryend 控件。
+        /// uploadImg 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::AjaxControlToolkit.TabPanel pnlLotteryend;
+        protected global::System.Web.UI.WebControls.FileUpload uploadImg;
         
         /// <summary>
-        /// ctrlLotteryEndInfo 控件。
+        /// txtDesc 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.m_kdO2O.LotteryEndInfo ctrlLotteryEndInfo;
+        protected global::System.Web.UI.WebControls.TextBox txtDesc;
         
         /// <summary>
-        /// pnlLotteryItem 控件。
+        /// txtNotice 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::AjaxControlToolkit.TabPanel pnlLotteryItem;
+        protected global::System.Web.UI.WebControls.TextBox txtNotice;
         
         /// <summary>
-        /// ctrlLotteryItemInfo 控件。
+        /// txtLotteryPassword 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.m_kdO2O.LotteryItemInfo ctrlLotteryItemInfo;
+        protected global::System.Web.UI.WebControls.TextBox txtLotteryPassword;
+        
+        /// <summary>
+        /// txtUrl 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUrl;
     }
 }

@@ -450,6 +450,9 @@
     <Content Include="m_kdO2O\KLAuditList.aspx" />
     <Content Include="m_kdO2O\LotteryAdd.aspx" />
     <Content Include="m_kdO2O\LotteryDetails.aspx" />
+    <Content Include="m_kdO2O\LotteryEndInfo.ascx" />
+    <Content Include="m_kdO2O\LotteryInfo.ascx" />
+    <Content Include="m_kdO2O\LotteryItemInfo.ascx" />
     <Content Include="m_kdO2O\LotteryList.aspx" />
     <Content Include="m_kdO2O\Modules\DatePicker.ascx" />
     <Content Include="m_kdO2O\Modules\NumericTextBox.ascx" />
@@ -598,6 +601,27 @@
     </Compile>
     <Compile Include="m_kdO2O\LotteryDetails.aspx.designer.cs">
       <DependentUpon>LotteryDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\LotteryEndInfo.ascx.cs">
+      <DependentUpon>LotteryEndInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\LotteryEndInfo.ascx.designer.cs">
+      <DependentUpon>LotteryEndInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\LotteryInfo.ascx.cs">
+      <DependentUpon>LotteryInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\LotteryInfo.ascx.designer.cs">
+      <DependentUpon>LotteryInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\LotteryItemInfo.ascx.cs">
+      <DependentUpon>LotteryItemInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\LotteryItemInfo.ascx.designer.cs">
+      <DependentUpon>LotteryItemInfo.ascx</DependentUpon>
     </Compile>
     <Compile Include="m_kdO2O\LotteryList.aspx.cs">
       <DependentUpon>LotteryList.aspx</DependentUpon>
