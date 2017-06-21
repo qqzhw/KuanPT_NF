@@ -15,7 +15,7 @@ namespace BLL.Services
 
         Channel GetChannelById(int channelId);
 
-        Channel GetChannelById(string  channelCode);
+        Channel GetChannelByCode(string  channelCode);
 
         IList<Channel> GetAllChannels(string keywords = "", string channelCode="" ,int pageIndex = 0, int pageSize = int.MaxValue);
 

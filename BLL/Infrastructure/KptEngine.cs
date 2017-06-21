@@ -54,7 +54,7 @@ namespace BLL.Infrastructure
         #region Methods
 
         /// <summary>
-        /// Initialize components and plugins in the nop environment.
+        /// Initialize components and plugins in the  environment.
         /// </summary>
         /// <param name="config">Config</param>
         public void Initialize()

@@ -8,7 +8,7 @@ using System.Web.Caching;
 namespace BLL.Caching
 {
     /// <summary>
-    /// Represents a NopStaticCache
+    /// Represents a KptStaticCache
     /// </summary>
     public partial class KptStaticCache : ICacheManager
     {
@@ -21,7 +21,7 @@ namespace BLL.Caching
         #region Ctor
 
         /// <summary>
-        /// Creates a new instance of the NopStaticCache class
+        /// Creates a new instance of the KptStaticCache class
         /// </summary>
         public KptStaticCache()
         {

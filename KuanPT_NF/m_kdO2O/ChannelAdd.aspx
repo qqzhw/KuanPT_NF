@@ -40,7 +40,7 @@
                 </li>
                  <li>
                     <label>渠道URL</label>
-                     <asp:TextBox ID="txtChannelUrl" runat="server" CssClass="dfinput" />
+                     <asp:TextBox ID="txtChannelUrl" runat="server" CssClass="dfinput" /><i>如：http://192.168.1.100/?code=weixin</i>
                 </li> 
                  <li>
                     <label>是否发布</label>

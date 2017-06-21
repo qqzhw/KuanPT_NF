@@ -54,7 +54,7 @@ namespace BLL.Services
             return query;
         }
 
-        public Channel GetChannelById(string channelCode)
+        public Channel  GetChannelByCode(string channelCode)
         {
             if (string.IsNullOrEmpty(channelCode))
                 return null;

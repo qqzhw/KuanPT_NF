@@ -13,5 +13,6 @@ namespace Model
         public int ShopId {get; set; }
         public string ShopName { get; set; }
         public int ViewsCount { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

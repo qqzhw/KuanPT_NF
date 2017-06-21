@@ -1,5 +1,7 @@
-﻿using BLL.Services;
+﻿using BLL.Infrastructure;
+using BLL.Services;
 using KuanPT_NF.Web.Models;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +15,11 @@ namespace KuanPT_NF.Web.Controllers
         //
         // GET: /Shop/
         private readonly IShopService _shopService;
-        public ShopController(IShopService  shopService)
+        private readonly IChannelService _channelService;
+        public ShopController(IShopService  shopService, IChannelService channelService)
         {
             _shopService = shopService;
+            _channelService = channelService;
         }
         public ActionResult Index()
         {
@@ -68,7 +72,23 @@ namespace KuanPT_NF.Web.Controllers
             model.ShopName = item.ShopName;
             model.ShortDescription = item.ShortDescription;
             model.ShopType = item.ShopType;
+            //渠道数据加入
+            if (EngineContext.Channel!=null)
+            {
+                AddChannelData(item);
+            }
+          
             return View(model);
+        }
+        private void AddChannelData(Shop item)
+        {
+            var channelData = new ChannelData();
+            channelData.ShopId = item.ShopId;
+            channelData.ShopName = item.ShopName;
+            channelData.CreatedDate = DateTime.Now;
+            channelData.ChannelId = EngineContext.Channel.ChannelId;
+            channelData.ChannelName = EngineContext.Channel.ChannelName;
+            _channelService.InsertChannelData(channelData);
         }
     }
 }

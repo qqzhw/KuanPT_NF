@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 namespace BLL.Infrastructure
 {
     /// <summary>
-    /// A class that finds types needed by Nop by looping assemblies in the 
+    /// A class that finds types needed by Kpt by looping assemblies in the 
     /// currently executing AppDomain. Only assemblies whose names matches
     /// certain patterns are investigated and an optional list of assemblies
     /// referenced by <see cref="AssemblyNames"/> are always investigated.

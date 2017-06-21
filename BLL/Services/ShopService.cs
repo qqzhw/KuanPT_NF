@@ -2,8 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using NopSolutions.NopCommerce.BusinessLogic.Products;
+using System.Text; 
 using BLL.Caching;
 using DAL;
 using DapperExtensions;
@@ -13,15 +12,8 @@ namespace BLL.Services
     public class ShopService : IShopService
     {
         #region Constants
-        private const string PRODUCTS_BY_ID_KEY = "Nop.product.id-{0}";
-        private const string PRODUCTVARIANTS_ALL_KEY = "Nop.productvariant.all-{0}-{1}";
-        private const string PRODUCTVARIANTS_BY_ID_KEY = "Nop.productvariant.id-{0}";
-        private const string TIERPRICES_ALLBYPRODUCTVARIANTID_KEY = "Nop.tierprice.allbyproductvariantid-{0}";
-        private const string CUSTOMERROLEPRICES_ALL_KEY = "Nop.customerroleproductprice.all-{0}";
-        private const string PRODUCTS_PATTERN_KEY = "Nop.product.";
-        private const string PRODUCTVARIANTS_PATTERN_KEY = "Nop.productvariant.";
-        private const string TIERPRICES_PATTERN_KEY = "Nop.tierprice.";
-        private const string CUSTOMERROLEPRICES_PATTERN_KEY = "Nop.customerroleproductprice.";
+        private const string PRODUCTS_BY_ID_KEY = "kpt.product.id-{0}";  
+        private const string PRODUCTS_PATTERN_KEY = "kpt.product."; 
         #endregion
 
         #region Fields  
@@ -85,41 +77,14 @@ namespace BLL.Services
             return query.ToList();
         }
 
-        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts, int pageSize, int pageIndex, out int totalRecords)
+       
+
+        public List<Shop> GetAllProducts(string keywords, bool searchDescriptions  )
         {
             throw new NotImplementedException();
         }
 
-        public List<Shop> GetAllProducts(string keywords, bool searchDescriptions, int pageSize, int pageIndex, out int totalRecords)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts, string keywords, bool searchDescriptions, int pageSize, int pageIndex, List<int> filteredSpecs, out int totalRecords)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts, decimal? priceMin, decimal? priceMax, int pageSize, int pageIndex, List<int> filteredSpecs, out int totalRecords)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts, decimal? priceMin, decimal? priceMax, string keywords, bool searchDescriptions, int pageSize, int pageIndex, List<int> filteredSpecs, out int totalRecords)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts, decimal? priceMin, decimal? priceMax, string keywords, bool searchDescriptions, int pageSize, int pageIndex, ProductSortingEnum orderBy, out int totalRecords)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts, decimal? priceMin, decimal? priceMax, string keywords, bool searchDescriptions, int pageSize, int pageIndex, List<int> filteredSpecs, ProductSortingEnum orderBy, out int totalRecords)
-        {
-            throw new NotImplementedException();
-        }
-
+         
         public List<Shop> GetAllProductsDisplayedOnHomePage()
         {
             IList<IPredicate> predList = new List<IPredicate>
@@ -187,6 +152,17 @@ namespace BLL.Services
         }
 
         public void UpdateProductPicture(ProductPicture productPicture)
+        {
+            throw new NotImplementedException();
+        }
+         
+
+        public List<Shop> GetAllProducts(int? categoryId, bool? featuredProducts, string keywords = "", int? state = default(int?), bool? searchDescriptions = false, int pageIndex = 0, int pageSize = int.MaxValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts)
         {
             throw new NotImplementedException();
         }

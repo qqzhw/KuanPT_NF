@@ -1,6 +1,7 @@
 ﻿using BLL.Infrastructure;
 using BLL.Services;
 using KuanPT_NF.Web.Models;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,9 @@ namespace KuanPT_NF.Web.Controllers
             _shopService = shopService;
             _channelService = channelService;
         }
-        public ActionResult Index(string Id="")
+        public ActionResult Index()
         {
-            EngineContext.Channel = Id;
+            GetChannel();
             ViewBag.Message = "德阳移动";
             var model = new HomeViewModel()
             {
@@ -58,22 +59,37 @@ namespace KuanPT_NF.Web.Controllers
                 ShowOnHomePage = o.ShowOnHomePage,
             }).FirstOrDefault();
             model.HotShopModel =hotModel;
+            if (EngineContext.Channel!=null)
+            {
+                AddChannelData();
+            }
             return View(model);
         }
 
-        public ActionResult About()
+        private void GetChannel()
         {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
+            var query = Request.Params["code"];
+            if (query != null)
+            {
+                var channel = _channelService.GetChannelByCode(query.ToString());
+                if (channel != null)
+                {
+                    EngineContext.Channel = channel;
+                }
+            }
         }
 
-        public ActionResult Contact()
+        private void AddChannelData()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var channelData = new ChannelData();
+            channelData.ShopId = 0;
+            channelData.ShopName ="首页";
+            channelData.CreatedDate = DateTime.Now;
+            channelData.ChannelId = EngineContext.Channel.ChannelId;
+            channelData.ChannelName = EngineContext.Channel.ChannelName;
+            _channelService.InsertChannelData(channelData);
         }
+      
         public ActionResult List()
         {
             ViewBag.Message = "宽带产品列表";

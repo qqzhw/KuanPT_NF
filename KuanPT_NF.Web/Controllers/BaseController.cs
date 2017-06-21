@@ -9,11 +9,8 @@ namespace KuanPT_NF.Web.Controllers
     public class BaseController:Controller
     {
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            //filterContext.HttpContext.Request.Params.Add("mid", "amogh");
-            base.OnActionExecuting(filterContext);
-            var s = filterContext.RouteData.Route;
-          
+        { 
+            base.OnActionExecuting(filterContext); 
         }
     }
 }

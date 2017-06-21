@@ -7,14 +7,14 @@ using System.Web;
 namespace BLL.Caching
 {
     /// <summary>
-    /// Represents a NopRequestCache
+    /// Represents a KptRequestCache
     /// </summary>
     public partial class KptRequestCache : ICacheManager
     {
         #region Methods
 
         /// <summary>
-        /// Creates a new instance of the NopRequestCache class
+        /// Creates a new instance of the KptRequestCache class
         /// </summary>
         protected IDictionary GetItems()
         {

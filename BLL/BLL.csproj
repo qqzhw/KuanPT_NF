@@ -91,8 +91,6 @@
     <Compile Include="Services\OrderStatusEnum.cs" />
     <Compile Include="Services\PaymentStatusEnum.cs" />
     <Compile Include="Services\PictureService.cs" />
-    <Compile Include="Services\ProductService - 副本.cs" />
-    <Compile Include="Services\ProductSortingEnum.cs" />
     <Compile Include="Services\PropertyByName.cs" />
     <Compile Include="Services\PropertyManager.cs" />
     <Compile Include="Services\ShopService.cs" />

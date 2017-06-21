@@ -1,7 +1,7 @@
 namespace BLL.Caching
 {
     /// <summary>
-    /// Represents a NopNullCache
+    /// Represents a KptNullCache
     /// </summary>
     public partial class KptNullCache : ICacheManager
     {

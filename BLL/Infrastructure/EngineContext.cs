@@ -1,11 +1,12 @@
-﻿using System.Configuration;
+﻿using Model;
+using System.Configuration;
 using System.Runtime.CompilerServices;
- 
+
 
 namespace BLL.Infrastructure
 {
     /// <summary>
-    /// Provides access to the singleton instance of the Nop engine.
+    /// Provides access to the singleton instance of the   engine.
     /// </summary>
     public class EngineContext
     {
@@ -55,7 +56,7 @@ namespace BLL.Infrastructure
             }
         }
 
-        public static string Channel
+        public static Channel Channel
         {
             get;set;
         }

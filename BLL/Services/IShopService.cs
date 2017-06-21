@@ -1,5 +1,4 @@
-﻿using Model;
-using NopSolutions.NopCommerce.BusinessLogic.Products;
+﻿using Model; 
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,70 +14,15 @@ namespace BLL.Services
         void MarkProductAsDeleted(int productId);
 
 
-        List<Shop> GetAllProducts();
-
+        List<Shop> GetAllProducts(); 
         List<Shop> GetAllHotProducts();
-        List<Shop> GetAllProducts(int showHidden);
-
-        /// <summary>
-        /// Gets all products
-        /// </summary>
-        /// <param name="pageSize">Page size</param>
-        /// <param name="pageIndex">Page index</param>
-        /// <param name="totalRecords">Total records</param>
-        /// <returns>Product collection</returns>
-        List<Shop> GetAllProducts(int pageIndex,int pageSize, 
-            out int totalRecords, out int totalPage);
-
-        /// <summary>
-        /// Gets all products
-        /// </summary>
-        /// <param name="categoryId">Category identifier</param> 
-        /// <param name="featuredProducts">A value indicating whether loaded products are marked as featured (relates only to categories and manufacturers). 0 to load featured products only, 1 to load not featured products only, null to load all products</param>
-        /// <param name="pageSize">Page size</param>
-        /// <param name="pageIndex">Page index</param>
-        /// <param name="totalRecords">Total records</param>
-        /// <returns>Product collection</returns>
-        List<Shop> GetAllProducts(int categoryId,
-           bool? featuredProducts,   int pageIndex, int pageSize,out int totalRecords);
-
-        /// <summary>
-        /// Gets all products
-        /// </summary>
-        /// <param name="keywords">Keywords</param>
-        /// <param name="searchDescriptions">A value indicating whether to search in descriptions</param>
-        /// <param name="pageSize">Page size</param>
-        /// <param name="pageIndex">Page index</param>
-        /// <param name="totalRecords">Total records</param>
-        /// <returns>Product collection</returns>
-        List<Shop> GetAllProducts(string keywords,
-            bool searchDescriptions, int pageIndex, int pageSize, out int totalRecords);
-
-        
-        List<Shop> GetAllProducts(int categoryId,
-             bool? featuredProducts,  string keywords, bool searchDescriptions, int pageSize,
-            int pageIndex, List<int> filteredSpecs, out int totalRecords);
+        List<Shop> GetAllProducts(int showHidden); 
+        List<Shop> GetAllProducts(int categoryId,  bool? featuredProducts );
+         
+        List<Shop> GetAllProducts(int? categoryId,
+             bool? featuredProducts,  string keywords="", int? state=null, bool? searchDescriptions=false,int pageIndex=0,int pageSize=int.MaxValue);
  
-        List<Shop> GetAllProducts(int categoryId,
-            bool? featuredProducts,  decimal? priceMin, decimal? priceMax, int pageSize,
-            int pageIndex, List<int> filteredSpecs, out int totalRecords);
-
-        
-        List<Shop> GetAllProducts(int categoryId,  bool? featuredProducts,
-            decimal? priceMin, decimal? priceMax, string keywords,
-            bool searchDescriptions, int pageSize, int pageIndex,
-            List<int> filteredSpecs, out int totalRecords);
-       
-        List<Shop> GetAllProducts(int categoryId,
-           bool? featuredProducts,  decimal? priceMin, decimal? priceMax, string keywords,
-            bool searchDescriptions, int pageSize, int pageIndex,
-              ProductSortingEnum orderBy, out int totalRecords); 
-        
-        List<Shop> GetAllProducts(int categoryId,
-            bool? featuredProducts, decimal? priceMin, decimal? priceMax,
-            string keywords, bool searchDescriptions, int pageSize,
-            int pageIndex, List<int> filteredSpecs,    ProductSortingEnum orderBy, out int totalRecords);
-          
+         
        
         List<Shop> GetAllProductsDisplayedOnHomePage();
 

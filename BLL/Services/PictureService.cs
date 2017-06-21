@@ -15,15 +15,7 @@ namespace BLL.Services
         #region Fields
 
         private static readonly object s_lock = new object();
-
-        /// <summary>
-        /// Object context
-        /// </summary>
-        //private readonly NopObjectContext _context;
-
-        ///// <summary>
-        ///// Cache manager
-        ///// </summary>
+         
         //private readonly ICacheManager _cacheManager;
 
         #endregion
@@ -36,8 +28,7 @@ namespace BLL.Services
         /// <param name="context">Object context</param>
         public PictureService()
         {
-           // this._context = context;
-          //  this._cacheManager = new NopRequestCache();
+           
         }
 
         #endregion

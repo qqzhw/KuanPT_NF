@@ -25,12 +25,6 @@ namespace KuanPT_NF.Web
                constraints:new { Id = @"\d+" },
                namespaces:new[] { "KuanPT_NF.Web.Controllers" });
                 
-
-            //routes.MapLocalizedRoute("NewsItem",
-            //               "{SeName}",
-            //               new { controller = "News", action = "NewsItem" },
-            //               new[] { "Nop.Web.Controllers" });
-           //);
         }
     }
 }
