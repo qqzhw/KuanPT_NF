@@ -6,7 +6,7 @@ namespace BLL.Infrastructure
 {
     /// <summary>
     /// Classes implementing this interface provide information about types 
-    /// to various services in the Nop engine.
+    /// to various services in the Kpt engine.
     /// </summary>
     public interface ITypeFinder
     {

@@ -13,7 +13,7 @@ namespace BLL.Infrastructure
         #region Methods
 
         /// <summary>
-        /// Initializes a static instance of the Nop factory.
+        /// Initializes a static instance of the Kpt factory.
         /// </summary>
         /// <param name="forceRecreate">Creates a new factory instance even though the factory has been previously initialized.</param>
         [MethodImpl(MethodImplOptions.Synchronized)]
@@ -42,7 +42,7 @@ namespace BLL.Infrastructure
         #region Properties
 
         /// <summary>
-        /// Gets the singleton Nop engine used to access Nop services.
+        /// Gets the singleton Kpt engine used to access Kpt services.
         /// </summary>
         public static IEngine Current
         {
