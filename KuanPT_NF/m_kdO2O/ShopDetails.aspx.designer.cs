@@ -112,6 +112,15 @@ namespace KuanPT_NF.m_kdO2O {
         protected global::System.Web.UI.WebControls.Image imgShop;
         
         /// <summary>
+        /// btnRemoveImg 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRemoveImg;
+        
+        /// <summary>
         /// hiddenImgPath 控件。
         /// </summary>
         /// <remarks>
@@ -130,15 +139,6 @@ namespace KuanPT_NF.m_kdO2O {
         protected global::System.Web.UI.WebControls.FileUpload uploadImg;
         
         /// <summary>
-        /// btnRemoveImg 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemoveImg;
-        
-        /// <summary>
         /// imgBigPicture 控件。
         /// </summary>
         /// <remarks>
@@ -146,6 +146,15 @@ namespace KuanPT_NF.m_kdO2O {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgBigPicture;
+        
+        /// <summary>
+        /// btnRemoveBigImg 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRemoveBigImg;
         
         /// <summary>
         /// HiddenBigImg 控件。
@@ -164,15 +173,6 @@ namespace KuanPT_NF.m_kdO2O {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload uploadBigImg;
-        
-        /// <summary>
-        /// btnRemoveBigImg 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemoveBigImg;
         
         /// <summary>
         /// txtDisplayOrder 控件。

@@ -118,6 +118,8 @@
                 <li>
                     <label>Banner图片</label>
                     <asp:Image ID="img" runat="server"  Height="200"/>
+                    <asp:HiddenField runat="server" ID="hiddenImg" />
+                      <asp:Button ID="btnRemoveImg" runat="server" Visible="false" OnClick="btnRemoveImg_Click" CssClass="btn" style="margin-bottom:10px" Text="删除图片" CausesValidation="false" />
                     <asp:FileUpload ID="uploadImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />
                     <i>图片格式为.png|.jpg</i>
                 </li>

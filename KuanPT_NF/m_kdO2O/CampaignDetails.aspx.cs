@@ -26,11 +26,16 @@ namespace KuanPT_NF.m_kdO2O
             {
                 tbName.Text = campaign.CampaignName;
                 txtDisplayOrder.Value = campaign.DisplayOrder;
-                img.ImageUrl = CommonHelper.GetStoreLocation() + "\\" + campaign.ImgPath;
+                img.ImageUrl = CommonHelper.GetStoreLocation()+ campaign.ImgPath;
                 chkBanner.Checked = campaign.IsHomeBanner;
                 chkPublished.Checked = campaign.Published;
                 txtSubject.Text = campaign.Subject;
                 ttContent1.Value = campaign.Body;
+                hiddenImg.Value = campaign.ImgPath;
+                if (!string.IsNullOrEmpty(hiddenImg.Value))
+                {
+                    btnRemoveImg.Visible = true;
+                }
             }
         }
         public int CampaignId
@@ -45,34 +50,34 @@ namespace KuanPT_NF.m_kdO2O
         {
             Campaign campaign = this.CampaignService.GetCampaignById(this.CampaignId);
             if (campaign != null)
-            {
-                var imgPath = string.Empty;
+            { 
                 HttpPostedFile pictureFile = uploadImg.PostedFile;
 
                 if ((pictureFile != null) && (!String.IsNullOrEmpty(pictureFile.FileName)))
                 {
                     byte[] pictureBinary = pictureFile.GetPictureBits();
 
-                    imgPath = this.PictureService.UploadPicture(pictureBinary, pictureFile.ContentType);
-                    //if (string.IsNullOrEmpty(imgPath))
-                    //{
-                    //    ShowMessage("图片上传失败!");
-                    //    return;
-                    //}
+                    hiddenImg.Value = this.PictureService.UploadPicture(pictureBinary, pictureFile.ContentType);
                 }
                 campaign.CampaignName = tbName.Text;
                 
                 campaign.DisplayOrder = txtDisplayOrder.Value;
-                if (!string.IsNullOrEmpty(imgPath))
-                {
-                    campaign.ImgPath = imgPath;//更新图片地址
-                } 
+               
+                campaign.ImgPath = hiddenImg.Value;
                 campaign.IsHomeBanner = chkBanner.Checked;
                 campaign.Published = chkPublished.Checked;
                 campaign.Subject = txtSubject.Text;
                 campaign.Body = ttContent1.Value;
                 CampaignService.UpdateCampaign(campaign);
                 Response.Redirect("CampaignList.aspx");
+            }
+        }
+
+        protected void btnRemoveImg_Click(object sender, EventArgs e)
+        {
+            if (PictureService.DeletePicture(hiddenImg.Value))
+           {
+                hiddenImg.Value = string.Empty;
             }
         }
     }

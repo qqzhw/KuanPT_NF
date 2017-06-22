@@ -52,6 +52,14 @@ namespace KuanPT_NF.m_kdO2O
             HiddenBigImg.Value = shop.BigImg;
             imgShop.ImageUrl = CommonHelper.GetStoreLocation() + shop.Img;
             imgBigPicture.ImageUrl= CommonHelper.GetStoreLocation() + shop.BigImg;
+            if (!string.IsNullOrEmpty(hiddenImgPath.Value))
+            {
+                btnRemoveImg.Visible = true;
+            }
+            if (!string.IsNullOrEmpty(HiddenBigImg.Value))
+            {
+                btnRemoveBigImg.Visible = true;
+            }
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)

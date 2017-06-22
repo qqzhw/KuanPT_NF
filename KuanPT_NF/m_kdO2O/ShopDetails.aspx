@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShopDetails.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.ShopDetails" %>
+
 <%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
 
 <%@ Register Src="Modules/NumericTextBox.ascx" TagName="NumericTextBox" TagPrefix="kpt" %>
@@ -6,8 +7,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link href="/css/select.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/css/select.css" rel="stylesheet" type="text/css" />
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/JavaScripts/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="/JavaScripts/select-ui.min.js"></script>
@@ -17,8 +18,8 @@
     <script src="/Editor/kindeditor-all-min.js"></script>
     <script charset="utf-8" src="/Editor/lang/zh-CN.js"></script>
     <script charset="utf-8" src="/Editor/plugins/code/prettify.js"></script>
-    <title>产品编辑</title>  
-     <style>
+    <title>产品编辑</title>
+    <style>
         .file input {
             padding: 6px 12px;
             min-width: 206px;
@@ -91,7 +92,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-       <ajaxToolkit:ToolkitScriptManager runat="server" ID="ScriptManager1" />
+        <ajaxToolkit:ToolkitScriptManager runat="server" ID="ScriptManager1" />
         <div class="place">
             <span>位置：</span>
             <ul class="placeul">
@@ -107,15 +108,15 @@
                 </li>
                 <li>
                     <label>产品名称</label>
-                     <kpt:SimpleTextBox ID="txtShopName" runat="server" CssClass="dfinput" ErrorMessage="产品名称不能为空！" />
+                    <kpt:SimpleTextBox ID="txtShopName" runat="server" CssClass="dfinput" ErrorMessage="产品名称不能为空！" />
                 </li>
-                  <li>
+                <li>
                     <label>产品短述</label>
-                     <asp:TextBox ID="txtShortDesc" runat="server" CssClass="dfinput" />
+                    <asp:TextBox ID="txtShortDesc" runat="server" CssClass="dfinput" />
                 </li>
                 <li>
                     <label>产品价格 </label>
-                   <div style="vertical-align: middle; padding-top: 8px;">
+                    <div style="vertical-align: middle; padding-top: 8px;">
                         <kpt:NumericTextBox runat="server" CssClass="dfinput" ID="txtPrice"
                             Value="0" RequiredErrorMessage="不能为空！"
                             RangeErrorMessage="数字范围在0-99999之间！"
@@ -137,33 +138,35 @@
                         <asp:CheckBox ID="chkPublished" runat="server" Checked="true" /><i>选中:上架,未选中:下架</i>
                     </div>
                 </li>
-                 <li>
+                <li>
                     <label>首页显示</label>
                     <div style="vertical-align: middle; padding-top: 8px;">
                         <asp:CheckBox ID="chkHomepage" runat="server" Checked="true" /><i>首页显示</i>
                     </div>
-                </li>  
-                 <li>
+                </li>
+                <li>
                     <label>热销产品</label>
                     <div style="vertical-align: middle; padding-top: 8px;">
                         <asp:CheckBox ID="chkHot" runat="server" Checked="true" /><i>首页显示</i>
                     </div>
-                </li>  
-                  <li>
+                </li>
+                <li>
                     <label>产品图片</label>
-                       <asp:Image ID="imgShop" runat="server" style="width:120px" AlternateText="图片" /> 
-                        <asp:HiddenField ID="hiddenImgPath" runat="server"   /> 
-                    <asp:FileUpload ID="uploadImg"  CssClass="file" runat="server" ToolTip="请选择图片上传" />
-                  <asp:Button ID="btnRemoveImg" runat="server" OnClick="btnRemoveImg_Click" CssClass="btn" style="margin-bottom:10px" Text="删除图片" CausesValidation="false" />
-                      </li>
+                    <asp:Image ID="imgShop" runat="server" Style="width: 120px" AlternateText="图片" />
+                    <asp:Button ID="btnRemoveImg" runat="server" OnClick="btnRemoveImg_Click" Visible="false" CssClass="btn" Style="margin-bottom: 10px" Text="删除图片" CausesValidation="false" />
+                    <asp:HiddenField ID="hiddenImgPath" runat="server" />
+                    <asp:FileUpload ID="uploadImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />
+
+                </li>
                 <li>
                     <label>首页大图</label>
-                       <asp:Image ID="imgBigPicture" runat="server" style="height:120px" AlternateText="图片" />
-                      <asp:HiddenField ID="HiddenBigImg" runat="server"   /> 
-                      <asp:FileUpload ID="uploadBigImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />  
-                      <asp:Button ID="btnRemoveBigImg" runat="server" OnClick="btnRemoveBigImg_Click" CssClass="btn" style="margin-bottom:10px" Text="删除图片" CausesValidation="false" />
+                    <asp:Image ID="imgBigPicture" runat="server" Style="height: 120px" AlternateText="图片" />
+                    <asp:Button ID="btnRemoveBigImg" runat="server" OnClick="btnRemoveBigImg_Click" Visible="false" CssClass="btn" Style="margin-bottom: 10px" Text="删除图片" CausesValidation="false" />
+                    <asp:HiddenField ID="HiddenBigImg" runat="server" />
+                    <asp:FileUpload ID="uploadBigImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />
+
                 </li>
-                  <li>
+                <li>
                     <label>显示顺序</label>
                     <div style="vertical-align: middle; padding-top: 8px;">
                         <kpt:NumericTextBox runat="server" CssClass="dfinput" ID="txtDisplayOrder"
@@ -175,18 +178,16 @@
 
                 <li>
                     <label>产品描述</label>
-                    <textarea id="ttContent1"   cols="100" rows="8" style="width: 700px; height: 260px; visibility: hidden;" runat="server"></textarea>               
-                </li>
-                  <li>
-                    <label>备注</label>
-                    <textarea id="ttContent2"   cols="100" rows="5" style="width: 700px; height: 200px; visibility: hidden;" runat="server"></textarea>               
+                    <textarea id="ttContent1" cols="100" rows="8" style="width: 700px; height: 260px; visibility: hidden;" runat="server"></textarea>
                 </li>
                 <li>
-                  
+                    <label>备注</label>
+                    <textarea id="ttContent2" cols="100" rows="5" style="width: 700px; height: 200px; visibility: hidden;" runat="server"></textarea>
                 </li>
+                <li></li>
                 <li>
                     <label>&nbsp;</label>
-                    <asp:Button ID="btnAdd" runat="server"   CssClass="scbtn" Text="确认保存" OnClick="btnAdd_Click" />
+                    <asp:Button ID="btnAdd" runat="server" CssClass="scbtn" Text="确认保存" OnClick="btnAdd_Click" />
                 </li>
             </ul>
 
@@ -211,15 +212,14 @@
                     });
                     prettyPrint();
                 });
-                $("#btnAdd").on("click", function ()
-                { 
+                $("#btnAdd").on("click", function () {
                     var content = $(".ke-edit-iframe").contents().find(".ke-content").html().trim();
                     if (content.length === 0) {
                         alert("请输入活动内容！");
                         return;
                     }
                 });
-               
+
             });
             $("#form1").validate({
                 debug: false, // 调试，不提交 false
@@ -230,9 +230,9 @@
                     ttContent2: "required"
                 }
             });
-            
+
         </script>
-    </form> 
+    </form>
 </body>
 </html>
 
