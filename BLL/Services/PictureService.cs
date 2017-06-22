@@ -539,6 +539,27 @@ namespace BLL.Services
             //_context.DeleteObject(picture);
             //_context.SaveChanges();
         }
+        public void DeletePicture(string imgPath)
+        {
+            if (string.IsNullOrEmpty(imgPath))
+                return;
+            //delete  
+            string localFilepath = Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, imgPath);
+            if (File.Exists(localFilepath))
+            {
+                try
+                {
+                    File.Delete(localFilepath);
+                }
+                catch
+                {
+
+                }
+            }
+             
+        }
+
+        
 
         /// <summary>
         /// Validates input picture dimensions
@@ -736,7 +757,7 @@ namespace BLL.Services
         {
             get
             {
-                string path ="Uploads\\Products\\" + DateFolder;
+                string path ="\\Uploads\\Products\\" + DateFolder;
                 return path;
             }
         }

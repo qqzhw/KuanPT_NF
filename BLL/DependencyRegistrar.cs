@@ -60,6 +60,8 @@ namespace BLL
             builder.RegisterType<OrderService>().As<IOrderService>().InstancePerLifetimeScope();
             builder.RegisterType<ChannelService>().As<IChannelService>().InstancePerLifetimeScope();
             builder.RegisterType<ExportManager>().As<IExportManager>().InstancePerLifetimeScope();
+            builder.RegisterType<LotteryService>().As<ILotteryService>().InstancePerLifetimeScope();
+            
         }
 
         /// <summary>

@@ -2,50 +2,107 @@
 <%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
 <%@ Register Src="Modules/NumericTextBox.ascx" TagName="NumericTextBox" TagPrefix="kpt" %>
 <%@ Register Src="Modules/DatePicker.ascx" TagName="DatePicker" TagPrefix="kpt" %>
-<ul class="forminfo">
-    <li>
-        <label>奖项名称</label>
-        <kpt:SimpleTextBox ID="txtName" runat="server" CssClass="dfinput" ErrorMessage="产品类型不能为空！" />
-    </li>
-    <li>
-        <label>奖品名称</label>
-        <kpt:SimpleTextBox ID="txtKeyword" runat="server" CssClass="dfinput" ErrorMessage="产品名称不能为空！" />
-    </li>
-    <li>
-        <label>奖品数量</label>
-        <asp:TextBox ID="txtLotteryInfo"  runat="server" CssClass="dfinput" />
-    </li>
-    <li>
-        <label>实际数量 </label>
-        <div style="vertical-align: middle; padding-top: 8px;">
-           <kpt:DatePicker runat="server" ID="ctrlStartDatePicker" />
-        </div>
-    </li>
-     <li>
-        <label>活动人数 </label>
-         <kpt:DatePicker runat="server" ID="ctrlEndDatePicker" />
-    </li>
-    <li>
-        <label>每日抽奖次数</label>
-          <asp:TextBox  ID="txtRepeatTips"    CssClass="dfinput"  runat="server"></asp:TextBox>
-    </li>  
-    <li>
-        <label>最多抽奖次数</label>
-        <asp:FileUpload ID="uploadImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />
-       
-    </li>  
-    <li>
-        <label>中奖概率</label>
-        <asp:TextBox ID="txtLotteryPassword"   CssClass="dfinput"   runat="server"></asp:TextBox>
-    </li> 
-     <li><label></label>
-           <a href="javascript:open_win();" class="scbtn" >新增奖项</a>
-     </li>
-</ul>
+<%@ Register Assembly="YYControls" Namespace="YYControls" TagPrefix="yyc" %>
+  <div class="formtitle"><span>奖项列表</span><asp:Literal ID="lblMessage" runat="server"></asp:Literal></div>
+
+            <yyc:SmartGridView ID="sgvCpList" CssClass="tablelist" PageSize="20" AllowPaging="true" runat="server" AutoGenerateColumns="False" MouseOverCssClass="OverRow" AlternatingRowStyle-CssClass="odd"
+                Width="100%"   OnPageIndexChanging="SgvCpList_PageIndexChanging"  OnRowCancelingEdit="sgv_Cancel" OnRowEditing="sgv_Edit" OnRowUpdating="sgv_Update" PagerSettings-Mode="NextPreviousFirstLast" PagerStyle-HorizontalAlign="Right" PagerSettings-Position="Bottom" PagerSettings-FirstPageText="首页" PagerSettings-NextPageText="下页" PagerSettings-LastPageText="末页" PagerSettings-PreviousPageText="前页" PagerSettings-PageButtonCount="5">
+                <EmptyDataTemplate>
+                    <span class="f14px">没有信息！</span>
+                </EmptyDataTemplate>
+                <Columns>
+                    <asp:TemplateField HeaderText="ID">
+                        <HeaderStyle Width="20px" />
+                        <ItemTemplate>
+                            <asp:Literal ID="ltlDeptId" runat="server" Text='<%# Eval("OrderId")%>'></asp:Literal><asp:HiddenField ID="hLevel" runat="server" Value='<%# Eval("OrderId")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="订单号">
+                        <HeaderStyle Width="10%" />
+                        <ItemTemplate>
+                            <%# Eval("OrderNo")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                      <asp:TemplateField HeaderText="产品类型">
+                        <HeaderStyle Width="5%" />
+                        <ItemTemplate>
+                            <%# Eval("ShopType")%>
+                        </ItemTemplate> 
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="产品名称">
+                        <HeaderStyle Width="10%" />
+                        <ItemTemplate>
+                            <%# Eval("ShopName")%>
+                        </ItemTemplate> 
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="产品价格(元)">
+                        <HeaderStyle Width="5%" />
+                        <ItemTemplate>
+                            <%# Eval("Price")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="佣金(元)">
+                        <HeaderStyle Width="5%" />
+                        <ItemTemplate>
+                            <%# Eval("Commission")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                      <asp:TemplateField HeaderText="客户名称">
+                        <HeaderStyle Width="5%" />
+                        <ItemTemplate>
+                            <%# Eval("CustomerName")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                       <asp:TemplateField HeaderText="客户名称">
+                        <HeaderStyle Width="5%" />
+                        <ItemTemplate>
+                            <%# Eval("CustomerName")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                       <asp:TemplateField HeaderText="客户身份证">
+                        <HeaderStyle Width="5%" />
+                        <ItemTemplate>
+                            <%# Eval("IdCard")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                      <asp:TemplateField HeaderText="客户电话">
+                        <HeaderStyle Width="5%" />
+                        <ItemTemplate>
+                            <%# Eval("CustomerTel")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                       <asp:TemplateField HeaderText="客户地址">
+                        <HeaderStyle Width="30%" />
+                        <ItemTemplate>
+                            <%# Eval("CustomerTel")%>
+                        </ItemTemplate>
+                    </asp:TemplateField> 
+                    
+                    <asp:TemplateField HeaderText="操作">
+                        <HeaderStyle Width="10%" />
+                        <EditItemTemplate>
+                            <asp:LinkButton ID="lbtUpdate" runat="server" CausesValidation="True" CommandName="Update"
+                                Text="更新"></asp:LinkButton>
+                            &nbsp;<asp:LinkButton ID="lbtCancel" runat="server" CausesValidation="False" CommandName="Cancel"
+                                Text="取消"></asp:LinkButton>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                             <asp:LinkButton ID="lbtEdit" runat="server" CausesValidation="False" CommandName="Edit"
+                                Text="编辑"></asp:LinkButton>
+                            <asp:LinkButton ID="btnDelete" CommandName="DeleteItem" CommandArgument='<%# Eval("LotteryId") %>'
+                                OnClientClick="javascript:return confirm('是否确认要删除？');" runat="server" ToolTip="删除"
+                                CausesValidation="false">删除</asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </yyc:SmartGridView>
 <script type="text/javascript">
-function open_win() 
-{
-   
-    window.open ('orderlist.aspx', 'newwindow', 'height=600,width=1024,top=80,left=100,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no')
-}
+    function OpenWindow(query, w, h, scroll) {
+        var l = (screen.width - w) / 2;
+        var t = (screen.height - h) / 2;
+
+        winprops = 'resizable=1, height=' + h + ',width=' + w + ',top=' + t + ',left=' + l + 'w';
+        if (scroll) winprops += ',scrollbars=1';
+        var f = window.open(query, "_blank", winprops);
+    }
 </script>

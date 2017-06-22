@@ -52,6 +52,14 @@ namespace KuanPT_NF.m_kdO2O
                 return EngineContext.Current.Resolve<IChannelService>();
             }
         }
+        public ILotteryService LotteryService
+        {
+            get
+            {
+                return EngineContext.Current.Resolve<ILotteryService>();
+            }
+        }
+        
         protected IExportManager  ExportManager
         {
             get

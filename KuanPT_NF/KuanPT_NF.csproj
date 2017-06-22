@@ -415,6 +415,7 @@
     <Content Include="JavaScripts\jquery-1.7.1.js" />
     <Content Include="JavaScripts\jquery-ui-zh.js" />
     <Content Include="JavaScripts\jquery-ui.js" />
+    <Content Include="JavaScripts\jquery.idTabs.min.js" />
     <Content Include="JavaScripts\jquery.validate.min.js" />
     <Content Include="JavaScripts\My97DatePicker\calendar.js" />
     <Content Include="JavaScripts\My97DatePicker\lang\en.js" />
@@ -452,6 +453,7 @@
     <Content Include="m_kdO2O\LotteryDetails.aspx" />
     <Content Include="m_kdO2O\LotteryEndInfo.ascx" />
     <Content Include="m_kdO2O\LotteryInfo.ascx" />
+    <Content Include="m_kdO2O\LotteryItemAdd.aspx" />
     <Content Include="m_kdO2O\LotteryItemInfo.ascx" />
     <Content Include="m_kdO2O\LotteryList.aspx" />
     <Content Include="m_kdO2O\Modules\DatePicker.ascx" />
@@ -615,6 +617,13 @@
     </Compile>
     <Compile Include="m_kdO2O\LotteryInfo.ascx.designer.cs">
       <DependentUpon>LotteryInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="m_kdO2O\LotteryItemAdd.aspx.cs">
+      <DependentUpon>LotteryItemAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m_kdO2O\LotteryItemAdd.aspx.designer.cs">
+      <DependentUpon>LotteryItemAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="m_kdO2O\LotteryItemInfo.ascx.cs">
       <DependentUpon>LotteryItemInfo.ascx</DependentUpon>

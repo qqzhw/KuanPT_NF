@@ -10,7 +10,7 @@
 namespace KuanPT_NF.m_kdO2O {
     
     
-    public partial class LotteryList {
+    public partial class LotteryItemAdd {
         
         /// <summary>
         /// form1 控件。
@@ -37,42 +37,60 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::KuanPT_NF.Modules.SimpleTextBox txtName;
         
         /// <summary>
-        /// SearchButton 控件。
+        /// txtItemName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SearchButton;
+        protected global::KuanPT_NF.Modules.SimpleTextBox txtItemName;
         
         /// <summary>
-        /// btnExportXLS 控件。
+        /// txtAwardName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnExportXLS;
+        protected global::System.Web.UI.WebControls.TextBox txtAwardName;
         
         /// <summary>
-        /// lblMessage 控件。
+        /// txtAwardCount 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lblMessage;
+        protected global::KuanPT_NF.Modules.NumericTextBox txtAwardCount;
         
         /// <summary>
-        /// sgvCpList 控件。
+        /// txtCurrentCount 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::YYControls.SmartGridView sgvCpList;
+        protected global::KuanPT_NF.Modules.NumericTextBox txtCurrentCount;
+        
+        /// <summary>
+        /// txtAwardPercent 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::KuanPT_NF.Modules.NumericTextBox txtAwardPercent;
+        
+        /// <summary>
+        /// btnAdd 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAdd;
     }
 }

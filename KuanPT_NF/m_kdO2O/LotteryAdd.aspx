@@ -20,7 +20,7 @@
     <script src="/Editor/kindeditor-all-min.js"></script>
     <script charset="utf-8" src="/Editor/lang/zh-CN.js"></script>
     <script charset="utf-8" src="/Editor/plugins/code/prettify.js"></script>
-    <title>产品添加</title>
+    <title>抽奖活动添加</title>
     <style>
         .file input {
             padding: 6px 12px;
@@ -135,6 +135,7 @@
         <div class="formbody">
             <div class="formtitle"><span>产品添加</span>  <div style="float:right;">
                 <asp:Button ID="btnAdd" runat="server"   CssClass="scbtn" Text="确认保存" OnClick="btnAdd_Click" />
+                   <asp:Button ID="Button1" runat="server"   CssClass="scbtn" Text="保存并编辑" OnClick="SaveAndEdit_Click" />
               </div> </div>
             
             <ajaxToolkit:TabContainer runat="server" ID="LotteryTabs" ActiveTabIndex="0">

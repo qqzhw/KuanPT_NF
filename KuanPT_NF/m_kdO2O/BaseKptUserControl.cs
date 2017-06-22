@@ -1,4 +1,6 @@
-﻿using Common;
+﻿using BLL.Infrastructure;
+using BLL.Services;
+using Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,20 @@ namespace KuanPT_NF.m_kdO2O
 {
     public class BaseKptUserControl : UserControl
     {
+        public ILotteryService LotteryService
+        {
+            get
+            {
+                return EngineContext.Current.Resolve<ILotteryService>();
+            }
+        }
+        public IPictureService  PictureService
+        {
+            get
+            {
+                return EngineContext.Current.Resolve<IPictureService>();
+            }
+        }
         protected virtual void BindJQuery()
         {
             CommonHelper.BindJQuery(this.Page);
@@ -16,7 +32,7 @@ namespace KuanPT_NF.m_kdO2O
 
         protected virtual void BindJQueryIdTabs()
         {
-            string jqueryTabs = CommonHelper.GetStoreLocation() + "Scripts/jquery.idTabs.min.js";
+            string jqueryTabs = CommonHelper.GetStoreLocation() + "JavaScripts/jquery.idTabs.min.js";
             Page.ClientScript.RegisterClientScriptInclude(jqueryTabs, jqueryTabs);
         }
         protected void ProcessException(Exception exc)

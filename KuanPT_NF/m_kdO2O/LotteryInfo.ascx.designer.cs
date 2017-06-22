@@ -31,13 +31,13 @@ namespace KuanPT_NF.m_kdO2O {
         protected global::KuanPT_NF.Modules.SimpleTextBox txtKeyword;
         
         /// <summary>
-        /// txtLotteryInfo 控件。
+        /// txtExchangeInfo 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLotteryInfo;
+        protected global::System.Web.UI.WebControls.TextBox txtExchangeInfo;
         
         /// <summary>
         /// ctrlStartDatePicker 控件。
@@ -67,6 +67,33 @@ namespace KuanPT_NF.m_kdO2O {
         protected global::System.Web.UI.WebControls.TextBox txtRepeatTips;
         
         /// <summary>
+        /// imgLottery 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgLottery;
+        
+        /// <summary>
+        /// imgHidden 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField imgHidden;
+        
+        /// <summary>
+        /// btnDelete 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDelete;
+        
+        /// <summary>
         /// uploadImg 控件。
         /// </summary>
         /// <remarks>
@@ -85,13 +112,13 @@ namespace KuanPT_NF.m_kdO2O {
         protected global::System.Web.UI.WebControls.TextBox txtDesc;
         
         /// <summary>
-        /// txtNotice 控件。
+        /// txtIntroduction 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNotice;
+        protected global::System.Web.UI.WebControls.TextBox txtIntroduction;
         
         /// <summary>
         /// txtLotteryPassword 控件。
@@ -110,5 +137,32 @@ namespace KuanPT_NF.m_kdO2O {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUrl;
+        
+        /// <summary>
+        /// txtPersonCount 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::KuanPT_NF.Modules.NumericTextBox txtPersonCount;
+        
+        /// <summary>
+        /// txtMaxCount 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::KuanPT_NF.Modules.NumericTextBox txtMaxCount;
+        
+        /// <summary>
+        /// txtTodayCount 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::KuanPT_NF.Modules.NumericTextBox txtTodayCount;
     }
 }

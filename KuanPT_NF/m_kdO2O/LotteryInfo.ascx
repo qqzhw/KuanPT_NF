@@ -13,7 +13,7 @@
     </li>
     <li>
         <label>兑奖信息</label>
-        <asp:TextBox ID="txtLotteryInfo"  runat="server" CssClass="dfinput" />
+        <asp:TextBox ID="txtExchangeInfo"  runat="server" CssClass="dfinput" />
     </li>
     <li>
         <label>活动开始时间 </label>
@@ -31,6 +31,9 @@
     </li>  
     <li>
         <label>活动图片</label>
+        <asp:Image runat="server"  ID="imgLottery" style="max-height:200px;"/>
+        <asp:HiddenField runat="server" Id="imgHidden"/>
+         <asp:Button ID="btnDelete" runat="server"  Visible="false"  CssClass="scbtn" Text="确认保存" OnClick="btnDelete_Click" />
         <asp:FileUpload ID="uploadImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />
        
     </li> 
@@ -40,7 +43,7 @@
     </li> 
     <li>
         <label>活动说明</label>
-        <asp:TextBox  ID="txtNotice"  TextMode="MultiLine" Rows="8"  style="width:700px;height:150px;"  CssClass="dfinput"  runat="server"></asp:TextBox>
+        <asp:TextBox  ID="txtIntroduction"  TextMode="MultiLine" Rows="8"  style="width:700px;height:150px;"  CssClass="dfinput"  runat="server"></asp:TextBox>
     </li>
     <li>
         <label>兑奖密码</label>
@@ -50,6 +53,27 @@
         <label>活动URL</label>
         <asp:TextBox ID="txtUrl"   CssClass="dfinput"   runat="server"></asp:TextBox>
     </li> 
+       <li>
+        <label>活动人数</label>
+        <kpt:NumericTextBox runat="server" CssClass="dfinput" ID="txtPersonCount"
+                            Value="1" RequiredErrorMessage="不能为空！"
+                            RangeErrorMessage="数字范围在0-99999之间！"
+                            MinimumValue="0" MaximumValue="99999"></kpt:NumericTextBox>
+    </li>
+      <li>
+        <label>最大抽奖数</label>
+         <kpt:NumericTextBox runat="server" CssClass="dfinput" ID="txtMaxCount"
+                            Value="1" RequiredErrorMessage="不能为空！"
+                            RangeErrorMessage="数字范围在0-99999之间！"
+                            MinimumValue="1" MaximumValue="99999"></kpt:NumericTextBox>
+    </li>  
+        <li>
+        <label>每日抽奖数</label>
+      <kpt:NumericTextBox runat="server" CssClass="dfinput" ID="txtTodayCount"
+                            Value="1" RequiredErrorMessage="不能为空！"
+                            RangeErrorMessage="数字范围在0-99999之间！"
+                            MinimumValue="0" MaximumValue="99999"></kpt:NumericTextBox>
+    </li>   
 </ul>
 <script type="text/javascript">
     $(document).ready(function (e) {
