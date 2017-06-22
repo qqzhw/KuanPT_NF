@@ -48,7 +48,8 @@ namespace KuanPT_NF.m_kdO2O
             chkPublished.Checked=shop.State>0?true:false;
             ttContent1.Value = shop.Description;
             ttContent2.Value = shop.Remark;
-            
+            hiddenImgPath.Value = shop.Img;
+            HiddenBigImg.Value = shop.BigImg;
             imgShop.ImageUrl = CommonHelper.GetStoreLocation() + shop.Img;
             imgBigPicture.ImageUrl= CommonHelper.GetStoreLocation() + shop.BigImg;
         }
@@ -69,58 +70,60 @@ namespace KuanPT_NF.m_kdO2O
             CurrentShop.State =Convert.ToInt32(chkPublished.Checked);
             CurrentShop.Description = ttContent1.Value ;
             CurrentShop.Remark = ttContent2.Value ;
-            var imgPath = string.Empty;
-            string bigImgPath = string.Empty;
+             
             HttpPostedFile pictureFile = uploadImg.PostedFile;
 
             if ((pictureFile != null) && (!String.IsNullOrEmpty(pictureFile.FileName)))
             {
                 byte[] pictureBinary = pictureFile.GetPictureBits();
 
-                imgPath = this.PictureService.UploadPicture(pictureBinary, pictureFile.ContentType);
-                if (string.IsNullOrEmpty(imgPath))
+                hiddenImgPath.Value = this.PictureService.UploadPicture(pictureBinary, pictureFile.ContentType);
+                if (string.IsNullOrEmpty(hiddenImgPath.Value))
                 {
                     ShowMessage("图片上传失败!");
                     return;
                 }
-                CurrentShop.Img = imgPath;
+               
             }
+            CurrentShop.Img = hiddenImgPath.Value;
             HttpPostedFile bigPicture = uploadBigImg.PostedFile;
 
             if ((bigPicture != null) && (!String.IsNullOrEmpty(bigPicture.FileName)))
             {
                 byte[] pictureBinary = bigPicture.GetPictureBits();
 
-                bigImgPath = this.PictureService.UploadPicture(pictureBinary, bigPicture.ContentType);
-                if (string.IsNullOrEmpty(bigImgPath))
+                HiddenBigImg.Value = this.PictureService.UploadPicture(pictureBinary, bigPicture.ContentType);
+                if (string.IsNullOrEmpty(HiddenBigImg.Value))
                 {
                     ShowMessage("首页推荐图上传失败!");
                     return;
-                }
-                CurrentShop.BigImg = bigImgPath; 
+                } 
             }
-
+            CurrentShop.BigImg = HiddenBigImg.Value; 
             ShopService.UpdateProduct(CurrentShop);
             Response.Redirect("ShopList.aspx");
-        }
-
-        protected void btnUploadImg_Click(object sender, EventArgs e)
-        {
-
         } 
-
+     
         protected void btnRemoveBigImg_Click(object sender, EventArgs e)
         {
-            var imgpath= imgShop.ImageUrl;
-            if (File.Exists(imgpath))
-                File.Delete(imgpath);
+            if (PictureService.DeletePicture(HiddenBigImg.Value))
+            {
+                HiddenBigImg.Value = string.Empty;
+            }
         }
 
         protected void btnRemoveImg_Click(object sender, EventArgs e)
         {
-            var imgpath = imgBigPicture.ImageUrl;
-            if (File.Exists(imgpath))
-                File.Delete(imgpath);
+            //删除图片成功就更新
+            if (PictureService.DeletePicture(hiddenImgPath.Value))
+            {
+                //var currentShop = ShopService.GetProductById(ShopId);
+                //if (currentShop == null)
+                //    return;
+                //currentShop.Img = string.Empty;
+                //ShopService.UpdateProduct(currentShop);
+                hiddenImgPath.Value = string.Empty;
+            }   
         }
     }
 }

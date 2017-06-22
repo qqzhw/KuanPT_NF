@@ -539,10 +539,11 @@ namespace BLL.Services
             //_context.DeleteObject(picture);
             //_context.SaveChanges();
         }
-        public void DeletePicture(string imgPath)
+        public bool DeletePicture(string imgPath)
         {
+
             if (string.IsNullOrEmpty(imgPath))
-                return;
+                return false;
             //delete  
             string localFilepath = Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, imgPath);
             if (File.Exists(localFilepath))
@@ -553,10 +554,11 @@ namespace BLL.Services
                 }
                 catch
                 {
-
+                    return false;
                 }
+                return true;
             }
-             
+            return false;
         }
 
         
@@ -757,7 +759,7 @@ namespace BLL.Services
         {
             get
             {
-                string path ="\\Uploads\\Products\\" + DateFolder;
+                string path ="Uploads\\Products\\" + DateFolder;
                 return path;
             }
         }

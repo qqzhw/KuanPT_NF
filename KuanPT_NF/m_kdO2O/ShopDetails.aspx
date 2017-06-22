@@ -152,12 +152,14 @@
                   <li>
                     <label>产品图片</label>
                        <asp:Image ID="imgShop" runat="server" style="width:120px" AlternateText="图片" /> 
+                        <asp:HiddenField ID="hiddenImgPath" runat="server"   /> 
                     <asp:FileUpload ID="uploadImg"  CssClass="file" runat="server" ToolTip="请选择图片上传" />
                   <asp:Button ID="btnRemoveImg" runat="server" OnClick="btnRemoveImg_Click" CssClass="btn" style="margin-bottom:10px" Text="删除图片" CausesValidation="false" />
                       </li>
                 <li>
                     <label>首页大图</label>
                        <asp:Image ID="imgBigPicture" runat="server" style="height:120px" AlternateText="图片" />
+                      <asp:HiddenField ID="HiddenBigImg" runat="server"   /> 
                       <asp:FileUpload ID="uploadBigImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />  
                       <asp:Button ID="btnRemoveBigImg" runat="server" OnClick="btnRemoveBigImg_Click" CssClass="btn" style="margin-bottom:10px" Text="删除图片" CausesValidation="false" />
                 </li>

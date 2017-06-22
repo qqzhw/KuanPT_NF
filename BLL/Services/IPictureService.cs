@@ -48,7 +48,7 @@ namespace BLL.Services
       
         void DeletePicture(int pictureId);
 
-        void DeletePicture(string  imgPath);
+        bool DeletePicture(string  imgPath);
         byte[] ValidatePicture(byte[] pictureBinary, string mimeType);
 
         
