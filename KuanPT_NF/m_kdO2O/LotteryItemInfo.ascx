@@ -3,10 +3,10 @@
 <%@ Register Src="Modules/NumericTextBox.ascx" TagName="NumericTextBox" TagPrefix="kpt" %>
 <%@ Register Src="Modules/DatePicker.ascx" TagName="DatePicker" TagPrefix="kpt" %>
 <%@ Register Assembly="YYControls" Namespace="YYControls" TagPrefix="yyc" %>
-  <div class="formtitle"><span>奖项列表</span><asp:Literal ID="lblMessage" runat="server"></asp:Literal></div>
+  <div class="formtitle"><span>奖项列表</span><asp:Literal ID="lblMessage" ClientIDMode="Inherit" runat="server"></asp:Literal></div>
 
             <yyc:SmartGridView ID="sgvCpList" CssClass="tablelist" PageSize="20" AllowPaging="true" runat="server" AutoGenerateColumns="False" MouseOverCssClass="OverRow" AlternatingRowStyle-CssClass="odd"
-                Width="100%"   OnPageIndexChanging="SgvCpList_PageIndexChanging"  OnRowCancelingEdit="sgv_Cancel" OnRowEditing="sgv_Edit" OnRowUpdating="sgv_Update" PagerSettings-Mode="NextPreviousFirstLast" PagerStyle-HorizontalAlign="Right" PagerSettings-Position="Bottom" PagerSettings-FirstPageText="首页" PagerSettings-NextPageText="下页" PagerSettings-LastPageText="末页" PagerSettings-PreviousPageText="前页" PagerSettings-PageButtonCount="5">
+                Width="100%"   OnPageIndexChanging="SgvCpList_PageIndexChanging" OnRowCommand="sgv_RowCommand"  OnRowCancelingEdit="sgv_Cancel" OnRowEditing="sgv_Edit" OnRowUpdating="sgv_Update" PagerSettings-Mode="NextPreviousFirstLast" PagerStyle-HorizontalAlign="Right" PagerSettings-Position="Bottom" PagerSettings-FirstPageText="首页" PagerSettings-NextPageText="下页" PagerSettings-LastPageText="末页" PagerSettings-PreviousPageText="前页" PagerSettings-PageButtonCount="5">
                 <EmptyDataTemplate>
                     <span class="f14px">没有信息！</span>
                 </EmptyDataTemplate>
@@ -14,70 +14,39 @@
                     <asp:TemplateField HeaderText="ID">
                         <HeaderStyle Width="20px" />
                         <ItemTemplate>
-                            <asp:Literal ID="ltlDeptId" runat="server" Text='<%# Eval("OrderId")%>'></asp:Literal><asp:HiddenField ID="hLevel" runat="server" Value='<%# Eval("OrderId")%>' />
+                            <asp:Literal ID="ltllotteryItemId" runat="server" Text='<%# Eval("LotteryItemId")%>'></asp:Literal><asp:HiddenField ID="hLevel" runat="server" Value='<%# Eval("LotteryItemId")%>' />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="订单号">
-                        <HeaderStyle Width="10%" />
-                        <ItemTemplate>
-                            <%# Eval("OrderNo")%>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                      <asp:TemplateField HeaderText="产品类型">
-                        <HeaderStyle Width="5%" />
-                        <ItemTemplate>
-                            <%# Eval("ShopType")%>
-                        </ItemTemplate> 
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="产品名称">
-                        <HeaderStyle Width="10%" />
-                        <ItemTemplate>
-                            <%# Eval("ShopName")%>
-                        </ItemTemplate> 
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="产品价格(元)">
-                        <HeaderStyle Width="5%" />
-                        <ItemTemplate>
-                            <%# Eval("Price")%>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="佣金(元)">
-                        <HeaderStyle Width="5%" />
-                        <ItemTemplate>
-                            <%# Eval("Commission")%>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                      <asp:TemplateField HeaderText="客户名称">
-                        <HeaderStyle Width="5%" />
-                        <ItemTemplate>
-                            <%# Eval("CustomerName")%>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                       <asp:TemplateField HeaderText="客户名称">
-                        <HeaderStyle Width="5%" />
-                        <ItemTemplate>
-                            <%# Eval("CustomerName")%>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                       <asp:TemplateField HeaderText="客户身份证">
-                        <HeaderStyle Width="5%" />
-                        <ItemTemplate>
-                            <%# Eval("IdCard")%>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                      <asp:TemplateField HeaderText="客户电话">
-                        <HeaderStyle Width="5%" />
-                        <ItemTemplate>
-                            <%# Eval("CustomerTel")%>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                       <asp:TemplateField HeaderText="客户地址">
+                    <asp:TemplateField HeaderText="奖项名称">
                         <HeaderStyle Width="30%" />
                         <ItemTemplate>
-                            <%# Eval("CustomerTel")%>
+                            <%# Eval("ItemName")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                      <asp:TemplateField HeaderText="奖品名称">
+                        <HeaderStyle Width="30%" />
+                        <ItemTemplate>
+                            <%# Eval("AwardName")%>
+                        </ItemTemplate> 
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="奖品数量">
+                        <HeaderStyle Width="10%" />
+                        <ItemTemplate>
+                            <%# Eval("AwardCount")%>
+                        </ItemTemplate> 
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="实际数量">
+                        <HeaderStyle Width="10%" />
+                        <ItemTemplate>
+                            <%# Eval("CurrentCount")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="中奖概率">
+                        <HeaderStyle Width="10%" />
+                        <ItemTemplate>
+                            <%# Eval("AwardPercent")%>
                         </ItemTemplate>
                     </asp:TemplateField> 
-                    
                     <asp:TemplateField HeaderText="操作">
                         <HeaderStyle Width="10%" />
                         <EditItemTemplate>
@@ -96,6 +65,8 @@
                     </asp:TemplateField>
                 </Columns>
             </yyc:SmartGridView>
+<br />
+ <asp:Button ID="btnAdd" runat="server" CssClass="scbtn" Text="添加奖项"  />
 <script type="text/javascript">
     function OpenWindow(query, w, h, scroll) {
         var l = (screen.width - w) / 2;

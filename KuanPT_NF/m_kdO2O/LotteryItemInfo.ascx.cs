@@ -17,6 +17,7 @@ namespace KuanPT_NF.m_kdO2O
             {
                 BindData();
             }
+           btnAdd.OnClientClick = string.Format("javascript:OpenWindow('LotteryItemAdd.aspx?LotteryId={0}', 800, 600, true); return false;", LotteryId);
         }
         protected override void OnPreRender(EventArgs e)
         {
@@ -95,5 +96,21 @@ namespace KuanPT_NF.m_kdO2O
            
         }
 
+        protected void sgv_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+              int Id = 0;
+
+            switch (e.CommandName)
+            {
+                case "DeleteItem":  // 删除
+                    Id = int.Parse(e.CommandArgument.ToString());
+                    var item = LotteryService.GetLotteryItemById(Id);
+                    LotteryService.DeleteLotteryItem(item);  
+                    break;
+                default:
+                    break;
+            }
+            Response.Redirect(CommonHelper.GetThisPageUrl(true));
+        }
     }
 }

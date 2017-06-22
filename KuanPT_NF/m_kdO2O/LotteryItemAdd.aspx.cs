@@ -1,4 +1,5 @@
 ﻿using BLL.Services;
+using Common;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,9 @@ namespace KuanPT_NF.m_kdO2O
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
-            {
-                 
+            { 
             }
+           
         } 
         private void BindData()
         {
@@ -25,12 +26,15 @@ namespace KuanPT_NF.m_kdO2O
          
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            if (LotteryId == 0)
+                return;
             var lotteryItem = new LotteryItem()
             {
                 ItemName = txtName.Text,
                 AwardName = txtAwardName.Text,
                 AwardCount = txtAwardCount.Value,
                 CurrentCount = txtCurrentCount.Value,
+                LotteryId = LotteryId,
                 LotteryItemId = 0,
                 AwardPercent=txtAwardPercent.Value,         
                 BmId = 1,
@@ -38,6 +42,13 @@ namespace KuanPT_NF.m_kdO2O
             };
             LotteryService.InsertLotteryItem(lotteryItem);
             Response.Write("<script>window.close();</script>");
+        }
+        public int LotteryId
+        {
+            get
+            {
+                return CommonHelper.QueryStringInt("LotteryId");
+            }
         }
     }
    
