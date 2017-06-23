@@ -46,10 +46,10 @@
             <div class="tabbable-line">
                 <ul class="nav nav-tabs">
                     <li class="active">
-                        <a href="#tab_1"  data-toggle="tab" aria-expanded="true"> <span style="font-weight:500;font-size:16px;">业务介绍</span> </a>
+                        <a href="javascript:;" id="#tab_1" data-toggle="tab" aria-expanded="true"> <span style="font-weight:500;font-size:16px;">业务介绍</span> </a>
                     </li>
                     <li class="">
-                        <a href="#tab_2" data-toggle="tab" aria-expanded="false"><span style="font-weight:500;font-size:16px;"> 温馨提示</span> </a>
+                        <a href="javascript:;" id="#tab_2" data-toggle="tab" aria-expanded="false"><span style="font-weight:500;font-size:16px;"> 温馨提示</span> </a>
                     </li>
                 </ul>
                 <div class="tab-content">
@@ -105,7 +105,7 @@
                     $(e.target).parent().parent().parent().find("li").removeClass("active");
                     $(e.target).parent().parent().addClass("active"); 
                     $(".tab-pane").removeClass("active");
-                    $($(e.target).parent().attr("href")).addClass("active");                   
+                    $($(e.target).parent().attr("id")).addClass("active");                   
                 });
             });
             $(".nav.nav-tabs li:first a").find("span").click();
