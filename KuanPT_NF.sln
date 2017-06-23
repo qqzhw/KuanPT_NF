@@ -25,6 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{F56E38BF-A018-
 	ProjectSection(SolutionItems) = preProject
 		C:\Users\QQZHW\Documents\script.sql = C:\Users\QQZHW\Documents\script.sql
 		C:\Users\ZHW\Documents\script0622.sql = C:\Users\ZHW\Documents\script0622.sql
+		Docs\DB\script0623.sql = Docs\DB\script0623.sql
 		Docs\DB\script619.sql = Docs\DB\script619.sql
 	EndProjectSection
 EndProject
