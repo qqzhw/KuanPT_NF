@@ -20,6 +20,7 @@ namespace BLL.Services
        
         Campaign GetCampaignById(int campaignId);
 
+        List<Campaign> GetAllHomeCampaign();
        
         IList<Campaign> GetAllCampaigns(string keyword="", int pageIndex=0,int pageSize=int.MaxValue );
 

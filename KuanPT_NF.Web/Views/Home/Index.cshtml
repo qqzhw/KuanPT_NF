@@ -6,19 +6,22 @@
 <div class="banner">
     <div class="img">
         <ul class="clearfix">
+            @foreach (var item in Model.Campaigns)
+            {
+                <li>
+                    <a href="@Url.RouteUrl("Campaign", new { Id = item.CampaignId })"><img src="\@item.ImgPath" alt=""></a>
+                </li>
+            }
             <li>
-                <a href="/Campaign"><img src="../Content/Images/banner/banner168.jpg" alt=""></a>
-            </li>
-            <li>
-                <a href="/Campaign"><img src="../Content/Images/banner/banner168.png" alt=""></a>
-            </li>
+                <a href="/Campaign"><img src="/Content/Images/banner/banner168.jpg" alt=""></a>
+            </li> 
         </ul>
     </div>
 </div>
 <!--banner End -->
 <div class="col-md-12 row" style="height:10px;background-color:#EEF1F8;"></div>
 <div class="col-md-12 row" style="background-color:white;">
-    <img src="../Content/Images/kuandaizhuanqu.png" style="padding:2px 0px;float:left;border:none;vertical-align:middle;" />
+    <img src="/Content/Images/kuandaizhuanqu.png" style="padding:2px 0px;float:left;border:none;vertical-align:middle;" />
     <div style="float:left;font-size:15px;margin-top:15px;color:#3e4f5e">宽带专区</div>
     <a href="/shop/index"><span style="float:right;font-size:14px;margin-top:12px;margin-right:-10px; color:#3e4f5e">更多》</span></a>
 </div>

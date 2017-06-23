@@ -1,0 +1,45 @@
+﻿@model CampaignModel 
+@using KuanPT_NF.Web.Models;
+@{
+    Layout = null;
+    string Title = string.Empty;
+    if (Model!=null)
+    {
+        ViewBag.Title = Model.CampaignName;
+        Title= Model.CampaignName;
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">   
+    <link rel="stylesheet" type="text/css" href="/Content/Styles/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Styles/theme.css" />  
+    <script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script>
+    <title>@Title</title>
+</head>
+<body>
+    <div>
+        <div class="row">
+            <div style="padding-bottom:10px;">  
+                @Html.Raw(Model.Body);
+                @*<img src="~/Content/Images/168hddetail.png" style="width:100%;" alt=""/>*@ 
+            </div> 
+        </div>
+
+    </div>
+
+    <div class="col-md-12">
+        <div class="widget-thumb text-uppercase">
+
+            <div class="widget-thumb-wrap" style="padding-left:10px;padding-right:10px;">
+                <a href="https://kefu.easemob.com/webim/im.html?tenantId=36541&emgroup=%E5%AE%A2%E6%9C%8D%E7%BB%84&phone=13800138000" class="btn blue btn-block">立即在线办理</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

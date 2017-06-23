@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Model;
 using DAL;
+using DapperExtensions;
 
 namespace BLL.Services
 {
@@ -63,6 +64,23 @@ namespace BLL.Services
             }
             var items = _campaignRepository.GetPageData("Campaign",orderField, out totalRecord, out totalPage,fields,whereStr, pageIndex, pageSize);
             return items;
+        }
+
+        public List<Campaign> GetAllHomeCampaign()
+        { 
+            var pgMain = new PredicateGroup { Operator = GroupOperator.Or, Predicates = new List<IPredicate>() };
+            var pgb = new PredicateGroup { Operator = GroupOperator.And, Predicates = new List<IPredicate>() };
+            
+                pgb.Predicates.Add(Predicates.Field<Campaign>(f => f.IsHomeBanner, Operator.Ge, true)); 
+                pgb.Predicates.Add(Predicates.Field<Campaign>(f => f.Published, Operator.Le, true));
+             
+            pgMain.Predicates.Add(pgb);
+            IList<ISort> sortItems = new List<ISort>
+            {
+                new Sort { PropertyName = "DisplayOrder",Ascending = true }
+            };
+           var list = _campaignRepository.GetList(pgMain,sortItems);
+            return list.Take(5).ToList(); 
         }
     }
 }

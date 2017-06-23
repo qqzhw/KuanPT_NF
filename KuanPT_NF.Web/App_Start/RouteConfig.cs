@@ -24,7 +24,12 @@ namespace KuanPT_NF.Web
                defaults:new { controller = "Shop", action = "Detail"},
                constraints:new { Id = @"\d+" },
                namespaces:new[] { "KuanPT_NF.Web.Controllers" });
-                
+            routes.MapRoute(
+              name: "Campaign",
+              url: "Campaign/Detail/{Id}",
+              defaults: new { controller = "Campaign", action = "Detail" },
+              constraints: new { Id = @"\d+" },
+              namespaces: new[] { "KuanPT_NF.Web.Controllers" }); 
         }
     }
 }

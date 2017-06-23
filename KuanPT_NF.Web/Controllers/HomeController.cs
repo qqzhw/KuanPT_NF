@@ -14,10 +14,12 @@ namespace KuanPT_NF.Web.Controllers
     {
         private readonly IShopService _shopService;
          private readonly IChannelService _channelService;
-        public HomeController(IShopService shopService, IChannelService  channelService)
+        private readonly ICampaignService _campaignService;
+        public HomeController(IShopService shopService, IChannelService  channelService, ICampaignService campaignService)
         {
             _shopService = shopService;
             _channelService = channelService;
+            _campaignService = campaignService;
         }
         public ActionResult Index()
         {
@@ -59,6 +61,23 @@ namespace KuanPT_NF.Web.Controllers
                 ShowOnHomePage = o.ShowOnHomePage,
             }).FirstOrDefault();
             model.HotShopModel =hotModel;
+            var campaignModels = _campaignService.GetAllHomeCampaign().Select(o=>new CampaignModel()
+            {
+                BeginTime=o.BeginTime,
+                BmId=o.BmId,
+                Body=o.Body,
+                CampaignId=o.CampaignId,
+                CampaignName=o.CampaignName,
+                ComId=o.ComId,
+                DisplayOrder=o.DisplayOrder,
+                EndTime=o.EndTime,
+                ImgPath="\\"+o.ImgPath,
+                IsHomeBanner=o.IsHomeBanner,
+                Published=o.Published,
+                Subject=o.Subject
+            }).ToList();
+
+            model.Campaigns = campaignModels;
             if (EngineContext.Channel!=null)
             {
                 AddChannelData();
