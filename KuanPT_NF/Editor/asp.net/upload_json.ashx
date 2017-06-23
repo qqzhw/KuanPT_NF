@@ -50,7 +50,8 @@ public class Upload : IHttpHandler
         String dirPath = context.Server.MapPath(savePath);
         if (!Directory.Exists(dirPath))
         {
-            showError("上传目录不存在。");
+           // showError("上传目录不存在。");
+            Directory.CreateDirectory(dirPath);
         }
 
         String dirName = context.Request.QueryString["dir"];

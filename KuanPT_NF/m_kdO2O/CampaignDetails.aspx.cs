@@ -78,6 +78,7 @@ namespace KuanPT_NF.m_kdO2O
             if (PictureService.DeletePicture(hiddenImg.Value))
            {
                 hiddenImg.Value = string.Empty;
+                img.ImageUrl = "";
             }
         }
     }

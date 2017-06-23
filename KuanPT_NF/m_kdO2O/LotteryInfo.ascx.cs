@@ -35,7 +35,7 @@ namespace KuanPT_NF.m_kdO2O
                 txtUrl.Text = lottery.LotteryUrl;
                 ctrlStartDatePicker.SelectedDate = lottery.BeginDate;
                 ctrlEndDatePicker.SelectedDate = lottery.EndDate;
-                imgLottery.ImageUrl = CommonHelper.GetStoreLocation() + "\\" + lottery.LotteryImg;
+                imgLottery.ImageUrl = CommonHelper.GetStoreLocation() + lottery.LotteryImg;
                 imgHidden.Value = lottery.LotteryImg;
                 if (!string.IsNullOrEmpty(imgLottery.ImageUrl))
                 {

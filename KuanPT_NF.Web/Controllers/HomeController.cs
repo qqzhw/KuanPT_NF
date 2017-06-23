@@ -1,5 +1,6 @@
 ﻿using BLL.Infrastructure;
 using BLL.Services;
+using Common;
 using KuanPT_NF.Web.Models;
 using Model;
 using System;
@@ -71,7 +72,7 @@ namespace KuanPT_NF.Web.Controllers
                 ComId=o.ComId,
                 DisplayOrder=o.DisplayOrder,
                 EndTime=o.EndTime,
-                ImgPath="\\"+o.ImgPath,
+                ImgPath= CommonHelper.GetStoreLocation() +o.ImgPath,
                 IsHomeBanner=o.IsHomeBanner,
                 Published=o.Published,
                 Subject=o.Subject

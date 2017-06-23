@@ -1,4 +1,5 @@
 ﻿using BLL.Services;
+using Common;
 using KuanPT_NF.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace KuanPT_NF.Web.Controllers
             model.ComId = item.ComId;
             model.DisplayOrder = item.DisplayOrder;
             model.EndTime = item.EndTime;
-            model.ImgPath = "\\" + item.ImgPath;
+            model.ImgPath = CommonHelper.GetStoreLocation() + item.ImgPath;
             model.IsHomeBanner = item.IsHomeBanner;
             model.Published = item.Published;
             model.Subject = item.Subject;
