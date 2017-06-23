@@ -116,6 +116,7 @@ namespace KuanPT_NF.m_kdO2O
         {
             if (PictureService.DeletePicture(HiddenBigImg.Value))
             {
+                imgBigPicture.ImageUrl = string.Empty;
                 HiddenBigImg.Value = string.Empty;
             }
         }
@@ -131,6 +132,7 @@ namespace KuanPT_NF.m_kdO2O
                 //currentShop.Img = string.Empty;
                 //ShopService.UpdateProduct(currentShop);
                 hiddenImgPath.Value = string.Empty;
+                imgShop.ImageUrl = string.Empty;
             }   
         }
     }

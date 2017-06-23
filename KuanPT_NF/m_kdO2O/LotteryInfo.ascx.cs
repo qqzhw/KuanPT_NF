@@ -136,7 +136,10 @@ namespace KuanPT_NF.m_kdO2O
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            PictureService.DeletePicture(imgHidden.Value);
+            if(PictureService.DeletePicture(imgHidden.Value))
+            {
+                imgLottery.ImageUrl = string.Empty;
+            }
         }
     }
  
