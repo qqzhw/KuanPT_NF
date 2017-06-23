@@ -1,12 +1,10 @@
 ﻿@model CampaignModel 
 @using KuanPT_NF.Web.Models;
 @{
-    Layout = null;
-    string Title = string.Empty;
+    Layout = null; 
     if (Model!=null)
     {
-        ViewBag.Title = Model.CampaignName;
-        Title= Model.CampaignName;
+        ViewBag.Title = Model.CampaignName; 
     }
 }
 
@@ -19,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="/Content/Styles/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/Content/Styles/theme.css" />  
     <script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script>
-    <title>@Title</title>
+    <title>@ViewBag.Title</title>
     <style>
         .detailcontent{
             padding-bottom:10px;
