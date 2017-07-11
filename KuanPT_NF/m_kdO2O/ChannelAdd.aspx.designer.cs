@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace KuanPT_NF.m_kdO2O {
+namespace IMCustSys {
     
     
     public partial class ChannelAdd {
@@ -37,7 +37,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.SimpleTextBox txtChannelCode;
+        protected global::IMCustSys.Modules.SimpleTextBox txtChannelCode;
         
         /// <summary>
         /// txtChannelName 控件。
@@ -46,7 +46,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.SimpleTextBox txtChannelName;
+        protected global::IMCustSys.Modules.SimpleTextBox txtChannelName;
         
         /// <summary>
         /// txtChannelLable 控件。
@@ -82,7 +82,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.NumericTextBox txtDisplayOrder;
+        protected global::IMCustSys.Modules.NumericTextBox txtDisplayOrder;
         
         /// <summary>
         /// txtDesc 控件。

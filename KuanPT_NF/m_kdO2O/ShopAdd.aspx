@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"  ValidateRequest="false" CodeBehind="ShopAdd.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.ShopAdd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  ValidateRequest="false" CodeBehind="ShopAdd.aspx.cs" Inherits="IMCustSys.ShopAdd" %>
 <%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
 
 <%@ Register Src="Modules/NumericTextBox.ascx" TagName="NumericTextBox" TagPrefix="kpt" %>

@@ -1,9 +1,9 @@
-﻿using Common;
+﻿using IMCustSys.Common;
 using System;
 using System.Linq;
 using System.Web.UI.WebControls;
 
-namespace BLL.Services
+namespace IMCustSys.BLL.Services
 {
     /// <summary>
     /// A helper class to access the property by name

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace BLL.Caching
+namespace IMCustSys.BLL.Caching
 {
     /// <summary>
     /// Represents a KptRequestCache

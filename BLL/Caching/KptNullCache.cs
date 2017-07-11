@@ -1,4 +1,4 @@
-namespace BLL.Caching
+namespace IMCustSys.BLL.Caching
 {
     /// <summary>
     /// Represents a KptNullCache

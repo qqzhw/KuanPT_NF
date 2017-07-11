@@ -1,6 +1,6 @@
 ﻿using Autofac; 
 
-namespace BLL.Infrastructure
+namespace IMCustSys.BLL.Infrastructure
 {
     /// <summary>
     /// Dependency registrar interface

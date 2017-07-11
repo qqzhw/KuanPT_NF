@@ -1,5 +1,5 @@
-﻿using BLL;
-using Model;
+﻿using IMCustSys.BLL;
+using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
  
 
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public partial class CampaignAdd : BaseKptPage
     {
@@ -51,10 +51,10 @@ namespace KuanPT_NF.m_kdO2O
                         return;
                     }
                 }
-
+                var comId = BLL.sys_admin.GetUserComid();
                 Campaign campaign = new Campaign();
                 campaign.BmId = 1;
-                campaign.ComId = "kpt";
+                campaign.ComId =comId;
                 campaign.CampaignName = tbName.Text;
                 campaign.CreatedDate = DateTime.Now;
                 campaign.DisplayOrder = txtDisplayOrder.Value;

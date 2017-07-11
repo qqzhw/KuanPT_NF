@@ -1,5 +1,5 @@
-﻿using BLL.Services;
-using Common;
+﻿using IMCustSys.BLL.Services;
+using IMCustSys.Common;
 using KuanPT_NF.Web.Models;
 using System;
 using System.Collections.Generic;

@@ -5,7 +5,7 @@ using System.Web;
 using Autofac;
 using Autofac.Core.Lifetime; 
 
-namespace BLL.Infrastructure
+namespace IMCustSys.BLL.Infrastructure
 {
     /// <summary>
     /// Container manager

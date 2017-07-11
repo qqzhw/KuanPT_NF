@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using System;
 
-namespace BLL.Infrastructure
+namespace IMCustSys.BLL.Infrastructure
 {
     /// <summary>
     /// Classes implementing this interface can serve as a portal for the 

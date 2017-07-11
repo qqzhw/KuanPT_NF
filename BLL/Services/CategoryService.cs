@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq; 
-using Common;
-using Model;
-using BLL.Caching;
-using DAL;
+using System.Linq;
+using IMCustSys.Common;
+using IMCustSys.Model;
+using IMCustSys.DAL;
 using DapperExtensions;
 using System.Data;
 using Dapper;
-namespace BLL.Services
+using IMCustSys.BLL.Caching;
+
+namespace IMCustSys.BLL.Services
 {
     /// <summary>
     /// Category service
@@ -68,17 +69,19 @@ namespace BLL.Services
         { 
             return GetAllCategories(string.Empty);
         }
-
-
-        public virtual List<Category> GetAllCategories(string categoryName="", bool? showHidden=null)        
-        {   
+        public virtual List<Category> GetAllCategories(string comId = "", string categoryName = "", bool? showHidden = default(bool?))
+        {
             var pgMain = new PredicateGroup { Operator = GroupOperator.Or, Predicates = new List<IPredicate>() };
             var pgb = new PredicateGroup { Operator = GroupOperator.And, Predicates = new List<IPredicate>() };
+            if (!string.IsNullOrEmpty(comId))
+            {
+                pgb.Predicates.Add(Predicates.Field<Category>(p => p.ComId, Operator.Eq, comId));
+            }
             if (!string.IsNullOrEmpty(categoryName))
             {
                 pgb.Predicates.Add(Predicates.Field<Category>(p => p.CategoryName, Operator.Like, "%" + categoryName + "%"));
             }
-            if (showHidden!=null)
+            if (showHidden != null)
             {
                 pgb.Predicates.Add(Predicates.Field<Category>(p => p.Published, Operator.Eq, showHidden));
             }
@@ -87,15 +90,17 @@ namespace BLL.Services
             {
                 new Sort { PropertyName = "DisplayOrder",Ascending = false }
             };
-            var query = _categoryRepository.GetList(pgMain,sortItems);  
+            var query = _categoryRepository.GetList(pgMain, sortItems);
             var unsortedCategories = query.ToList();
 
             ////sort categories
             ////TODO sort categories on database layer
             var sortedCategories = unsortedCategories.SortCategoriesForTree(0);
 
-            return sortedCategories; 
+            return sortedCategories;
         }
+
+      
         
        
         public List<Category> GetAllCategoriesByParentCategoryId(int parentCategoryId)
@@ -362,8 +367,10 @@ namespace BLL.Services
                 throw new ArgumentNullException("productCategory");
             _shopcategoryRepository.Update(productCategory);
         }
+
+      
         #endregion
-        
-        
+
+
     }
 }

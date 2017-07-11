@@ -1,7 +1,7 @@
 ﻿﻿using System;
 ﻿using System.Xml;
 
-namespace Common
+namespace IMCustSys.Common
 {
     public static class Extensions
     {

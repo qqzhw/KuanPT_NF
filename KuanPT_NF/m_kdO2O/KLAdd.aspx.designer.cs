@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace KuanPT_NF {
+namespace IMCustSys {
     
     
     public partial class KLAdd {

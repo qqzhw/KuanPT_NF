@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Model;
-using DAL;
-using BLL.Caching;
-using Common;
+using IMCustSys.Model;
+using IMCustSys.DAL;
+using IMCustSys.Common;
 using DapperExtensions;
- 
-namespace BLL.Services
+using IMCustSys.BLL.Caching;
+
+namespace IMCustSys.BLL.Services
 {
     public class ChannelService : IChannelService
     {
@@ -31,18 +31,24 @@ namespace BLL.Services
 
         }
 
-        public IList<Channel> GetAllChannels(string keywords = "", string channelCode = "", int pageIndex = 0, int pageSize = int.MaxValue)
+        public IList<Channel> GetAllChannels(string comId="", string keywords = "", string channelCode = "", int pageIndex = 0, int pageSize = int.MaxValue)
         {
-            object predicate = null;
+            var pgMain = new PredicateGroup { Operator = GroupOperator.Or, Predicates = new List<IPredicate>() };
+            var pgb = new PredicateGroup { Operator = GroupOperator.And, Predicates = new List<IPredicate>() };
+            if (!string.IsNullOrEmpty(comId))
+            {
+                pgb.Predicates.Add(Predicates.Field<Channel>(f => f.ComId, Operator.Eq, comId));
+            }
+            pgMain.Predicates.Add(pgb);
             if (!string.IsNullOrEmpty(keywords))
             {
-                predicate = Predicates.Field<Channel>(p => p.ChannelName, Operator.Like, "%" + keywords + "%");
+                pgb.Predicates.Add(Predicates.Field<Channel>(p => p.ChannelName, Operator.Like, "%" + keywords + "%"));
             } 
             IList<ISort> sortItems = new List<ISort>
             {
                 new Sort { PropertyName = "Published",Ascending = false }
             };
-            var query = _channelRepository.GetList(predicate, sortItems);
+            var query = _channelRepository.GetList(pgMain, sortItems);
             return query.ToList(); 
         }
 

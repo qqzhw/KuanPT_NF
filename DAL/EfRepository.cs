@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using Dapper;
 //using Dapper.Contrib.Extensions;
-using Model;
 using DapperExtensions;
-namespace DAL
+namespace IMCustSys.DAL
 {
     /// <summary>
     /// Entity Framework repository

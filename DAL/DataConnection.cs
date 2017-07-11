@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
-namespace DAL
+namespace IMCustSys.DAL
 {
 	public partial class DataConnection : IDisposable
 	{

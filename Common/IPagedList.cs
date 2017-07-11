@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 
-namespace Common
+namespace IMCustSys.Common
 {
     /// <summary>
     /// Paged list interface

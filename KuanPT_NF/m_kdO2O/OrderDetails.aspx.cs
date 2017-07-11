@@ -1,6 +1,6 @@
-﻿using BLL;
-using BLL.Services;
-using Common;
+﻿using IMCustSys.BLL;
+using IMCustSys.BLL.Services;
+using IMCustSys.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public partial class OrderDetails : BaseKptPage
     {
@@ -66,7 +66,7 @@ namespace KuanPT_NF.m_kdO2O
                 //绑定订购的产品
                 ddlShops.DataTextField = "ShopName";
                 ddlShops.DataValueField = "ShopId";
-                ddlShops.DataSource = ShopService.GetAllProducts(1);
+                ddlShops.DataSource = ShopService.GetAllProducts(showHidden:1);
                 ddlShops.DataBind();
                 ddlShops.SelectedValue=order.ShopId.ToString();
             }

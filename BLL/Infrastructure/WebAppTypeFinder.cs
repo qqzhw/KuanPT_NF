@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.Hosting;
 
-namespace BLL.Infrastructure
+namespace IMCustSys.BLL.Infrastructure
 {
     /// <summary>
     /// Provides information about types in the current web application. 

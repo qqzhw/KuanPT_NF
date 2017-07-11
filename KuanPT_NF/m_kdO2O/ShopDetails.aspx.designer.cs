@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace KuanPT_NF.m_kdO2O {
+namespace IMCustSys {
     
     
     public partial class ShopDetails {
@@ -37,7 +37,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.SimpleTextBox txtShopType;
+        protected global::IMCustSys.Modules.SimpleTextBox txtShopType;
         
         /// <summary>
         /// txtShopName 控件。
@@ -46,7 +46,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.SimpleTextBox txtShopName;
+        protected global::IMCustSys.Modules.SimpleTextBox txtShopName;
         
         /// <summary>
         /// txtShortDesc 控件。
@@ -64,7 +64,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.NumericTextBox txtPrice;
+        protected global::IMCustSys.Modules.NumericTextBox txtPrice;
         
         /// <summary>
         /// txtCommission 控件。
@@ -73,7 +73,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.NumericTextBox txtCommission;
+        protected global::IMCustSys.Modules.NumericTextBox txtCommission;
         
         /// <summary>
         /// chkPublished 控件。
@@ -181,7 +181,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.NumericTextBox txtDisplayOrder;
+        protected global::IMCustSys.Modules.NumericTextBox txtDisplayOrder;
         
         /// <summary>
         /// ttContent1 控件。

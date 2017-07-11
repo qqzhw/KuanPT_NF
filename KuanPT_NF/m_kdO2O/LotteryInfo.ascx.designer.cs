@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace KuanPT_NF.m_kdO2O {
+namespace IMCustSys {
     
     
     public partial class LotteryInfo {
@@ -19,7 +19,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.SimpleTextBox txtName;
+        protected global::IMCustSys.Modules.SimpleTextBox txtName;
         
         /// <summary>
         /// txtKeyword 控件。
@@ -28,7 +28,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.SimpleTextBox txtKeyword;
+        protected global::IMCustSys.Modules.SimpleTextBox txtKeyword;
         
         /// <summary>
         /// txtExchangeInfo 控件。
@@ -46,7 +46,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.DatePicker ctrlStartDatePicker;
+        protected global::IMCustSys.Modules.DatePicker ctrlStartDatePicker;
         
         /// <summary>
         /// ctrlEndDatePicker 控件。
@@ -55,7 +55,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.DatePicker ctrlEndDatePicker;
+        protected global::IMCustSys.Modules.DatePicker ctrlEndDatePicker;
         
         /// <summary>
         /// txtRepeatTips 控件。
@@ -145,7 +145,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.NumericTextBox txtPersonCount;
+        protected global::IMCustSys.Modules.NumericTextBox txtPersonCount;
         
         /// <summary>
         /// txtMaxCount 控件。
@@ -154,7 +154,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.NumericTextBox txtMaxCount;
+        protected global::IMCustSys.Modules.NumericTextBox txtMaxCount;
         
         /// <summary>
         /// txtTodayCount 控件。
@@ -163,6 +163,6 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.NumericTextBox txtTodayCount;
+        protected global::IMCustSys.Modules.NumericTextBox txtTodayCount;
     }
 }

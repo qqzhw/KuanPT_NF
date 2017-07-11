@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 
-namespace  DAL
+namespace IMCustSys.DAL
 {
     public interface IDbContext
     {

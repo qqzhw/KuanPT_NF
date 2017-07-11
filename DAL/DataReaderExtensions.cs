@@ -1,11 +1,9 @@
-﻿//Contributor: Rick Strahl - http://codepaste.net/qqcf4x
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
 
-namespace DAL
+namespace IMCustSys.DAL
 {
     public static class DataReaderExtensions
     {

@@ -1,6 +1,6 @@
 
 
-namespace BLL.Services
+namespace IMCustSys.BLL.Services
 { 
     public enum OrderStatusEnum : int
     {

@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace KuanPT_NF.Modules {
+namespace IMCustSys.Modules {
     
     
     public partial class SimpleTextBox {

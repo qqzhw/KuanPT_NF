@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Model;
-using BLL.Caching;
-using DAL;
-using Common;
+using IMCustSys.Model;
+using IMCustSys.DAL;
+using IMCustSys.Common;
 using DapperExtensions;
- 
-namespace BLL.Services
+using IMCustSys.BLL.Caching;
+
+namespace IMCustSys.BLL.Services
 {
     public class OrderService : IOrderService
     {
@@ -197,7 +197,7 @@ namespace BLL.Services
 
        
 
-        public List<Order> SearchOrders(DateTime? startTime, DateTime? endTime, OrderStatusEnum? os, PaymentStatusEnum? paymentStatus, string phoneNum = "", int pageIndex = 0, int pageSize = int.MaxValue)
+        public List<Order> SearchOrders(DateTime? startTime, DateTime? endTime, OrderStatusEnum? os, PaymentStatusEnum? paymentStatus, string comId="",string phoneNum = "", int pageIndex = 0, int pageSize = int.MaxValue)
         {
             int? orderStatusId = null;
             if (os.HasValue)
@@ -223,6 +223,10 @@ namespace BLL.Services
             if (paymentStatusId != null)
             {
                 pgb.Predicates.Add(Predicates.Field<Order>(f => f.PaymentStatus, Operator.Eq, paymentStatusId));
+            }
+            if (!string.IsNullOrEmpty(comId))
+            {
+                pgb.Predicates.Add(Predicates.Field<Order>(f => f.ComId, Operator.Eq, comId));
             }
             if (!string.IsNullOrEmpty(phoneNum))
             {

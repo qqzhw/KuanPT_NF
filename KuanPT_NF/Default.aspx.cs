@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BLL;
-using BLL.Infrastructure;
-using BLL.Services;
+using IMCustSys.BLL;
+using IMCustSys.BLL.Infrastructure;
+using IMCustSys.BLL.Services;
 
 namespace KuanPT_NF
 {

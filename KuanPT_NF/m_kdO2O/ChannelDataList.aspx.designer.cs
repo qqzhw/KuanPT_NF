@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace KuanPT_NF.m_kdO2O {
+namespace IMCustSys {
     
     
     public partial class ChannelDataList {
@@ -37,7 +37,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.DatePicker ctrlStartDatePicker;
+        protected global::IMCustSys.Modules.DatePicker ctrlStartDatePicker;
         
         /// <summary>
         /// ctrlEndDatePicker 控件。
@@ -46,7 +46,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.DatePicker ctrlEndDatePicker;
+        protected global::IMCustSys.Modules.DatePicker ctrlEndDatePicker;
         
         /// <summary>
         /// txtChannelName 控件。

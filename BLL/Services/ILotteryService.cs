@@ -1,10 +1,10 @@
-﻿using Model;
+﻿using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BLL.Services
+namespace IMCustSys.BLL.Services
 {
     public interface ILotteryService
     {
@@ -12,7 +12,7 @@ namespace BLL.Services
         void UpdateLottery(Lottery lottery);
         void DeleteLottery(Lottery lottery);
         Lottery GetLotteryById(int lotteryId);
-        IList<Lottery> GetAllLotterys(string name = "");
+        IList<Lottery> GetAllLotterys(string comId="",string name = "");
 
         void InsertLotteryItem(LotteryItem lotteryItem);
         void UpdateLotteryItem(LotteryItem lotteryItem);

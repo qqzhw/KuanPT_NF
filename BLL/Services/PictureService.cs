@@ -1,5 +1,5 @@
-﻿using Common;
-using Model;
+﻿using IMCustSys.Common;
+using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace BLL.Services
+namespace IMCustSys.BLL.Services
 {
     public partial class PictureService : IPictureService
     {

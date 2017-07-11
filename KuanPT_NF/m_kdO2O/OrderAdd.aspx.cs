@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public partial class OrderAdd : BaseKptPage
     {
@@ -19,10 +19,11 @@ namespace KuanPT_NF.m_kdO2O
         } 
         private void BindData()
         {
+            var comId = BLL.sys_admin.GetUserComid();
             //绑定所有未下架的产品
             ddlShops.DataTextField = "ShopName";
             ddlShops.DataValueField = "ShopId";   
-            ddlShops.DataSource = ShopService.GetAllProducts(1);
+            ddlShops.DataSource = ShopService.GetAllProducts(comId, 1);
             ddlShops.DataBind();
             ddlShops.Items.Insert(0, new ListItem("无", "0"));             
         } 
@@ -30,13 +31,14 @@ namespace KuanPT_NF.m_kdO2O
       
         protected void  btnAdd_Click(object sender, EventArgs e)
         {
+            var comId = BLL.sys_admin.GetUserComid();
             var productId = Convert.ToInt32(ddlShops.SelectedValue);
             var shop = ShopService.GetProductById(productId);
             if (shop == null)
                 return; 
             var order = new Order();
             order.BmId = 1;
-            order.ComId = "test";
+            order.ComId = comId;
             order.Commission = shop.Commission;
             order.AliAccount = txtAliAccount.Text;
             order.CreateDate = DateTime.Now;

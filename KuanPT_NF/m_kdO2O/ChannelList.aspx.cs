@@ -1,6 +1,6 @@
-﻿using Common;
-using KuanPT_NF.Modules;
-using Model;
+﻿using IMCustSys.Common;
+using IMCustSys.Modules;
+using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +10,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public partial class ChannelList : BaseKptPage
     {
@@ -23,9 +23,10 @@ namespace KuanPT_NF.m_kdO2O
         }
          
         protected List<Channel> GetChannels()
-        { 
+        {
+            var comId = BLL.sys_admin.GetUserComid();
             string channelName = txtChannelName.Text.Trim(); 
-            var items =ChannelService.GetAllChannels(channelName).ToList();
+            var items =ChannelService.GetAllChannels(comId,channelName).ToList();
             return items;
         }
         protected void SgvCpList_PageIndexChanging(object sender, GridViewPageEventArgs e)

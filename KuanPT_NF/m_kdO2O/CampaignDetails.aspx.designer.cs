@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace KuanPT_NF.m_kdO2O {
+namespace IMCustSys {
     
     
     public partial class CampaignDetails {
@@ -37,7 +37,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.SimpleTextBox tbName;
+        protected global::IMCustSys.Modules.SimpleTextBox tbName;
         
         /// <summary>
         /// txtSubject 控件。
@@ -109,7 +109,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.NumericTextBox txtDisplayOrder;
+        protected global::IMCustSys.Modules.NumericTextBox txtDisplayOrder;
         
         /// <summary>
         /// ttContent1 控件。

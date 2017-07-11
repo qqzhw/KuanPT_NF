@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Model;
-using DAL;
+using IMCustSys.Model;
+using IMCustSys.DAL;
 using DapperExtensions;
 
-namespace BLL.Services
+namespace IMCustSys.BLL.Services
 {
     public class LotteryService : ILotteryService
     {
@@ -39,18 +39,27 @@ namespace BLL.Services
             return query.ToList();
         }
 
-        public IList<Lottery> GetAllLotterys(string name = "")
+        public IList<Lottery> GetAllLotterys(string comId="",string name = "")
         {
-            object predicate = null;
+          
+         
+            var pgMain = new PredicateGroup { Operator = GroupOperator.Or, Predicates = new List<IPredicate>() };
+            var pgb = new PredicateGroup { Operator = GroupOperator.And, Predicates = new List<IPredicate>() };
             if (!string.IsNullOrEmpty(name))
             {
-                predicate = Predicates.Field<Lottery>(p => p.LotteryName, Operator.Like, "%" + name + "%");
+                pgb.Predicates.Add(Predicates.Field<Lottery>(p => p.LotteryName, Operator.Like, "%" + name + "%"));
             }
+            if (!string.IsNullOrEmpty(comId))
+            {
+                pgb.Predicates.Add(Predicates.Field<Lottery>(f => f.ComId, Operator.Eq, comId));
+            }
+            pgMain.Predicates.Add(pgb);
+
             IList<ISort> sortItems = new List<ISort>
             {
                 new Sort { PropertyName = "LotteryId",Ascending = false }
             };
-            var query = _lotteryRepository.GetList(predicate, sortItems);
+            var query = _lotteryRepository.GetList(pgMain, sortItems);
             return query.ToList();
         }
 

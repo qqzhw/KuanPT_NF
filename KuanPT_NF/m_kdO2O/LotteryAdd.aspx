@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LotteryAdd.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.LotteryAdd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LotteryAdd.aspx.cs" Inherits="IMCustSys.LotteryAdd" %>
 
 <%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
 

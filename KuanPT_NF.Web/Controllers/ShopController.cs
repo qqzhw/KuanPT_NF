@@ -1,7 +1,7 @@
-﻿using BLL.Infrastructure;
-using BLL.Services;
+﻿using IMCustSys.BLL.Infrastructure;
+using IMCustSys.BLL.Services;
 using KuanPT_NF.Web.Models;
-using Model;
+using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +23,7 @@ namespace KuanPT_NF.Web.Controllers
         }
         public ActionResult Index()
         {
-            var items = _shopService.GetAllProducts(1).Select(o => new ShopModel()
+            var items = _shopService.GetAllProducts().Select(o => new ShopModel()
             {
                 Commission = o.Commission,
                 CreateDate = o.CreateDate,
@@ -42,7 +42,7 @@ namespace KuanPT_NF.Web.Controllers
         }
         public ActionResult List()
         {
-            var items = _shopService.GetAllProducts(1).Select(o => new ShopModel()
+            var items = _shopService.GetAllProducts(showHidden:1).Select(o => new ShopModel()
             {
                 Commission = o.Commission,
                 CreateDate = o.CreateDate,

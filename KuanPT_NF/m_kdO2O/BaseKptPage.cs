@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using BLL.Infrastructure;
-using BLL.Services;
+using IMCustSys.BLL.Infrastructure;
+using IMCustSys.BLL.Services;
 using AjaxControlToolkit;
 
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public partial class BaseKptPage:Page
     {

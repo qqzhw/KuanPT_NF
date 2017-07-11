@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public partial class ChannelAdd : BaseKptPage
     {
@@ -20,9 +20,10 @@ namespace KuanPT_NF.m_kdO2O
 
         protected void BtnAdd_Click(object sender, EventArgs e)
         {
+            var comId = BLL.sys_admin.GetUserComid();
             var channel = new Channel();
             channel.BmId = 1;
-            channel.ComId = "test";
+            channel.ComId = comId;
             channel.ChannelCode = txtChannelCode.Text;
             channel.ChannelDesc = txtDesc.Text;
             channel.ChannelLable = txtChannelLable.Text;

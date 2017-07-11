@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="LotteryInfo.ascx.cs" Inherits="KuanPT_NF.m_kdO2O.LotteryInfo" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="LotteryInfo.ascx.cs" Inherits="IMCustSys.LotteryInfo" %>
 <%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
 <%@ Register Src="Modules/NumericTextBox.ascx" TagName="NumericTextBox" TagPrefix="kpt" %>
 <%@ Register Src="Modules/DatePicker.ascx" TagName="DatePicker" TagPrefix="kpt" %>

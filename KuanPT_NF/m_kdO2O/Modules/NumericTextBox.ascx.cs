@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KuanPT_NF.Modules
+namespace IMCustSys.Modules
 {
     public partial class NumericTextBox : UserControl
     {

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShopDetails.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.ShopDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShopDetails.aspx.cs" Inherits="IMCustSys.ShopDetails" %>
 
 <%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
 

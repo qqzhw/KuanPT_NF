@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Caching;
 
-namespace BLL.Caching
+namespace IMCustSys.BLL.Caching
 {
     /// <summary>
     /// Represents a KptStaticCache

@@ -1,7 +1,7 @@
-﻿using BLL;
-using BLL.Services;
-using Common;
-using Model;
+﻿using IMCustSys.BLL;
+using IMCustSys.BLL.Services;
+using IMCustSys.Common;
+using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,7 +13,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebGrease.Activities;
 
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public partial class OrderList : BaseKptPage
     {
@@ -58,6 +58,7 @@ namespace KuanPT_NF.m_kdO2O
         }
         protected List<Order> GetOrders()
         {
+            var comId = BLL.sys_admin.GetUserComid();
             DateTime? startDate = ctrlStartDatePicker.SelectedDate;
             DateTime? endDate = ctrlEndDatePicker.SelectedDate;
             if (startDate.HasValue)
@@ -82,7 +83,7 @@ namespace KuanPT_NF.m_kdO2O
             string customerTel = txtCustomerTel.Text.Trim();
 
             var orders = this.OrderService.SearchOrders(startDate, endDate,
-                orderStatus, paymentStatus, customerTel);
+                orderStatus, paymentStatus,comId, customerTel);
             return orders;
         }
         protected void SgvCpList_PageIndexChanging(object sender, GridViewPageEventArgs e)

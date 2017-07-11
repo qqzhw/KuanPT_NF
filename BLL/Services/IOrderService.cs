@@ -1,10 +1,10 @@
-﻿using Model;
+﻿using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BLL.Services
+namespace IMCustSys.BLL.Services
 {
     public interface IOrderService
     {
@@ -15,7 +15,7 @@ namespace BLL.Services
 
 
         List<Order> SearchOrders(DateTime? startTime, DateTime? endTime,
-         OrderStatusEnum? os,  PaymentStatusEnum? paymentStatus, string phoneNum="", int pageIndex=0,int pageSize=int.MaxValue);
+         OrderStatusEnum? os,  PaymentStatusEnum? paymentStatus,string comId="", string phoneNum="", int pageIndex=0,int pageSize=int.MaxValue);
 
        
         List<Order> LoadAllOrders();

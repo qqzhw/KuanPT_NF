@@ -1,11 +1,11 @@
-using BLL.Infrastructure;
-using BLL.Services;
-using Common;
-using Model;
+using IMCustSys.Common;
+using IMCustSys.BLL.Infrastructure;
+using IMCustSys.BLL.Services;
+using IMCustSys.Model;
 using System.Collections.Generic;
 using System.IO;
 using System.Web;
-namespace  BLL
+namespace IMCustSys.BLL
 {
     /// <summary>
     /// Extensions

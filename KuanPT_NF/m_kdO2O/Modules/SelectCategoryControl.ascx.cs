@@ -1,13 +1,13 @@
-using BLL.Infrastructure;
-using BLL.Services;
-using Model;
+using IMCustSys.BLL.Infrastructure;
+using IMCustSys.BLL.Services;
+using IMCustSys.Model;
 using System;
 using System.ComponentModel;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BLL;
+using IMCustSys.BLL;
  
-namespace KuanPT_NF.Modules
+namespace IMCustSys.Modules
 {
     public partial class SelectCategoryControl : UserControl
     {

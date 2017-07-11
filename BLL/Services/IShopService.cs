@@ -1,28 +1,21 @@
-﻿using Model; 
+﻿using IMCustSys.Model; 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BLL.Services
+namespace IMCustSys.BLL.Services
 {
     public interface IShopService
     {
-        #region Products
-
-
-        void MarkProductAsDeleted(int productId);
-
-
-        List<Shop> GetAllProducts(); 
+        #region Shop
+         
+        void MarkProductAsDeleted(int productId); 
+         
         List<Shop> GetAllHotProducts();
-        List<Shop> GetAllProducts(int showHidden); 
-        List<Shop> GetAllProducts(int categoryId,  bool? featuredProducts );
-         
-        List<Shop> GetAllProducts(int? categoryId,
-             bool? featuredProducts,  string keywords="", int? state=null, bool? searchDescriptions=false,int pageIndex=0,int pageSize=int.MaxValue);
- 
-         
+        List<Shop> GetAllProducts(string comId="", int? showHidden=null); 
+        List<Shop> GetAllProducts(int categoryId,  bool? featuredProducts, string comId = "", string keywords = "", int? state = null);
+          
        
         List<Shop> GetAllProductsDisplayedOnHomePage();
 
@@ -37,7 +30,7 @@ namespace BLL.Services
          
         #endregion
 
-        #region Product pictures
+        #region Shop pictures
 
 
         void DeleteProductPicture(int productPictureId);

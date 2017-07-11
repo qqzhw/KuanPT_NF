@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="KLAdd.aspx.cs" Inherits="KuanPT_NF.KLAdd"  validateRequest="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="KLAdd.aspx.cs" Inherits="IMCustSys.KLAdd"  validateRequest="false" %>
 
 <!DOCTYPE html>
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LotteryList.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.LotteryList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LotteryList.aspx.cs" Inherits="IMCustSys.LotteryList" %>
 
 <%@ Register Assembly="YYControls" Namespace="YYControls" TagPrefix="yyc" %>
 <%@ Register Src="Modules/DatePicker.ascx" TagName="DatePicker" TagPrefix="kpt" %>

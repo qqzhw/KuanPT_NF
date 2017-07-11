@@ -9,7 +9,7 @@ using System.Data;
 //using IMCustSys.Model;
 //using IMCustSys.Common;
 
-namespace KuanPT_NF
+namespace IMCustSys
 {
     public partial class KLAdd : System.Web.UI.Page
     {

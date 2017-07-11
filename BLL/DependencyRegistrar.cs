@@ -1,9 +1,8 @@
 using Autofac;
 using Autofac.Core;
-using BLL;
-using BLL.Infrastructure; 
-using BLL.Services;
-using DAL;
+using IMCustSys.DAL;
+using IMCustSys.BLL.Infrastructure;
+using IMCustSys.BLL.Services;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,7 +12,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 
-namespace BLL
+namespace IMCustSys.BLL
 {
     /// <summary>
     /// Dependency registrar

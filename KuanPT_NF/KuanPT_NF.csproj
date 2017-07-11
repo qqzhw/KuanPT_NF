@@ -447,8 +447,6 @@
     <Content Include="m_kdO2O\Editor\plugins\code\code.js" />
     <Content Include="m_kdO2O\Editor\plugins\code\prettify.css" />
     <Content Include="m_kdO2O\Editor\plugins\code\prettify.js" />
-    <Content Include="m_kdO2O\KLAdd.aspx" />
-    <Content Include="m_kdO2O\KLAuditList.aspx" />
     <Content Include="m_kdO2O\LotteryAdd.aspx" />
     <Content Include="m_kdO2O\LotteryDetails.aspx" />
     <Content Include="m_kdO2O\LotteryEndInfo.ascx" />
@@ -575,20 +573,6 @@
     </Compile>
     <Compile Include="m_kdO2O\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="m_kdO2O\KLAdd.aspx.cs">
-      <DependentUpon>KLAdd.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="m_kdO2O\KLAdd.aspx.designer.cs">
-      <DependentUpon>KLAdd.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="m_kdO2O\KLAuditList.aspx.cs">
-      <DependentUpon>KLAuditList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="m_kdO2O\KLAuditList.aspx.designer.cs">
-      <DependentUpon>KLAuditList.aspx</DependentUpon>
     </Compile>
     <Compile Include="m_kdO2O\LotteryAdd.aspx.cs">
       <DependentUpon>LotteryAdd.aspx</DependentUpon>

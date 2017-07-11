@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChannelDetails.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.ChannelDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChannelDetails.aspx.cs" Inherits="IMCustSys.ChannelDetails" %>
 <%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
 <%@ Register Src="Modules/NumericTextBox.ascx" TagName="NumericTextBox" TagPrefix="kpt" %>
 

@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace KuanPT_NF.m_kdO2O {
+namespace IMCustSys {
     
     
     public partial class CategoryDetails {
@@ -37,7 +37,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.SelectCategoryControl ParentCategory;
+        protected global::IMCustSys.Modules.SelectCategoryControl ParentCategory;
         
         /// <summary>
         /// txtName 控件。
@@ -46,7 +46,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.SimpleTextBox txtName;
+        protected global::IMCustSys.Modules.SimpleTextBox txtName;
         
         /// <summary>
         /// chkHomePage 控件。
@@ -73,7 +73,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.NumericTextBox txtDisplayOrder;
+        protected global::IMCustSys.Modules.NumericTextBox txtDisplayOrder;
         
         /// <summary>
         /// txtDesc 控件。

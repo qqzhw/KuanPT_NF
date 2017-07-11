@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChannelDataList.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.ChannelDataList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChannelDataList.aspx.cs" Inherits="IMCustSys.ChannelDataList" %>
 
 <%@ Register Assembly="YYControls" Namespace="YYControls" TagPrefix="yyc" %>
 <%@ Register Src="Modules/DatePicker.ascx" TagName="DatePicker" TagPrefix="kpt" %>

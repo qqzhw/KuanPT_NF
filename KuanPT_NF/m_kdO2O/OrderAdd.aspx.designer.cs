@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace KuanPT_NF.m_kdO2O {
+namespace IMCustSys {
     
     
     public partial class OrderAdd {
@@ -46,7 +46,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.SimpleTextBox txtCustomerName;
+        protected global::IMCustSys.Modules.SimpleTextBox txtCustomerName;
         
         /// <summary>
         /// txtCustomerID 控件。
@@ -100,7 +100,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.NumericTextBox txtCommission;
+        protected global::IMCustSys.Modules.NumericTextBox txtCommission;
         
         /// <summary>
         /// txtDesc 控件。

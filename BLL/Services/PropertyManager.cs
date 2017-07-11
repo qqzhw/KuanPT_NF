@@ -4,7 +4,7 @@ using System.Linq;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 
-namespace BLL.Services
+namespace IMCustSys.BLL.Services
 {
     /// <summary>
     /// Class for working with PropertyByName object list

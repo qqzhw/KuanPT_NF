@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public partial class CampaignList : BaseKptPage
     {
@@ -17,11 +17,10 @@ namespace KuanPT_NF.m_kdO2O
             }
         }
         private void BindData()
-        {
-            int totalRecord = 0;
-            int totalPage = 0;
+        { 
+            var comId= BLL.sys_admin.GetUserComid();
             // 模块列表
-            sgvCpList.DataSource = CampaignService.GetPageData(out totalRecord,out totalPage);
+            sgvCpList.DataSource = CampaignService.GetAllCampaigns(comId);
             sgvCpList.DataBind();
         }
         protected void btnAdd_Click(object sender, EventArgs e)

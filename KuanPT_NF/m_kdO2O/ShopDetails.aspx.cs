@@ -1,6 +1,6 @@
-﻿using BLL;
-using Common;
-using Model;
+﻿using IMCustSys.BLL;
+using IMCustSys.Common;
+using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public partial class ShopDetails :BaseKptPage
     {

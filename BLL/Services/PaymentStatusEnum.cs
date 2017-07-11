@@ -1,4 +1,4 @@
-namespace BLL.Services
+namespace IMCustSys.BLL.Services
 {
     /// <summary>
     /// Ö§¸¶×´Ì¬

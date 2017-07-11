@@ -1,13 +1,13 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-using Model;
-using DAL;
-using BLL.Services;
+using IMCustSys.Model;
+using IMCustSys.DAL;
+using IMCustSys.BLL.Services;
 
-namespace BLL
+namespace IMCustSys.BLL
 {
     /// <summary>
     /// Business entity used to BLL User_Users

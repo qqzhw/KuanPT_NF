@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Model;
+using IMCustSys.Model;
 using System.IO;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.Drawing;
 
-namespace BLL.Services
+namespace IMCustSys.BLL.Services
 {
     public partial class ExportManager : IExportManager
     {
@@ -105,7 +105,7 @@ namespace BLL.Services
         public byte[] ExportChannelDataToXlsx(IList<ChannelData> channelDatas)
         {
             var properties = new[]
-           {
+           {   
                 new PropertyByName<ChannelData>("序号", p => p.ChannelDataId),
                 new PropertyByName<ChannelData>("渠道ID", p => p.ChannelId),
                 new PropertyByName<ChannelData>("渠道名称", p => p.ChannelName),

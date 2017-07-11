@@ -18,7 +18,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Xml;
 
-namespace Common
+namespace IMCustSys.Common
 {
     /// <summary>
     /// Represents a common helper

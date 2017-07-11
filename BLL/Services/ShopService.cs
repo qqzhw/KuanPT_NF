@@ -1,13 +1,13 @@
-﻿using Model;
+﻿using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text; 
-using BLL.Caching;
-using DAL;
+using System.Text;
+using IMCustSys.DAL;
 using DapperExtensions;
+using IMCustSys.BLL.Caching;
 
-namespace BLL.Services
+namespace IMCustSys.BLL.Services
 {
     public class ShopService : IShopService
     {
@@ -59,8 +59,21 @@ namespace BLL.Services
             var query = _shopInfoRepository.GetList(predicate, sortItems);
             return query.ToList();
         }
-        public List<Shop> GetAllProducts(int showHidden)
-        { 
+        public List<Shop> GetAllProducts(string comId="", int? showHidden=null)
+        {
+            var pgMain = new PredicateGroup { Operator = GroupOperator.Or, Predicates = new List<IPredicate>() };
+            var pgb = new PredicateGroup { Operator = GroupOperator.And, Predicates = new List<IPredicate>() };
+            if (!string.IsNullOrEmpty(comId))
+            {
+                pgb.Predicates.Add(Predicates.Field<Shop>(f => f.ComId, Operator.Eq, comId));
+            }
+            if (showHidden!=null)
+            {
+                pgb.Predicates.Add(Predicates.Field<Shop>(f => f.State, Operator.Eq, showHidden));
+            }
+            
+            pgMain.Predicates.Add(pgb);
+
             var predicate = Predicates.Field<Shop>(p => p.State, Operator.Eq, showHidden);
             IList<ISort> sortItems = new List<ISort>
             {
@@ -70,20 +83,6 @@ namespace BLL.Services
             var query = _shopInfoRepository.GetList(predicate, sortItems);
             return query.ToList();
         }
-
-        public List<Shop> GetAllProducts( int pageIndex, int pageSize,out int totalRecords,out int totalPage)
-        { 
-            var query = _shopInfoRepository.GetPageData("Shop","ShopId",out totalRecords,out totalPage,pageIndex:pageIndex,pageSize:pageSize);
-            return query.ToList();
-        }
-
-       
-
-        public List<Shop> GetAllProducts(string keywords, bool searchDescriptions  )
-        {
-            throw new NotImplementedException();
-        }
-
          
         public List<Shop> GetAllProductsDisplayedOnHomePage()
         {
@@ -155,14 +154,8 @@ namespace BLL.Services
         {
             throw new NotImplementedException();
         }
-         
-
-        public List<Shop> GetAllProducts(int? categoryId, bool? featuredProducts, string keywords = "", int? state = default(int?), bool? searchDescriptions = false, int pageIndex = 0, int pageSize = int.MaxValue)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts)
+          
+        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts, string comId = "", string keywords = "", int? state = default(int?))
         {
             throw new NotImplementedException();
         }

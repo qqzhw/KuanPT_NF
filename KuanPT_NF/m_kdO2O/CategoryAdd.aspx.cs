@@ -1,5 +1,5 @@
-﻿using Common;
-using Model;
+﻿using IMCustSys.Common;
+using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public partial class CategoryAdd : BaseKptPage
     {
@@ -60,6 +60,7 @@ namespace KuanPT_NF.m_kdO2O
         }
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            var comId = BLL.sys_admin.GetUserComid();
             var category = new Category()
             {
                 CategoryName = txtName.Text,
@@ -71,7 +72,7 @@ namespace KuanPT_NF.m_kdO2O
                 Deleted=false,
                 CreatedDate=DateTime.Now, 
                 BmId=1,
-                ComId="test"
+                ComId=comId
             };
             CategoryService.InsertCategory(category);
             Response.Redirect("CategoryList.aspx");

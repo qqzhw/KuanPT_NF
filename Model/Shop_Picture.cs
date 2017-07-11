@@ -1,4 +1,4 @@
-namespace Model
+namespace IMCustSys.Model
 {
     /// <summary>
     /// Represents a product picture mapping

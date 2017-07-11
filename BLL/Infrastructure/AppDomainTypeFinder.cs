@@ -5,7 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace BLL.Infrastructure
+namespace IMCustSys.BLL.Infrastructure
 {
     /// <summary>
     /// A class that finds types needed by Kpt by looping assemblies in the 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderAdd.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.OrderAdd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderAdd.aspx.cs" Inherits="IMCustSys.OrderAdd" %>
 <%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
 
 <%@ Register Src="Modules/NumericTextBox.ascx" TagName="NumericTextBox" TagPrefix="kpt" %>

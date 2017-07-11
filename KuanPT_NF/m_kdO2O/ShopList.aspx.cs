@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using YYControls;
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public partial class ShopList : BaseKptPage
     {
@@ -26,9 +26,10 @@ namespace KuanPT_NF.m_kdO2O
       
 
         private void BindData()
-        { 
+        {
+            var comId = BLL.sys_admin.GetUserComid();
             //产品列表
-            sgvCpList.DataSource = ShopService.GetAllProducts(1);
+            sgvCpList.DataSource = ShopService.GetAllProducts(comId,1);
             sgvCpList.DataBind();  
         } 
         protected void sgv_RowCommand(object sender, GridViewCommandEventArgs e)

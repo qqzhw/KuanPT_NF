@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShopList.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.ShopList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShopList.aspx.cs" Inherits="IMCustSys.ShopList" %>
 <%@ Register Assembly="YYControls" Namespace="YYControls" TagPrefix="yyc" %>
 <!DOCTYPE html>
 

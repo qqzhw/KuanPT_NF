@@ -1,13 +1,13 @@
-﻿using BLL.Infrastructure;
-using BLL.Services;
-using Common;
+﻿using IMCustSys.BLL.Infrastructure;
+using IMCustSys.BLL.Services;
+using IMCustSys.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public class BaseKptUserControl : UserControl
     {

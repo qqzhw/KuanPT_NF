@@ -1,9 +1,9 @@
-﻿using Model;
+﻿using IMCustSys.Model;
 using System.Configuration;
 using System.Runtime.CompilerServices;
 
 
-namespace BLL.Infrastructure
+namespace IMCustSys.BLL.Infrastructure
 {
     /// <summary>
     /// Provides access to the singleton instance of the   engine.

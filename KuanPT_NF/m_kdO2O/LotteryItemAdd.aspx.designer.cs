@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace KuanPT_NF.m_kdO2O {
+namespace IMCustSys {
     
     
     public partial class LotteryItemAdd {
@@ -37,7 +37,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.SimpleTextBox txtName;
+        protected global::IMCustSys.Modules.SimpleTextBox txtName;
         
         /// <summary>
         /// txtItemName 控件。
@@ -46,7 +46,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.SimpleTextBox txtItemName;
+        protected global::IMCustSys.Modules.SimpleTextBox txtItemName;
         
         /// <summary>
         /// txtAwardName 控件。
@@ -64,7 +64,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.NumericTextBox txtAwardCount;
+        protected global::IMCustSys.Modules.NumericTextBox txtAwardCount;
         
         /// <summary>
         /// txtCurrentCount 控件。
@@ -73,7 +73,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.NumericTextBox txtCurrentCount;
+        protected global::IMCustSys.Modules.NumericTextBox txtCurrentCount;
         
         /// <summary>
         /// txtAwardPercent 控件。
@@ -82,7 +82,7 @@ namespace KuanPT_NF.m_kdO2O {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::KuanPT_NF.Modules.NumericTextBox txtAwardPercent;
+        protected global::IMCustSys.Modules.NumericTextBox txtAwardPercent;
         
         /// <summary>
         /// btnAdd 控件。

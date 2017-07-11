@@ -1,6 +1,6 @@
-﻿using BLL;
-using Common;
-using Model;
+﻿using IMCustSys.BLL;
+using IMCustSys.Common;
+using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public partial class LotteryInfo : BaseKptUserControl
     {  
@@ -100,9 +100,10 @@ namespace KuanPT_NF.m_kdO2O
                         return null;
                     }
                 }
+                var comId = BLL.sys_admin.GetUserComid();
                 lottery = new Lottery();
                 lottery.BmId = 1;
-                lottery.ComId = "test";
+                lottery.ComId = comId;
                 lottery.CreatedDate = DateTime.Now;
                 lottery.Description = txtDesc.Text;
                 lottery.BeginDate = ctrlStartDatePicker.SelectedDate;

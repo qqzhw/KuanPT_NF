@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Autofac; 
 
-namespace BLL.Infrastructure
+namespace IMCustSys.BLL.Infrastructure
 {
     /// <summary>
     /// Engine

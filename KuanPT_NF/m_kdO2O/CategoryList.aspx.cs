@@ -1,6 +1,6 @@
-﻿using Common;
-using KuanPT_NF.Modules;
-using Model;
+﻿using IMCustSys.Common;
+using IMCustSys.Model;
+using IMCustSys.Modules;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public partial class CategoryList :BaseKptPage
     { 
@@ -23,8 +23,9 @@ namespace KuanPT_NF.m_kdO2O
 
         protected List<Category> GetAllCategorys()
         {
+            var comId = BLL.sys_admin.GetUserComid();
             string categoryName = txtCategoryName.Text.Trim();
-            var items = CategoryService.GetAllCategories(categoryName).ToList();
+            var items = CategoryService.GetAllCategories(comId, categoryName).ToList();
             return items;
         }
         protected void SgvCpList_PageIndexChanging(object sender, GridViewPageEventArgs e)

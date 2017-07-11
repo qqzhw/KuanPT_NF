@@ -1,7 +1,7 @@
-﻿using Model;
+﻿using IMCustSys.Model;
 using System.Collections.Generic;
 
-namespace BLL.Services
+namespace IMCustSys.BLL.Services
 {
     /// <summary>
     /// Category service interface
@@ -13,7 +13,7 @@ namespace BLL.Services
         void MarkCategoryAsDeleted(int categoryId);
          
      
-        List<Category> GetAllCategories(string categoryName="", bool? showHidden=null);
+        List<Category> GetAllCategories(string comId="", string categoryName="", bool? showHidden=null);
         
         
         List<Category> GetAllCategoriesByParentCategoryId(int parentCategoryId);

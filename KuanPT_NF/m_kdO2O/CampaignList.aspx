@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CampaignList.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.CampaignList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CampaignList.aspx.cs" Inherits="IMCustSys.CampaignList" %>
 
 <%@ Register Assembly="YYControls" Namespace="YYControls" TagPrefix="yyc" %>
 <!DOCTYPE html>

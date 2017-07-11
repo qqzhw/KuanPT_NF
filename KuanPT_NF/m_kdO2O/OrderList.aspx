@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderList.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.OrderList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderList.aspx.cs" Inherits="IMCustSys.OrderList" %>
 
 <%@ Register Assembly="YYControls" Namespace="YYControls" TagPrefix="yyc" %>
 <%@ Register Src="Modules/DatePicker.ascx" TagName="DatePicker" TagPrefix="kpt" %>

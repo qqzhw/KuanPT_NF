@@ -1,5 +1,5 @@
-﻿using BLL;
-using Model;
+﻿using IMCustSys.BLL;
+using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public partial class ShopAdd : BaseKptPage
     {
@@ -48,9 +48,10 @@ namespace KuanPT_NF.m_kdO2O
                         return;
                     }
                 }
+                var comId = BLL.sys_admin.GetUserComid();
                 var shop = new Shop();
                 shop.BmId = 1;
-                shop.ComId = "test";
+                shop.ComId = comId;
                 shop.CreateUserId = 1;
                 
                 shop.Commission = txtCommission.Value;

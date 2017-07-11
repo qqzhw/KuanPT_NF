@@ -1,10 +1,10 @@
-﻿using Model;
+﻿using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BLL.Services
+namespace IMCustSys.BLL.Services
 {
    public  interface IChannelService
     {
@@ -17,7 +17,7 @@ namespace BLL.Services
 
         Channel GetChannelByCode(string  channelCode);
 
-        IList<Channel> GetAllChannels(string keywords = "", string channelCode="" ,int pageIndex = 0, int pageSize = int.MaxValue);
+        IList<Channel> GetAllChannels(string comId="", string keywords = "", string channelCode="" ,int pageIndex = 0, int pageSize = int.MaxValue);
 
         #region 渠道统计
         void InsertChannelData(ChannelData channelData);

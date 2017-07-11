@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CampaignAdd.aspx.cs" Inherits="KuanPT_NF.m_kdO2O.CampaignAdd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CampaignAdd.aspx.cs" Inherits="IMCustSys.CampaignAdd" %>
 
 <%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
 

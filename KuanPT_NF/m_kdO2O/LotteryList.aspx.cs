@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KuanPT_NF.m_kdO2O
+namespace IMCustSys
 {
     public partial class LotteryList : BaseKptPage
     { 
@@ -19,10 +19,11 @@ namespace KuanPT_NF.m_kdO2O
             }
         } 
         protected List<Lottery> GetLotterys()
-        {  
+        {
+            var comId = BLL.sys_admin.GetUserComid();
             string lotteryName = txtName.Text.Trim();
 
-            var lotteryItems = this.LotteryService.GetAllLotterys(lotteryName).ToList();
+            var lotteryItems = this.LotteryService.GetAllLotterys(comId,lotteryName).ToList();
             return lotteryItems;
         }
         protected void SgvCpList_PageIndexChanging(object sender, GridViewPageEventArgs e)
