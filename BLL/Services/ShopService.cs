@@ -154,10 +154,46 @@ namespace IMCustSys.BLL.Services
         {
             throw new NotImplementedException();
         }
-          
-        public List<Shop> GetAllProducts(int categoryId, bool? featuredProducts, string comId = "", string keywords = "", int? state = default(int?))
-        {
-            throw new NotImplementedException();
+           
+        public List<Shop> GetAllProducts(int? categoryId = default(int?), string comId = "", string keywords = "", int? state = default(int?), bool? featuredProducts = default(bool?))
+        { 
+            if (categoryId.HasValue)
+                categoryId = (int)categoryId.Value;
+             
+            var pgMain = new PredicateGroup { Operator = GroupOperator.Or, Predicates = new List<IPredicate>() };
+            var pgb = new PredicateGroup { Operator = GroupOperator.And, Predicates = new List<IPredicate>() };
+            if (categoryId != null&&categoryId>0)
+            {
+                pgb.Predicates.Add(Predicates.Field<Shop>(f => f.CategoryId, Operator.Eq, categoryId));
+            }
+            if (!string.IsNullOrEmpty(comId))
+            {
+                pgb.Predicates.Add(Predicates.Field<Shop>(f => f.ComId, Operator.Eq, comId));
+            }
+            if (state != null)
+            {
+                pgb.Predicates.Add(Predicates.Field<Shop>(f => f.State, Operator.Eq, state));
+            }
+            if (featuredProducts != null)
+            {
+                pgb.Predicates.Add(Predicates.Field<Shop>(f => f.IsHotShop, Operator.Eq, featuredProducts));
+            }
+            if (!string.IsNullOrEmpty(comId))
+            {
+                pgb.Predicates.Add(Predicates.Field<Shop>(f => f.ComId, Operator.Eq, comId));
+            }
+            if (!string.IsNullOrEmpty(keywords))
+            {
+                pgb.Predicates.Add(Predicates.Field<Shop>(f => f.ShopName, Operator.Like, "%" + keywords + "%"));
+            }
+            pgMain.Predicates.Add(pgb);
+            IList<ISort> sortItems = new List<ISort>
+            {
+                new Sort { PropertyName = "ShopName", Ascending = true },
+                new Sort { PropertyName = "DisplayOrder", Ascending = true },
+            };
+            IEnumerable<Shop> list = _shopInfoRepository.GetList(pgMain,sortItems);
+            return list.ToList();
         }
     }
 }

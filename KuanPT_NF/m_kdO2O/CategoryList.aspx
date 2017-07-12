@@ -70,7 +70,7 @@
                     <asp:TemplateField HeaderText="分类名称">
                         <HeaderStyle Width="35%" />
                         <ItemTemplate>                        
-                            <%# Server.HtmlEncode(GetCategoryFullName((Model.Category)Container.DataItem))%>
+                            <%# Server.HtmlEncode(GetCategoryFullName((IMCustSys.Model.Category)Container.DataItem))%>
                         </ItemTemplate>
                         <EditItemTemplate>
                               <kpt:SimpleTextBox ID="txtCategoryName" runat="server" Text='<%# Eval("CategoryName")%>' CssClass="dfinput" ErrorMessage="分类名称不能为空！" />

@@ -15,7 +15,7 @@ namespace IMCustSys.BLL.Services
         #region Fields 
         private readonly IRepository<Channel> _channelRepository;
         private readonly IRepository<ChannelData> _channelDataRepository;
-        private readonly ICacheManager _cacheManager; 
+        //private readonly ICacheManager _cacheManager; 
         #endregion
         public ChannelService(IRepository<Channel>  channelRepository,IRepository<ChannelData>  channelDataRepository)
         {

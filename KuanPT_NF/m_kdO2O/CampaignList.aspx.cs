@@ -17,8 +17,8 @@ namespace IMCustSys
             }
         }
         private void BindData()
-        { 
-            var comId= BLL.sys_admin.GetUserComid();
+        {
+            var comId = "0000100001";//BLL.sys_admin.GetUserComid();
             // 模块列表
             sgvCpList.DataSource = CampaignService.GetAllCampaigns(comId);
             sgvCpList.DataBind();

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace KuanPT_NF.Web
+namespace IMCustSys.Web
 {
     public class BundleConfig
     {

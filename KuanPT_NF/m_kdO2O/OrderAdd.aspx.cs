@@ -19,7 +19,7 @@ namespace IMCustSys
         } 
         private void BindData()
         {
-            var comId = BLL.sys_admin.GetUserComid();
+            var comId = "0000100001";// BLL.sys_admin.GetUserComid();
             //绑定所有未下架的产品
             ddlShops.DataTextField = "ShopName";
             ddlShops.DataValueField = "ShopId";   
@@ -31,7 +31,7 @@ namespace IMCustSys
       
         protected void  btnAdd_Click(object sender, EventArgs e)
         {
-            var comId = BLL.sys_admin.GetUserComid();
+            var comId = "0000100001";//BLL.sys_admin.GetUserComid();
             var productId = Convert.ToInt32(ddlShops.SelectedValue);
             var shop = ShopService.GetProductById(productId);
             if (shop == null)

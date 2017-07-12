@@ -23,7 +23,7 @@ namespace IMCustSys
 
         protected List<Category> GetAllCategorys()
         {
-            var comId = BLL.sys_admin.GetUserComid();
+            var comId = "0000100001";// BLL.sys_admin.GetUserComid();
             string categoryName = txtCategoryName.Text.Trim();
             var items = CategoryService.GetAllCategories(comId, categoryName).ToList();
             return items;

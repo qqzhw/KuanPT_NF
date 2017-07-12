@@ -34,8 +34,8 @@
         <div class="place">
             <span>位置：</span>
             <ul class="placeul">
-                <li><a href="index.aspx">首页</a></li>
-                <li>订单管理</li>
+                <li><a href="LotteryList.aspx">首页</a></li>
+                <li>抽奖活动管理</li>
             </ul>
         </div>
         <div class="formbody">
@@ -54,7 +54,7 @@
             ToolTip="导出数据到EXCEL" />
                 </li> 
             </ul>
-            <div class="formtitle"><span>订单列表</span><asp:Literal ID="lblMessage" runat="server"></asp:Literal></div>
+            <div class="formtitle"><span>抽奖活动列表</span><asp:Literal ID="lblMessage" runat="server"></asp:Literal></div>
 
             <yyc:SmartGridView ID="sgvCpList" CssClass="tablelist" PageSize="20" AllowPaging="true" runat="server" AutoGenerateColumns="False" MouseOverCssClass="OverRow" AlternatingRowStyle-CssClass="odd"
                 Width="100%"   OnPageIndexChanging="SgvCpList_PageIndexChanging"  OnRowCancelingEdit="sgv_Cancel" OnRowEditing="sgv_Edit" OnRowUpdating="sgv_Update" PagerSettings-Mode="NextPreviousFirstLast" PagerStyle-HorizontalAlign="Right" PagerSettings-Position="Bottom" PagerSettings-FirstPageText="首页" PagerSettings-NextPageText="下页" PagerSettings-LastPageText="末页" PagerSettings-PreviousPageText="前页" PagerSettings-PageButtonCount="5">

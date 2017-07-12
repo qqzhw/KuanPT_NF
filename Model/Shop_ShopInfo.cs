@@ -12,7 +12,7 @@ namespace IMCustSys.Model
         public string ShopName { get; set; }
 
         public string ShopType { get; set; }
-       
+         public int CategoryId { get; set; }
         public float Price { get; set; }
 
         public float Commission { get; set; }

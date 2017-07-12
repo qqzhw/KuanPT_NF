@@ -12,8 +12,9 @@ namespace IMCustSys
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
-            { 
-                BindData();
+            {
+                ShopCategory.BindData();
+                BindData(); 
             }
         }
 
@@ -27,10 +28,11 @@ namespace IMCustSys
 
         private void BindData()
         {
-            var comId = BLL.sys_admin.GetUserComid();
+            var comId = "0000100001";//BLL.sys_admin.GetUserComid(); 
             //产品列表
-            sgvCpList.DataSource = ShopService.GetAllProducts(comId,1);
-            sgvCpList.DataBind();  
+            string keyword = tbName.Text.Trim();
+            sgvCpList.DataSource = ShopService.GetAllProducts(ShopCategory.SelectedCategoryId,comId, keyword,1);
+            sgvCpList.DataBind(); 
         } 
         protected void sgv_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -52,7 +54,9 @@ namespace IMCustSys
             }
         }
 
-     
-         
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            BindData();
+        }
     }
 }

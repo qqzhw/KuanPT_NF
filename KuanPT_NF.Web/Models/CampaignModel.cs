@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace KuanPT_NF.Web.Models
+namespace IMCustSys.Web.Models
 {
     public class CampaignModel
     {

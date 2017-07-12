@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace KuanPT_NF.Web
+namespace IMCustSys.Web
 {
     public static class WebApiConfig
     {

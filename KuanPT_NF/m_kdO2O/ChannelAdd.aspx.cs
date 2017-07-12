@@ -20,7 +20,7 @@ namespace IMCustSys
 
         protected void BtnAdd_Click(object sender, EventArgs e)
         {
-            var comId = BLL.sys_admin.GetUserComid();
+            var comId = "0000100001";//BLL.sys_admin.GetUserComid();
             var channel = new Channel();
             channel.BmId = 1;
             channel.ComId = comId;

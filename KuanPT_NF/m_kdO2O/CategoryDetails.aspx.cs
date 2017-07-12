@@ -39,6 +39,10 @@ namespace IMCustSys
                
                 ParentCategory.BindData();
             }
+            else
+            {
+                ParentCategory.BindData();
+            }
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)

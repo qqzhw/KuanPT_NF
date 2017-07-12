@@ -20,27 +20,9 @@ namespace IMCustSys
         }
 
         private void BindData()
-        {
-            var category = this.CategoryService.GetCategoryById(this.CategoryId);
-
-           
-            if (category != null)
-            {
-                //this.txtName.Text = category.Name;
-                //this.txtDescription.Value = category.Description;
-               
-                //ParentCategory.SelectedCategoryId = category.ParentCategoryId;
-                 
-                //this.cbShowOnHomePage.Checked = category.ShowOnHomePage;
-                //this.cbPublished.Checked = category.Published;
-                //this.txtDisplayOrder.Value = category.DisplayOrder;
-                //this.ParentCategory.BindData();
-            }
-            else
-            { 
-                ParentCategory.SelectedCategoryId = this.ParentCategoryId;
-                ParentCategory.BindData();
-            }
+        { 
+           // ParentCategory.SelectedCategoryId =0;
+            ParentCategory.BindData();
         }
 
         public int ParentCategoryId
@@ -60,7 +42,7 @@ namespace IMCustSys
         }
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            var comId = BLL.sys_admin.GetUserComid();
+            var comId = "0000100001";//BLL.sys_admin.GetUserComid();
             var category = new Category()
             {
                 CategoryName = txtName.Text,

@@ -1,13 +1,13 @@
 ﻿using IMCustSys.BLL.Services;
 using IMCustSys.Common;
-using KuanPT_NF.Web.Models;
+using IMCustSys.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace KuanPT_NF.Web.Controllers
+namespace IMCustSys.Web.Controllers
 {
     public class CampaignController : BaseController
     { 

@@ -12,7 +12,7 @@ namespace IMCustSys
        
         protected void Page_Load(object sender, EventArgs e)
         {
-           var s= CampaignService.GetCampaignById(1);
+          // var s= CampaignService.GetCampaignById(1);
         }
     }
 }

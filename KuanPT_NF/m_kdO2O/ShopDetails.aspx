@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShopDetails.aspx.cs" Inherits="IMCustSys.ShopDetails" %>
 
 <%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
+<%@ Register Src="Modules/SelectCategoryControl.ascx" TagName="SelectCategoryControl" TagPrefix="kpt" %>
 
 <%@ Register Src="Modules/NumericTextBox.ascx" TagName="NumericTextBox" TagPrefix="kpt" %>
 <!DOCTYPE html>
@@ -88,6 +89,14 @@
                 color: #004974;
                 text-decoration: none;
             }
+              select {  
+                min-width:150px;
+                min-height: 30px;
+                opacity: 1; 
+                font: 14px/20px "Microsoft YaHei";
+                color: #f80;
+                outline:#808080  double  thin; 
+            } 
     </style>
 </head>
 <body>
@@ -102,6 +111,10 @@
         <div class="formbody">
             <div class="formtitle"><span>产品添加</span></div>
             <ul class="forminfo">
+                  <li>
+                    <label>产品分类</label>
+                     <kpt:SelectCategoryControl ID="ShopCategory"   runat="server" />
+                </li>
                 <li>
                     <label>产品类型</label>
                     <kpt:SimpleTextBox ID="txtShopType" runat="server" CssClass="dfinput" ErrorMessage="产品类型不能为空！" />

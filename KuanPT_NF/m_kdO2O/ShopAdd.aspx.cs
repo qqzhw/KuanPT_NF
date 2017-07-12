@@ -13,9 +13,18 @@ namespace IMCustSys
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                BindData();
+            }
         }
+        private void BindData()
+        {
 
+            //    ShopCategory.SelectedCategoryId = 0;
+            ShopCategory.BindData();
+          
+        }
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
@@ -48,12 +57,12 @@ namespace IMCustSys
                         return;
                     }
                 }
-                var comId = BLL.sys_admin.GetUserComid();
+                var comId = "0000100001";//BLL.sys_admin.GetUserComid();
                 var shop = new Shop();
                 shop.BmId = 1;
                 shop.ComId = comId;
                 shop.CreateUserId = 1;
-                
+                shop.CategoryId = ShopCategory.SelectedCategoryId;
                 shop.Commission = txtCommission.Value;
                 shop.Price = txtPrice.Value;
                 shop.Img = imgPath;

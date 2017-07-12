@@ -60,6 +60,18 @@ namespace IMCustSys
             {
                 btnRemoveBigImg.Visible = true;
             }
+            //绑定分类
+            var category = CategoryService.GetCategoryById(shop.CategoryId);
+            if (category != null)
+            {
+                ShopCategory.SelectedCategoryId = category.CategoryId;
+
+                ShopCategory.BindData();
+            }
+            else
+            {
+                ShopCategory.BindData();
+            }
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -78,7 +90,7 @@ namespace IMCustSys
             CurrentShop.State =Convert.ToInt32(chkPublished.Checked);
             CurrentShop.Description = ttContent1.Value ;
             CurrentShop.Remark = ttContent2.Value ;
-             
+            CurrentShop.CategoryId = ShopCategory.SelectedCategoryId;
             HttpPostedFile pictureFile = uploadImg.PostedFile;
 
             if ((pictureFile != null) && (!String.IsNullOrEmpty(pictureFile.FileName)))

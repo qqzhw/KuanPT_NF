@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using KuanPT_NF.Web;
-using KuanPT_NF.Web.Controllers;
+using IMCustSys.Web;
+using IMCustSys.Web.Controllers;
 
 namespace KuanPT_NF.Web.Tests.Controllers
 {

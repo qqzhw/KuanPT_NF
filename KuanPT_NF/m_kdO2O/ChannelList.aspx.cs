@@ -24,7 +24,7 @@ namespace IMCustSys
          
         protected List<Channel> GetChannels()
         {
-            var comId = BLL.sys_admin.GetUserComid();
+            var comId = "0000100001";//BLL.sys_admin.GetUserComid();
             string channelName = txtChannelName.Text.Trim(); 
             var items =ChannelService.GetAllChannels(comId,channelName).ToList();
             return items;

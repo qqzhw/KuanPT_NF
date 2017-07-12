@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace KuanPT_NF.Web.Controllers
+namespace IMCustSys.Web.Controllers
 {
     public class BaseController:Controller
     {

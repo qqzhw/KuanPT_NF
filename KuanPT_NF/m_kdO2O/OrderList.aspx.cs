@@ -58,7 +58,7 @@ namespace IMCustSys
         }
         protected List<Order> GetOrders()
         {
-            var comId = BLL.sys_admin.GetUserComid();
+            var comId = "0000100001";//BLL.sys_admin.GetUserComid();
             DateTime? startDate = ctrlStartDatePicker.SelectedDate;
             DateTime? endDate = ctrlEndDatePicker.SelectedDate;
             if (startDate.HasValue)

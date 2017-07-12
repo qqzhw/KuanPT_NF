@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShopList.aspx.cs" Inherits="IMCustSys.ShopList" %>
 <%@ Register Assembly="YYControls" Namespace="YYControls" TagPrefix="yyc" %>
+<%@ Register Src="Modules/SelectCategoryControl.ascx" TagName="SelectCategoryControl" TagPrefix="kpt" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,6 +16,16 @@
     <script type="text/javascript" src="/JavaScripts/jquery.validate.min.js"></script>
      
     <title>产品列表</title>
+    <style>
+         select {  
+                min-width:150px;
+                min-height: 30px;
+                opacity: 1; 
+                font: 14px/20px "Microsoft YaHei";
+                color: #f80;
+                outline:#808080  double  thin; 
+            } 
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -26,7 +38,24 @@
         </div>
         <div class="formbody">
             <div class="formtitle"><span>产品列表</span><asp:Literal ID="lblMessage" runat="server"></asp:Literal></div>
+              <ul class="inputform">
 
+                <li>
+                    <label>产品分类</label>
+                    <div class="vocation">
+                        <kpt:SelectCategoryControl ID="ShopCategory"   runat="server" />
+                    </div>
+                </li>
+                <li>
+                    <label>产品名称</label>
+                    <asp:TextBox ID="tbName" runat="server"  CssClass="dfinput" ></asp:TextBox>
+                </li>
+                <li>
+                    <label>&nbsp;</label>
+                    <asp:Button ID="btnSearch" runat="server" CssClass="scbtn" Text="查 询" OnClick="btnSearch_Click" />
+                </li>
+
+            </ul>
             <yyc:SmartGridView ID="sgvCpList" CssClass="tablelist" PageSize="20" AllowPaging="true" runat="server"   AutoGenerateColumns="False" MouseOverCssClass="OverRow" AlternatingRowStyle-CssClass="odd"
                 Width="100%" OnRowCommand="sgv_RowCommand"  OnPageIndexChanging="SgvCpList_PageIndexChanging"   PagerSettings-Mode="NextPreviousFirstLast" PagerStyle-HorizontalAlign="Right" PagerSettings-Position="Bottom" PagerSettings-FirstPageText="首页" PagerSettings-NextPageText="下页" PagerSettings-LastPageText="末页" PagerSettings-PreviousPageText="前页" PagerSettings-PageButtonCount="5">
                 <EmptyDataTemplate>

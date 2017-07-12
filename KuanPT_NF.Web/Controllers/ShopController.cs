@@ -1,14 +1,14 @@
 ﻿using IMCustSys.BLL.Infrastructure;
 using IMCustSys.BLL.Services;
-using KuanPT_NF.Web.Models;
 using IMCustSys.Model;
+using IMCustSys.Web.Models; 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace KuanPT_NF.Web.Controllers
+namespace IMCustSys.Web.Controllers
 {
     public class ShopController : Controller
     {
@@ -23,7 +23,7 @@ namespace KuanPT_NF.Web.Controllers
         }
         public ActionResult Index()
         {
-            var items = _shopService.GetAllProducts().Select(o => new ShopModel()
+            var items = _shopService.GetAllProducts(state:1).Select(o => new ShopModel()
             {
                 Commission = o.Commission,
                 CreateDate = o.CreateDate,

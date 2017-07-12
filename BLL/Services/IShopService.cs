@@ -13,8 +13,8 @@ namespace IMCustSys.BLL.Services
         void MarkProductAsDeleted(int productId); 
          
         List<Shop> GetAllHotProducts();
-        List<Shop> GetAllProducts(string comId="", int? showHidden=null); 
-        List<Shop> GetAllProducts(int categoryId,  bool? featuredProducts, string comId = "", string keywords = "", int? state = null);
+       List<Shop> GetAllProducts(string comId="", int? showHidden=null); 
+        List<Shop> GetAllProducts(int? categoryId=null,   string comId = "", string keywords = "", int? state = null, bool? featuredProducts=null);
           
        
         List<Shop> GetAllProductsDisplayedOnHomePage();

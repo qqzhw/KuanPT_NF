@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
 
-namespace KuanPT_NF.Web.Models
+namespace IMCustSys.Web.Models
 {
 
     public class ChangePasswordModel

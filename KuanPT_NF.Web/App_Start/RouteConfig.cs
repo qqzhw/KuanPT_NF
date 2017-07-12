@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace KuanPT_NF.Web
+namespace IMCustSys.Web
 {
     public class RouteConfig
     {
@@ -23,13 +23,13 @@ namespace KuanPT_NF.Web
                url: "Shop/Detail/{Id}",
                defaults:new { controller = "Shop", action = "Detail"},
                constraints:new { Id = @"\d+" },
-               namespaces:new[] { "KuanPT_NF.Web.Controllers" });
+               namespaces:new[] { "IMCustSys.Web.Controllers" });
             routes.MapRoute(
               name: "Campaign",
               url: "Campaign/Detail/{Id}",
               defaults: new { controller = "Campaign", action = "Detail" },
               constraints: new { Id = @"\d+" },
-              namespaces: new[] { "KuanPT_NF.Web.Controllers" }); 
+              namespaces: new[] { "IMCustSys.Web.Controllers" }); 
         }
     }
 }

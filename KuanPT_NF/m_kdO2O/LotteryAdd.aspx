@@ -129,11 +129,11 @@
         <div class="place">
             <span>位置：</span>
             <ul class="placeul">
-                <li><a href="ShopList.aspx">产品管理</a></li>
+                <li><a href="LotteryList.aspx">抽奖管理</a></li>
             </ul>
         </div>
         <div class="formbody">
-            <div class="formtitle"><span>产品添加</span>  <div style="float:right;">
+            <div class="formtitle"><span>抽奖活动添加</span>  <div style="float:right;">
                 <asp:Button ID="btnAdd" runat="server"   CssClass="scbtn" Text="确认保存" OnClick="btnAdd_Click" />
                    <asp:Button ID="Button1" runat="server"   CssClass="scbtn" Text="保存并编辑" OnClick="SaveAndEdit_Click" />
               </div> </div>

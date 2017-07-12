@@ -100,7 +100,7 @@ namespace IMCustSys
                         return null;
                     }
                 }
-                var comId = BLL.sys_admin.GetUserComid();
+                var comId = "0000100001";//BLL.sys_admin.GetUserComid();
                 lottery = new Lottery();
                 lottery.BmId = 1;
                 lottery.ComId = comId;

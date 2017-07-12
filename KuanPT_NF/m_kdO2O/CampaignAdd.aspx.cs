@@ -51,7 +51,7 @@ namespace IMCustSys
                         return;
                     }
                 }
-                var comId = BLL.sys_admin.GetUserComid();
+                var comId = "0000100001";// BLL.sys_admin.GetUserComid();
                 Campaign campaign = new Campaign();
                 campaign.BmId = 1;
                 campaign.ComId =comId;
