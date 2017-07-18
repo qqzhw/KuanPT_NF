@@ -151,6 +151,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CampaignController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LotteryController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -201,6 +202,12 @@
     <Content Include="Content\Images\wenxintishi.png" />
     <Content Include="Content\Images\wenxints.png" />
     <Content Include="Content\Images\xiaotubiao.png" />
+    <Content Include="Content\lotteryImages\1.png" />
+    <Content Include="Content\lotteryImages\2.png" />
+    <Content Include="Content\lotteryImages\index.css" />
+    <Content Include="Content\lotteryImages\qb.png" />
+    <Content Include="Content\lotteryImages\wheel-bg.png" />
+    <Content Include="Content\lotteryImages\wheel-pointer.png" />
     <Content Include="Content\nivoslider\license.txt" />
     <Content Include="Content\nivoslider\nivo-slider.css" />
     <Content Include="Content\nivoslider\sample-images\banner1.jpg" />
@@ -251,12 +258,15 @@
     <Content Include="favicon.ico" />
     <Content Include="FileNotFound.htm" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\lottery\index.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\lottery\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-ui-1.10.3.custom.js" />
     <Content Include="Scripts\jquery-ui-1.10.3.custom.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery.nivo.slider.js" />
+    <Content Include="Scripts\lottery\jQueryRotate.js" />
     <Content Include="Scripts\js.js" />
     <Content Include="Scripts\kendo.mobile.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
@@ -384,6 +394,7 @@
     <Content Include="Content\fontawesome\scss\_variables.scss" />
     <None Include="Properties\PublishProfiles\Kpt-web.pubxml" />
     <Content Include="Views\Campaign\Detail.cshtml" />
+    <Content Include="Views\Lottery\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
