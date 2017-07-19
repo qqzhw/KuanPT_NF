@@ -31,7 +31,7 @@ namespace IMCustSys
                 try
                 {
                     Lottery lottery = Save();
-                    Response.Redirect("LotteryDetails.aspx?LotteryId=" + lottery.LotteryId);
+                    Response.Redirect(string.Format("LotteryDetails.aspx?LotteryId={0}&LotteryName={1}" , lottery.LotteryId,lottery.LotteryName));
                 }
                 catch (Exception exc)
                 {

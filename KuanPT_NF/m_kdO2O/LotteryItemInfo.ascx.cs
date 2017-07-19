@@ -17,7 +17,7 @@ namespace IMCustSys
             {
                 BindData();
             }
-           btnAdd.OnClientClick = string.Format("javascript:OpenWindow('LotteryItemAdd.aspx?LotteryId={0}', 800, 600, true); return false;", LotteryId);
+           btnAdd.OnClientClick = string.Format("javascript:OpenWindow('LotteryItemAdd.aspx?LotteryId={0}&LotteryName={1}', 800, 600, true); return false;", LotteryId,LotteryName);
         }
         protected override void OnPreRender(EventArgs e)
         {
@@ -42,6 +42,13 @@ namespace IMCustSys
             get
             {
                 return CommonHelper.QueryStringInt("LotteryId");
+            }
+        }
+        public string LotteryName
+        {
+            get
+            {
+                return CommonHelper.QueryString("LotteryName");
             }
         }
         protected List<LotteryItem> GetLottertItems()

@@ -26,10 +26,10 @@
         <div class="formbody">
             <div class="formtitle"><span>奖项添加</span></div>
             <ul class="forminfo">
-                <li>
+            <%--    <li>
                     <label>活动名称</label>
                     <kpt:SimpleTextBox ID="txtName" runat="server" CssClass="dfinput" ErrorMessage="产品类型不能为空！" />
-                </li>
+                </li>--%>
                 <li>
                     <label>奖项名称</label>
                      <kpt:SimpleTextBox ID="txtItemName" runat="server" CssClass="dfinput" ErrorMessage="产品名称不能为空！" />

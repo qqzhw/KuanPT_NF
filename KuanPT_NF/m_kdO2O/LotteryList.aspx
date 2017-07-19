@@ -119,7 +119,7 @@
                     <asp:TemplateField HeaderText="操作">
                         <HeaderStyle Width="10%" /> 
                         <ItemTemplate>
-                            <a href="LotteryDetails.aspx?LotteryId=<%#Eval("LotteryId") %>">详细</a> 
+                            <a href="LotteryDetails.aspx?LotteryId=<%#Eval("LotteryId") %>&LotteryName=<%#Eval("LotteryName") %>">详细</a> 
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

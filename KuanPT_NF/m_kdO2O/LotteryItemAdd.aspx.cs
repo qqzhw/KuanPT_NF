@@ -28,9 +28,9 @@ namespace IMCustSys
         {
             if (LotteryId == 0)
                 return;
+          
             var lotteryItem = new LotteryItem()
-            {
-                ItemName = txtName.Text,
+            {  
                 AwardName = txtAwardName.Text,
                 AwardCount = txtAwardCount.Value,
                 CurrentCount = txtCurrentCount.Value,
@@ -40,6 +40,9 @@ namespace IMCustSys
                 BmId = 1,
                 ComId = "test"
             };
+            if (string.IsNullOrEmpty(LotteryName))
+                LotteryName = LotteryId.ToString();
+            lotteryItem.ItemName = LotteryName;
             LotteryService.InsertLotteryItem(lotteryItem);
             Response.Write("<script>window.close();</script>");
         }
@@ -49,6 +52,14 @@ namespace IMCustSys
             {
                 return CommonHelper.QueryStringInt("LotteryId");
             }
+        }
+        public string LotteryName
+        {
+            get
+            {
+                return CommonHelper.QueryString("LotteryName");
+            }
+            set { LotteryName = value; }
         }
     }
    

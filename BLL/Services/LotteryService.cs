@@ -95,7 +95,7 @@ namespace IMCustSys.BLL.Services
         {
             if (lottery == null)
                 throw new ArgumentNullException("lottery");
-            _lotteryRepository.Insert(lottery);
+            _lotteryRepository.Update(lottery);
         }
 
         public void UpdateLotteryItem(LotteryItem lotteryItem)

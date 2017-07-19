@@ -33,13 +33,21 @@ namespace IMCustSys
                 txtIntroduction.Text = lottery.Description;
                 txtRepeatTips.Text = lottery.RepeatLotteryInfo;
                 txtUrl.Text = lottery.LotteryUrl;
+                txtPersonCount.Value = lottery.PersonCount;
+                txtMaxCount.Value = lottery.MaxLotteryCount;
+                txtTodayCount.Value = lottery.TodayLotteryCount;
                 ctrlStartDatePicker.SelectedDate = lottery.BeginDate;
-                ctrlEndDatePicker.SelectedDate = lottery.EndDate;
-                imgLottery.ImageUrl = CommonHelper.GetStoreLocation() + lottery.LotteryImg;
-                imgHidden.Value = lottery.LotteryImg;
-                if (!string.IsNullOrEmpty(imgLottery.ImageUrl))
+                ctrlEndDatePicker.SelectedDate = lottery.EndDate;               
+                
+                if (!string.IsNullOrWhiteSpace(lottery.LotteryImg))
                 {
                     btnDelete.Visible = true;
+                    imgLottery.ImageUrl = CommonHelper.GetStoreLocation() + lottery.LotteryImg;
+                    imgHidden.Value = lottery.LotteryImg;
+                }
+                else
+                {
+                    imgLottery.Visible = false;
                 }
             }
          
@@ -85,7 +93,7 @@ namespace IMCustSys
                 this.LotteryService.UpdateLottery(lottery);
             }
             else
-            {
+            { 
                 var imgPath = string.Empty; 
                 HttpPostedFile pictureFile = uploadImg.PostedFile;
 
@@ -140,6 +148,13 @@ namespace IMCustSys
             if(PictureService.DeletePicture(imgHidden.Value))
             {
                 imgLottery.ImageUrl = string.Empty;
+                Lottery lottery = this.LotteryService.GetLotteryById(this.LotteryId);
+                if (lottery != null)
+                {
+                    lottery.LotteryImg = string.Empty;
+                    LotteryService.UpdateLottery(lottery);
+                }
+                  btnDelete.Visible = false;
             }
         }
     }

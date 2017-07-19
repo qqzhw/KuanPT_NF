@@ -57,7 +57,10 @@ namespace IMCustSys
                     imgPath = this.PictureService.UploadPicture(pictureBinary, pictureFile.ContentType);
                    
                 }
-                lottery.LotteryImg =imgPath;
+                if (!string.IsNullOrEmpty(imgPath))
+                {
+                    lottery.LotteryEndImg = imgPath;
+                }                
                 lottery.LotteryEndNotice = txtNotice.Text;
                 lottery.LotteryEndInfo = txtDesc.Text; 
                 this.LotteryService.UpdateLottery(lottery);

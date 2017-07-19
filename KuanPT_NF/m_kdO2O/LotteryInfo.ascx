@@ -33,7 +33,7 @@
         <label>活动图片</label>
         <asp:Image runat="server"  ID="imgLottery" style="max-height:200px;"/>
         <asp:HiddenField runat="server" Id="imgHidden"/>
-         <asp:Button ID="btnDelete" runat="server"  Visible="false"  CssClass="scbtn" Text="确认保存" OnClick="btnDelete_Click" />
+         <asp:Button ID="btnDelete" runat="server"  Visible="false"  CssClass="scbtn" Text="删除" OnClick="btnDelete_Click" />
         <asp:FileUpload ID="uploadImg" CssClass="file" runat="server" ToolTip="请选择图片上传" />
        
     </li> 

@@ -133,8 +133,8 @@
         </div>
         <div class="formbody">
             <div class="formtitle"><span>活动编辑</span>  <div style="float:right;">
-                <asp:Button ID="btnAdd" runat="server"   CssClass="scbtn" Text="确认保存" OnClick="btnAdd_Click" />
-                   <asp:Button ID="btnEdit" runat="server"   CssClass="scbtn" Text="保存并编辑" OnClick="SaveAndEdit_Click" />
+             <asp:Button ID="btnAdd" runat="server"   CssClass="scbtn" Text="确认保存" OnClick="btnAdd_Click" />
+                   <asp:Button ID="btnEdit" runat="server"   CssClass="scbtn" Text="保存" OnClick="SaveAndEdit_Click" />
               </div> </div>
             
             <ajaxToolkit:TabContainer runat="server" ID="LotteryTabs" ActiveTabIndex="0">

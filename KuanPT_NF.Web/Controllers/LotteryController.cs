@@ -23,12 +23,13 @@ namespace KuanPT_NF.Web.Controllers
         {
             return View();
         }
+        [HttpPost]
         public JsonResult GetLotteryItem(int? Id)
         {
             if (Id == null)
-                return Json(null,JsonRequestBehavior.AllowGet);
+                return Json(null);
             var item = _lotteryService.GetAllLotteryItems(Id.Value);
-            return Json(item, JsonRequestBehavior.AllowGet);
+            return Json(item);
         }
     }
 }
