@@ -38,40 +38,40 @@ namespace IMCustSys.Web
             var exception = Server.GetLastError();
              
             //process 404 HTTP errors
-            var httpException = exception as HttpException; 
-            if (httpException != null && httpException.GetHttpCode() == 404)
-            {
+            //var httpException = exception as HttpException; 
+            //if (httpException != null && httpException.GetHttpCode() == 404)
+            //{
 
-                Response.Clear();
-                Server.ClearError();
-                Response.TrySkipIisCustomErrors = true;
+            //    Response.Clear();
+            //    Server.ClearError();
+            //    Response.TrySkipIisCustomErrors = true;
 
-                // Call target Controller and pass the routeData.
-                IController errorController = EngineContext.Current.Resolve<HomeController>();
+            //    // Call target Controller and pass the routeData.
+            //    IController errorController = EngineContext.Current.Resolve<HomeController>();
 
-                var routeData = new RouteData();
-                routeData.Values.Add("controller", "Home");
-                routeData.Values.Add("action", "PageNotFound");
+            //    var routeData = new RouteData();
+            //    routeData.Values.Add("controller", "Home");
+            //    routeData.Values.Add("action", "PageNotFound");
 
-                errorController.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
+            //    errorController.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
 
-            }
-            else
-            {
-                Response.Clear();
-                Server.ClearError();
-                Response.TrySkipIisCustomErrors = true;
-                // Call target Controller and pass the routeData.
-                IController errorController = EngineContext.Current.Resolve<HomeController>();
+            //}
+            //else
+            //{
+            //    Response.Clear();
+            //    Server.ClearError();
+            //    Response.TrySkipIisCustomErrors = true;
+            //    // Call target Controller and pass the routeData.
+            //    IController errorController = EngineContext.Current.Resolve<HomeController>();
 
-                var routeData = new RouteData();
-                routeData.Values.Add("controller", "Home");
-                routeData.Values.Add("action", "PageError");
+            //    var routeData = new RouteData();
+            //    routeData.Values.Add("controller", "Home");
+            //    routeData.Values.Add("action", "PageError");
 
-                errorController.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
+            //    errorController.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
 
 
-            }
+           // }
         }
 
     }

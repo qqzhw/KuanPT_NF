@@ -36,7 +36,7 @@
                     </div>
             </div>
              <div style="float:left;width:90%;height:100%;" >
-                   <iframe id="iframepage" name="content" src="ChannelList.aspx" style="width:100%;border:none;" onload="changeFrameHeight()"  scrolling="no" frameborder="0"></iframe>
+                   <iframe id="iframepage" name="content" src="ChannelList.aspx" style="width:100%;border:none;" onload="changeFrameHeight()"    frameborder="0"></iframe>
              </div>
         </div>
         <script type="text/javascript">
