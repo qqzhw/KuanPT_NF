@@ -90,6 +90,23 @@ namespace IMCustSys
 
             GridViewRow row = gv.Rows[e.RowIndex];
           
-        } 
+        }
+
+        protected void sgvCpList_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int lotteryId = 0;
+
+            switch (e.CommandName)
+            {
+                case "DeleteItem":  // 删除
+                    lotteryId = int.Parse(e.CommandArgument.ToString());
+                    var lottery = LotteryService.GetLotteryById(lotteryId);
+                    LotteryService.DeleteLottery(lottery);
+                    break;
+                default:
+                    break;
+            }
+            Response.Redirect("LotteryList.aspx");
+        }
     }
 }

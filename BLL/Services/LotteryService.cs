@@ -22,7 +22,10 @@ namespace IMCustSys.BLL.Services
         {
             if (lottery == null)
                 return;
+            var list = GetAllLotteryItems(lottery.LotteryId);
+            _lotteryItemRepository.Delete(list);
             _lotteryRepository.Delete(lottery);
+
         }
 
         public void DeleteLotteryItem(LotteryItem lotteryItem)

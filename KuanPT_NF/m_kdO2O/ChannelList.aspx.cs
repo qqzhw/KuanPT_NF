@@ -106,6 +106,22 @@ namespace IMCustSys
             Response.Redirect("ChannelList.aspx");
         }
 
+        protected void sgvCpList_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int channelId = 0;
 
+            switch (e.CommandName)
+            {
+                case "DeleteItem":  // 删除
+                    channelId = int.Parse(e.CommandArgument.ToString());
+                    var channel = ChannelService.GetChannelById(channelId);
+                    ChannelService.DeleteChannel(channel);
+                    break;
+                default:
+                    break;
+            }
+            Response.Redirect("ChannelList.aspx");
+
+        }
     }
 }

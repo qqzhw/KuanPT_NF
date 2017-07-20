@@ -56,9 +56,17 @@ namespace IMCustSys
             {
                 btnRemoveImg.Visible = true;
             }
+            else
+            {
+                imgShop.Visible = false;
+            }
             if (!string.IsNullOrEmpty(HiddenBigImg.Value))
             {
                 btnRemoveBigImg.Visible = true;
+            }
+            else
+            {
+                imgBigPicture.Visible = false;
             }
             //绑定分类
             var category = CategoryService.GetCategoryById(shop.CategoryId);
@@ -130,6 +138,11 @@ namespace IMCustSys
             {
                 imgBigPicture.ImageUrl = string.Empty;
                 HiddenBigImg.Value = string.Empty;
+                var currentShop = ShopService.GetProductById(ShopId);
+                if (currentShop == null)
+                    return;
+                currentShop.BigImg = string.Empty;
+                ShopService.UpdateProduct(currentShop);
             }
         }
 
@@ -138,13 +151,14 @@ namespace IMCustSys
             //删除图片成功就更新
             if (PictureService.DeletePicture(hiddenImgPath.Value))
             {
-                //var currentShop = ShopService.GetProductById(ShopId);
-                //if (currentShop == null)
-                //    return;
-                //currentShop.Img = string.Empty;
-                //ShopService.UpdateProduct(currentShop);
                 hiddenImgPath.Value = string.Empty;
                 imgShop.ImageUrl = string.Empty;
+                 var currentShop = ShopService.GetProductById(ShopId);
+                if (currentShop == null)
+                    return;
+                currentShop.Img = string.Empty;
+                ShopService.UpdateProduct(currentShop);
+
             }   
         }
     }

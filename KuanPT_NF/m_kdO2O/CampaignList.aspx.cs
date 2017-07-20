@@ -92,7 +92,8 @@ namespace IMCustSys
                  default:
                   break;
              }
-           
+            Response.Redirect("CampaignList.aspx");
+
         }
 
         protected void sgv_Edit(object sender, GridViewEditEventArgs e)

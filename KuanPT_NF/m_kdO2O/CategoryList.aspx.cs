@@ -132,6 +132,22 @@ namespace IMCustSys
             Response.Redirect("CategoryList.aspx");
         }
 
+        protected void sgvCpList_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int categoryId = 0;
 
+            switch (e.CommandName)
+            {
+                case "DeleteItem":  // 删除
+                    categoryId = int.Parse(e.CommandArgument.ToString());
+                    var category = CategoryService.GetCategoryById(categoryId);
+                    CategoryService.MarkCategoryAsDeleted(categoryId);
+                    break;
+                default:
+                    break;
+            }
+            Response.Redirect("CategoryList.aspx");
+
+        }
     }
 }

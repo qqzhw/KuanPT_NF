@@ -57,7 +57,7 @@
             <div class="formtitle"><span>抽奖活动列表</span><asp:Literal ID="lblMessage" runat="server"></asp:Literal></div>
 
             <yyc:SmartGridView ID="sgvCpList" CssClass="tablelist" PageSize="20" AllowPaging="true" runat="server" AutoGenerateColumns="False" MouseOverCssClass="OverRow" AlternatingRowStyle-CssClass="odd"
-                Width="100%"   OnPageIndexChanging="SgvCpList_PageIndexChanging"  OnRowCancelingEdit="sgv_Cancel" OnRowEditing="sgv_Edit" OnRowUpdating="sgv_Update" PagerSettings-Mode="NextPreviousFirstLast" PagerStyle-HorizontalAlign="Right" PagerSettings-Position="Bottom" PagerSettings-FirstPageText="首页" PagerSettings-NextPageText="下页" PagerSettings-LastPageText="末页" PagerSettings-PreviousPageText="前页" PagerSettings-PageButtonCount="5">
+                Width="100%"   OnPageIndexChanging="SgvCpList_PageIndexChanging" OnRowCommand="sgvCpList_RowCommand"  OnRowCancelingEdit="sgv_Cancel" OnRowEditing="sgv_Edit" OnRowUpdating="sgv_Update" PagerSettings-Mode="NextPreviousFirstLast" PagerStyle-HorizontalAlign="Right" PagerSettings-Position="Bottom" PagerSettings-FirstPageText="首页" PagerSettings-NextPageText="下页" PagerSettings-LastPageText="末页" PagerSettings-PreviousPageText="前页" PagerSettings-PageButtonCount="5">
                 <EmptyDataTemplate>
                     <span class="f14px">没有信息！</span>
                 </EmptyDataTemplate>
@@ -83,13 +83,13 @@
                     <asp:TemplateField HeaderText="开始时间">
                         <HeaderStyle Width="10%" />
                         <ItemTemplate>
-                            <%# Eval("BeginDate").ToString()%>
+                            <%# Eval("BeginDate")!=null?Eval("BeginDate").ToString():""%>
                         </ItemTemplate> 
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="结束时间">
                         <HeaderStyle Width="10%" />
-                        <ItemTemplate>
-                            <%# Eval("EndDate").ToString()%>
+                        <ItemTemplate> 
+                                 <%# Eval("EndDate")!=null?Eval("EndDate").ToString():""%>
                         </ItemTemplate>
                     </asp:TemplateField> 
                       <asp:TemplateField HeaderText="活动人数">
@@ -120,6 +120,9 @@
                         <HeaderStyle Width="10%" /> 
                         <ItemTemplate>
                             <a href="LotteryDetails.aspx?LotteryId=<%#Eval("LotteryId") %>&LotteryName=<%#Eval("LotteryName") %>">详细</a> 
+                              <asp:LinkButton ID="btnDelete" CommandName="DeleteItem" CommandArgument='<%# Eval("LotteryId") %>'
+                                OnClientClick="javascript:return confirm('是否确认要删除？');" runat="server" ToolTip="删除"
+                                CausesValidation="false">删除</asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

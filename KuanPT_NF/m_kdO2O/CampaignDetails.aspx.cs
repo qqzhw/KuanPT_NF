@@ -36,6 +36,10 @@ namespace IMCustSys
                 {
                     btnRemoveImg.Visible = true;
                 }
+                else
+                {
+                    img.Visible = false;
+                }
             }
         }
         public int CampaignId
@@ -79,6 +83,13 @@ namespace IMCustSys
            {
                 hiddenImg.Value = string.Empty;
                 img.ImageUrl = "";
+                var campaign = this.CampaignService.GetCampaignById(this.CampaignId);
+                if (campaign != null)
+                {
+                    campaign.ImgPath = string.Empty;
+                    CampaignService.UpdateCampaign(campaign);
+                }
+                btnRemoveImg.Visible = false;
             }
         }
     }

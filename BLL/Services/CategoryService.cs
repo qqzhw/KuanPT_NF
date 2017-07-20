@@ -368,7 +368,14 @@ namespace IMCustSys.BLL.Services
             _shopcategoryRepository.Update(productCategory);
         }
 
-      
+        public void DeleteCategory(Category category)
+        {
+            if (category == null)
+                throw new ArgumentNullException("category");
+            _categoryRepository.Delete(category);
+        }
+
+
         #endregion
 
 

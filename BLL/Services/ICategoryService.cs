@@ -8,8 +8,7 @@ namespace IMCustSys.BLL.Services
     /// </summary>
     public partial interface ICategoryService
     {
-       
-        
+
         void MarkCategoryAsDeleted(int categoryId);
          
      
@@ -38,8 +37,8 @@ namespace IMCustSys.BLL.Services
         
         void UpdateCategory(Category category);
 
-       
-         
+        void DeleteCategory(Category category);
+
         void DeleteProductCategory(int productCategoryId);
 
       

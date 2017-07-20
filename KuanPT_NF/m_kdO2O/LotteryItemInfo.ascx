@@ -58,7 +58,7 @@
                         <ItemTemplate>
                              <asp:LinkButton ID="lbtEdit" runat="server" CausesValidation="False" CommandName="Edit"
                                 Text="编辑"></asp:LinkButton>
-                            <asp:LinkButton ID="btnDelete" CommandName="DeleteItem" CommandArgument='<%# Eval("LotteryId") %>'
+                            <asp:LinkButton ID="btnDelete" CommandName="DeleteItem" CommandArgument='<%# Eval("LotteryItemId") %>'
                                 OnClientClick="javascript:return confirm('是否确认要删除？');" runat="server" ToolTip="删除"
                                 CausesValidation="false">删除</asp:LinkButton>
                         </ItemTemplate>
