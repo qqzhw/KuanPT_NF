@@ -1,17 +1,21 @@
 ﻿@model HomeViewModel
-@using IMCustSys.Web.Models;
+@using KuanPT_NF.Web.Models;
 @{
     ViewBag.Title = "德阳移动宽带";
 }
 <div class="banner">
     <div class="img">
         <ul class="clearfix">
+            <li>
+                <a href="https://kefu.easemob.com/webim/im.html?tenantId=36541&emgroup=%E5%AE%A2%E6%9C%8D%E7%BB%84"><img src="/Content/Images/banner/O2Obanner2.png" alt=""></a>
+            </li>
             @foreach (var item in Model.Campaigns)
             {
                 <li>
                     <a href="@Url.RouteUrl("Campaign", new { Id = item.CampaignId })"><img src="@item.ImgPath" alt=""></a>
                 </li>
-            }          
+            }
+
         </ul>
     </div>
 </div>
@@ -50,7 +54,7 @@
 
 <div class="pull-right" style="margin-right:68px;">
     <div style="position: absolute;z-index:1000;">
-        <a href="http://weixin.sd.chinamobile.com/usi-weixin-web/cmsd/selfCowcatcherGuideController/routerArea.action?weixinId=ooEa_sx8qiHd0blKwjRzA7S6xWmI&from=singlemessage&isappinstalled=0"> <img src="~/Content/Images/guzhangbaoxiu.png" style="width:64px;" /></a>
+        <!--<a href="http://weixin.sd.chinamobile.com/usi-weixin-web/cmsd/selfCowcatcherGuideController/routerArea.action?weixinId=ooEa_sx8qiHd0blKwjRzA7S6xWmI&from=singlemessage&isappinstalled=0"> <img src="~/Content/Images/guzhangbaoxiu.png" style="width:64px;" /></a>-->
     </div>
 </div>
 <div class="col-md-12 row" style="margin-top:2px;margin-bottom:5px;height:35px;">
@@ -94,7 +98,7 @@
     </div>
 
     <div class="col-md-12" style="padding-top:5px;margin-bottom:5px;">
-        <span style="font-size:14px;margin-left:6px; height:30px;color:orangered">全德阳已有3656个用户正在使用!</span>
+        <span style="font-size:14px;margin-left:6px; height:30px;color:orangered">全德阳已有123656个用户正在使用!</span>
     </div>
     <div class="col-md-12">
 
@@ -144,5 +148,13 @@
         nextImgSpeed: 500, //轮播切换快慢
         numStyle: false, //num是否需要数字
         bannerWidth: bannerWidth, //banner的宽度
+    });
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan style='display:none;' id='cnzz_stat_icon_1262550432'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1262550432%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">
+    $(function () { 
+            var weixinShareLogo = '/Content/Images/deyanglogo.jpg';
+            $('body').prepend('<div style="display:none;margin:0 auto;"><img src="' + weixinShareLogo + '"></div>');
+         
     });
 </script>
