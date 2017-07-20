@@ -37,9 +37,11 @@
                 data: null,
                 async:false,
                 dataType:"json", // 返回数据类型
-                success: function(data){
-                    turnWheel.rewardNames = data["rewardNames"];
-                    turnWheel.colors = data["colors"];
+                success: function (data) {
+                  
+                    turnWheel.rewardNames = data.Data.rewardNames;
+                    turnWheel.colors = data.Data.colors;
+                  
                 },
                 error: function(data){
                     alert("网络错误，请检查您的网络设置！");
@@ -101,7 +103,7 @@
                 // 这里应该是从服务器获取用户真实的获奖信息（对应的获奖序号）
                 // 简单模拟随机获取奖品的序号(奖品个数范围内)
                 //  var item = randomNum(0, count - 1); 
-                var item = 100;// randomNum(0, 100); 
+                var item = 196;// randomNum(0, 100); 
                 // 开始抽奖
                 rotateFunc(item, turnWheel.rewardNames[item], count);
             });

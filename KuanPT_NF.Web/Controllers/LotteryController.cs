@@ -56,10 +56,14 @@ namespace IMCustSys.Web.Controllers
         {
             if (Id == null)
                 return Json(null);
-            var rewardNames = _lotteryService.GetAllLotteryItems(Id.Value);
+            var items = _lotteryService.GetAllLotteryItems(Id.Value);
             List<string> colors = new List<string>();
-            for (int i = 0; i < rewardNames.Count; i++)
+            List<string> rewardNames = new List<string>();
+            colors.Add("#F0F4D8");
+            rewardNames.Add("谢谢参与");
+            for (int i = 0; i < items.Count; i++)
             {
+                rewardNames.Add(items[i].ItemName);
                 if (i%2==0)
                 {
                     colors.Add("#FFFFFF");
