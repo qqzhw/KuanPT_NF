@@ -28,23 +28,21 @@ namespace IMCustSys
         {
             if (LotteryId == 0)
                 return;
-          
+
             var lotteryItem = new LotteryItem()
-            {  
+            {
+                ItemName = txtItemName.Text,
                 AwardName = txtAwardName.Text,
                 AwardCount = txtAwardCount.Value,
                 CurrentCount = txtCurrentCount.Value,
-                LotteryId = LotteryId,
-                LotteryItemId = 0,
+                LotteryId = LotteryId,                
                 AwardPercent=txtAwardPercent.Value,         
                 BmId = 1,
-                ComId = "test"
-            };
-            if (string.IsNullOrEmpty(LotteryName))
-                LotteryName = LotteryId.ToString();
-            lotteryItem.ItemName = LotteryName;
+                ComId = "0000100001"
+            };           
             LotteryService.InsertLotteryItem(lotteryItem);
             Response.Write("<script>window.close();</script>");
+            Response.Redirect(CommonHelper.GetThisPageUrl(true));
         }
         public int LotteryId
         {
@@ -58,8 +56,7 @@ namespace IMCustSys
             get
             {
                 return CommonHelper.QueryString("LotteryName");
-            }
-            set { LotteryName = value; }
+            }            
         }
     }
    

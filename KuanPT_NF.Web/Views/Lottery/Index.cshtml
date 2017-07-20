@@ -1,4 +1,6 @@
-﻿@{
+﻿@model LotteryModel
+@using IMCustSys.Web.Models;
+@{
     Layout = null;
 } 
 <!DOCTYPE html> 
@@ -15,7 +17,7 @@
 
 <body>
     <div class="content" style="margin-top:20px;margin-left:10px; margin-right:10px;">
-       <div style="color:white;text-align:center;font-size:16px;">幸运大转盘</div>
+       <div style="color:white;text-align:center;font-size:16px;">@Model.LotteryName</div>
         <div class="wheel" style="margin-top:20px;">
             <canvas class="item" id="wheelCanvas" width="422px" height="422px"></canvas>
             <img class="pointer" src="/Content/lotteryImages/wheel-pointer.png" />
@@ -24,5 +26,87 @@
     <div class="tips">
         <span id="tip"></span>
     </div>
+    <script type="text/javascript"> 
+        $(document).ready(function () {
+
+            // 模拟数据，可以Ajax请求服务器数据，添加大转盘的奖品与奖品区域背景颜色
+            
+            $.ajax({
+                type: "POST",
+                url: "/lottery/GetLotteryItem/@Model.LotteryId",
+                data: null,
+                async:false,
+                dataType:"json", // 返回数据类型
+                success: function(data){
+                    turnWheel.rewardNames = data["rewardNames"];
+                    turnWheel.colors = data["colors"];
+                },
+                error: function(data){
+                    alert("网络错误，请检查您的网络设置！");
+                    $("#tip").text("请求数据失败");
+                }
+            });
+            
+
+            //turnWheel.rewardNames = [
+            //    "1Q币", "谢谢参与", "5Q币",
+            //    "10M流量包", "20M流量包",
+            //    "10M流量包", "20M流量包",
+            //    "10Q币 ", "30M流量包",
+            //    "100M流量包", "2Q币"
+            //];
+            //turnWheel.colors = [
+            //    "#FFF4D7", "#FFFFFF",
+            //    "#F0F4D8", "#FFFFFF",
+            //    "#FFF4D0", "#FFFFFF",
+            //    "#FFF4D0", "#FFFFFF",
+            //    "#FFF4D6", "#FFFFFF",
+            //    "#FFF4D6"
+            //];
+
+            //旋转转盘 item:奖品序号，从0开始的; txt：提示语 ,count 奖品的总数量;
+            function rotateFunc(item, tip, count) {
+
+                // 应该旋转的角度，旋转插件角度参数是角度制。
+                var baseAngle = 360 / count;
+                // 旋转角度 == 270°（当前第一个角度和指针位置的偏移量） - 奖品的位置 * 每块所占的角度 - 每块所占的角度的一半(指针指向区域的中间)
+                angles = 360 * 3 / 4 - (item * baseAngle) - baseAngle / 2; // 因为第一个奖品是从0°开始的，即水平向右方向
+                $('#wheelCanvas').stopRotate();
+                // 注意，jqueryrotate 插件传递的角度不是弧度制。
+                // 哪个标签调用方法，旋转哪个控件
+                $('#wheelCanvas').rotate({
+                    angle: 0,   //初始旋转的角度数，并且立即执行
+                    animateTo: angles + 360 * 2, // 这里多旋转了5圈，圈数越多，转的越快
+                    duration: 8000,  //指定使用animateTo的动画执行持续时间
+                    callback: function () { // 回调方法
+                        $("#tip").text(tip);
+                        turnWheel.bRotate = !turnWheel.bRotate;
+                        if (isMobile.any()) // 判断是否移动设备
+                        {
+                            // 调OC代码
+                            window.location.href = "turntable://test.com?" + "index=" + item + "&tip=" + tip;
+                        }
+                    }
+                });
+            };
+
+            // 抽取按钮按钮点击触发事件
+            $('.pointer').click(function () {
+                // 正在转动，直接返回
+                if (turnWheel.bRotate) return;
+
+                turnWheel.bRotate = !turnWheel.bRotate;
+                var count = turnWheel.rewardNames.length;
+
+                // 这里应该是从服务器获取用户真实的获奖信息（对应的获奖序号）
+                // 简单模拟随机获取奖品的序号(奖品个数范围内)
+                //  var item = randomNum(0, count - 1); 
+                var item = 100;// randomNum(0, 100); 
+                // 开始抽奖
+                rotateFunc(item, turnWheel.rewardNames[item], count);
+            });
+
+        });
+    </script>
 </body>
 </html>

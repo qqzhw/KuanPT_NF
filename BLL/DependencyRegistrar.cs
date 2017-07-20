@@ -48,6 +48,7 @@ namespace IMCustSys.BLL
            
             var sqlcon = ConfigurationManager.ConnectionStrings["ApplicationServices"].ToString();
             IDbConnection connection = new SqlConnection( sqlcon);
+             
             builder.RegisterInstance(new DataConnection(connection)).SingleInstance();
           //  builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
             builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).WithParameter("context", connection).InstancePerLifetimeScope();

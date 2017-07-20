@@ -31,10 +31,13 @@ namespace IMCustSys.DAL
 		#region IDisposable Support		
 		public void Dispose()
 		{
-			if (_connection!=null&&_connection.State!=ConnectionState.Closed)
-			{
-				_connection.Close();
-			}
+            lock (_connection)
+            {
+                if (_connection != null && _connection.State != ConnectionState.Closed)
+                {
+                    _connection.Close();
+                }
+            }
 		}
 		#endregion
 

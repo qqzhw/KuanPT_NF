@@ -159,6 +159,8 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\CampaignModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\LotteryItemModel.cs" />
+    <Compile Include="Models\LotteryModel.cs" />
     <Compile Include="Models\ShopModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

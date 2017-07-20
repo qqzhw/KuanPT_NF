@@ -28,7 +28,7 @@ namespace IMCustSys
 
         private void BindData()
         {
-            var comId = "test";// "0000100001";//BLL.sys_admin.GetUserComid(); 
+            var comId ="0000100001";//BLL.sys_admin.GetUserComid(); 
             //产品列表
             string keyword = tbName.Text.Trim();
             sgvCpList.DataSource = ShopService.GetAllProducts(ShopCategory.SelectedCategoryId,comId, keyword,1);
