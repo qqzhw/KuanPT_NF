@@ -20,8 +20,7 @@ namespace IMCustSys.DAL
         public EfRepository(IDbConnection context):base(context)
         {
 			 
-        }
-
+        }       
         #endregion
 
         #region Utilities
@@ -48,8 +47,12 @@ namespace IMCustSys.DAL
         /// <param name="id">Identifier</param>
         /// <returns>Entity</returns>
         public virtual T GetById(object id)
-        { 
-            return  Connection.Get<T>(id);
+        {
+            using (IDbConnection cn = Connection)
+            {
+                cn.Open();
+                return cn.Get<T>(id);
+            }
         }
 
         /// <summary>
@@ -60,9 +63,13 @@ namespace IMCustSys.DAL
         {
              try
             {
-                if (entity == null)
-                    throw new ArgumentNullException("entity");
-                  Connection.Insert(entity);                 
+                using (IDbConnection cn = Connection)
+                { 
+                    if (entity == null)
+                        throw new ArgumentNullException("entity");
+                    cn.Open();
+                    cn.Insert(entity);
+                }
             }
             catch (Exception dbEx)
             {
@@ -78,11 +85,14 @@ namespace IMCustSys.DAL
         {
             try
             {
-                if (entities == null)
-                    throw new ArgumentNullException("entities");
-
-                foreach (var entity in entities)
-                  Connection.Insert(entity);  
+                using (IDbConnection cn = Connection)
+                { 
+                    if (entities == null)
+                        throw new ArgumentNullException("entities");
+                    cn.Open();
+                    foreach (var entity in entities)
+                        cn.Insert(entity);
+                }
             }
             catch (Exception dbEx)
             {
@@ -100,7 +110,11 @@ namespace IMCustSys.DAL
             {
                 if (entity == null)
                     throw new ArgumentNullException("entity");
-				Connection.Update(entity); 
+                using (IDbConnection cn = Connection)
+                {
+                    cn.Open();
+                    cn.Update(entity);
+                }
             }
             catch (Exception dbEx)
             {
@@ -118,8 +132,12 @@ namespace IMCustSys.DAL
             {
                 if (entities == null)
                     throw new ArgumentNullException("entities");
-				foreach (var entity in entities)
-					Connection.Update(entity); 
+                using (IDbConnection cn = Connection)
+                {
+                    cn.Open();
+                    foreach (var entity in entities)
+                        cn.Update(entity);
+                }
             }
             catch (Exception dbEx)
             {
@@ -137,7 +155,11 @@ namespace IMCustSys.DAL
             {
                 if (entity == null)
                     throw new ArgumentNullException("entity");
-				Connection.Delete(entity); 
+                using (IDbConnection cn = Connection)
+                {
+                    cn.Open();
+                    cn.Delete(entity);
+                }
             }
             catch (Exception dbEx)
             {
@@ -155,8 +177,12 @@ namespace IMCustSys.DAL
             {
                 if (entities == null)
                     throw new ArgumentNullException("entities");
-				foreach (var entity in entities)
-					Connection.Delete(entity); 
+                using (IDbConnection cn = Connection)
+                {
+                    cn.Open();
+                    foreach (var entity in entities)
+                        cn.Delete(entity);
+                }
             }
             catch (Exception dbEx)
             { 
@@ -172,43 +198,69 @@ namespace IMCustSys.DAL
 		/// Gets a table
 		/// </summary>
 		public virtual IEnumerable<T> GetAll()
-        { 
-             return Connection.GetList<T>();
+        {
+            using (IDbConnection cn = Connection)
+            {
+                cn.Open();
+                return cn.GetList<T>();
+            }
         }
         public virtual IEnumerable<T> GetList(object predicate=null,IList<ISort> sort=null)
         {
-            return Connection.GetList<T>(predicate,sort);
+            using (IDbConnection cn = Connection)
+            {
+                cn.Open(); 
+                var list = cn.GetList<T>(predicate, sort); 
+                return list;
+            }
+            
         }
         public IEnumerable<dynamic>  GetList(string sql)
-		{ 
-			var list=Connection.Query<dynamic>(sql);
-			return list; 		   
+		{
+            using (IDbConnection cn = Connection)
+            {
+                cn.Open();
+                var list = cn.Query<dynamic>(sql);
+                return list;
+            }
 		}
         public IEnumerable<T> GetList<T1, T2>(string sql)
         {
-            var list = Connection.Query<T1, T2, T>(sql, (t1, t2) => { return null; });
-            return list;
+            using (IDbConnection cn = Connection)
+            {
+                cn.Open();
+                var list = cn.Query<T1, T2, T>(sql, (t1, t2) => { return null; });
+                return list;
+            }
         }
         public IEnumerable<T> GetList<T1,T2,T3>(string sql)
 		{
-			var list = Connection.Query<T1,T2,T3,T>(sql,(t1,t2,t3)=> { return null; });
-			return list;            
+            using (IDbConnection cn = Connection)
+            {
+                cn.Open();
+                var list = cn.Query<T1, T2, T3, T>(sql, (t1, t2, t3) => { return null; });
+                return list;
+            }
 		}
 
         public IList<T> GetPageData(string fields="", string orderField="", int pageIndex=0,
             int pageSize=int.MaxValue, string whereStr=""  )
-        {             
-            var result = new List<T>();  
-            string sql = string.Format("SELECT {0} FROM (SELECT ROW_NUMBER() OVER (ORDER BY {1}) AS ROWID, "
-                + "{0} FROM {2} where 1=1 {3} ) AS t WHERE ROWID BETWEEN {4} AND {5}",
-                fields,
-                orderField,
-                 "",
-                whereStr,
-                (pageIndex - 1) * pageSize + 1,
-                pageIndex * pageSize);
-            result =  Connection.Query<T>(sql).AsList();
-            return result; 
+        {
+            using (IDbConnection cn = Connection)
+            {
+                cn.Open();
+                var result = new List<T>();
+                string sql = string.Format("SELECT {0} FROM (SELECT ROW_NUMBER() OVER (ORDER BY {1}) AS ROWID, "
+                    + "{0} FROM {2} where 1=1 {3} ) AS t WHERE ROWID BETWEEN {4} AND {5}",
+                    fields,
+                    orderField,
+                     "",
+                    whereStr,
+                    (pageIndex - 1) * pageSize + 1,
+                    pageIndex * pageSize);
+                result = cn.Query<T>(sql).AsList();
+                return result;
+            }
         }
 
         #region 获取分页数据  
@@ -226,23 +278,27 @@ namespace IMCustSys.DAL
         public IList<T> GetPageData(string tableName, string orderField, out int totalRecord, out int totalPage,
             string fields = "", string whereStr = "", int pageIndex = 0, int pageSize = int.MaxValue)
         {
-            if (string.IsNullOrEmpty(fields))
+            using (IDbConnection cn = Connection)
             {
-                fields = "*";
-            }
-            totalRecord = Connection.ExecuteScalar<int>(string.Format("SELECT count(1) FROM " + tableName + " where 1=1 {0}", whereStr));
-            totalPage = (totalRecord % pageSize != 0) ? (totalRecord / pageSize + 1) : totalRecord / pageSize;
-            string sql = string.Format("SELECT {0} FROM (SELECT ROW_NUMBER() OVER (ORDER BY {1}) AS ROWID, "
-                + "{0} FROM {2} where 1=1 {3} ) AS t WHERE ROWID BETWEEN {4} AND {5}",
-                fields,
-                orderField,
-                tableName,
-                whereStr,
-                (pageIndex) * pageSize + 1,
-                (pageIndex + 1) * pageSize);
-            var result = Connection.Query<T>(sql).AsList();
+                cn.Open();
+                if (string.IsNullOrEmpty(fields))
+                {
+                    fields = "*";
+                }
+                totalRecord = cn.ExecuteScalar<int>(string.Format("SELECT count(1) FROM " + tableName + " where 1=1 {0}", whereStr));
+                totalPage = (totalRecord % pageSize != 0) ? (totalRecord / pageSize + 1) : totalRecord / pageSize;
+                string sql = string.Format("SELECT {0} FROM (SELECT ROW_NUMBER() OVER (ORDER BY {1}) AS ROWID, "
+                    + "{0} FROM {2} where 1=1 {3} ) AS t WHERE ROWID BETWEEN {4} AND {5}",
+                    fields,
+                    orderField,
+                    tableName,
+                    whereStr,
+                    (pageIndex) * pageSize + 1,
+                    (pageIndex + 1) * pageSize);
+                var result = cn.Query<T>(sql).AsList();
 
-            return result;
+                return result;
+            }
         }
         #endregion
 
