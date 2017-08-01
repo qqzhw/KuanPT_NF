@@ -74,6 +74,12 @@
                             <%# Eval("ShopType")%>
                         </ItemTemplate> 
                     </asp:TemplateField>
+                      <asp:TemplateField HeaderText="产品类别">
+                        <HeaderStyle Width="10%" />
+                        <ItemTemplate>
+                            <%# GetCategory(Convert.ToInt32(Eval("CategoryId")))%>
+                        </ItemTemplate> 
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="产品名称">
                         <HeaderStyle Width="10%" />
                         <ItemTemplate>
@@ -111,7 +117,7 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
                       <asp:TemplateField HeaderText="简述">
-                        <HeaderStyle Width="55%" />
+                        <HeaderStyle Width="45%" />
                         <ItemTemplate>
                             <%# Eval("ShortDescription")%>
                         </ItemTemplate>

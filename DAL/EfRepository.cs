@@ -17,7 +17,7 @@ namespace IMCustSys.DAL
         /// Ctor
         /// </summary>
         /// <param name="context">Object context</param>
-        public EfRepository(IDbConnection context):base(context)
+        public EfRepository()
         {
 			 
         }       
@@ -48,7 +48,7 @@ namespace IMCustSys.DAL
         /// <returns>Entity</returns>
         public virtual T GetById(object id)
         {
-            using (IDbConnection cn = Connection)
+            using (IDbConnection cn = Connection())
             {
                 cn.Open();
                 return cn.Get<T>(id);
@@ -63,10 +63,10 @@ namespace IMCustSys.DAL
         {
              try
             {
-                using (IDbConnection cn = Connection)
-                { 
-                    if (entity == null)
-                        throw new ArgumentNullException("entity");
+                if (entity == null)
+                    throw new ArgumentNullException("entity");
+                using (IDbConnection cn = Connection())
+                {  
                     cn.Open();
                     cn.Insert(entity);
                 }
@@ -85,7 +85,7 @@ namespace IMCustSys.DAL
         {
             try
             {
-                using (IDbConnection cn = Connection)
+                using (IDbConnection cn = Connection())
                 { 
                     if (entities == null)
                         throw new ArgumentNullException("entities");
@@ -110,7 +110,7 @@ namespace IMCustSys.DAL
             {
                 if (entity == null)
                     throw new ArgumentNullException("entity");
-                using (IDbConnection cn = Connection)
+                using (IDbConnection cn = Connection())
                 {
                     cn.Open();
                     cn.Update(entity);
@@ -132,12 +132,11 @@ namespace IMCustSys.DAL
             {
                 if (entities == null)
                     throw new ArgumentNullException("entities");
-                using (IDbConnection cn = Connection)
-                {
+                IDbConnection cn = Connection(); 
                     cn.Open();
                     foreach (var entity in entities)
                         cn.Update(entity);
-                }
+                cn.Close();
             }
             catch (Exception dbEx)
             {
@@ -155,7 +154,7 @@ namespace IMCustSys.DAL
             {
                 if (entity == null)
                     throw new ArgumentNullException("entity");
-                using (IDbConnection cn = Connection)
+                using (IDbConnection cn = Connection())
                 {
                     cn.Open();
                     cn.Delete(entity);
@@ -177,15 +176,14 @@ namespace IMCustSys.DAL
             {
                 if (entities == null)
                     throw new ArgumentNullException("entities");
-                using (IDbConnection cn = Connection)
-                {
-                    cn.Open();
-                    foreach (var entity in entities)
-                        cn.Delete(entity);
-                }
+                IDbConnection cn = Connection();
+                cn.Open();
+                foreach (var entity in entities)
+                    cn.Delete(entity);
+                cn.Close();
             }
             catch (Exception dbEx)
-            { 
+            {
                 throw new Exception(GetFullErrorText(dbEx), dbEx);
             }
         } 
@@ -199,7 +197,7 @@ namespace IMCustSys.DAL
 		/// </summary>
 		public virtual IEnumerable<T> GetAll()
         {
-            using (IDbConnection cn = Connection)
+            using (IDbConnection cn = Connection())
             {
                 cn.Open();
                 return cn.GetList<T>();
@@ -207,7 +205,7 @@ namespace IMCustSys.DAL
         }
         public virtual IEnumerable<T> GetList(object predicate=null,IList<ISort> sort=null)
         {
-            using (IDbConnection cn = Connection)
+            using (IDbConnection cn = Connection())
             {
                 cn.Open(); 
                 var list = cn.GetList<T>(predicate, sort); 
@@ -217,7 +215,7 @@ namespace IMCustSys.DAL
         }
         public IEnumerable<dynamic>  GetList(string sql)
 		{
-            using (IDbConnection cn = Connection)
+            using (IDbConnection cn = Connection())
             {
                 cn.Open();
                 var list = cn.Query<dynamic>(sql);
@@ -226,7 +224,7 @@ namespace IMCustSys.DAL
 		}
         public IEnumerable<T> GetList<T1, T2>(string sql)
         {
-            using (IDbConnection cn = Connection)
+            using (IDbConnection cn = Connection())
             {
                 cn.Open();
                 var list = cn.Query<T1, T2, T>(sql, (t1, t2) => { return null; });
@@ -235,7 +233,7 @@ namespace IMCustSys.DAL
         }
         public IEnumerable<T> GetList<T1,T2,T3>(string sql)
 		{
-            using (IDbConnection cn = Connection)
+            using (IDbConnection cn = Connection())
             {
                 cn.Open();
                 var list = cn.Query<T1, T2, T3, T>(sql, (t1, t2, t3) => { return null; });
@@ -246,7 +244,7 @@ namespace IMCustSys.DAL
         public IList<T> GetPageData(string fields="", string orderField="", int pageIndex=0,
             int pageSize=int.MaxValue, string whereStr=""  )
         {
-            using (IDbConnection cn = Connection)
+            using (IDbConnection cn = Connection())
             {
                 cn.Open();
                 var result = new List<T>();
@@ -278,7 +276,7 @@ namespace IMCustSys.DAL
         public IList<T> GetPageData(string tableName, string orderField, out int totalRecord, out int totalPage,
             string fields = "", string whereStr = "", int pageIndex = 0, int pageSize = int.MaxValue)
         {
-            using (IDbConnection cn = Connection)
+            using (IDbConnection cn = Connection())
             {
                 cn.Open();
                 if (string.IsNullOrEmpty(fields))
@@ -307,13 +305,13 @@ namespace IMCustSys.DAL
         {
             get
             {
-				return Connection.Database;
+				return Connection().Database;
             }
         }
 
 		public IDbConnection DbContext {
         
-            get{return Connection;}
+            get{return Connection();}
         }  
 
 		#endregion

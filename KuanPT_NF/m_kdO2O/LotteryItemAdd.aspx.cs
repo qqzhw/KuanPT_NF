@@ -42,7 +42,8 @@ namespace IMCustSys
             };           
             LotteryService.InsertLotteryItem(lotteryItem);
             Response.Write("<script>window.close();</script>");
-            Response.Redirect(CommonHelper.GetThisPageUrl(true));
+          
+            Response.Redirect(string.Format("LotteryDetails.aspx?LotteryId={0}&LotteryName={1}", LotteryId, LotteryName));
         }
         public int LotteryId
         {

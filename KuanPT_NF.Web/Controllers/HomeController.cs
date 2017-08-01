@@ -61,7 +61,7 @@ namespace IMCustSys.Web.Controllers
                 ShortDescription = o.ShortDescription,
                 ShowOnHomePage = o.ShowOnHomePage,
             }).FirstOrDefault();
-            model.HotShopModel =hotModel;
+            model.HotShopModel =hotModel=null??new ShopModel();
             var campaignModels = _campaignService.GetAllHomeCampaign().Select(o=>new CampaignModel()
             {
                 BeginTime=o.BeginTime,

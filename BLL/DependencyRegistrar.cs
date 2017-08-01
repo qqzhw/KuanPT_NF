@@ -46,12 +46,12 @@ namespace IMCustSys.BLL
            builder.RegisterAssemblyTypes(typeFinder.GetAssemblies().ToArray()).InstancePerLifetimeScope();
              
            
-            var sqlcon = ConfigurationManager.ConnectionStrings["ApplicationServices"].ToString();
-            IDbConnection connection = new SqlConnection( sqlcon);
+           // var sqlcon = ConfigurationManager.ConnectionStrings["ApplicationServices"].ToString();
+            //IDbConnection connection = new SqlConnection( sqlcon);
              
            // builder.RegisterInstance(new DataConnection(connection)).SingleInstance();
           //  builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
-            builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).WithParameter("context", connection).InstancePerLifetimeScope();
+            builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
             builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
             builder.RegisterType<CampaignService>().As<ICampaignService>().InstancePerLifetimeScope();
             builder.RegisterType<PictureService>().As<IPictureService>().InstancePerLifetimeScope();

@@ -58,5 +58,17 @@ namespace IMCustSys
         {
             BindData();
         }
+        public string GetCategory(int categotyId)
+        {
+            if (categotyId == 0)
+                return string.Empty;
+            var category = CategoryService.GetCategoryById(categotyId);
+            if (category != null)
+            {
+                return category.CategoryName;
+            }
+            return string.Empty;
+        }
+         
     }
 }

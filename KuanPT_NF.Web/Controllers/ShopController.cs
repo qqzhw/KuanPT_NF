@@ -63,6 +63,8 @@ namespace IMCustSys.Web.Controllers
         {
             var model = new ShopModel();
             var item = _shopService.GetProductById(Id);
+            if (item == null)
+                return View(model);
             model.Commission = item.Commission;
             model.Description = item.Description;
             model.Img = item.Img;
