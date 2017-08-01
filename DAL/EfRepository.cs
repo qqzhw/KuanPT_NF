@@ -132,11 +132,12 @@ namespace IMCustSys.DAL
             {
                 if (entities == null)
                     throw new ArgumentNullException("entities");
-                IDbConnection cn = Connection(); 
+                using (IDbConnection cn = Connection())
+                {
                     cn.Open();
                     foreach (var entity in entities)
                         cn.Update(entity);
-                cn.Close();
+                }
             }
             catch (Exception dbEx)
             {
@@ -176,11 +177,12 @@ namespace IMCustSys.DAL
             {
                 if (entities == null)
                     throw new ArgumentNullException("entities");
-                IDbConnection cn = Connection();
-                cn.Open();
-                foreach (var entity in entities)
-                    cn.Delete(entity);
-                cn.Close();
+                using (IDbConnection cn = Connection())
+                {
+                    cn.Open();
+                    foreach (var entity in entities)
+                        cn.Delete(entity);
+                }
             }
             catch (Exception dbEx)
             {
