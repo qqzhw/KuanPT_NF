@@ -55,7 +55,7 @@ namespace IMCustSys
         protected override void OnPreRender(EventArgs e)
         {
             BindJQuery();
-            BindJQueryIdTabs(); 
+            BindJQueryIdTabs();
             base.OnPreRender(e);
         }
           

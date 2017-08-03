@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LotteryDetails.aspx.cs" Inherits="IMCustSys.LotteryDetails" %>
+﻿<%@ Page Language="C#" EnableEventValidation="false" ValidateRequest="false" AutoEventWireup="true" CodeBehind="LotteryDetails.aspx.cs" Inherits="IMCustSys.LotteryDetails" %>
 <%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
 
 <%@ Register Src="Modules/NumericTextBox.ascx" TagName="NumericTextBox" TagPrefix="kpt" %>
@@ -14,6 +14,7 @@
     <script type="text/javascript" src="/JavaScripts/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="/JavaScripts/select-ui.min.js"></script>
     <script type="text/javascript" src="/JavaScripts/jquery.validate.min.js"></script>
+      <script type="text/javascript" src="/JavaScripts/jquery.idTabs.min.js"></script> 
     <link href="/Editor/themes/default/default.css" rel="stylesheet" />
     <link href="/Editor/plugins/code/prettify.css" rel="stylesheet" />
     <script src="/Editor/kindeditor-all-min.js"></script>

@@ -30,13 +30,13 @@ namespace IMCustSys
                 this.txtDesc.Text = lottery.LotteryEndInfo;
             }
         }
-        protected override void OnPreRender(EventArgs e)
-        {
-            BindJQuery();
-            BindJQueryIdTabs();
+        //protected override void OnPreRender(EventArgs e)
+        //{
+        //    BindJQuery();
+        //    BindJQueryIdTabs();
 
-            base.OnPreRender(e);
-        }
+        //    base.OnPreRender(e);
+        //}
 
         public void SaveInfo()
         {

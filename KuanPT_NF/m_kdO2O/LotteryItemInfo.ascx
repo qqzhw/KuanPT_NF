@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="LotteryItemInfo.ascx.cs" Inherits="IMCustSys.LotteryItemInfo" %>
+﻿<%@ Control Language="C#"   AutoEventWireup="true" CodeBehind="LotteryItemInfo.ascx.cs" Inherits="IMCustSys.LotteryItemInfo" %>
 <%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
 <%@ Register Src="Modules/NumericTextBox.ascx" TagName="NumericTextBox" TagPrefix="kpt" %>
 <%@ Register Src="Modules/DatePicker.ascx" TagName="DatePicker" TagPrefix="kpt" %>
@@ -14,7 +14,7 @@
                     <asp:TemplateField HeaderText="ID">
                         <HeaderStyle Width="20px" />
                         <ItemTemplate>
-                            <asp:Literal ID="ltllotteryItemId" runat="server" Text='<%# Eval("LotteryItemId")%>'></asp:Literal><asp:HiddenField ID="hLevel" runat="server" Value='<%# Eval("LotteryItemId")%>' />
+                            <asp:Literal ID="ltllotteryItemId" runat="server"  Text='<%# Eval("LotteryItemId")%>'></asp:Literal><asp:HiddenField ID="hLevel" runat="server" Value='<%# Eval("LotteryItemId")%>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="奖项名称">
@@ -22,30 +22,54 @@
                         <ItemTemplate>
                             <%# Eval("ItemName")%>
                         </ItemTemplate>
+                         <EditItemTemplate>
+                            <kpt:SimpleTextBox ID="tbItemName" CssClass="scinput" runat="server" Text='<%# Eval("ItemName")%>'></kpt:SimpleTextBox>
+                        </EditItemTemplate>
                     </asp:TemplateField>
                       <asp:TemplateField HeaderText="奖品名称">
                         <HeaderStyle Width="30%" />
                         <ItemTemplate>
                             <%# Eval("AwardName")%>
                         </ItemTemplate> 
+                            <EditItemTemplate>
+                            <kpt:SimpleTextBox ID="tbAwardName" CssClass="scinput" runat="server" Text='<%# Eval("AwardName")%>'></kpt:SimpleTextBox>
+                        </EditItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="奖品数量">
                         <HeaderStyle Width="10%" />
                         <ItemTemplate>
                             <%# Eval("AwardCount")%>
                         </ItemTemplate> 
+                        <EditItemTemplate>
+                                  <kpt:NumericTextBox runat="server" CssClass="scinput" Width="100px" ID="txtAwardCount"
+                            Value='<%#Eval("AwardCount") %>' RequiredErrorMessage="不能为空！"
+                            RangeErrorMessage="数字范围在0-99999之间！"  
+                            MinimumValue="0" MaximumValue="99999"></kpt:NumericTextBox>
+                        </EditItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="实际数量">
                         <HeaderStyle Width="10%" />
                         <ItemTemplate>
                             <%# Eval("CurrentCount")%>
                         </ItemTemplate>
+                        <EditItemTemplate>
+                             <kpt:NumericTextBox runat="server" CssClass="scinput" Width="100px" ID="txtCurrentCount"
+                            Value='<%#Eval("CurrentCount") %>' RequiredErrorMessage="不能为空！"
+                            RangeErrorMessage="数字范围在0-99999之间！"
+                            MinimumValue="0" MaximumValue="99999"></kpt:NumericTextBox>
+                        </EditItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="中奖概率">
                         <HeaderStyle Width="10%" />
                         <ItemTemplate>
                             <%# Eval("AwardPercent")%>
                         </ItemTemplate>
+                         <EditItemTemplate>
+                             <kpt:NumericTextBox runat="server" CssClass="scinput" Width="100px" ID="txtAwardPercent"
+                            Value='<%#Eval("AwardPercent") %>' RequiredErrorMessage="不能为空！"
+                            RangeErrorMessage="数字范围在0-99999之间！"
+                            MinimumValue="0" MaximumValue="99999"></kpt:NumericTextBox>
+                        </EditItemTemplate>
                     </asp:TemplateField> 
                     <asp:TemplateField HeaderText="操作">
                         <HeaderStyle Width="10%" />
@@ -56,7 +80,7 @@
                                 Text="取消"></asp:LinkButton>
                         </EditItemTemplate>
                         <ItemTemplate>
-                             <asp:LinkButton ID="lbtEdit" runat="server" CausesValidation="False" CommandName="Edit"
+                             <asp:LinkButton ID="lbtEdit" runat="server" CausesValidation="False" CommandName="Edit" CommandArgument='<%# Eval("LotteryItemId") %>'
                                 Text="编辑"></asp:LinkButton>
                             <asp:LinkButton ID="btnDelete" CommandName="DeleteItem" CommandArgument='<%# Eval("LotteryItemId") %>'
                                 OnClientClick="javascript:return confirm('是否确认要删除？');" runat="server" ToolTip="删除"
@@ -66,6 +90,7 @@
                 </Columns>
             </yyc:SmartGridView>
 <br />
+<asp:Button ID="btnRefesh" runat="server" OnClick="btnRefesh_Click" CssClass="scbtn" Text="刷新"  />
  <asp:Button ID="btnAdd" runat="server" CssClass="scbtn" Text="添加奖项"  />
 <script type="text/javascript">
     function OpenWindow(query, w, h, scroll) {

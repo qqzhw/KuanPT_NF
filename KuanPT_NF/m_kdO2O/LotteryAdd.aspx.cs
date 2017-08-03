@@ -1,4 +1,5 @@
-﻿using IMCustSys.Model;
+﻿using IMCustSys.Common;
+using IMCustSys.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,10 @@ namespace IMCustSys
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                this.SelectTab(this.LotteryTabs, this.TabId);
+            }
         }
         protected Lottery Save()
         {
@@ -31,7 +35,7 @@ namespace IMCustSys
                 try
                 { 
                     Lottery lottery = Save();
-                    Response.Redirect(string.Format("LotteryDetails.aspx?LotteryId={0}&LotteryName={1}", lottery.LotteryId,lottery.LotteryName));
+                    Response.Redirect(string.Format("LotteryDetails.aspx?LotteryId={0}&LotteryName={1}&TabID={2}", lottery.LotteryId,lottery.LotteryName, this.GetActiveTabId(this.LotteryTabs)));
                 }
                 catch (Exception exc)
                 {
@@ -54,7 +58,13 @@ namespace IMCustSys
 
                 }
             }
-        } 
-     
+        }
+        protected string TabId
+        {
+            get
+            {
+                return CommonHelper.QueryString("TabId");
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using IMCustSys.Common;
 using IMCustSys.Model;
+using IMCustSys.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,15 +18,11 @@ namespace IMCustSys
             {
                 BindData();
             }
-           btnAdd.OnClientClick = string.Format("javascript:OpenWindow('LotteryItemAdd.aspx?LotteryId={0}&LotteryName={1}', 800, 600, true); return false;", LotteryId,LotteryName);
-        }
-        protected override void OnPreRender(EventArgs e)
-        {
-            BindJQuery();
-            BindJQueryIdTabs();
+          // btnAdd.OnClientClick = string.Format("javascript:OpenWindow('LotteryItemAdd.aspx?LotteryId={0}&LotteryName={1}', 800, 600, true); return false;", LotteryId,LotteryName);
+           btnAdd.OnClientClick = string.Format("javascript:OpenWindow('LotteryItemAdd.aspx?LotteryId={0}&BtnId={1}', 800, 600, true); return false;", LotteryId, btnRefesh.ClientID);
 
-            base.OnPreRender(e);
         }
+        
 
         public void SaveInfo()
         {
@@ -86,21 +83,16 @@ namespace IMCustSys
             GridView gv = ((GridView)sender);
 
             GridViewRow row = gv.Rows[e.RowIndex];
-         //   int channelId = int.Parse(((Literal)row.FindControl("ltlChannelId")).Text);
-           // var channel = ChannelService.GetChannelById(channelId);
-          //  channel.ChannelName = ((SimpleTextBox)row.FindControl("txtChannelName")).Text;
-          //  channel.Published = ((CheckBox)row.FindControl("chkPublished")).Checked;
-            //user_DeptInfo.Level= int.Parse(((HiddenField)row.FindControl("hLevel")).Value);
-            //if(user_DeptInfo.Level==0)
-            //    user_DeptInfo.DeptType = 1;
-            //else
-            //{
-            //    System.Data.DataTable dt = bllUser_Dept.GetByID(user_DeptInfo.Level);
-            //    int dtype = int.Parse(dt.Rows[0]["deptType"].ToString());
-            //    user_DeptInfo.DeptType = dtype + 1;
-            //} 
-           // ChannelService.UpdateChannel(channel);
-           
+            int Id = int.Parse(((Literal)row.FindControl("ltllotteryItemId")).Text);
+            var item = LotteryService.GetLotteryItemById(Id);
+            item.ItemName = ((SimpleTextBox)row.FindControl("tbItemName")).Text.Trim();
+            item.AwardName = ((SimpleTextBox)row.FindControl("tbAwardName")).Text.Trim();
+            item.AwardCount = ((NumericTextBox)row.FindControl("txtAwardCount")).Value;
+            item.CurrentCount = ((NumericTextBox)row.FindControl("txtCurrentCount")).Value;
+            item.AwardPercent = ((NumericTextBox)row.FindControl("txtAwardPercent")).Value;
+            LotteryService.UpdateLotteryItem(item);
+            ((GridView)sender).EditIndex = -1;
+            BindData();
         }
 
         protected void sgv_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -112,12 +104,20 @@ namespace IMCustSys
                 case "DeleteItem":  // 删除
                     Id = int.Parse(e.CommandArgument.ToString());
                     var item = LotteryService.GetLotteryItemById(Id);
-                    LotteryService.DeleteLotteryItem(item);  
+                    LotteryService.DeleteLotteryItem(item);
+                    BindData();
                     break;
-                default:
+                  case "Edit":
+                  //this.Page.RegisterStartupScript("OpenWindow", "LotteryItemAdd.aspx?LotteryId="+ LotteryId + "&BtnId="+btnRefesh.ClientID+", 800, 600, true); return false;");
                     break;
             }
-            Response.Redirect(CommonHelper.GetThisPageUrl(true));
+         
+          //  Response.Redirect(CommonHelper.GetThisPageUrl(true));
+        }
+
+        protected void btnRefesh_Click(object sender, EventArgs e)
+        {
+            BindData();
         }
     }
 }
