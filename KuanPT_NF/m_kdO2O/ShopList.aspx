@@ -116,8 +116,17 @@
                             <asp:CheckBox ID="chkHot"   runat="server"  Checked='<%# Eval("IsHotShop")%>'></asp:CheckBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
+                         <asp:TemplateField HeaderText="产品状态">
+                        <HeaderStyle Width="5%" />
+                        <ItemTemplate>
+                            <%# Convert.ToBoolean(Eval("State"))==true?"<span style='color:orangered'>已上架</span>":"已下架"%>
+                        </ItemTemplate>
+                            <EditItemTemplate>
+                            <asp:CheckBox ID="chkState"   runat="server"  Checked='<%# Eval("State")%>'></asp:CheckBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
                       <asp:TemplateField HeaderText="简述">
-                        <HeaderStyle Width="45%" />
+                        <HeaderStyle Width="40%" />
                         <ItemTemplate>
                             <%# Eval("ShortDescription")%>
                         </ItemTemplate>

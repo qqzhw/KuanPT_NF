@@ -42,21 +42,26 @@ namespace IMCustSys.BLL.Services
 
         public List<Shop> GetAllProducts()
         {
+            var predicate = Predicates.Field<Shop>(p => p.State, Operator.Eq, 1);
             IList<ISort> sortItems = new List<ISort>
             {
                 new Sort { PropertyName = "DisplayOrder", Ascending = true }
             };
-            var query = _shopInfoRepository.GetList(sort:sortItems);
+            var query = _shopInfoRepository.GetList(predicate,sort:sortItems);
             return query.ToList();
         }
         public List<Shop> GetAllHotProducts()
-        { 
-            var predicate = Predicates.Field<Shop>(p => p.IsHotShop, Operator.Eq, true);
+        {  
+            var pgMain = new PredicateGroup { Operator = GroupOperator.Or, Predicates = new List<IPredicate>() };
+            var pgb = new PredicateGroup { Operator = GroupOperator.And, Predicates = new List<IPredicate>() };
+            pgb.Predicates.Add(Predicates.Field<Shop>(f => f.IsHotShop, Operator.Eq, true));
+            pgb.Predicates.Add(Predicates.Field<Shop>(f => f.State, Operator.Eq, 1));
+            pgMain.Predicates.Add(pgb);
             IList<ISort> sortItems = new List<ISort>
             {
                 new Sort { PropertyName = "DisplayOrder", Ascending = true }
             };
-            var query = _shopInfoRepository.GetList(predicate, sortItems);
+            var query = _shopInfoRepository.GetList(pgMain, sortItems);
             return query.ToList();
         }
         public List<Shop> GetAllProducts(string comId="", int? showHidden=null)
@@ -85,18 +90,18 @@ namespace IMCustSys.BLL.Services
         }
          
         public List<Shop> GetAllProductsDisplayedOnHomePage()
-        {
-            IList<IPredicate> predList = new List<IPredicate>
-            {
-                Predicates.Field<Shop>(p => p.ShowOnHomePage, Operator.Eq, true),
-               // Predicates.Field<Shop>(p=>p.State, Operator.Eq, 1)
-            };
-            var predicate = Predicates.Field<Shop>(p => p.ShowOnHomePage, Operator.Eq, true);
+        { 
+            var pgMain = new PredicateGroup { Operator = GroupOperator.Or, Predicates = new List<IPredicate>() };
+            var pgb = new PredicateGroup { Operator = GroupOperator.And, Predicates = new List<IPredicate>() };
+             
+            pgb.Predicates.Add(Predicates.Field<Shop>(f => f.ShowOnHomePage, Operator.Eq, true));
+            pgb.Predicates.Add(Predicates.Field<Shop>(f => f.State, Operator.Eq, 1));
+            pgMain.Predicates.Add(pgb);
             IList<ISort> sortItems = new List<ISort>
             {
                 new Sort { PropertyName = "DisplayOrder", Ascending = true }
             };
-            var query = _shopInfoRepository.GetList(predicate, sortItems);
+            var query = _shopInfoRepository.GetList(pgMain, sortItems);
             return query.Take(4).ToList(); 
         }
 

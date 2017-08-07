@@ -31,7 +31,7 @@ namespace IMCustSys
             var comId ="0000100001";//BLL.sys_admin.GetUserComid(); 
             //产品列表
             string keyword = tbName.Text.Trim();
-            sgvCpList.DataSource = ShopService.GetAllProducts(ShopCategory.SelectedCategoryId,comId, keyword,1);
+            sgvCpList.DataSource = ShopService.GetAllProducts(ShopCategory.SelectedCategoryId,comId, keyword,null);
             sgvCpList.DataBind(); 
         } 
         protected void sgv_RowCommand(object sender, GridViewCommandEventArgs e)

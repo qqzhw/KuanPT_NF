@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShopDetails.aspx.cs" Inherits="IMCustSys.ShopDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" ValidateRequest="false" CodeBehind="ShopDetails.aspx.cs" Inherits="IMCustSys.ShopDetails" %>
 
 <%@ Register Src="Modules/SimpleTextBox.ascx" TagName="SimpleTextBox" TagPrefix="kpt" %>
 <%@ Register Src="Modules/SelectCategoryControl.ascx" TagName="SelectCategoryControl" TagPrefix="kpt" %>
