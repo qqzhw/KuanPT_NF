@@ -89,13 +89,18 @@ namespace IMCustSys.BLL.Services
             return query.ToList();
         }
          
-        public List<Shop> GetAllProductsDisplayedOnHomePage()
+        public List<Shop> GetAllProductsDisplayedOnHomePage(string comId="")
         { 
             var pgMain = new PredicateGroup { Operator = GroupOperator.Or, Predicates = new List<IPredicate>() };
             var pgb = new PredicateGroup { Operator = GroupOperator.And, Predicates = new List<IPredicate>() };
              
             pgb.Predicates.Add(Predicates.Field<Shop>(f => f.ShowOnHomePage, Operator.Eq, true));
             pgb.Predicates.Add(Predicates.Field<Shop>(f => f.State, Operator.Eq, 1));
+            if (!string.IsNullOrEmpty(comId))
+            {
+                pgb.Predicates.Add(Predicates.Field<Shop>(f => f.ComId, Operator.Eq, comId));
+            }
+          
             pgMain.Predicates.Add(pgb);
             IList<ISort> sortItems = new List<ISort>
             {

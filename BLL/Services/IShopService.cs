@@ -17,7 +17,7 @@ namespace IMCustSys.BLL.Services
         List<Shop> GetAllProducts(int? categoryId=0,   string comId = "", string keywords = "", int? state = null, bool? featuredProducts=null);
           
        
-        List<Shop> GetAllProductsDisplayedOnHomePage();
+        List<Shop> GetAllProductsDisplayedOnHomePage(string comId="");
 
         
         Shop GetProductById(int productId);

@@ -141,13 +141,14 @@ namespace IMCustSys
                 case "DeleteItem":  // 删除
                     categoryId = int.Parse(e.CommandArgument.ToString());
                     var category = CategoryService.GetCategoryById(categoryId);
-                    CategoryService.MarkCategoryAsDeleted(categoryId);
+                    // CategoryService.MarkCategoryAsDeleted(categoryId);
+                    CategoryService.DeleteCategory(category);
+                    Response.Redirect("CategoryList.aspx");
                     break;
                 default:
                     break;
             }
-            Response.Redirect("CategoryList.aspx");
-
+            
         }
     }
 }

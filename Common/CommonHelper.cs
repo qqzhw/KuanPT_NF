@@ -1079,6 +1079,14 @@ namespace IMCustSys.Common
             return true;
         }
 
+        public static string GetComId()
+        { 
+            string comId = string.Empty;
+            if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["ComId"]))
+                comId = ConfigurationManager.AppSettings["ComId"].Trim();
+            return comId; 
+        }
+
         #endregion
     }
 }
